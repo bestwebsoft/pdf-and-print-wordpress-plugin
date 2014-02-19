@@ -4,6 +4,8 @@ PDF-and-Print
 Add PDF and Print button to your WordPress website.
 PDF & Print allows you in the easiest and most flexible way to create PDF and Print page with adding appropriate buttons to the content. PDF & Print using mpdf library under GPLv2 license. 
 
+Official plugin page: http://bestwebsoft.com/plugin/pdf-print/
+
 Features
 --------
 * Actions: Ability to create PDF and Print page with adding appropriate buttons to the content.
