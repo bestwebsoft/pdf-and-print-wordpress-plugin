@@ -5,6 +5,7 @@ Add PDF and Print button to your WordPress website.
 PDF & Print allows you in the easiest and most flexible way to create PDF and Print page with adding appropriate buttons to the content. PDF & Print using mpdf library under GPLv2 license. 
 
 Features
+--------
 * Actions: Ability to create PDF and Print page with adding appropriate buttons to the content.
 * Actions: Ability to create PDF and Print search results and pages of archives with adding appropriate buttons to the content.
 * Actions: Ability to create PDF and Print content from custom post type with adding appropriate buttons to the content.
@@ -13,6 +14,7 @@ Features
 * Display: This plugin allows you to select the position of buttons in content (top left, top right, bottom left, bottom right), search or archives pages or custom post type (align left, align right).
 
 Translate
+---------
 * Russian (ru_RU)
 * Ukrainian (uk)
 If you would like to create your own language pack or update the existing one, you can send the text of PO and MO files for BestWebSoft and we'll add it to the plugin. You can download the latest version of the program for work with PO and MO files Poedit.
