@@ -1,0 +1,94 @@
+#adminmenu #toplevel_page_bws_plugins div.wp-menu-image {
+	background: url("../images/icon_16.png") no-repeat scroll center center transparent;
+}
+#wpadminbar li#wp-admin-bar-pdfprnt-bar-menu a:hover span.admin-bar-menu-bws-icon {
+	background: url("../images/icon_16_c.png") no-repeat scroll center center transparent;
+}
+#adminmenu #toplevel_page_bws_plugins:hover div.wp-menu-image,
+#adminmenu #toplevel_page_bws_plugins.wp-has-current-submenu div.wp-menu-image {
+	background: url("../images/icon_16_c.png") no-repeat scroll center center transparent;
+}
+.wrap #icon-options-general.icon32-bws {
+	background: url("../images/icon_36.png") no-repeat scroll left top transparent;
+}
+#toplevel_page_bws_plugins .wp-submenu .wp-first-item {
+	display: none;
+}
+/*
+* styles for rate-support div on the settings page
+*/
+.bws-plugin-reviews {
+    background: none repeat scroll 0 0 #BEE1F1;
+    border: 1px solid #70A8C2;
+    border-radius: 3px;
+    max-width: 700px;
+}
+.bws-plugin-reviews-rate {
+    padding: 10px;
+    border-bottom: 1px dashed #70A8C2;
+}
+.bws-plugin-reviews-support {
+    padding: 10px;
+}
+
+/* PDF-Print settings */
+.pdfprnt-top-left,
+.pdfprnt-bottom-left,
+.pdfprnt-left {
+	text-align: left;
+	padding: 5px;
+}
+.pdfprnt-top-right,
+.pdfprnt-bottom-right,
+.pdfprnt-right {
+	text-align: right;
+	padding: 5px;
+}
+.pdfprnt-top-left a,
+.pdfprnt-bottom-left a,
+.pdfprnt-top-right a,
+.pdfprnt-bottom-right a,
+.pdfprnt-left a,
+.pdfprnt-right a {
+	padding: 0 5px;
+}
+#wpadminbar li#wp-admin-bar-pdfprnt-template-1 a,
+#wpadminbar li#wp-admin-bar-pdfprnt-template-2 a,
+#wpadminbar li#wp-admin-bar-pdfprnt-template-3 a {
+	height: auto;
+	padding: 8px 0 0 0;
+	text-align: center;
+}
+#wpadminbar li#wp-admin-bar-pdfprnt-bar-menu span.admin-bar-menu-bws-icon {
+	background: url("../images/icon_16.png") no-repeat scroll center center transparent;
+	float: left;
+	position: relative;
+	width: 16px;
+	height: 16px;
+	margin: 6px 6px 0 0;
+}
+
+/* PDF-Print settings .form-table */
+.pdfprnt_explanation {
+	color: #888;
+	font-size: 10px;
+	display: block;
+}
+.pdfprnt_settings_table td div {
+	float: left;
+	text-align: center;
+	margin: 0 5px;
+}
+.pdfprnt_settings_table td div img {
+	border:1px solid #777;
+	display:block;
+	width: 80px;
+	height: 100px;
+}
+.pdfprnt_settings_table td {
+	vertical-align: top;
+	padding: 10px;
+}
+.pdfprnt_settings_table td select {
+	width: 190px;
+}

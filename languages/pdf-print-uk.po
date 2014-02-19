@@ -1,0 +1,259 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: pdf-print\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2013-12-27 19:25+0300\n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: bestwebsoft.com <plugin@bestwebsoft.com>\n"
+"Language: uk_UA\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-KeywordsList: __;_e\n"
+"X-Poedit-Basepath: ..\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-SearchPath-0: .\n"
+
+#: pdf-print.php:34 pdf-print.php:139
+msgid "PDF & Print Settings"
+msgstr "Налаштування PDF & Print"
+
+#: pdf-print.php:34
+msgid "PDF & Print"
+msgstr "PDF & Print"
+
+#: pdf-print.php:95
+msgid "requires"
+msgstr "потребує"
+
+#: pdf-print.php:95
+msgid ""
+"or higher, that is why it has been deactivated! Please upgrade WordPress and "
+"try again."
+msgstr ""
+"чи вище, тому він був деактивований! Будь ласка оновіть WordPress та "
+"спробуйте ще раз."
+
+#: pdf-print.php:95
+msgid "Back to the WordPress"
+msgstr "Поернутися до WordPress на"
+
+#: pdf-print.php:95
+msgid "Plugins page"
+msgstr "Сторінку плагинів"
+
+#: pdf-print.php:106
+msgid "Top Left"
+msgstr "Зверху зліва"
+
+#: pdf-print.php:107
+msgid "Top Right"
+msgstr "Зверху справа"
+
+#: pdf-print.php:108
+msgid "Bottom Left"
+msgstr "Знизу зліва"
+
+#: pdf-print.php:109
+msgid "Bottom Right"
+msgstr "Знизу справа"
+
+#: pdf-print.php:135
+msgid "Settings saved."
+msgstr "Налаштування збережені."
+
+#: pdf-print.php:141
+msgid "Notice:"
+msgstr ""
+
+#: pdf-print.php:141
+msgid ""
+"The plugin's settings have been changed. In order to save them please don't "
+"forget to click the 'Save Changes' button."
+msgstr ""
+
+#: pdf-print.php:146
+msgid "Use of theme stylesheet or plugin default style:"
+msgstr "Використовувати стилі теми або стандартні стилі плагіну:"
+
+#: pdf-print.php:149
+msgid "Default stylesheet"
+msgstr "Стандартні стилі"
+
+#: pdf-print.php:150
+msgid "Current theme stylesheet"
+msgstr "Стилі поточної теми"
+
+#: pdf-print.php:155
+msgid "The types of posts that the plugin will use:"
+msgstr "Типи постів, що буде використовувати плагін:"
+
+#: pdf-print.php:170
+msgid ""
+"If you are using a Portfolio plugin (powered by bestwebsoft.com) and you "
+"need the output pdf and print buttons next to each post, you just need to "
+"insert the strings in loop into the template source code in files portfolio."
+"php and portfolio-post.php"
+msgstr ""
+"Якщо Ви використовуєте плагін Portfolio (розроблений bestwebsoft.com) та Вам "
+"потрібно відобразити кнопку PDF та кнопку друку для кожного поста, Вам "
+"необхідно вставити наступні строки у цикл в коді файлів portfolio.php та "
+"portfolio-post.php"
+
+#: pdf-print.php:170
+msgid ""
+" In order to use PDF and Print buttons for all posts you need to put the "
+"strings below into the template source code in file portfolio.php"
+msgstr ""
+" Якщо ж Ви бажаєте використовувати кнопку PDF  або друку для усіх постів, "
+"Вам потрібно вставити наступні рядки у код файлу portfolio.php"
+
+#: pdf-print.php:176
+msgid "Position of buttons in content:"
+msgstr "Позиція кнопок на сторінці:"
+
+#: pdf-print.php:187
+msgid "Show:"
+msgstr "Показувати:"
+
+#: pdf-print.php:189 pdf-print.php:232 pdf-print.php:281
+msgid "PDF button"
+msgstr "Кнопку PDF:"
+
+#: pdf-print.php:190 pdf-print.php:233 pdf-print.php:282
+msgid "Print button"
+msgstr "Кнопку друкування:"
+
+#: pdf-print.php:195
+msgid "Default template setting for post:"
+msgstr "Налаштування стандартного шаблону для поста:"
+
+#: pdf-print.php:220
+msgid "Position of buttons in content for custom post:"
+msgstr "Позиція кнопок на стронці користувацького типу поста:"
+
+#: pdf-print.php:224 pdf-print.php:273
+msgid "Align Left"
+msgstr "По лівому краю"
+
+#: pdf-print.php:225 pdf-print.php:274
+msgid "Align Right"
+msgstr "По правому краю"
+
+#: pdf-print.php:230
+msgid "Show for custom posts:"
+msgstr "Показувати для користувацького типу поста:"
+
+#: pdf-print.php:238
+msgid "Default template setting for custom posts:"
+msgstr "Налаштування стандартного шаблону для користувацького типу поста:"
+
+#: pdf-print.php:264
+msgid ""
+"In order to use PDF and Print buttons on the custom page you should use the"
+msgstr ""
+"Для використання кнопок PDF та друку у користувацькому типу поста треба "
+"вставити код"
+
+#: pdf-print.php:264
+msgid ""
+" where you have to specify query parameters for your custom post.<br/> For "
+"example: "
+msgstr ""
+" де Вам потрібно вказати параметри запиту Вашого  користувацького типу поста."
+"<br/> Наприклад: "
+
+#: pdf-print.php:264
+msgid " or "
+msgstr " чи "
+
+#: pdf-print.php:264
+msgid ""
+" For more information on the syntax for assigning parameters to function see "
+"<a target=\"_blank\" href=\"http://codex.wordpress.org/Class_Reference/"
+"WP_Query#Parameters\">here</a>."
+msgstr ""
+" Синтаксис для передачі параметрів у функцію можна переглянути <a target="
+"\"_blank\" href=\"http://codex.wordpress.org/Class_Reference/"
+"WP_Query#Parameters\">тут</a>."
+
+#: pdf-print.php:269
+msgid "Position of buttons on search or archive page:"
+msgstr "Позиція кнопок на сторінці пошуку або архіву"
+
+#: pdf-print.php:279
+msgid "Show for search or archive page:"
+msgstr "Показувати на сторінці пошуку чи архіву:"
+
+#: pdf-print.php:287
+msgid "Default template setting for search and archive:"
+msgstr "Налаштування стандартного шаблону для сторінки пошуку або архіву:"
+
+#: pdf-print.php:313
+msgid ""
+"In order to use PDF and Print buttons on the search page or archive page you "
+"should put the strings below into the template source code in files search."
+"php or archives.php "
+msgstr ""
+"Якщо Ви бажаєте відображати кнопки PDF та друкування на сторінці пошуку або "
+"архіву, Вам потрібно вставити наведені рядки у код в файл search.php чи "
+"archives.php"
+
+#: pdf-print.php:318
+msgid "Settings for shorcodes:"
+msgstr "Налаштування для шорткодів:"
+
+#: pdf-print.php:321
+msgid "Do!"
+msgstr "Виконувати!"
+
+#: pdf-print.php:326
+msgid "Save Changes"
+msgstr "Зберегти зміни"
+
+#: pdf-print.php:335
+msgid "If you enjoy our plugin, please give it 5 stars on WordPress"
+msgstr ""
+
+#: pdf-print.php:336
+msgid "Rate the plugin"
+msgstr ""
+
+#: pdf-print.php:339
+msgid "If there is something wrong about it, please contact us"
+msgstr ""
+
+#: pdf-print.php:532 pdf-print.php:544
+msgid "Settings"
+msgstr "Налаштування"
+
+#: pdf-print.php:545
+msgid "FAQ"
+msgstr "Часті запитання"
+
+#: pdf-print.php:546
+msgid "Support"
+msgstr "Піддтримка"
+
+#: pdf-print.php:722
+msgid "Date of completion"
+msgstr "Дата завершення"
+
+#: pdf-print.php:723
+msgid "Link"
+msgstr "Посилання"
+
+#: pdf-print.php:724
+msgid "Description"
+msgstr "Опис"
+
+#: pdf-print.php:730
+msgid "Technologies"
+msgstr "Технології"
+
+#: pdf-print.php:735
+#, php-format
+msgid "View all posts in %s"
+msgstr "Переглянути всі пости у %s"
