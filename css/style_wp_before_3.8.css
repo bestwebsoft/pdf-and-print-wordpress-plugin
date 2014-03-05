@@ -15,6 +15,21 @@
 	display: none;
 }
 /*
+* Tab GO PRO
+*/
+.bws_go_pro_tab {
+    background-color: #2A95C5;
+    border-color: #11688F;
+    color: #FFFFFF;
+    font-weight: normal !important;
+    text-shadow: none;
+}
+.bws_go_pro_tab:hover {
+    background-color: #2080AB;
+    color: #FFFFFF;
+    border-color: #11688F;
+}
+/*
 * styles for rate-support div on the settings page
 */
 .bws-plugin-reviews {
@@ -30,7 +45,29 @@
 .bws-plugin-reviews-support {
     padding: 10px;
 }
-
+/*
+* styles for pro_version settings, banner and tooltip 
+*/
+table.bws_pro_version { 
+    background: #E0E0E0;
+    border: 1px solid #AAA;
+    margin-bottom: 5px;
+    width: auto !important;
+    float: left;
+}
+table.bws_pro_version th,
+table.bws_pro_version td {
+    color: #555;
+    padding-left: 10px;
+}
+.bws_pro_version_tooltip {
+    background: #FFF;
+    border: 1px solid #AAA;
+}
+.form-table.bws_pro_version .bws_pro_version_tooltip th {
+    font-weight: normal;
+    padding-bottom: 10px;
+}
 /* PDF-Print settings */
 .pdfprnt-top-left,
 .pdfprnt-bottom-left,
@@ -52,11 +89,12 @@
 .pdfprnt-right a {
 	padding: 0 5px;
 }
-#wpadminbar li#wp-admin-bar-pdfprnt-template-1 a,
-#wpadminbar li#wp-admin-bar-pdfprnt-template-2 a,
-#wpadminbar li#wp-admin-bar-pdfprnt-template-3 a {
+#wpadminbar #wp-admin-bar-pdfprnt-bar-menu-default li {
+	cursor: pointer;
+}
+#wpadminbar #wp-admin-bar-pdfprnt-bar-menu-default li a {
 	height: auto;
-	padding: 8px 0 0 0;
+	padding: 8px 0;
 	text-align: center;
 }
 #wpadminbar li#wp-admin-bar-pdfprnt-bar-menu span.admin-bar-menu-bws-icon {
@@ -91,4 +129,64 @@
 }
 .pdfprnt_settings_table td select {
 	width: 190px;
+}
+/*
+* styles for banner 
+*/
+.bws_banner_on_plugin_page {
+    border: 1px solid #d4d4d4;
+    background: #FFF;
+    position: relative;
+    overflow: hidden;
+    margin: 12px 0;
+    background: #ECECEC;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+.bws_banner_on_plugin_page .text {
+    color: #000;
+    font-size: 15px;
+    line-height: 26px;
+    margin: 18px 18px 14px;
+    float: left;
+    width: 80%;
+}
+.bws_banner_on_plugin_page .text span {
+    font-size: 12px;
+    opacity: 0.7;
+}
+.bws_banner_on_plugin_page .button {
+    float: left;
+    border: none; 
+    font-size: 14px;
+    margin: 18px 0 18px 16px;
+    padding: 14px 0;
+    color: #FFF;
+    text-shadow: none;
+    font-weight: bold;
+    background: #0074A2;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    -webkit-border-radius: 3px;
+    text-decoration: none;
+    height: 50px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 147px;
+    box-shadow: none;
+}
+.bws_banner_on_plugin_page .button:hover,
+.bws_banner_on_plugin_page .button:focus {    
+    background: #222;
+    color: #FFF;
+}
+.bws_banner_on_plugin_page .icon {
+    float: right;
+    margin: 18px 8px 8px 0;
+}
+.bws_banner_on_plugin_page .close_icon {
+    float: right;
+    margin: 8px;
+    cursor: pointer;
 }
