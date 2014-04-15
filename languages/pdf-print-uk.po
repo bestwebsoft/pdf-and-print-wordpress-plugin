@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdf-print\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-02-27 18:02+0300\n"
+"POT-Creation-Date: 2014-04-14 12:41+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: bestwebsoft.com <plugins@bestwebsoft.com>\n"
 "Language-Team: bestwebsoft.com <plugin@bestwebsoft.com>\n"
@@ -16,343 +16,353 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: pdf-print.php:34
-#: pdf-print.php:287
+#: pdf-print.php:73
+#: pdf-print.php:342
 msgid "PDF & Print Settings"
 msgstr "Налаштування PDF & Print"
 
-#: pdf-print.php:34
+#: pdf-print.php:73
 msgid "PDF & Print"
 msgstr "PDF & Print"
 
-#: pdf-print.php:115
+#: pdf-print.php:171
 msgid "requires"
 msgstr "потребує"
 
-#: pdf-print.php:115
+#: pdf-print.php:171
 msgid "or higher, that is why it has been deactivated! Please upgrade WordPress and try again."
 msgstr "чи вище, тому він був деактивований! Будь ласка оновіть WordPress та спробуйте ще раз."
 
-#: pdf-print.php:115
+#: pdf-print.php:171
 msgid "Back to the WordPress"
 msgstr "Поернутися до WordPress на"
 
-#: pdf-print.php:115
+#: pdf-print.php:171
 msgid "Plugins page"
 msgstr "Сторінку плагинів"
 
-#: pdf-print.php:129
+#: pdf-print.php:184
 msgid "Top Left"
 msgstr "Зверху зліва"
 
-#: pdf-print.php:130
+#: pdf-print.php:185
 msgid "Top Right"
 msgstr "Зверху справа"
 
-#: pdf-print.php:131
+#: pdf-print.php:186
 msgid "Bottom Left"
 msgstr "Знизу зліва"
 
-#: pdf-print.php:132
+#: pdf-print.php:187
 msgid "Bottom Right"
 msgstr "Знизу справа"
 
-#: pdf-print.php:160
+#: pdf-print.php:215
 msgid "Settings saved."
 msgstr "Налаштування збережені."
 
-#: pdf-print.php:181
-#: pdf-print.php:220
+#: pdf-print.php:236
+#: pdf-print.php:275
 msgid "Wrong license key"
 msgstr ""
 
-#: pdf-print.php:213
+#: pdf-print.php:268
 msgid "Something went wrong. Try again later. If the error will appear again, please, contact us <a href=http://support.bestwebsoft.com>BestWebSoft</a>. We are sorry for inconvenience."
 msgstr ""
 
-#: pdf-print.php:222
+#: pdf-print.php:277
 msgid "This license key is bind to another site"
 msgstr ""
 
-#: pdf-print.php:224
+#: pdf-print.php:279
 msgid "Unfortunately, you have exceeded the number of available tries. Please, upload the plugin manually."
 msgstr ""
 
-#: pdf-print.php:242
+#: pdf-print.php:297
 msgid "Failed to open the zip archive. Please, upload the plugin manually"
 msgstr ""
 
-#: pdf-print.php:248
+#: pdf-print.php:303
 msgid "Your server does not support either ZipArchive or Phar. Please, upload the plugin manually"
 msgstr ""
 
-#: pdf-print.php:252
-#: pdf-print.php:261
+#: pdf-print.php:307
+#: pdf-print.php:316
 msgid "Failed to download the zip archive. Please, upload the plugin manually"
 msgstr ""
 
-#: pdf-print.php:265
+#: pdf-print.php:320
 msgid "Something went wrong. Try again later or upload the plugin manually. We are sorry for inconvienience."
 msgstr ""
 
-#: pdf-print.php:280
+#: pdf-print.php:335
 msgid "Please, enter Your license key"
 msgstr ""
 
-#: pdf-print.php:289
-#: pdf-print.php:771
-#: pdf-print.php:783
+#: pdf-print.php:344
+#: pdf-print.php:837
+#: pdf-print.php:849
 msgid "Settings"
 msgstr "Налаштування"
 
-#: pdf-print.php:290
+#: pdf-print.php:345
 #, fuzzy
 msgid "Extra settings"
 msgstr "Налаштування"
 
-#: pdf-print.php:291
+#: pdf-print.php:346
 msgid "Go PRO"
 msgstr ""
 
-#: pdf-print.php:294
+#: pdf-print.php:349
 msgid "Notice:"
 msgstr ""
 
-#: pdf-print.php:294
+#: pdf-print.php:349
 msgid "The plugin's settings have been changed. In order to save them please don't forget to click the 'Save Changes' button."
 msgstr ""
 
-#: pdf-print.php:300
+#: pdf-print.php:355
 msgid "Use of theme stylesheet or plugin default style:"
 msgstr "Використовувати стилі теми або стандартні стилі плагіну:"
 
-#: pdf-print.php:303
+#: pdf-print.php:358
 msgid "Default stylesheet"
 msgstr "Стандартні стилі"
 
-#: pdf-print.php:304
+#: pdf-print.php:359
 msgid "Current theme stylesheet"
 msgstr "Стилі поточної теми"
 
-#: pdf-print.php:309
+#: pdf-print.php:364
 msgid "The types of posts that the plugin will use:"
 msgstr "Типи постів, що буде використовувати плагін:"
 
-#: pdf-print.php:324
+#: pdf-print.php:379
 msgid "If you are using a Portfolio plugin (powered by bestwebsoft.com) and you need the output pdf and print buttons next to each post, you just need to insert the strings in loop into the template source code in files portfolio.php and portfolio-post.php"
 msgstr "Якщо Ви використовуєте плагін Portfolio (розроблений bestwebsoft.com) та Вам потрібно відобразити кнопку PDF та кнопку друку для кожного поста, Вам необхідно вставити наступні строки у цикл в коді файлів portfolio.php та portfolio-post.php"
 
-#: pdf-print.php:324
+#: pdf-print.php:379
 msgid " In order to use PDF and Print buttons for all posts you need to put the strings below into the template source code in file portfolio.php"
 msgstr " Якщо ж Ви бажаєте використовувати кнопку PDF  або друку для усіх постів, Вам потрібно вставити наступні рядки у код файлу portfolio.php"
 
-#: pdf-print.php:330
+#: pdf-print.php:385
 msgid "Position of buttons in content:"
 msgstr "Позиція кнопок на сторінці:"
 
-#: pdf-print.php:341
+#: pdf-print.php:396
 msgid "Show:"
 msgstr "Показувати:"
 
-#: pdf-print.php:343
-#: pdf-print.php:386
-#: pdf-print.php:435
+#: pdf-print.php:398
+#: pdf-print.php:441
+#: pdf-print.php:490
 msgid "PDF button"
 msgstr "Кнопку PDF:"
 
-#: pdf-print.php:344
-#: pdf-print.php:387
-#: pdf-print.php:436
+#: pdf-print.php:399
+#: pdf-print.php:442
+#: pdf-print.php:491
 msgid "Print button"
 msgstr "Кнопку друкування:"
 
-#: pdf-print.php:349
+#: pdf-print.php:404
 msgid "Default template setting for post:"
 msgstr "Налаштування стандартного шаблону для поста:"
 
-#: pdf-print.php:374
+#: pdf-print.php:429
 msgid "Position of buttons in content for custom post:"
 msgstr "Позиція кнопок на стронці користувацького типу поста:"
 
-#: pdf-print.php:378
-#: pdf-print.php:427
+#: pdf-print.php:433
+#: pdf-print.php:482
 msgid "Align Left"
 msgstr "По лівому краю"
 
-#: pdf-print.php:379
-#: pdf-print.php:428
+#: pdf-print.php:434
+#: pdf-print.php:483
 msgid "Align Right"
 msgstr "По правому краю"
 
-#: pdf-print.php:384
+#: pdf-print.php:439
 msgid "Show for custom posts:"
 msgstr "Показувати для користувацького типу поста:"
 
-#: pdf-print.php:392
+#: pdf-print.php:447
 msgid "Default template setting for custom posts:"
 msgstr "Налаштування стандартного шаблону для користувацького типу поста:"
 
-#: pdf-print.php:418
+#: pdf-print.php:473
 msgid "In order to use PDF and Print buttons on the custom page you should use the"
 msgstr "Для використання кнопок PDF та друку у користувацькому типу поста треба вставити код"
 
-#: pdf-print.php:418
+#: pdf-print.php:473
 msgid " where you have to specify query parameters for your custom post.<br/> For example: "
 msgstr " де Вам потрібно вказати параметри запиту Вашого  користувацького типу поста.<br/> Наприклад: "
 
-#: pdf-print.php:418
+#: pdf-print.php:473
 msgid " or "
 msgstr " чи "
 
-#: pdf-print.php:418
+#: pdf-print.php:473
 msgid " For more information on the syntax for assigning parameters to function see <a target=\"_blank\" href=\"http://codex.wordpress.org/Class_Reference/WP_Query#Parameters\">here</a>."
 msgstr " Синтаксис для передачі параметрів у функцію можна переглянути <a target=\"_blank\" href=\"http://codex.wordpress.org/Class_Reference/WP_Query#Parameters\">тут</a>."
 
-#: pdf-print.php:423
+#: pdf-print.php:478
 msgid "Position of buttons on search or archive page:"
 msgstr "Позиція кнопок на сторінці пошуку або архіву"
 
-#: pdf-print.php:433
+#: pdf-print.php:488
 msgid "Show for search or archive page:"
 msgstr "Показувати на сторінці пошуку чи архіву:"
 
-#: pdf-print.php:441
+#: pdf-print.php:496
 msgid "Default template setting for search and archive:"
 msgstr "Налаштування стандартного шаблону для сторінки пошуку або архіву:"
 
-#: pdf-print.php:467
+#: pdf-print.php:522
 msgid "In order to use PDF and Print buttons on the search page or archive page you should put the strings below into the template source code in files search.php or archives.php "
 msgstr "Якщо Ви бажаєте відображати кнопки PDF та друкування на сторінці пошуку або архіву, Вам потрібно вставити наведені рядки у код в файл search.php чи archives.php"
 
-#: pdf-print.php:472
+#: pdf-print.php:527
 msgid "Settings for shorcodes:"
 msgstr "Налаштування для шорткодів:"
 
-#: pdf-print.php:475
+#: pdf-print.php:530
 msgid "Do!"
 msgstr "Виконувати!"
 
-#: pdf-print.php:479
+#: pdf-print.php:534
 msgid "Show the print window"
 msgstr ""
 
-#: pdf-print.php:481
+#: pdf-print.php:536
 msgid "Mark the checkbox to show it"
 msgstr ""
 
-#: pdf-print.php:486
-#: pdf-print.php:524
+#: pdf-print.php:542
+#: pdf-print.php:581
 msgid "Save Changes"
 msgstr "Зберегти зміни"
 
-#: pdf-print.php:494
+#: pdf-print.php:548
 msgid "If you enjoy our plugin, please give it 5 stars on WordPress"
 msgstr ""
 
-#: pdf-print.php:495
+#: pdf-print.php:549
 msgid "Rate the plugin"
 msgstr ""
 
-#: pdf-print.php:498
+#: pdf-print.php:552
 msgid "If there is something wrong about it, please contact us"
 msgstr ""
 
-#: pdf-print.php:506
+#: pdf-print.php:563
 msgid "Please choose the necessary post types (or single pages) where PDF & Print buttons will be displayed:"
 msgstr ""
 
-#: pdf-print.php:513
+#: pdf-print.php:570
 msgid "Show URL for pages"
 msgstr ""
 
-#: pdf-print.php:519
+#: pdf-print.php:576
 msgid "Example of site pages' tree"
 msgstr ""
 
-#: pdf-print.php:529
-msgid "This functionality is available in the Pro version of the plugin. For more details, please follow the link"
+#: pdf-print.php:586
+msgid "If you upgrade to Pro version all your settings will be saved."
 msgstr ""
 
-#: pdf-print.php:543
+#: pdf-print.php:593
+msgid "Unlock premium options by upgrading to a PRO version."
+msgstr ""
+
+#: pdf-print.php:594
+#: pdf-print.php:1429
+msgid "Learn More"
+msgstr ""
+
+#: pdf-print.php:597
+#, fuzzy
+msgid "Go"
+msgstr "Виконувати!"
+
+#: pdf-print.php:609
 msgid "Congratulations! The PRO version of the plugin is successfully download and activated."
 msgstr ""
 
-#: pdf-print.php:545
+#: pdf-print.php:611
 msgid "Please, go to"
 msgstr ""
 
-#: pdf-print.php:545
+#: pdf-print.php:611
 msgid "the setting page"
 msgstr ""
 
-#: pdf-print.php:546
+#: pdf-print.php:612
 msgid "You will be redirected automatically in 5 seconds."
 msgstr ""
 
-#: pdf-print.php:551
+#: pdf-print.php:617
 msgid "You can download and activate"
 msgstr ""
 
-#: pdf-print.php:553
+#: pdf-print.php:619
 msgid "version of this plugin by entering Your license key."
 msgstr ""
 
-#: pdf-print.php:555
+#: pdf-print.php:621
 msgid "You can find your license key on your personal page Client area, by clicking on the link"
 msgstr ""
 
-#: pdf-print.php:557
+#: pdf-print.php:623
 msgid "(your username is the email you specify when purchasing the product)."
 msgstr ""
 
-#: pdf-print.php:565
-#: pdf-print.php:575
+#: pdf-print.php:631
+#: pdf-print.php:641
 #, fuzzy
 msgid "Go!"
 msgstr "Виконувати!"
 
-#: pdf-print.php:568
+#: pdf-print.php:634
 msgid "Unfortunately, you have exceeded the number of available tries per day. Please, upload the plugin manually."
 msgstr ""
 
-#: pdf-print.php:784
+#: pdf-print.php:850
 msgid "FAQ"
 msgstr "Часті запитання"
 
-#: pdf-print.php:785
+#: pdf-print.php:851
 msgid "Support"
 msgstr "Піддтримка"
 
-#: pdf-print.php:955
+#: pdf-print.php:1021
 msgid "Date of completion"
 msgstr "Дата завершення"
 
-#: pdf-print.php:956
+#: pdf-print.php:1022
 msgid "Link"
 msgstr "Посилання"
 
-#: pdf-print.php:957
+#: pdf-print.php:1023
 msgid "Description"
 msgstr "Опис"
 
-#: pdf-print.php:963
+#: pdf-print.php:1029
 msgid "Technologies"
 msgstr "Технології"
 
-#: pdf-print.php:968
+#: pdf-print.php:1034
 #, php-format
 msgid "View all posts in %s"
 msgstr "Переглянути всі пости у %s"
 
-#: pdf-print.php:1355
-msgid "Learn More"
-msgstr ""
-
-#: pdf-print.php:1357
+#: pdf-print.php:1432
 msgid "It's time to upgrade your <strong>PDF & Print</strong> to <strong>PRO</strong> version"
 msgstr ""
 
-#: pdf-print.php:1358
+#: pdf-print.php:1433
 msgid "Extend standard plugin functionality with new great options"
 msgstr ""
 

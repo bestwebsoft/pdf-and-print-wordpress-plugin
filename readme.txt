@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=10&product_id=13
 Tags: pdf, print, pdf print, pdf and print, pdf button, print button, pdf print button, print content, pdf content, pdf print content, pdf post, print post, print post content, generate pdf, generate pdf content, generate post pdf
 Requires at least: 3.0
-Tested up to: 3.8.1
-Stable tag: 1.7.1
+Tested up to: 3.8.2
+Stable tag: 1.7.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -13,6 +13,8 @@ Add PDF and Print button to your WordPress website.
 == Description ==
 
 PDF & Print allows you in the easiest and most flexible way to create PDF and Print page with adding appropriate buttons to the content. PDF & Print using mpdf library under GPLv2 license.
+
+http://www.youtube.com/watch?v=EM6AEkD9M_s
 
 <a href="http://wordpress.org/plugins/pdf-print/faq/" target="_blank">FAQ</a>
 
@@ -58,6 +60,8 @@ We can fix some things for free for the users who provide translation of our plu
 2. Activate the plugin via the 'Plugins' menu in WordPress.
 3. Plugin settings are located in "BWS Plugins" > "PDF & Print".
 
+View a <a href="https://docs.google.com/document/d/1Wwins2PmrzAYiEgFZDtRzMNDq9Sr7XDeqjGNm7b-oi8/edit" target="_blank">Step-by-step Instruction on PDF & Print Installation</a>
+
 == Frequently Asked Questions ==
 
 = How to change position buttons in content =
@@ -101,7 +105,7 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 1. the link to the page where the problem occurs
 2. the name of the plugin and its version. If you are using a pro version - your order number.
 3. the version of your WordPress installation
-4. copy and paste into the message your system status report. Please read more here: <a href="http://bestwebsoft.com/wp-content/uploads/manual/wp_plugin/general/System_Status.pdf" target="_blank">System_Status.pdf</a>
+4. copy and paste into the message your system status report. Please read more here: <a href="https://docs.google.com/document/d/1Wi2X8RdRGXk9kMszQy1xItJrpN0ncXgioH935MaBKtc/edit" target="_blank">Instuction on System Status</a>
 
 == Screenshots ==
 
@@ -113,6 +117,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 6. PDF output page example.
 
 == Changelog ==
+
+= V1.7.2 - 14.04.2014 =
+* Update : We updated all functionality for wordpress 3.8.2. 
 
 = V1.7.1 - 05.03.2014 =
 * Budfix : Plugin optimization is done.
@@ -154,6 +161,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * NEW : Added the ability to output PDF and Print buttons on the type of page.
 
 == Upgrade Notice ==
+
+= V1.7.2 =
+We updated all functionality for wordpress 3.8.2.
 
 = V1.7.1 =
 Plugin optimization is done. Plugin tabs is added.
