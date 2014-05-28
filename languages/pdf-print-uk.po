@@ -4,20 +4,19 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2014-04-14 12:41+0300\n"
 "PO-Revision-Date: \n"
-"Last-Translator: bestwebsoft.com <plugins@bestwebsoft.com>\n"
+"Last-Translator: BestWebSoft <support@bestwebsoft.com>\n"
 "Language-Team: bestwebsoft.com <plugin@bestwebsoft.com>\n"
-"Language: uk_UA\n"
+"Language: uk\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: ..\n"
 "X-Generator: Poedit 1.5.4\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: pdf-print.php:73
-#: pdf-print.php:342
+#: pdf-print.php:73 pdf-print.php:342
 msgid "PDF & Print Settings"
 msgstr "Налаштування PDF & Print"
 
@@ -27,19 +26,23 @@ msgstr "PDF & Print"
 
 #: pdf-print.php:171
 msgid "requires"
-msgstr "потребує"
+msgstr "вимагає"
 
 #: pdf-print.php:171
-msgid "or higher, that is why it has been deactivated! Please upgrade WordPress and try again."
-msgstr "чи вище, тому він був деактивований! Будь ласка оновіть WordPress та спробуйте ще раз."
+msgid ""
+"or higher, that is why it has been deactivated! Please upgrade WordPress and "
+"try again."
+msgstr ""
+"чи вище, тому він був деактивований! Будь ласка, оновіть WordPress та "
+"спробуйте ще раз."
 
 #: pdf-print.php:171
 msgid "Back to the WordPress"
-msgstr "Поернутися до WordPress на"
+msgstr "Повернутися на WordPress на"
 
 #: pdf-print.php:171
 msgid "Plugins page"
-msgstr "Сторінку плагинів"
+msgstr "Сторінку плагінів"
 
 #: pdf-print.php:184
 msgid "Top Left"
@@ -59,72 +62,91 @@ msgstr "Знизу справа"
 
 #: pdf-print.php:215
 msgid "Settings saved."
-msgstr "Налаштування збережені."
+msgstr "Налаштування збережено."
 
-#: pdf-print.php:236
-#: pdf-print.php:275
+#: pdf-print.php:236 pdf-print.php:275
 msgid "Wrong license key"
-msgstr ""
+msgstr "Невірний ключ ліцензії"
 
 #: pdf-print.php:268
-msgid "Something went wrong. Try again later. If the error will appear again, please, contact us <a href=http://support.bestwebsoft.com>BestWebSoft</a>. We are sorry for inconvenience."
+msgid ""
+"Something went wrong. Try again later. If the error will appear again, "
+"please, contact us <a href=http://support.bestwebsoft.com>BestWebSoft</a>. "
+"We are sorry for inconvenience."
 msgstr ""
+"Щось не так, спробуйте пізніше. Якщо помилка повториться, будь ласка, "
+"повідомте нам <a href=http://support.bestwebsoft.com>BestWebSoft</a>. "
+"Просимо вибачення за незручності."
 
 #: pdf-print.php:277
 msgid "This license key is bind to another site"
-msgstr ""
+msgstr "Цей ліцензійний ключ прив'язаний до іншого сайту"
 
 #: pdf-print.php:279
-msgid "Unfortunately, you have exceeded the number of available tries. Please, upload the plugin manually."
+msgid ""
+"Unfortunately, you have exceeded the number of available tries. Please, "
+"upload the plugin manually."
 msgstr ""
+"На жаль, ви перевищили кількість можливих спроб на день. Будь ласка, "
+"завантажте плагін вручну."
 
 #: pdf-print.php:297
 msgid "Failed to open the zip archive. Please, upload the plugin manually"
 msgstr ""
+"Помилка при відкритті архіву zip. Будь ласка, завантажте плагін вручну."
 
 #: pdf-print.php:303
-msgid "Your server does not support either ZipArchive or Phar. Please, upload the plugin manually"
+msgid ""
+"Your server does not support either ZipArchive or Phar. Please, upload the "
+"plugin manually"
 msgstr ""
+"Ваш сервер не підтримує формати Zip та  Phar. Будь ласка, завантажте плагін "
+"вручну."
 
-#: pdf-print.php:307
-#: pdf-print.php:316
+#: pdf-print.php:307 pdf-print.php:316
 msgid "Failed to download the zip archive. Please, upload the plugin manually"
 msgstr ""
+"Помилка при завантаженні архіву zip. Будь ласка, завантажте плагін вручну."
 
 #: pdf-print.php:320
-msgid "Something went wrong. Try again later or upload the plugin manually. We are sorry for inconvienience."
+msgid ""
+"Something went wrong. Try again later or upload the plugin manually. We are "
+"sorry for inconvienience."
 msgstr ""
+"Щось не так, спробуйте пізніше або завантажте плагін вручну. Просимо "
+"вибачення за незручності."
 
 #: pdf-print.php:335
 msgid "Please, enter Your license key"
-msgstr ""
+msgstr "Будь ласка, введіть ліцензійний ключ"
 
-#: pdf-print.php:344
-#: pdf-print.php:837
-#: pdf-print.php:849
+#: pdf-print.php:344 pdf-print.php:837 pdf-print.php:849
 msgid "Settings"
 msgstr "Налаштування"
 
 #: pdf-print.php:345
-#, fuzzy
 msgid "Extra settings"
-msgstr "Налаштування"
+msgstr "Додаткові налаштування"
 
 #: pdf-print.php:346
 msgid "Go PRO"
-msgstr ""
+msgstr "Перейти на PRO"
 
 #: pdf-print.php:349
 msgid "Notice:"
-msgstr ""
+msgstr "Зауважте:"
 
 #: pdf-print.php:349
-msgid "The plugin's settings have been changed. In order to save them please don't forget to click the 'Save Changes' button."
+msgid ""
+"The plugin's settings have been changed. In order to save them please don't "
+"forget to click the 'Save Changes' button."
 msgstr ""
+"Налаштування плагіну змінились. Щоб зберегти їх, будь ласка, не забудьте "
+"клікнути \"Зберегти зміни\"."
 
 #: pdf-print.php:355
 msgid "Use of theme stylesheet or plugin default style:"
-msgstr "Використовувати стилі теми або стандартні стилі плагіну:"
+msgstr "Використовувати стиль теми або стандартний стиль плагіну:"
 
 #: pdf-print.php:358
 msgid "Default stylesheet"
@@ -139,12 +161,23 @@ msgid "The types of posts that the plugin will use:"
 msgstr "Типи постів, що буде використовувати плагін:"
 
 #: pdf-print.php:379
-msgid "If you are using a Portfolio plugin (powered by bestwebsoft.com) and you need the output pdf and print buttons next to each post, you just need to insert the strings in loop into the template source code in files portfolio.php and portfolio-post.php"
-msgstr "Якщо Ви використовуєте плагін Portfolio (розроблений bestwebsoft.com) та Вам потрібно відобразити кнопку PDF та кнопку друку для кожного поста, Вам необхідно вставити наступні строки у цикл в коді файлів portfolio.php та portfolio-post.php"
+msgid ""
+"If you are using a Portfolio plugin (powered by bestwebsoft.com) and you "
+"need the output pdf and print buttons next to each post, you just need to "
+"insert the strings in loop into the template source code in files portfolio."
+"php and portfolio-post.php"
+msgstr ""
+"Якщо Ви використовуєте плагін Portfolio (розроблений bestwebsoft.com) та Вам "
+"потрібно відобразити кнопку PDF та кнопку друку для кожного посту, вставте "
+"наступні строки у код файлів portfolio.php та portfolio-post.php"
 
 #: pdf-print.php:379
-msgid " In order to use PDF and Print buttons for all posts you need to put the strings below into the template source code in file portfolio.php"
-msgstr " Якщо ж Ви бажаєте використовувати кнопку PDF  або друку для усіх постів, Вам потрібно вставити наступні рядки у код файлу portfolio.php"
+msgid ""
+" In order to use PDF and Print buttons for all posts you need to put the "
+"strings below into the template source code in file portfolio.php"
+msgstr ""
+"Якщо  Ви бажаєте використовувати кнопку PDF  або друку для усіх постів, "
+"вставте наступні рядки у код файлу portfolio.php"
 
 #: pdf-print.php:385
 msgid "Position of buttons in content:"
@@ -154,63 +187,70 @@ msgstr "Позиція кнопок на сторінці:"
 msgid "Show:"
 msgstr "Показувати:"
 
-#: pdf-print.php:398
-#: pdf-print.php:441
-#: pdf-print.php:490
+#: pdf-print.php:398 pdf-print.php:441 pdf-print.php:490
 msgid "PDF button"
 msgstr "Кнопку PDF:"
 
-#: pdf-print.php:399
-#: pdf-print.php:442
-#: pdf-print.php:491
+#: pdf-print.php:399 pdf-print.php:442 pdf-print.php:491
 msgid "Print button"
-msgstr "Кнопку друкування:"
+msgstr "Кнопку друку:"
 
 #: pdf-print.php:404
 msgid "Default template setting for post:"
-msgstr "Налаштування стандартного шаблону для поста:"
+msgstr "Налаштування стандартного шаблону для посту:"
 
 #: pdf-print.php:429
 msgid "Position of buttons in content for custom post:"
-msgstr "Позиція кнопок на стронці користувацького типу поста:"
+msgstr "Позиція кнопок на сторінці кастомного посту:"
 
-#: pdf-print.php:433
-#: pdf-print.php:482
+#: pdf-print.php:433 pdf-print.php:482
 msgid "Align Left"
 msgstr "По лівому краю"
 
-#: pdf-print.php:434
-#: pdf-print.php:483
+#: pdf-print.php:434 pdf-print.php:483
 msgid "Align Right"
 msgstr "По правому краю"
 
 #: pdf-print.php:439
 msgid "Show for custom posts:"
-msgstr "Показувати для користувацького типу поста:"
+msgstr "Показувати для кастомного посту:"
 
 #: pdf-print.php:447
 msgid "Default template setting for custom posts:"
-msgstr "Налаштування стандартного шаблону для користувацького типу поста:"
+msgstr "Налаштування стандартного шаблону для кастомного посту:"
 
 #: pdf-print.php:473
-msgid "In order to use PDF and Print buttons on the custom page you should use the"
-msgstr "Для використання кнопок PDF та друку у користувацькому типу поста треба вставити код"
+msgid ""
+"In order to use PDF and Print buttons on the custom page you should use the"
+msgstr ""
+"Для використання кнопок PDF та друку, в кастомному пості потрібно вставити "
+"код"
 
 #: pdf-print.php:473
-msgid " where you have to specify query parameters for your custom post.<br/> For example: "
-msgstr " де Вам потрібно вказати параметри запиту Вашого  користувацького типу поста.<br/> Наприклад: "
+msgid ""
+" where you have to specify query parameters for your custom post.<br/> For "
+"example: "
+msgstr ""
+" де Вам потрібно вказати параметри запиту Вашого кастомного посту.<br/> "
+"Наприклад: "
 
 #: pdf-print.php:473
 msgid " or "
 msgstr " чи "
 
 #: pdf-print.php:473
-msgid " For more information on the syntax for assigning parameters to function see <a target=\"_blank\" href=\"http://codex.wordpress.org/Class_Reference/WP_Query#Parameters\">here</a>."
-msgstr " Синтаксис для передачі параметрів у функцію можна переглянути <a target=\"_blank\" href=\"http://codex.wordpress.org/Class_Reference/WP_Query#Parameters\">тут</a>."
+msgid ""
+" For more information on the syntax for assigning parameters to function see "
+"<a target=\"_blank\" href=\"http://codex.wordpress.org/Class_Reference/"
+"WP_Query#Parameters\">here</a>."
+msgstr ""
+" Синтаксис для передачі параметрів у функцію можна переглянути <a target="
+"\"_blank\" href=\"http://codex.wordpress.org/Class_Reference/"
+"WP_Query#Parameters\">тут</a>."
 
 #: pdf-print.php:478
 msgid "Position of buttons on search or archive page:"
-msgstr "Позиція кнопок на сторінці пошуку або архіву"
+msgstr "Позиція кнопок на сторінці пошуку чи архіву"
 
 #: pdf-print.php:488
 msgid "Show for search or archive page:"
@@ -218,11 +258,16 @@ msgstr "Показувати на сторінці пошуку чи архів�
 
 #: pdf-print.php:496
 msgid "Default template setting for search and archive:"
-msgstr "Налаштування стандартного шаблону для сторінки пошуку або архіву:"
+msgstr "Налаштування стандартного шаблону для сторінки пошуку чи архіву:"
 
 #: pdf-print.php:522
-msgid "In order to use PDF and Print buttons on the search page or archive page you should put the strings below into the template source code in files search.php or archives.php "
-msgstr "Якщо Ви бажаєте відображати кнопки PDF та друкування на сторінці пошуку або архіву, Вам потрібно вставити наведені рядки у код в файл search.php чи archives.php"
+msgid ""
+"In order to use PDF and Print buttons on the search page or archive page you "
+"should put the strings below into the template source code in files search."
+"php or archives.php "
+msgstr ""
+"Якщо Ви бажаєте відображати кнопки PDF та друку на сторінці пошуку чи "
+"архіву, вставте наступні рядки у код файлу search.php чи archives.php"
 
 #: pdf-print.php:527
 msgid "Settings for shorcodes:"
@@ -230,112 +275,121 @@ msgstr "Налаштування для шорткодів:"
 
 #: pdf-print.php:530
 msgid "Do!"
-msgstr "Виконувати!"
+msgstr "Виконати!"
 
 #: pdf-print.php:534
 msgid "Show the print window"
-msgstr ""
+msgstr "Показати вікно друку"
 
 #: pdf-print.php:536
 msgid "Mark the checkbox to show it"
-msgstr ""
+msgstr "Поставте галочку, щоб його відображати"
 
-#: pdf-print.php:542
-#: pdf-print.php:581
+#: pdf-print.php:542 pdf-print.php:581
 msgid "Save Changes"
 msgstr "Зберегти зміни"
 
 #: pdf-print.php:548
 msgid "If you enjoy our plugin, please give it 5 stars on WordPress"
 msgstr ""
+"Якщо вам сподобався плагін, будь ласка, поставте нам 5 зірочок на WordPress"
 
 #: pdf-print.php:549
 msgid "Rate the plugin"
-msgstr ""
+msgstr "Оцінити плагін"
 
 #: pdf-print.php:552
 msgid "If there is something wrong about it, please contact us"
-msgstr ""
+msgstr "Якщо виникли проблеми, буль ласка, повідомте нам"
 
 #: pdf-print.php:563
-msgid "Please choose the necessary post types (or single pages) where PDF & Print buttons will be displayed:"
+msgid ""
+"Please choose the necessary post types (or single pages) where PDF & Print "
+"buttons will be displayed:"
 msgstr ""
+"Будь ласка виберіть тип посту чи сторінки, де будуть відображатись кнопки "
+"PDF & Print"
 
 #: pdf-print.php:570
 msgid "Show URL for pages"
-msgstr ""
+msgstr "Показати посилання для сторінок"
 
 #: pdf-print.php:576
 msgid "Example of site pages' tree"
-msgstr ""
+msgstr "Приклад дерева сторінок сайту"
 
 #: pdf-print.php:586
 msgid "If you upgrade to Pro version all your settings will be saved."
-msgstr ""
+msgstr "Якщо ви перейдете на Pro версію, всі налаштування буде збережено"
 
 #: pdf-print.php:593
 msgid "Unlock premium options by upgrading to a PRO version."
-msgstr ""
+msgstr "Відкрийте додаткові налаштування, перейшовши на Pro версію"
 
-#: pdf-print.php:594
-#: pdf-print.php:1429
+#: pdf-print.php:594 pdf-print.php:1429
 msgid "Learn More"
-msgstr ""
+msgstr "Дізнатись більше"
 
 #: pdf-print.php:597
-#, fuzzy
 msgid "Go"
-msgstr "Виконувати!"
+msgstr "Перейти"
 
 #: pdf-print.php:609
-msgid "Congratulations! The PRO version of the plugin is successfully download and activated."
-msgstr ""
+msgid ""
+"Congratulations! The PRO version of the plugin is successfully download and "
+"activated."
+msgstr "Вітаємо! Pro версію плагіну було успішно завантажено та активовано."
 
 #: pdf-print.php:611
 msgid "Please, go to"
-msgstr ""
+msgstr "Будь ласка, перейдіть на"
 
 #: pdf-print.php:611
 msgid "the setting page"
-msgstr ""
+msgstr "сторінку налаштувань"
 
 #: pdf-print.php:612
 msgid "You will be redirected automatically in 5 seconds."
-msgstr ""
+msgstr "Вас буде переадресовано автоматично за 5 сек"
 
 #: pdf-print.php:617
 msgid "You can download and activate"
-msgstr ""
+msgstr "Ви можете завантажити та активувати"
 
 #: pdf-print.php:619
 msgid "version of this plugin by entering Your license key."
-msgstr ""
+msgstr "версію цього плагіну, ввівши ліцензійний ключ."
 
 #: pdf-print.php:621
-msgid "You can find your license key on your personal page Client area, by clicking on the link"
+msgid ""
+"You can find your license key on your personal page Client area, by clicking "
+"on the link"
 msgstr ""
+"Ви можете знайти ліцензійний ключ на вкладці \"Клієнтам\" вашої сторінки"
 
 #: pdf-print.php:623
 msgid "(your username is the email you specify when purchasing the product)."
-msgstr ""
+msgstr "(ваше ім'я - це емейл, який ви вказували при купівлі продукту)"
 
-#: pdf-print.php:631
-#: pdf-print.php:641
-#, fuzzy
+#: pdf-print.php:631 pdf-print.php:641
 msgid "Go!"
-msgstr "Виконувати!"
+msgstr "Перейти!"
 
 #: pdf-print.php:634
-msgid "Unfortunately, you have exceeded the number of available tries per day. Please, upload the plugin manually."
+msgid ""
+"Unfortunately, you have exceeded the number of available tries per day. "
+"Please, upload the plugin manually."
 msgstr ""
+"На жаль, ви перевищили кількість можливих спроб на день. Будь ласка, "
+"завантажте плагін вручну"
 
 #: pdf-print.php:850
 msgid "FAQ"
-msgstr "Часті запитання"
+msgstr "Розповсюджені питання"
 
 #: pdf-print.php:851
 msgid "Support"
-msgstr "Піддтримка"
+msgstr "Підтримка"
 
 #: pdf-print.php:1021
 msgid "Date of completion"
@@ -359,10 +413,12 @@ msgid "View all posts in %s"
 msgstr "Переглянути всі пости у %s"
 
 #: pdf-print.php:1432
-msgid "It's time to upgrade your <strong>PDF & Print</strong> to <strong>PRO</strong> version"
+msgid ""
+"It's time to upgrade your <strong>PDF & Print</strong> to <strong>PRO</"
+"strong> version"
 msgstr ""
+"Час оновити <strong>PDF & Print</strong> до <strong>PRO</strong> версії"
 
 #: pdf-print.php:1433
 msgid "Extend standard plugin functionality with new great options"
-msgstr ""
-
+msgstr "Розширте фунціонал плагіну, додавши нові корисні опції"

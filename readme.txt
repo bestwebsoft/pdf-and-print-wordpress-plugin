@@ -1,10 +1,10 @@
 ﻿=== PDF & Print ===
 Contributors: bestwebsoft
-Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=10&product_id=13
-Tags: pdf, print, pdf print, pdf and print, pdf button, print button, pdf print button, print content, pdf content, pdf print content, pdf post, print post, print post content, generate pdf, generate pdf content, generate post pdf
+Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&product_id=94
+Tags: archive pdf, generate pdf, generate pdf content, generate post pdf, pdf, pdf and print, pdf button, pdf content, pdf custom post type, pdf page, pdf post, pdf print, pdf print button, pdf print content, pdf print portfolio, pdf print plugin, pdf search results, print, print button, print content, print custom post type, print page, print post, print post content, printing output, shortcode
 Requires at least: 3.0
-Tested up to: 3.8.2
-Stable tag: 1.7.2
+Tested up to: 3.9.1
+Stable tag: 1.7.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -118,11 +118,16 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 
 == Changelog ==
 
+= V1.7.3 - 28.05.2014 =
+* Update : We updated all functionality for wordpress 3.9.1.
+* Update : The Ukrainian language is updated in the plugin.
+* Bugfix : Bug with dispalying error while searching in admin area was fixed.
+
 = V1.7.2 - 14.04.2014 =
 * Update : We updated all functionality for wordpress 3.8.2. 
 
 = V1.7.1 - 05.03.2014 =
-* Budfix : Plugin optimization is done.
+* Bugfix : Plugin optimization is done.
 * Update : Plugin tabs is added.
 
 = V1.7 - 21.02.2014 = 
@@ -161,6 +166,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * NEW : Added the ability to output PDF and Print buttons on the type of page.
 
 == Upgrade Notice ==
+
+= V1.7.3 =
+We updated all functionality for wordpress 3.9.1. The Ukrainian language is updated in the plugin. Bug with dispalying error while searching in admin area was fixed.
 
 = V1.7.2 =
 We updated all functionality for wordpress 3.8.2.

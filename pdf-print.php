@@ -4,7 +4,7 @@ Plugin Name: PDF & Print
 Plugin URI: http://bestwebsoft.com/plugin/
 Description: Plugin adds PDF creation and Print button on your site.
 Author: BestWebSoft
-Version: 1.7.2
+Version: 1.7.3
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 */
@@ -29,7 +29,8 @@ License: GPLv2 or later
 if ( ! function_exists( 'pdfprnt_add_pages' ) ) {
 	function pdfprnt_add_pages() {
 		global $bstwbsftwppdtplgns_options, $wpmu, $bstwbsftwppdtplgns_added_menu;
-		$bws_menu_version = '1.2.6';
+		$bws_menu_info = get_plugin_data( plugin_dir_path( __FILE__ ) . "bws_menu/bws_menu.php" );
+		$bws_menu_version = $bws_menu_info["Version"];
 		$base = plugin_basename(__FILE__);
 
 		if ( ! isset( $bstwbsftwppdtplgns_options ) ) {
@@ -343,6 +344,7 @@ if ( ! function_exists ( 'pdfprnt_settings_page' ) ) {
 			<h2 class="nav-tab-wrapper">
 				<a class="nav-tab<?php if ( !isset( $_GET['action'] ) ) echo ' nav-tab-active'; ?>" href="admin.php?page=pdf-print.php"><?php _e( 'Settings', 'pdf-print' ); ?></a>
 				<a class="nav-tab<?php if ( isset( $_GET['action'] ) && 'extra' == $_GET['action'] ) echo ' nav-tab-active'; ?>" href="admin.php?page=pdf-print.php&amp;action=extra"><?php _e( 'Extra settings', 'pdf-print' ); ?></a>
+				<a class="nav-tab" href="http://bestwebsoft.com/plugin/pdf-print/#faq" target="_blank"><?php _e( 'FAQ', 'pdf-print' ); ?></a>
 				<a class="nav-tab bws_go_pro_tab<?php if ( isset( $_GET['action'] ) && 'go_pro' == $_GET['action'] ) echo ' nav-tab-active'; ?>" href="admin.php?page=pdf-print.php&amp;action=go_pro"><?php _e( 'Go PRO', 'pdf-print' ); ?></a>
 			</h2>
 			<div class="updated fade" <?php if ( empty( $message ) || "" != $error ) echo "style=\"display:none\""; ?>><p><strong><?php echo $message; ?></strong></p></div>
@@ -1323,7 +1325,7 @@ if ( ! function_exists( 'print_vars_callback' ) ) {
 if ( ! function_exists( 'pdfprnt_admin_bar_menu' ) ) {
 	function pdfprnt_admin_bar_menu() {
 		global $pdfprnt_options_array, $wp_admin_bar, $wp, $posts;
-		if ( ! is_super_admin() || ! is_admin_bar_showing() ) /* Checking user */
+		if ( ! is_super_admin() || ! is_admin_bar_showing() || is_admin() ) /* Checking user */
 			return;
 		if ( ( ! is_search() && ! is_archive() ) || ( is_category() || ! have_posts() ) )
 			return;
@@ -1378,8 +1380,11 @@ if ( ! function_exists ( 'pdfprnt_plugin_banner' ) ) {
 		global $hook_suffix, $pdfprnt_plugin_info;
 		if ( 'plugins.php' == $hook_suffix ) {   
 			$banner_array = array(
+				array( 'sndr_hide_banner_on_plugin_page', 'sender/sender.php', '0.5' ),
+				array( 'srrl_hide_banner_on_plugin_page', 'user-role/user-role.php', '1.4' ),
 				array( 'pdtr_hide_banner_on_plugin_page', 'updater/updater.php', '1.12' ),
-				array( 'cntctfrmtdb_hide_banner_on_plugin_page', 'contact-form-to-db/contact_form_to_db.php', '1.2' ),		
+				array( 'cntctfrmtdb_hide_banner_on_plugin_page', 'contact-form-to-db/contact_form_to_db.php', '1.2' ),
+				array( 'cntctfrmmlt_hide_banner_on_plugin_page', 'contact-form-multi/contact-form-multi.php', '1.0.7' ),	
 				array( 'gglmps_hide_banner_on_plugin_page', 'bws-google-maps/bws-google-maps.php', '1.2' ),		
 				array( 'fcbkbttn_hide_banner_on_plugin_page', 'facebook-button-plugin/facebook-button-plugin.php', '2.29' ),
 				array( 'twttr_hide_banner_on_plugin_page', 'twitter-plugin/twitter.php', '2.34' ),
