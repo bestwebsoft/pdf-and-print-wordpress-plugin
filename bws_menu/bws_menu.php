@@ -1,7 +1,7 @@
 <?php
 /*
 * Function for displaying BestWebSoft menu
-* Version: 1.3.2
+* Version: 1.3.6
 */
 
 if ( ! function_exists( 'bws_add_menu_render' ) ) {
@@ -119,7 +119,7 @@ if ( ! function_exists( 'bws_add_menu_render' ) ) {
 			),
 			'google-one/google-plus-one.php' => array(
 				'name'			=> 'Google +1',
-				'description'	=> 'Allows you to celebrate liked the article.',
+				'description'	=> 'Allows you to see how many times your page has been liked on Google Search Engine as well as who has liked the article.',
 				'link'			=> 'http://bestwebsoft.com/plugin/google-plus-one/?k=ce7a88837f0a857b3a2bb142f470853c&pn=' . $bws_plugin_info["id"] . '&v=' . $bws_plugin_info["version"] . '&wp_v=' . $wp_version,
 				'download'		=> 'http://bestwebsoft.com/plugin/google-plus-one/?k=ce7a88837f0a857b3a2bb142f470853c&pn=' . $bws_plugin_info["id"] . '&v=' . $bws_plugin_info["version"] . '&wp_v=' . $wp_version . '#download',
 				'wp_install'	=> '/wp-admin/plugin-install.php?tab=search&type=term&s=Google+%2B1+bestwebsoft&plugin-search-input=Search+Plugins',
@@ -248,9 +248,34 @@ if ( ! function_exists( 'bws_add_menu_render' ) ) {
 				'description'	=> 'Allows to change wordpress user role capabilities.',
 				'link'			=> 'http://bestwebsoft.com/plugin/user-role/?k=dfe2244835c6fbf601523964b3f34ccc&pn=' . $bws_plugin_info["id"] . '&v=' . $bws_plugin_info["version"] . '&wp_v=' . $wp_version,
 				'download'		=> 'http://bestwebsoft.com/plugin/user-role/?k=dfe2244835c6fbf601523964b3f34ccc&pn=' . $bws_plugin_info["id"] . '&v=' . $bws_plugin_info["version"] . '&wp_v=' . $wp_version . '#download',
-				'wp_install'	=> 'http://bestwebsoft.com/plugin/user-role/?k=dfe2244835c6fbf601523964b3f34ccc&pn=' . $bws_plugin_info["id"] . '&v=' . $bws_plugin_info["version"] . '&wp_v=' . $wp_version . '#download',
+				'wp_install'	=> '/wp-admin/plugin-install.php?tab=search&s=User+Role+BestWebSoft&plugin-search-input=Search+Plugins',
 				'settings'		=> 'admin.php?page=user-role.php',
 				'pro_version'	=> 'user-role-pro/user-role-pro.php'
+			),
+			'email-queue/email-queue.php' => array(
+				'name'			=> 'Email Queue',
+				'description'	=> 'Allows to manage email massages sent by BestWebSoft plugins.',
+				'link'			=> 'http://bestwebsoft.com/plugin/email-queue/?k=e345e1b6623f0dca119bc2d9433b130b&pn=' . $bws_plugin_info["id"] . '&v=' . $bws_plugin_info["version"] . '&wp_v=' . $wp_version,
+				'download'		=> 'http://bestwebsoft.com/plugin/email-queue/?k=e345e1b6623f0dca119bc2d9433b130b&pn=' . $bws_plugin_info["id"] . '&v=' . $bws_plugin_info["version"] . '&wp_v=' . $wp_version . '#download',
+				'wp_install'	=> '/wp-admin/plugin-install.php?tab=search&s=Email+Queue+BestWebSoft&plugin-search-input=Search+Plugins',
+				'settings'		=> 'admin.php?page=mlq_settings'
+			),
+			'limit-attempts/limit-attempts.php' => array(
+				'name'			=> 'Limit Attempts',
+				'description'	=> 'Allows you to limit rate of login attempts by the ip, and create whitelist and blacklist.',
+				'link'			=> 'http://bestwebsoft.com/plugin/limit-attempts/?k=b14e1697ee4d008abcd4bd34d492573a&pn=' . $bws_plugin_info["id"] . '&v=' . $bws_plugin_info["version"] . '&wp_v=' . $wp_version,
+				'download'		=> 'http://bestwebsoft.com/plugin/limit-attempts/?k=b14e1697ee4d008abcd4bd34d492573a&pn=' . $bws_plugin_info["id"] . '&v=' . $bws_plugin_info["version"] . '&wp_v=' . $wp_version . '#download',
+				'wp_install'	=> '/wp-admin/plugin-install.php?tab=search&s=Limit+Attempts+BestWebSoft&plugin-search-input=Search+Plugins',
+				'settings'		=> 'admin.php?page=limit-attempts.php',
+				'pro_version'	=> 'limit-attempts-pro/limit-attempts-pro.php'
+			),
+			'job-board/job-board.php' => array(
+				'name'			=> 'Job board',
+				'description'	=> 'Allows to create a job-board page on your site.',
+				'link'			=> 'http://bestwebsoft.com/plugin/job-board/?k=b0c504c9ce6edd6692e04222af3fed6f&pn=' . $bws_plugin_info["id"] . '&v=' . $bws_plugin_info["version"] . '&wp_v=' . $wp_version,
+				'download'		=> 'http://bestwebsoft.com/plugin/job-board/?k=b0c504c9ce6edd6692e04222af3fed6f&pn=' . $bws_plugin_info["id"] . '&v=' . $bws_plugin_info["version"] . '&wp_v=' . $wp_version . '#download',
+				'wp_install'	=> '/wp-admin/plugin-install.php?tab=search&type=term&s=Job+board+BestWebSoft&plugin-search-input=Search+Plugins',
+				'settings'		=> 'admin.php?page=job-board.php'
 			)
 		);
 		$bws_plugins_pro	= array(
@@ -305,7 +330,7 @@ if ( ! function_exists( 'bws_add_menu_render' ) ) {
 			),
 			'google-one-pro/google-plus-one-pro.php' => array(
 				'name'			=> 'Google +1 Pro',
-				'description'	=> 'Allows you to celebrate liked the article.',
+				'description'	=> 'Allows you to see how many times your page has been liked on Google Search Engine as well as who has liked the article.',
 				'link'			=> 'http://bestwebsoft.com/plugin/google-plus-one-pro/?k=f4b0a62d155c9df9601a0531ad5bd832&pn=' . $bws_plugin_info["id"] . '&v=' . $bws_plugin_info["version"] . '&wp_v=' . $wp_version,
 				'purchase' 		=> 'http://bestwebsoft.com/plugin/google-plus-one-pro?k=f4b0a62d155c9df9601a0531ad5bd832&pn=' . $bws_plugin_info["id"] . '&v=' . $bws_plugin_info["version"] . '&wp_v=' . $wp_version . '#purchase',
 				'settings' 		=> 'admin.php?page=google-plus-one-pro.php'
@@ -351,6 +376,13 @@ if ( ! function_exists( 'bws_add_menu_render' ) ) {
 				'link'			=> 'http://bestwebsoft.com/plugin/sender-pro/?k=dc5d1a87bdc8aeab2de40ffb99b38054&pn=' . $bws_plugin_info["id"] . '&v=' . $bws_plugin_info["version"] . '&wp_v=' . $wp_version,
 				'purchase' 		=> 'http://bestwebsoft.com/plugin/sender-pro/?k=dc5d1a87bdc8aeab2de40ffb99b38054&pn=' . $bws_plugin_info["id"] . '&v=' . $bws_plugin_info["version"] . '&wp_v=' . $wp_version . '#purchase',
 				'settings'		=> 'admin.php?page=sndrpr_settings'
+			),
+			'limit-attempts-pro/limit-attempts-pro.php' => array(
+				'name'			=> 'Limit Attempts Pro',
+				'description'	=> 'Allows you to limit rate of login attempts by the ip, and create whitelist and blacklist.',
+				'link'			=> 'http://bestwebsoft.com/plugin/limit-attempts-pro/?k=9d42cdf22c7fce2c4b6b447e6a2856e0&pn=' . $bws_plugin_info["id"] . '&v=' . $bws_plugin_info["version"] . '&wp_v=' . $wp_version,
+				'purchase' 		=> 'http://bestwebsoft.com/plugin/limit-attempts-pro/?k=9d42cdf22c7fce2c4b6b447e6a2856e0&pn=' . $bws_plugin_info["id"] . '&v=' . $bws_plugin_info["version"] . '&wp_v=' . $wp_version . '#purchase',
+				'settings'		=> 'admin.php?page=limit-attempts-pro.php',
 			)
 		);
 		
@@ -578,8 +610,10 @@ if ( ! function_exists( 'bws_add_menu_render' ) ) {
 									</div>
 									<div class="bws_product_links">								
 										<a href="<?php echo $bws_plugins_pro[ $key_plugin ]["link"]; ?>" target="_blank"><?php _e( "Learn more", 'bestwebsoft' ); ?></a>
-										<span> | </span>
-										<a href="<?php echo $bws_plugins_pro[ $key_plugin ]["settings"]; ?>" target="_blank"><?php _e( "Settings", 'bestwebsoft' ); ?></a>
+										<?php if ( '' != $bws_plugins_pro[ $key_plugin ]["settings"] ) { ?>
+											<span> | </span>
+											<a href="<?php echo $bws_plugins_pro[ $key_plugin ]["settings"]; ?>" target="_blank"><?php _e( "Settings", 'bestwebsoft' ); ?></a>
+										<?php } ?>
 									</div>
 								</div>
 							<?php } elseif ( isset( $bws_plugins[ $key_plugin ] ) ) { ?>
@@ -605,8 +639,10 @@ if ( ! function_exists( 'bws_add_menu_render' ) ) {
 									</div>									
 									<div class="bws_product_links">
 										<a href="<?php echo $bws_plugins[ $key_plugin ]["link"]; ?>" target="_blank"><?php _e( "Learn more", 'bestwebsoft' ); ?></a>
-										<span> | </span>
-										<a href="<?php echo $bws_plugins[ $key_plugin ]["settings"]; ?>" target="_blank"><?php _e( "Settings", 'bestwebsoft' ); ?></a>
+										<?php if ( '' != $bws_plugins[ $key_plugin ]["settings"] ) { ?>
+											<span> | </span>
+											<a href="<?php echo $bws_plugins[ $key_plugin ]["settings"]; ?>" target="_blank"><?php _e( "Settings", 'bestwebsoft' ); ?></a>
+										<?php } ?>
 									</div>
 								</div>
 							<?php }

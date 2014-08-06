@@ -4,7 +4,7 @@ Plugin Name: PDF & Print
 Plugin URI: http://bestwebsoft.com/plugin/
 Description: Plugin adds PDF creation and Print button on your site.
 Author: BestWebSoft
-Version: 1.7.3
+Version: 1.7.4
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 */
@@ -654,6 +654,9 @@ if ( ! function_exists ( 'pdfprnt_settings_page' ) ) {
 /* Positioning buttons in the page */
 if( ! function_exists( 'pdfprnt_content' ) ) {
 	function pdfprnt_content( $content ) {
+		if ( is_admin() )
+			return;
+
 		global $pdfprnt_options_array, $post;
 		if ( ! in_array( get_post_type( $post ), $pdfprnt_options_array['use_types_posts'] ) ) // Check for existence the type of posts.
 			return $content;
@@ -1380,6 +1383,7 @@ if ( ! function_exists ( 'pdfprnt_plugin_banner' ) ) {
 		global $hook_suffix, $pdfprnt_plugin_info;
 		if ( 'plugins.php' == $hook_suffix ) {   
 			$banner_array = array(
+				array( 'lmtttmpts_hide_banner_on_plugin_page', 'limit-attempts/limit-attempts.php', '1.0.2' ),
 				array( 'sndr_hide_banner_on_plugin_page', 'sender/sender.php', '0.5' ),
 				array( 'srrl_hide_banner_on_plugin_page', 'user-role/user-role.php', '1.4' ),
 				array( 'pdtr_hide_banner_on_plugin_page', 'updater/updater.php', '1.12' ),

@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&product_id=94
 Tags: archive pdf, generate pdf, generate pdf content, generate post pdf, pdf, pdf and print, pdf button, pdf content, pdf custom post type, pdf page, pdf post, pdf print, pdf print button, pdf print content, pdf print portfolio, pdf print plugin, pdf search results, print, print button, print content, print custom post type, print page, print post, print post content, printing output, shortcode
 Requires at least: 3.0
-Tested up to: 3.9.1
-Stable tag: 1.7.3
+Tested up to: 4.0-beta2
+Stable tag: 1.7.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -38,7 +38,7 @@ The author of the PDF & Print also recommends the following plugins:
 * <a href="http://wordpress.org/plugins/updater/">Updater</a> - This plugin updates WordPress core and the plugins to the recent versions. You can also use the auto mode or manual mode for updating and set email notifications.
 There is also a premium version of the plugin <a href="http://bestwebsoft.com/plugin/updater-pro/?k=d74ca3ffdf910e4ec8ee8774573e7b67">Updater Pro</a> with more useful features available. It can make backup of all your files and database before updating. Also it can forbid some plugins or WordPress Core update.
 
-= Translate =
+= Translation =
 
 * Russian (ru_RU)
 * Ukrainian (uk)
@@ -118,6 +118,10 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 
 == Changelog ==
 
+= V1.7.4 - 06.08.2014 =
+* Update : We updated all functionality for wordpress 4.0-beta2.
+* Budfix : Bug with Warning output in Dashboard was fixed.
+
 = V1.7.3 - 28.05.2014 =
 * Update : We updated all functionality for wordpress 3.9.1.
 * Update : The Ukrainian language is updated in the plugin.
@@ -166,6 +170,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * NEW : Added the ability to output PDF and Print buttons on the type of page.
 
 == Upgrade Notice ==
+
+= V1.7.4 =
+We updated all functionality for wordpress 4.0-beta2. Bug with Warning output in Dashboard was fixed.
 
 = V1.7.3 =
 We updated all functionality for wordpress 3.9.1. The Ukrainian language is updated in the plugin. Bug with dispalying error while searching in admin area was fixed.
