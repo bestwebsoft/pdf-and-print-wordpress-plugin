@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&product_id=94
 Tags: archive pdf, generate pdf, generate pdf content, generate post pdf, pdf, pdf and print, pdf button, pdf content, pdf custom post type, pdf page, pdf post, pdf print, pdf print button, pdf print content, pdf print portfolio, pdf print plugin, pdf search results, print, print button, print content, print custom post type, print page, print post, print post content, printing output, shortcode
 Requires at least: 3.0
-Tested up to: 4.0-beta2
-Stable tag: 1.7.4
+Tested up to: 4.0-beta3
+Stable tag: 1.7.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -118,6 +118,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 
 == Changelog ==
 
+= V1.7.5 - 07.08.2014 =
+* Budfix : Security Exploit was fixed.
+
 = V1.7.4 - 06.08.2014 =
 * Update : We updated all functionality for wordpress 4.0-beta2.
 * Budfix : Bug with Warning output in Dashboard was fixed.
@@ -170,6 +173,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * NEW : Added the ability to output PDF and Print buttons on the type of page.
 
 == Upgrade Notice ==
+
+= V1.7.5 =
+Security Exploit was fixed.
 
 = V1.7.4 =
 We updated all functionality for wordpress 4.0-beta2. Bug with Warning output in Dashboard was fixed.

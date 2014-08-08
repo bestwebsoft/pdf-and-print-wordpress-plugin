@@ -1,7 +1,7 @@
 <?php
 /*
 * Function for displaying BestWebSoft menu
-* Version: 1.3.6
+* Version: 1.3.7
 */
 
 if ( ! function_exists( 'bws_add_menu_render' ) ) {
@@ -515,8 +515,8 @@ if ( ! function_exists( 'bws_add_menu_render' ) ) {
 		if ( ( isset( $_REQUEST['bwsmn_form_submit'] ) && check_admin_referer( plugin_basename(__FILE__), 'bwsmn_nonce_submit' ) ) ||
 			 ( isset( $_REQUEST['bwsmn_form_submit_custom_email'] ) && check_admin_referer( plugin_basename(__FILE__), 'bwsmn_nonce_submit_custom_email' ) ) ) {
 			if ( isset( $_REQUEST['bwsmn_form_email'] ) ) {
-				$bwsmn_form_email = trim( $_REQUEST['bwsmn_form_email'] );
-				if ( $bwsmn_form_email == "" || !preg_match( "/^((?:[a-z0-9']+(?:[a-z0-9\-_\.']+)?@[a-z0-9]+(?:[a-z0-9\-\.]+)?\.[a-z]{2,5})[, ]*)+$/i", $bwsmn_form_email ) ) {
+				$bwsmn_form_email = esc_html( trim( $_REQUEST['bwsmn_form_email'] ) );
+				if ( $bwsmn_form_email == "" || ! is_email( $bwsmn_form_email ) ) {
 					$error = __( "Please enter a valid email address.", 'bestwebsoft' );
 				} else {
 					$email = $bwsmn_form_email;
@@ -538,19 +538,24 @@ if ( ! function_exists( 'bws_add_menu_render' ) ) {
 				foreach ( $system_info['system_info'] as $key => $value ) {
 					$message_text .= '<tr><td>'. $key .'</td><td>'. $value .'</td></tr>';	
 				}
-				$message_text .= '</table>
-				<h4>Active Plugins</h4>
-				<table>';
-				foreach ( $system_info['active_plugins'] as $key => $value ) {	
-					$message_text .= '<tr><td scope="row">'. $key .'</td><td scope="row">'. $value .'</td></tr>';	
+				$message_text .= '</table>';
+				if ( ! empty( $system_info['active_plugins'] ) ) {
+					$message_text .= '<h4>Active Plugins</h4>
+					<table>';
+					foreach ( $system_info['active_plugins'] as $key => $value ) {	
+						$message_text .= '<tr><td scope="row">'. $key .'</td><td scope="row">'. $value .'</td></tr>';	
+					}
+					$message_text .= '</table>';
 				}
-				$message_text .= '</table>
-				<h4>Inactive Plugins</h4>
-				<table>';
-				foreach ( $system_info['inactive_plugins'] as $key => $value ) {
-					$message_text .= '<tr><td scope="row">'. $key .'</td><td scope="row">'. $value .'</td></tr>';
+				if ( ! empty( $system_info['inactive_plugins'] ) ) {
+					$message_text .= '<h4>Inactive Plugins</h4>
+					<table>';
+					foreach ( $system_info['inactive_plugins'] as $key => $value ) {
+						$message_text .= '<tr><td scope="row">'. $key .'</td><td scope="row">'. $value .'</td></tr>';
+					}
+					$message_text .= '</table>';
 				}
-				$message_text .= '</table></body></html>';
+				$message_text .= '</body></html>';
 				$result = wp_mail( $email, 'System Info From ' . $home_url, $message_text, $headers );
 				if ( $result != true )
 					$error = __( "Sorry, email message could not be delivered.", 'bestwebsoft' );
@@ -898,12 +903,14 @@ if ( ! function_exists( 'bws_add_menu_render' ) ) {
 					<table class="bws_system_info">
 						<thead><tr><th><?php _e( 'Active Plugins', 'bestwebsoft' ); ?></th><th></th></tr></thead>
 						<tbody>
-						<?php foreach ( $system_info['active_plugins'] as $key => $value ) { ?>	
-							<tr>
-								<td scope="row"><?php echo $key; ?></td>
-								<td scope="row"><?php echo $value; ?></td>
-							</tr>	
-						<?php } ?>
+						<?php if ( ! empty( $system_info['active_plugins'] ) ) {
+							foreach ( $system_info['active_plugins'] as $key => $value ) { ?>	
+								<tr>
+									<td scope="row"><?php echo $key; ?></td>
+									<td scope="row"><?php echo $value; ?></td>
+								</tr>	
+							<?php }
+						} ?>
 						</tbody>
 					</table>
 					<table class="bws_system_info">

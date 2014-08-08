@@ -4,7 +4,7 @@ Plugin Name: PDF & Print
 Plugin URI: http://bestwebsoft.com/plugin/
 Description: Plugin adds PDF creation and Print button on your site.
 Author: BestWebSoft
-Version: 1.7.4
+Version: 1.7.5
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 */
@@ -219,7 +219,7 @@ if ( ! function_exists ( 'pdfprnt_settings_page' ) ) {
 		if ( isset( $_GET['action'] ) && 'go_pro' == $_GET['action'] ) {
 			global $wpmu;
 
-			$bws_license_key = ( isset( $_POST['bws_license_key'] ) ) ? trim( $_POST['bws_license_key'] ) : "";
+			$bws_license_key = ( isset( $_POST['bws_license_key'] ) ) ? trim( esc_html( $_POST['bws_license_key'] ) ) : "";
 			$bstwbsftwppdtplgns_options_defaults = array();
 			if ( 1 == $wpmu ) {
 				if ( !get_site_option( 'bstwbsftwppdtplgns_options' ) )
@@ -236,7 +236,7 @@ if ( ! function_exists ( 'pdfprnt_settings_page' ) ) {
 					if ( strlen( $bws_license_key ) != 18 ) {
 						$error = __( "Wrong license key", 'pdf-print' );
 					} else {
-						$bws_license_plugin = trim( $_POST['bws_license_plugin'] );	
+						$bws_license_plugin = stripslashes( esc_html( $_POST['bws_license_plugin'] ) );
 						if ( isset( $bstwbsftwppdtplgns_options['go_pro'][ $bws_license_plugin ]['count'] ) && $bstwbsftwppdtplgns_options['go_pro'][ $bws_license_plugin ]['time'] < ( time() + (24 * 60 * 60) ) ) {
 							$bstwbsftwppdtplgns_options['go_pro'][ $bws_license_plugin ]['count'] = $bstwbsftwppdtplgns_options['go_pro'][ $bws_license_plugin ]['count'] + 1;
 						} else {
@@ -340,7 +340,7 @@ if ( ! function_exists ( 'pdfprnt_settings_page' ) ) {
 		?>
 		<div class="wrap">
 			<div class="icon32 icon32-bws" id="icon-options-general"></div>
-			<h2><?php echo __( 'PDF & Print Settings', 'pdf-print' ); ?></h2>
+			<h2><?php _e( 'PDF & Print Settings', 'pdf-print' ); ?></h2>
 			<h2 class="nav-tab-wrapper">
 				<a class="nav-tab<?php if ( !isset( $_GET['action'] ) ) echo ' nav-tab-active'; ?>" href="admin.php?page=pdf-print.php"><?php _e( 'Settings', 'pdf-print' ); ?></a>
 				<a class="nav-tab<?php if ( isset( $_GET['action'] ) && 'extra' == $_GET['action'] ) echo ' nav-tab-active'; ?>" href="admin.php?page=pdf-print.php&amp;action=extra"><?php _e( 'Extra settings', 'pdf-print' ); ?></a>
@@ -354,7 +354,7 @@ if ( ! function_exists ( 'pdfprnt_settings_page' ) ) {
 				<form method="post" action="admin.php?page=pdf-print.php" id="pdfprnt_settings_form">
 					<table class="form-table pdfprnt_settings_table">
 						<tr>
-							<th scope="row"><?php echo __( 'Use of theme stylesheet or plugin default style:', 'pdf-print' ); ?></th>
+							<th scope="row"><?php _e( 'Use of theme stylesheet or plugin default style:', 'pdf-print' ); ?></th>
 							<td>
 								<select name="pdfprnt_use_theme_stylesheet">
 									<option value="0" <?php if ( 0 == $pdfprnt_options_array['use_theme_stylesheet'] ) echo 'selected="selected"'; ?>><?php echo __( 'Default stylesheet', 'pdf-print' ); ?></option>
@@ -363,7 +363,7 @@ if ( ! function_exists ( 'pdfprnt_settings_page' ) ) {
 							</td>
 						</tr>
 						<tr>
-							<th scope="row"><?php echo __( 'The types of posts that the plugin will use:', 'pdf-print' ); ?></th>
+							<th scope="row"><?php _e( 'The types of posts that the plugin will use:', 'pdf-print' ); ?></th>
 							<td>
 								<select name="pdfprnt_use_types_posts[]" multiple="multiple">
 									<?php foreach ( get_post_types( array( 'public' => 1, 'show_ui' => 1 ), 'objects' ) as $key => $value  ) : ?>
@@ -372,8 +372,7 @@ if ( ! function_exists ( 'pdfprnt_settings_page' ) ) {
 								</select>
 							</td>
 						</tr>
-						<?php
-							$active_plugins = get_option( 'active_plugins' );
+						<?php $active_plugins = get_option( 'active_plugins' );
 							if( 0 < count( preg_grep( '/portfolio\/portfolio.php/', $active_plugins ) ) ) : ?>
 								<tr>
 									<th scope="row"></th>
@@ -384,7 +383,7 @@ if ( ! function_exists ( 'pdfprnt_settings_page' ) ) {
 						<?php endif; ?>
 						<tr>
 							<th scope="row">
-								<?php echo __( 'Position of buttons in content:', 'pdf-print' ); ?>
+								<?php _e( 'Position of buttons in content:', 'pdf-print' ); ?>
 							</th>
 							<td>
 								<select name="pdfprnt_position">
@@ -395,7 +394,7 @@ if ( ! function_exists ( 'pdfprnt_settings_page' ) ) {
 							</td>
 						</tr>
 						<tr>
-							<th scope="row"><?php echo __( 'Show:', 'pdf-print' ); ?></th>
+							<th scope="row"><?php _e( 'Show:', 'pdf-print' ); ?></th>
 							<td>
 								<label><input type="checkbox" name="pdfprnt_show_btn_pdf" <?php if ( 1 == $pdfprnt_options_array['show_btn_pdf'] ) echo 'checked="checked"'; ?> /> <span><?php echo __( 'PDF button', 'pdf-print' ); ?></span></label><br />
 								<label><input type="checkbox" name="pdfprnt_show_btn_print" <?php if ( 1 == $pdfprnt_options_array['show_btn_print'] ) echo 'checked="checked"'; ?> /> <span><?php echo __( 'Print button', 'pdf-print' ); ?></span></label>
@@ -403,7 +402,7 @@ if ( ! function_exists ( 'pdfprnt_settings_page' ) ) {
 						</tr>
 						<tr>
 							<th scope="row">
-								<?php echo __( 'Default template setting for post:', 'pdf-print' ); ?>
+								<?php _e( 'Default template setting for post:', 'pdf-print' ); ?>
 							</th>
 							<td>
 								<div>
@@ -428,7 +427,7 @@ if ( ! function_exists ( 'pdfprnt_settings_page' ) ) {
 						</tr>
 						<tr>
 							<th scope="row">
-								<?php echo __( 'Position of buttons in content for custom post:', 'pdf-print' ); ?>
+								<?php _e( 'Position of buttons in content for custom post:', 'pdf-print' ); ?>
 							</th>
 							<td>
 								<select name="pdfprnt_position_custom">
@@ -438,7 +437,7 @@ if ( ! function_exists ( 'pdfprnt_settings_page' ) ) {
 							</td>
 						</tr>
 						<tr>
-							<th scope="row"><?php echo __( 'Show for custom posts:', 'pdf-print' ); ?></th>
+							<th scope="row"><?php _e( 'Show for custom posts:', 'pdf-print' ); ?></th>
 							<td>
 								<label><input type="checkbox" name="pdfprnt_show_btn_pdf_custom" <?php if ( 1 == $pdfprnt_options_array['show_btn_pdf_custom'] ) echo 'checked="checked"'; ?> /> <span><?php echo __( 'PDF button', 'pdf-print' ); ?></span></label><br />
 								<label><input type="checkbox" name="pdfprnt_show_btn_print_custom" <?php if ( 1 == $pdfprnt_options_array['show_btn_print_custom'] ) echo 'checked="checked"'; ?> /> <span><?php echo __( 'Print button', 'pdf-print' ); ?></span></label>
@@ -446,7 +445,7 @@ if ( ! function_exists ( 'pdfprnt_settings_page' ) ) {
 						</tr>
 						<tr>
 							<th scope="row">
-								<?php echo __( 'Default template setting for custom posts:', 'pdf-print' ); ?>
+								<?php _e( 'Default template setting for custom posts:', 'pdf-print' ); ?>
 							</th>
 							<td>
 								<div>
@@ -477,7 +476,7 @@ if ( ! function_exists ( 'pdfprnt_settings_page' ) ) {
 						</tr>
 						<tr>
 							<th scope="row">
-								<?php echo __( 'Position of buttons on search or archive page:', 'pdf-print' ); ?>
+								<?php _e( 'Position of buttons on search or archive page:', 'pdf-print' ); ?>
 							</th>
 							<td>
 								<select name="pdfprnt_position_search_archive">
@@ -487,7 +486,7 @@ if ( ! function_exists ( 'pdfprnt_settings_page' ) ) {
 							</td>
 						</tr>
 						<tr>
-							<th scope="row"><?php echo __( 'Show for search or archive page:', 'pdf-print' ); ?></th>
+							<th scope="row"><?php _e( 'Show for search or archive page:', 'pdf-print' ); ?></th>
 							<td>
 								<label><input type="checkbox" name="pdfprnt_show_btn_pdf_search_archive" <?php if ( 1 == $pdfprnt_options_array['show_btn_pdf_search_archive'] ) echo 'checked="checked"'; ?> /> <span><?php echo __( 'PDF button', 'pdf-print' ); ?></span></label><br />
 								<label><input type="checkbox" name="pdfprnt_show_btn_print_search_archive" <?php if ( 1 == $pdfprnt_options_array['show_btn_print_search_archive'] ) echo 'checked="checked"'; ?> /> <span><?php echo __( 'Print button', 'pdf-print' ); ?></span></label>
@@ -495,7 +494,7 @@ if ( ! function_exists ( 'pdfprnt_settings_page' ) ) {
 						</tr>
 						<tr>
 							<th scope="row">
-								<?php echo __( 'Default template setting for search and archive:', 'pdf-print' ); ?>
+								<?php _e( 'Default template setting for search and archive:', 'pdf-print' ); ?>
 							</th>
 							<td>
 								<div>
@@ -526,14 +525,14 @@ if ( ! function_exists ( 'pdfprnt_settings_page' ) ) {
 						</tr>
 						<tr>
 							<th scope="row">
-								<?php echo __( 'Settings for shorcodes:', 'pdf-print' ); ?>
+								<?php _e( 'Settings for shorcodes:', 'pdf-print' ); ?>
 							</th>
 							<td>
 								<label><input type="checkbox" name="pdfprnt_tmpl_shorcode"  <?php if ( 1 == $pdfprnt_options_array['tmpl_shorcode'] ) echo 'checked="checked"'; ?> /> <span><?php echo __( 'Do!', 'pdf-print' ); ?></span></label>
 							</td>
 						</tr>
 						<tr>
-							<th scope="row"><?php echo __( 'Show the print window', 'pdf-print' ); ?></th>
+							<th scope="row"><?php _e( 'Show the print window', 'pdf-print' ); ?></th>
 							<td>
 								<label><input type="checkbox" name="pdfprnt_show_print_window" <?php if ( 1 == $pdfprnt_options_array['show_print_window'] ) echo 'checked="checked"'; ?> /> <span><?php echo __( 'Mark the checkbox to show it', 'pdf-print' ); ?></span></label><br />
 							</td>
@@ -878,104 +877,91 @@ if ( ! function_exists( 'pdfprnt_generate_template' ) ) {
 	function pdfprnt_generate_template( $content, $template = false, $isprint = false ) {
 		global $pdfprnt_options_array;
 		$tmpl	=	isset( $_GET['tmpl'] ) ? $_GET['tmpl'] : "";
-		ob_start(); /* Starting output buffering */
-		?>
-			<html>
-				<head>
-					<?php if ( 1 == $pdfprnt_options_array['use_theme_stylesheet'] ) : ?>
-						<link type="text/css" rel="stylesheet" href="<?php echo get_bloginfo( 'stylesheet_url' ); ?>" media="all" />
-					<?php else: ?>
-						<link type="text/css" rel="stylesheet" href="<?php echo plugins_url( 'css/default.css', __FILE__ ); ?>" media="all" />
-					<?php endif;
-						if ( ! $template )
-							$template = $pdfprnt_options_array['tmpl_post'];
-						switch ( $template ) { /* Using template choosed on settings page */
-							case 1: /* Allign left template */
-								?>
-								<style type="text/css">
-									h1, h2, h3, h4, h5, h6 {
-										text-align: left;
-									}
-									img {
-										float: right;
-									}
-								</style>
-								<?php
-								break;
-							case 2: /* Allign center template */
-								?>
-								<style type="text/css">
-									h1, h2, h3, h4, h5, h6 {
-										text-align: center;
-									}
-									img {
-										float: left;
-									}
-								</style>
-								<?php
-								break;
-							case 3: /* Allign right template */
-								?>
-								<style type="text/css">
-									h1, h2, h3, h4, h5, h6 {
-										text-align: right;
-									}
-									img {
-										float: left;
-									}
-								</style>
-								<?php
-								break;
-						}
-						switch ( $tmpl ) { /* If got something by GET (from admin bar) */
-							case 1: /* Allign left template */
-								?>
-								<style type="text/css">
-									h1, h2, h3, h4, h5, h6 {
-										text-align: left;
-									}
-									img {
-										float: right;
-									}
-								</style>
-								<?php
-								break;
-							case 2: /* Allign center template */
-								?>
-								<style type="text/css">
-									h1, h2, h3, h4, h5, h6 {
-										text-align: center;
-									}
-									img {
-										float: left;
-									}
-								</style>
-								<?php
-								break;
-							case 3: /* Allign right template */
-								?>
-								<style type="text/css">
-									h1, h2, h3, h4, h5, h6 {
-										text-align: right;
-									}
-									img {
-										float: left;
-									}
-								</style>
+		ob_start(); /* Starting output buffering */ ?>
+		<html>
+			<head>
+				<?php if ( 1 == $pdfprnt_options_array['use_theme_stylesheet'] ) : ?>
+					<link type="text/css" rel="stylesheet" href="<?php echo get_bloginfo( 'stylesheet_url' ); ?>" media="all" />
+				<?php else: ?>
+					<link type="text/css" rel="stylesheet" href="<?php echo plugins_url( 'css/default.css', __FILE__ ); ?>" media="all" />
+				<?php endif;
+					if ( ! $template )
+						$template = $pdfprnt_options_array['tmpl_post'];
+					switch ( $template ) { /* Using template choosed on settings page */
+						case 1: /* Allign left template */ ?>
+							<style type="text/css">
+								h1, h2, h3, h4, h5, h6 {
+									text-align: left;
+								}
+								img {
+									float: right;
+								}
+							</style>
 							<?php break;
-						}
-						if ( $isprint ) : ?>
-						<script type="text/javascript" src="<?php echo plugins_url( 'js/pdfprnt.print.js', __FILE__ ); ?>"></script>
-						<?php if ( 1 == $pdfprnt_options_array['show_print_window'] ) {
-							echo '<script>window.onload = function(){ window.print(); };</script>';	} ?>
-					<?php endif; ?>
-				</head>
-				<body>
-					<?php echo $content; ?>
-				</body>
-			</html>
-		<?php
-		$html = ob_get_contents(); /* Getting output buffering */
+						case 2: /* Allign center template */ ?>
+							<style type="text/css">
+								h1, h2, h3, h4, h5, h6 {
+									text-align: center;
+								}
+								img {
+									float: left;
+								}
+							</style>
+							<?php break;
+						case 3: /* Allign right template */ ?>
+							<style type="text/css">
+								h1, h2, h3, h4, h5, h6 {
+									text-align: right;
+								}
+								img {
+									float: left;
+								}
+							</style>
+							<?php break;
+					}
+					switch ( $tmpl ) { /* If got something by GET (from admin bar) */
+						case 1: /* Allign left template */ ?>
+							<style type="text/css">
+								h1, h2, h3, h4, h5, h6 {
+									text-align: left;
+								}
+								img {
+									float: right;
+								}
+							</style>
+							<?php break;
+						case 2: /* Allign center template */ ?>
+							<style type="text/css">
+								h1, h2, h3, h4, h5, h6 {
+									text-align: center;
+								}
+								img {
+									float: left;
+								}
+							</style>
+							<?php break;
+						case 3: /* Allign right template */ ?>
+							<style type="text/css">
+								h1, h2, h3, h4, h5, h6 {
+									text-align: right;
+								}
+								img {
+									float: left;
+								}
+							</style>
+						<?php break;
+					}
+					if ( $isprint ) : ?>
+					<script type="text/javascript" src="<?php echo plugins_url( 'js/pdfprnt.print.js', __FILE__ ); ?>"></script>
+					<?php if ( 1 == $pdfprnt_options_array['show_print_window'] ) {
+						echo '<script>window.onload = function(){ window.print(); };</script>';	} ?>
+				<?php endif; ?>
+			</head>
+			<body>
+				<?php echo $content; ?>
+			</body>
+		</html>
+		<?php $html = ob_get_contents(); /* Getting output buffering */
 		ob_end_clean(); /* Closing output buffering */
 		return $html; /* Now we done with template */
 	}
