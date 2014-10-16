@@ -4,7 +4,7 @@ Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&
 Tags: archive pdf, generate pdf, generate pdf content, generate post pdf, pdf, pdf and print, pdf button, pdf content, pdf custom post type, pdf page, pdf post, pdf print, pdf print button, pdf print content, pdf print portfolio, pdf print plugin, pdf search results, print, print button, print content, print custom post type, print page, print post, print post content, printing output, shortcode
 Requires at least: 3.0
 Tested up to: 4.0
-Stable tag: 1.7.5
+Stable tag: 1.7.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -20,7 +20,7 @@ http://www.youtube.com/watch?v=EM6AEkD9M_s
 
 <a href="http://support.bestwebsoft.com" target="_blank">Support</a>
 
-<a href="http://bestwebsoft.com/plugin/pdf-print-pro/?k=6a544b359e625de8281a635315d84a70" target="_blank">Upgrade to Pro Version</a>
+<a href="http://bestwebsoft.com/products/pdf-print/?k=6a544b359e625de8281a635315d84a70" target="_blank">Upgrade to Pro Version</a>
 
 = Features =
 
@@ -36,7 +36,7 @@ http://www.youtube.com/watch?v=EM6AEkD9M_s
 The author of the PDF & Print also recommends the following plugins:
 
 * <a href="http://wordpress.org/plugins/updater/">Updater</a> - This plugin updates WordPress core and the plugins to the recent versions. You can also use the auto mode or manual mode for updating and set email notifications.
-There is also a premium version of the plugin <a href="http://bestwebsoft.com/plugin/updater-pro/?k=d74ca3ffdf910e4ec8ee8774573e7b67">Updater Pro</a> with more useful features available. It can make backup of all your files and database before updating. Also it can forbid some plugins or WordPress Core update.
+There is also a premium version of the plugin <a href="http://bestwebsoft.com/products/updater/?k=d74ca3ffdf910e4ec8ee8774573e7b67">Updater Pro</a> with more useful features available. It can make backup of all your files and database before updating. Also it can forbid some plugins or WordPress Core update.
 
 = Translation =
 
@@ -85,15 +85,15 @@ And you need to add the source code <?php if ( function_exists ( 'pdfprnt_show_b
 
 Menu to generate pdf documents is displayed if you are an administrator only in the pages of the archives and if there is at least one search result.
 
-= Buttons do not appear on portfolio and portfolio page =
+= Buttons do not appear on portfolio and portfolio page (Portfolio plugin by BestWebSoft) =
 
-In order to display PDF and Print Buttons of Portfolio plugin for the post it is necessary to insert the source code <?php if ( function_exists( 'pdfprnt_show_buttons_for_bws_portfolio_post' ) ) echo pdfprnt_show_buttons_for_bws_portfolio_post(); ?> in files portfolio.php or portfolio-post.php which are located in the template.
+In order to display PDF and Print Buttons for the post of Portfolio plugin it is necessary to insert the source code <?php if ( function_exists( 'pdfprnt_show_buttons_for_bws_portfolio_post' ) ) echo pdfprnt_show_buttons_for_bws_portfolio_post(); ?> in files portfolio.php or portfolio-post.php which are located in the template.
 
-In order to display PDF and Print Buttons of Portfolio plugin for all posts on a page it is neessary to insert the source code <?php if ( function_exists( 'pdfprnt_show_buttons_for_bws_portfolio' ) ) echo pdfprnt_show_buttons_for_bws_portfolio(); ?> in file portfolio.php which is located in the template.
+In order to display PDF and Print Buttons for all posts of Portfolio plugin on a page it is neessary to insert the source code <?php if ( function_exists( 'pdfprnt_show_buttons_for_bws_portfolio' ) ) echo pdfprnt_show_buttons_for_bws_portfolio(); ?> in file portfolio.php which is located in the template.
 
 = Why are PDF and Print buttons not displayed in the custom post type =
 
-In order to display PDF and Print Buttons of Portfolio plugin for custom post type it is necessary to insert the source code <?php if ( function_exists( 'pdfprnt_show_buttons_for_custom_post_type' ) ) echo pdfprnt_show_buttons_for_custom_post_type( $query_posts ); ?> where you need to specify query parameters for your custom post. For example: <?php if ( function_exists( 'pdfprnt_show_buttons_for_custom_post_type' ) ) echo pdfprnt_show_buttons_for_custom_post_type( 'post_type=gallery&orderby=post_date' ); ?> or <?php if ( function_exists( 'pdfprnt_show_buttons_for_custom_post_type' ) ) echo pdfprnt_show_buttons_for_custom_post_type( array( 'post_type' => 'gallery', 'orderby' => 'post_date' ) ); ?>. To find more information on syntax for assigning parameters to function see <a href="http://codex.wordpress.org/Class_Reference/WP_Query#Parameters">here</a>.
+In order to display PDF and Print Buttons for custom post type it is necessary to insert the source code <?php if ( function_exists( 'pdfprnt_show_buttons_for_custom_post_type' ) ) echo pdfprnt_show_buttons_for_custom_post_type( $query_posts ); ?> where you need to specify query parameters for your custom post. For example: <?php if ( function_exists( 'pdfprnt_show_buttons_for_custom_post_type' ) ) echo pdfprnt_show_buttons_for_custom_post_type( 'post_type=gallery&orderby=post_date' ); ?> or <?php if ( function_exists( 'pdfprnt_show_buttons_for_custom_post_type' ) ) echo pdfprnt_show_buttons_for_custom_post_type( array( 'post_type' => 'gallery', 'orderby' => 'post_date' ) ); ?>. To find more information on syntax for assigning parameters to function see <a href="http://codex.wordpress.org/Class_Reference/WP_Query#Parameters">here</a>.
 
 = If I have shortcode on the page, but I don't want them to be printed (add to pdf) =
 
@@ -118,7 +118,10 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 
 == Changelog ==
 
-= V1.7.5 - 07.08.2014 =
+= V1.7.6 - 16.10.2014 =
+* Budfix : We fixed js errors.
+
+= V1.7.5 - 07.09.2014 =
 * Budfix : Security Exploit was fixed.
 
 = V1.7.4 - 06.08.2014 =
@@ -173,6 +176,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * NEW : Added the ability to output PDF and Print buttons on the type of page.
 
 == Upgrade Notice ==
+
+= V1.7.6 =
+We fixed js errors.
 
 = V1.7.5 =
 Security Exploit was fixed.
