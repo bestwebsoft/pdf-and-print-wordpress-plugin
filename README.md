@@ -6,12 +6,12 @@ PDF & Print allows you in the easiest and most flexible way to create PDF and Pr
 
 <img src="http://bestwebsoft.com/wp-content/uploads/2013/10/pdf-and-print.jpg" />
 
-<a href="http://bestwebsoft.com/plugin/pdf-print/#description" target=_blank>Description</a> | 
-<a href="http://bestwebsoft.com/plugin/pdf-print/#installation" target=_blank>Installation</a> | 
-<a href="http://bestwebsoft.com/plugin/pdf-print/#faq" target=_blank>FAQ</a> | 
-<a href="http://bestwebsoft.com/plugin/pdf-print/#screenshots" target=_blank>Screenshots</a> | 
-<a href="http://bestwebsoft.com/plugin/pdf-print/#changelog" target=_blank>Changelog</a> | 
-<a href="http://bestwebsoft.com/plugin/pdf-print/#download" target=_blank>Download</a>
+<a href="http://bestwebsoft.com/products/pdf-print/description" target=_blank>Description</a> | 
+<a href="http://bestwebsoft.com/products/pdf-print/installation" target=_blank>Installation</a> | 
+<a href="http://bestwebsoft.com/products/pdf-print/faq" target=_blank>FAQ</a> | 
+<a href="http://bestwebsoft.com/products/pdf-print/screenshots" target=_blank>Screenshots</a> | 
+<a href="http://bestwebsoft.com/products/pdf-print/changelog" target=_blank>Changelog</a> | 
+<a href="http://bestwebsoft.com/products/pdf-print/download" target=_blank>Download</a>
 
 Features
 --------
