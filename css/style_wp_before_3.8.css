@@ -19,6 +19,22 @@
 .pdfprnt-right a {
 	padding: 0 5px;
 }
+.entry-content .pdfprnt-top-left a,
+.entry-content .pdfprnt-bottom-left a,
+.entry-content .pdfprnt-top-right a,
+.entry-content .pdfprnt-bottom-right a,
+.entry-content .pdfprnt-left a,
+.entry-content .pdfprnt-right a {
+	border-bottom: none;
+}
+.entry-content .pdfprnt-top-left a img,
+.entry-content .pdfprnt-bottom-left a img,
+.entry-content .pdfprnt-top-right a img,
+.entry-content .pdfprnt-bottom-right a img,
+.entry-content .pdfprnt-left a img,
+.entry-content .pdfprnt-right a img {
+    display: inline;
+}
 #wpadminbar #wp-admin-bar-pdfprnt-bar-menu-default li {
 	cursor: pointer;
 }
