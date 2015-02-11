@@ -4,7 +4,7 @@ Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&
 Tags: archive pdf, generate pdf, generate pdf content, generate post pdf, pdf, pdf and print, pdf button, pdf content, pdf custom post type, pdf page, pdf post, pdf print, pdf print button, pdf print content, pdf print portfolio, pdf print plugin, pdf search results, print, print button, print content, print custom post type, print page, print post, print post content, printing output, shortcode
 Requires at least: 3.0
 Tested up to: 4.1
-Stable tag: 1.7.7
+Stable tag: 1.7.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -79,7 +79,7 @@ Go to the Settings page and change value for the 'Show PDF button' or 'Show Prin
 = Buttons do not appear on search and archives pages =
 
 Go to the Settings page and change value for the 'Show PDF button for search or archive page' or 'Show Print button for search or archive page' fields.
-And you need to add the source code <?php if ( function_exists ( 'pdfprnt_show_buttons_search_archive' ) ) echo pdfprnt_show_buttons_search_archive (); ?> In the files search.php or archives.php.
+And you need to add the source code `<?php if ( function_exists ( 'pdfprnt_show_buttons_search_archive' ) ) echo pdfprnt_show_buttons_search_archive (); ?>` In the files search.php or archives.php.
 
 = Menu to generate pdf file is not displayed in the adminbar for administrator =
 
@@ -87,13 +87,13 @@ Menu to generate pdf documents is displayed if you are an administrator only in 
 
 = Buttons do not appear on portfolio and portfolio page (Portfolio plugin by BestWebSoft) =
 
-In order to display PDF and Print Buttons for the post of Portfolio plugin it is necessary to insert the source code <?php if ( function_exists( 'pdfprnt_show_buttons_for_bws_portfolio_post' ) ) echo pdfprnt_show_buttons_for_bws_portfolio_post(); ?> in files portfolio.php or portfolio-post.php which are located in the template.
+In order to display PDF and Print Buttons for the post of Portfolio plugin it is necessary to insert the source code `<?php if ( function_exists( 'pdfprnt_show_buttons_for_bws_portfolio_post' ) ) echo pdfprnt_show_buttons_for_bws_portfolio_post(); ?>` in files portfolio.php or portfolio-post.php which are located in the template.
 
-In order to display PDF and Print Buttons for all posts of Portfolio plugin on a page it is neessary to insert the source code <?php if ( function_exists( 'pdfprnt_show_buttons_for_bws_portfolio' ) ) echo pdfprnt_show_buttons_for_bws_portfolio(); ?> in file portfolio.php which is located in the template.
+In order to display PDF and Print Buttons for all posts of Portfolio plugin on a page it is neessary to insert the source code `<?php if ( function_exists( 'pdfprnt_show_buttons_for_bws_portfolio' ) ) echo pdfprnt_show_buttons_for_bws_portfolio(); ?>` in file portfolio.php which is located in the template.
 
 = Why are PDF and Print buttons not displayed in the custom post type =
 
-In order to display PDF and Print Buttons for custom post type it is necessary to insert the source code <?php if ( function_exists( 'pdfprnt_show_buttons_for_custom_post_type' ) ) echo pdfprnt_show_buttons_for_custom_post_type( $query_posts ); ?> where you need to specify query parameters for your custom post. For example: <?php if ( function_exists( 'pdfprnt_show_buttons_for_custom_post_type' ) ) echo pdfprnt_show_buttons_for_custom_post_type( 'post_type=gallery&orderby=post_date' ); ?> or <?php if ( function_exists( 'pdfprnt_show_buttons_for_custom_post_type' ) ) echo pdfprnt_show_buttons_for_custom_post_type( array( 'post_type' => 'gallery', 'orderby' => 'post_date' ) ); ?>. To find more information on syntax for assigning parameters to function see <a href="http://codex.wordpress.org/Class_Reference/WP_Query#Parameters">here</a>.
+In order to display PDF and Print Buttons for custom post type it is necessary to insert the source code `<?php if ( function_exists( 'pdfprnt_show_buttons_for_custom_post_type' ) ) echo pdfprnt_show_buttons_for_custom_post_type( $query_posts ); ?>` where you need to specify query parameters for your custom post. For example: `<?php if ( function_exists( 'pdfprnt_show_buttons_for_custom_post_type' ) ) echo pdfprnt_show_buttons_for_custom_post_type( 'post_type=gallery&orderby=post_date' ); ?>` or `<?php if ( function_exists( 'pdfprnt_show_buttons_for_custom_post_type' ) ) echo pdfprnt_show_buttons_for_custom_post_type( array( 'post_type' => 'gallery', 'orderby' => 'post_date' ) ); ?>`. To find more information on syntax for assigning parameters to function see <a href="http://codex.wordpress.org/Class_Reference/WP_Query#Parameters">here</a>.
 
 = If I have shortcode on the page, but I don't want them to be printed (add to pdf) =
 
@@ -117,6 +117,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 6. PDF output page example.
 
 == Changelog ==
+
+= V1.7.8 - 11.02.2015 =
+* Update : We updated mPDF to 5.7.4 version.
 
 = V1.7.7 - 09.01.2015 =
 * Update : BWS plugins section is updated.
@@ -180,6 +183,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * NEW : Added the ability to output PDF and Print buttons on the type of page.
 
 == Upgrade Notice ==
+
+= V1.7.8 =
+ We updated mPDF to 5.7.4 version.
 
 = V1.7.7 =
 BWS plugins section is updated. We updated all functionality for wordpress 4.1.
