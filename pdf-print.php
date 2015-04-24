@@ -1,10 +1,10 @@
 <?php
 /*
-Plugin Name: PDF & Print
+Plugin Name: PDF & Print by BestWebSoft
 Plugin URI: http://bestwebsoft.com/products/
 Description: Plugin adds PDF creation and Print button on your site.
 Author: BestWebSoft
-Version: 1.7.8
+Version: 1.7.9
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 */
@@ -28,66 +28,30 @@ License: GPLv2 or later
 /* Add our own menu */
 if ( ! function_exists( 'pdfprnt_add_pages' ) ) {
 	function pdfprnt_add_pages() {
-		global $bstwbsftwppdtplgns_options, $bstwbsftwppdtplgns_added_menu;
-		$bws_menu_info = get_plugin_data( plugin_dir_path( __FILE__ ) . "bws_menu/bws_menu.php" );
-		$bws_menu_version = $bws_menu_info["Version"];
-		$base = plugin_basename(__FILE__);
-
-		if ( ! isset( $bstwbsftwppdtplgns_options ) ) {
-            if ( is_multisite() ) {
-                if ( ! get_site_option( 'bstwbsftwppdtplgns_options' ) )
-                    add_site_option( 'bstwbsftwppdtplgns_options', array(), '', 'yes' );
-                $bstwbsftwppdtplgns_options = get_site_option( 'bstwbsftwppdtplgns_options' );
-            } else {
-                if ( ! get_option( 'bstwbsftwppdtplgns_options' ) )
-                    add_option( 'bstwbsftwppdtplgns_options', array(), '', 'yes' );
-                $bstwbsftwppdtplgns_options = get_option( 'bstwbsftwppdtplgns_options' );
-            }
-        }
-
-        if ( isset( $bstwbsftwppdtplgns_options['bws_menu_version'] ) ) {
-            $bstwbsftwppdtplgns_options['bws_menu']['version'][ $base ] = $bws_menu_version;
-            unset( $bstwbsftwppdtplgns_options['bws_menu_version'] );
-            if ( is_multisite() )
-                update_site_option( 'bstwbsftwppdtplgns_options', $bstwbsftwppdtplgns_options );
-            else
-                update_option( 'bstwbsftwppdtplgns_options', $bstwbsftwppdtplgns_options );
-            require_once( dirname( __FILE__ ) . '/bws_menu/bws_menu.php' );
-        } else if ( ! isset( $bstwbsftwppdtplgns_options['bws_menu']['version'][ $base ] ) || $bstwbsftwppdtplgns_options['bws_menu']['version'][ $base ] < $bws_menu_version ) {
-            $bstwbsftwppdtplgns_options['bws_menu']['version'][ $base ] = $bws_menu_version;
-            if ( is_multisite() )
-                update_site_option( 'bstwbsftwppdtplgns_options', $bstwbsftwppdtplgns_options );
-            else
-                update_option( 'bstwbsftwppdtplgns_options', $bstwbsftwppdtplgns_options );
-            require_once( dirname( __FILE__ ) . '/bws_menu/bws_menu.php' );
-        } else if ( ! isset( $bstwbsftwppdtplgns_added_menu ) ) {
-            $plugin_with_newer_menu = $base;
-            foreach ( $bstwbsftwppdtplgns_options['bws_menu']['version'] as $key => $value ) {
-                if ( $bws_menu_version < $value && is_plugin_active( $base ) ) {
-                    $plugin_with_newer_menu = $key;
-                }
-            }
-            $plugin_with_newer_menu = explode( '/', $plugin_with_newer_menu );
-            $wp_content_dir = defined( 'WP_CONTENT_DIR' ) ? basename( WP_CONTENT_DIR ) : 'wp-content';
-            if ( file_exists( ABSPATH . $wp_content_dir . '/plugins/' . $plugin_with_newer_menu[0] . '/bws_menu/bws_menu.php' ) )
-                require_once( ABSPATH . $wp_content_dir . '/plugins/' . $plugin_with_newer_menu[0] . '/bws_menu/bws_menu.php' );
-            else
-                require_once( dirname( __FILE__ ) . '/bws_menu/bws_menu.php' ); 
-            $bstwbsftwppdtplgns_added_menu = true;          
-        }
-
-        add_menu_page(  'BWS Plugins',  'BWS Plugins', 'manage_options', 'bws_plugins', 'bws_add_menu_render', plugins_url( 'images/px.png', __FILE__ ), 1001 );
-		add_submenu_page( 'bws_plugins', __( 'PDF & Print Settings', 'pdf-print' ), __( 'PDF & Print', 'pdf-print' ), 'manage_options', "pdf-print.php", 'pdfprnt_settings_page' );
+		bws_add_general_menu( plugin_basename( __FILE__ ) );
+		add_submenu_page( 'bws_plugins', 'PDF & Print ' . __( 'Settings', 'pdf-print' ), 'PDF & Print', 'manage_options', "pdf-print.php", 'pdfprnt_settings_page' );
 	}
 }
 
 /* Init plugin */
 if ( ! function_exists ( 'pdfprnt_init' ) ) {
 	function pdfprnt_init() {
+		global $pdfprnt_plugin_info;
 		/* Internationalization, first(!) */
 		load_plugin_textdomain( 'pdf-print', false, dirname( plugin_basename( __FILE__ ) ) . '/languages/' );
-		/* Function check if plugin is compatible with current WP version  */
-		pdfprnt_version_check();
+		
+		require_once( dirname( __FILE__ ) . '/bws_menu/bws_functions.php' );
+
+		if ( empty( $pdfprnt_plugin_info ) ) {
+			if ( ! function_exists( 'get_plugin_data' ) ) {
+				require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+			}
+			$pdfprnt_plugin_info = get_plugin_data( __FILE__ );
+		}
+
+		/* check WordPress version */
+		bws_wp_version_check( plugin_basename( __FILE__ ), $pdfprnt_plugin_info, "3.0" );
+
 		/* Get/Register and check settings for plugin */
 		if ( ! is_admin() || ( isset( $_GET['page'] ) && "pdf-print.php" == $_GET['page'] ) )
 			pdfprnt_settings();
@@ -97,9 +61,6 @@ if ( ! function_exists ( 'pdfprnt_init' ) ) {
 if ( ! function_exists( 'pdfprnt_admin_init' ) ) {
 	function pdfprnt_admin_init() {
 		global $bws_plugin_info, $pdfprnt_plugin_info;
-
-		if ( ! $pdfprnt_plugin_info )	
-			$pdfprnt_plugin_info = get_plugin_data( __FILE__ );	
 
 		if ( ! isset( $bws_plugin_info ) || empty( $bws_plugin_info ) )			
 			$bws_plugin_info = array( 'id' => '101', 'version' => $pdfprnt_plugin_info["Version"] );		
@@ -127,8 +88,8 @@ if ( ! function_exists( 'pdfprnt_settings' ) ) {
 		$pdfprnt_options_array_defaults		=	array(
 			'plugin_option_version' 		=> $pdfprnt_plugin_info["Version"],
 			'position'						=>	'top-right',
-			'position_search_archive'		=>	'left',
-			'position_custom'				=>	'left',
+			'position_search_archive'		=>	'pdfprnt-left',
+			'position_custom'				=>	'pdfprnt-left',
 			'show_btn_print'				=>	1,
 			'show_btn_pdf'					=>	1,
 			'show_btn_print_search_archive'	=>	1,
@@ -157,31 +118,12 @@ if ( ! function_exists( 'pdfprnt_settings' ) ) {
 	}
 }
 
-/* Function check if plugin is compatible with current WP version  */
-if ( ! function_exists ( 'pdfprnt_version_check' ) ) {
-	function pdfprnt_version_check() {
-		global $wp_version, $pdfprnt_plugin_info;
-		$require_wp		=	"3.0"; /* Wordpress at least requires version */
-		$plugin			=	plugin_basename( __FILE__ );
-	 	if ( version_compare( $wp_version, $require_wp, "<" ) ) {
-			include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
-			if ( is_plugin_active( $plugin ) ) {
-				deactivate_plugins( $plugin );
-				if ( ! $pdfprnt_plugin_info )	
-					$pdfprnt_plugin_info = get_plugin_data( __FILE__ );
-				$admin_url = ( function_exists( 'get_admin_url' ) ) ? get_admin_url( null, 'plugins.php' ) : esc_url( '/wp-admin/plugins.php' );
-				wp_die( "<strong>" . $pdfprnt_plugin_info['Name'] . " </strong> " . __( 'requires', 'pdf-print' ) . " <strong>WordPress" . $require_wp . " </strong> " . __( 'or higher, that is why it has been deactivated! Please upgrade WordPress and try again.', 'pdf-print') . "<br /><br />" . __( 'Back to the WordPress', 'pdf-print') . " <a href='" . $admin_url . "'>" . __( 'Plugins page', 'pdf-print') . "</a>." );
-			}
-		}
-	}
-}
-
 /* Add admin page */
 if ( ! function_exists ( 'pdfprnt_settings_page' ) ) {
 	function pdfprnt_settings_page () {
 		global $pdfprnt_options_array, $wp_version, $pdfprnt_plugin_info, $bstwbsftwppdtplgns_options;
 		$message = $error = "";
-
+		$plugin_basename = plugin_basename( __FILE__ );
 		$pdfprnt_positions_values	=	array(
 			'top-left'		=>	__( 'Top Left', 'pdf-print' ),
 			'top-right'		=>	__( 'Top Right', 'pdf-print' ),
@@ -200,7 +142,7 @@ if ( ! function_exists ( 'pdfprnt_settings_page' ) ) {
 			isset( $_REQUEST['pdfprnt_tmpl_post'] ) &&
 			isset( $_REQUEST['pdfprnt_tmpl_custom'] ) &&
 			isset( $_REQUEST['pdfprnt_tmpl_search'] ) &&
-			check_admin_referer( plugin_basename( __FILE__ ), 'pdfprnt_nonce_name' ) ) {
+			check_admin_referer( $plugin_basename, 'pdfprnt_nonce_name' ) ) {
 			$pdfprnt_options_array['position']						=	$_REQUEST['pdfprnt_position'];
 			$pdfprnt_options_array['position_search_archive']		=	$_REQUEST['pdfprnt_position_search_archive'];
 			$pdfprnt_options_array['position_custom']				=	$_REQUEST['pdfprnt_position_custom'];
@@ -222,127 +164,9 @@ if ( ! function_exists ( 'pdfprnt_settings_page' ) ) {
 		}
 		/* GO PRO */
 		if ( isset( $_GET['action'] ) && 'go_pro' == $_GET['action'] ) {
-
-			$bws_license_key = ( isset( $_POST['bws_license_key'] ) ) ? trim( esc_html( $_POST['bws_license_key'] ) ) : "";
-
-			if ( isset( $_POST['bws_license_submit'] ) && check_admin_referer( plugin_basename( __FILE__ ), 'bws_license_nonce_name' ) ) {
-				if ( '' != $bws_license_key ) { 
-					if ( strlen( $bws_license_key ) != 18 ) {
-						$error = __( "Wrong license key", 'pdf-print' );
-					} else {
-						$bws_license_plugin = stripslashes( esc_html( $_POST['bws_license_plugin'] ) );
-						if ( isset( $bstwbsftwppdtplgns_options['go_pro'][ $bws_license_plugin ]['count'] ) && $bstwbsftwppdtplgns_options['go_pro'][ $bws_license_plugin ]['time'] < ( time() + (24 * 60 * 60) ) ) {
-							$bstwbsftwppdtplgns_options['go_pro'][ $bws_license_plugin ]['count'] = $bstwbsftwppdtplgns_options['go_pro'][ $bws_license_plugin ]['count'] + 1;
-						} else {
-							$bstwbsftwppdtplgns_options['go_pro'][ $bws_license_plugin ]['count'] = 1;
-							$bstwbsftwppdtplgns_options['go_pro'][ $bws_license_plugin ]['time'] = time();
-						}	
-
-						/* download Pro */						
-						if ( ! array_key_exists( $bws_license_plugin, $all_plugins ) ) {
-							$current = get_site_transient( 'update_plugins' );
-							if ( is_array( $all_plugins ) && !empty( $all_plugins ) && isset( $current ) && is_array( $current->response ) ) {
-								$to_send = array();
-								$to_send["plugins"][ $bws_license_plugin ] = array();
-								$to_send["plugins"][ $bws_license_plugin ]["bws_license_key"] = $bws_license_key;
-								$to_send["plugins"][ $bws_license_plugin ]["bws_illegal_client"] = true;
-								$options = array(
-									'timeout' => ( ( defined('DOING_CRON') && DOING_CRON ) ? 30 : 3 ),
-									'body' => array( 'plugins' => serialize( $to_send ) ),
-									'user-agent' => 'WordPress/' . $wp_version . '; ' . get_bloginfo( 'url' ) );
-								$raw_response = wp_remote_post( 'http://bestwebsoft.com/wp-content/plugins/paid-products/plugins/update-check/1.0/', $options );
-
-								if ( is_wp_error( $raw_response ) || 200 != wp_remote_retrieve_response_code( $raw_response ) ) {
-									$error = __( "Something went wrong. Try again later. If the error will appear again, please, contact us <a href=http://support.bestwebsoft.com>BestWebSoft</a>. We are sorry for inconvenience.", 'pdf-print' );
-								} else {
-									$response = maybe_unserialize( wp_remote_retrieve_body( $raw_response ) );
-									
-									if ( is_array( $response ) && !empty( $response ) ) {
-										foreach ( $response as $key => $value ) {
-											if ( "wrong_license_key" == $value->package ) {
-												$error = __( "Wrong license key", 'pdf-print' ); 
-											} elseif ( "wrong_domain" == $value->package ) {
-												$error = __( "This license key is bind to another site", 'pdf-print' );
-											} elseif ( "you_are_banned" == $value->package ) {
-												$error = __( "Unfortunately, you have exceeded the number of available tries. Please, upload the plugin manually.", 'pdf-print' );
-											}
-										}
-										if ( '' == $error ) {																			
-											$bstwbsftwppdtplgns_options[ $bws_license_plugin ] = $bws_license_key;
-
-											$url = 'http://bestwebsoft.com/wp-content/plugins/paid-products/plugins/downloads/?bws_first_download=' . $bws_license_plugin . '&bws_license_key=' . $bws_license_key . '&download_from=5';
-											$uploadDir = wp_upload_dir();
-											$zip_name = explode( '/', $bws_license_plugin );
-											$received_content = file_get_contents( $url );
-											if ( ! $received_content ) {
-												$error = __( "Failed to download the zip archive. Please, upload the plugin manually", 'pdf-print' );
-											} else {
-												if ( is_writable( $uploadDir["path"] ) ) {
-													$file_put_contents = $uploadDir["path"] . "/" . $zip_name[0] . ".zip";
-												    if ( file_put_contents( $file_put_contents, $received_content ) ) {
-												    	@chmod( $file_put_contents, octdec( 755 ) );
-												    	if ( class_exists( 'ZipArchive' ) ) {
-															$zip = new ZipArchive();
-															if ( $zip->open( $file_put_contents ) === TRUE ) {
-																$zip->extractTo( WP_PLUGIN_DIR );
-																$zip->close();
-															} else {
-																$error = __( "Failed to open the zip archive. Please, upload the plugin manually", 'pdf-print' );
-															}								
-														} elseif ( class_exists( 'Phar' ) ) {
-															$phar = new PharData( $file_put_contents );
-															$phar->extractTo( WP_PLUGIN_DIR );
-														} else {
-															$error = __( "Your server does not support either ZipArchive or Phar. Please, upload the plugin manually", 'pdf-print' );
-														}
-														@unlink( $file_put_contents );										    
-													} else {
-														$error = __( "Failed to download the zip archive. Please, upload the plugin manually", 'pdf-print' );
-													}
-												} else {
-													$error = __( "UploadDir is not writable. Please, upload the plugin manually", 'pdf-print' );
-												}
-											}
-
-											/* activate Pro */
-											if ( file_exists( WP_PLUGIN_DIR . '/' . $zip_name[0] ) ) {
-												/* activate Pro */
-												$network_wide = false;
-												if ( is_multisite() ) {
-													if ( is_plugin_active_for_network( plugin_basename( __FILE__ ) ) )
-														$network_wide = true;
-												}
-												activate_plugin( $bws_license_plugin, NULL, $network_wide );
-												$pro_plugin_is_activated = true;
-											} elseif ( '' == $error ) {
-												$error = __( "Failed to download the zip archive. Please, upload the plugin manually", 'pdf-print' );
-											}																				
-										}
-									} else {
-										$error = __( "Something went wrong. Try again later or upload the plugin manually. We are sorry for inconvienience.", 'pdf-print' ); 
-					 				}
-					 			}
-				 			}
-						} else {
-							/* activate Pro */
-							$network_wide = false;
-							if ( is_multisite() ) {
-								if ( is_plugin_active_for_network( plugin_basename( __FILE__ ) ) )
-									$network_wide = true;
-							}
-							activate_plugin( $bws_license_plugin, NULL, $network_wide );
-							$pro_plugin_is_activated = true;						
-						}
-						if ( is_multisite() ) {
-							update_site_option( 'bstwbsftwppdtplgns_options', $bstwbsftwppdtplgns_options );
-						} else {
-							update_option( 'bstwbsftwppdtplgns_options', $bstwbsftwppdtplgns_options );
-						}
-			 		}
-			 	} else {
-		 			$error = __( "Please, enter Your license key", 'pdf-print' );
-		 		}
-		 	}
+			$go_pro_result = bws_go_pro_tab_check( $plugin_basename );
+			if ( ! empty( $go_pro_result['error'] ) )
+				$error = $go_pro_result['error'];
 		} ?>
 		<div class="wrap">
 			<div class="icon32 icon32-bws" id="icon-options-general"></div>
@@ -436,8 +260,8 @@ if ( ! function_exists ( 'pdfprnt_settings_page' ) ) {
 							</th>
 							<td>
 								<select name="pdfprnt_position_custom">
-									<option value="pdfprnt-left" <?php if ( 'left' == $pdfprnt_options_array['position_custom'] ) echo 'selected="selected"'; ?>><?php echo __( 'Align Left', 'pdf-print' ); ?></option>
-									<option value="pdfprnt-right" <?php if ( 'right' == $pdfprnt_options_array['position_custom'] ) echo 'selected="selected"'; ?>><?php echo __( 'Align Right', 'pdf-print' ); ?></option>
+									<option value="pdfprnt-left" <?php if ( 'pdfprnt-left' == $pdfprnt_options_array['position_custom'] ) echo 'selected="selected"'; ?>><?php echo __( 'Align Left', 'pdf-print' ); ?></option>
+									<option value="pdfprnt-right" <?php if ( 'pdfprnt-right' == $pdfprnt_options_array['position_custom'] ) echo 'selected="selected"'; ?>><?php echo __( 'Align Right', 'pdf-print' ); ?></option>
 								</select>
 							</td>
 						</tr>
@@ -485,8 +309,8 @@ if ( ! function_exists ( 'pdfprnt_settings_page' ) ) {
 							</th>
 							<td>
 								<select name="pdfprnt_position_search_archive">
-									<option value="pdfprnt-left" <?php if ( 'left' == $pdfprnt_options_array['position_search_archive'] ) echo 'selected="selected"'; ?>><?php echo __( 'Align Left', 'pdf-print' ); ?></option>
-									<option value="pdfprnt-right" <?php if ( 'right' == $pdfprnt_options_array['position_search_archive'] ) echo 'selected="selected"'; ?>><?php echo __( 'Align Right', 'pdf-print' ); ?></option>
+									<option value="pdfprnt-left" <?php if ( 'pdfprnt-left' == $pdfprnt_options_array['position_search_archive'] ) echo 'selected="selected"'; ?>><?php echo __( 'Align Left', 'pdf-print' ); ?></option>
+									<option value="pdfprnt-right" <?php if ( 'pdfprnt-right' == $pdfprnt_options_array['position_search_archive'] ) echo 'selected="selected"'; ?>><?php echo __( 'Align Right', 'pdf-print' ); ?></option>
 								</select>
 							</td>
 						</tr>
@@ -587,18 +411,9 @@ if ( ! function_exists ( 'pdfprnt_settings_page' ) ) {
 					<p class="submit">
 						<input type="submit" class="button-primary" value="<?php _e( 'Save Changes', 'pdf-print' ); ?>" />
 					</p>
-					<?php wp_nonce_field( plugin_basename( __FILE__ ), 'pdfprnt_nonce_name' ); ?>
+					<?php wp_nonce_field( $plugin_basename, 'pdfprnt_nonce_name' ); ?>
 				</form>
-				<div class="bws-plugin-reviews">
-					<div class="bws-plugin-reviews-rate">
-						<?php _e( 'If you enjoy our plugin, please give it 5 stars on WordPress', 'pdf-print' ); ?>: 
-						<a href="http://wordpress.org/support/view/plugin-reviews/pdf-print" target="_blank" title="PDF &amp; Print reviews"><?php _e( 'Rate the plugin', 'pdf-print' ); ?></a>
-					</div>
-					<div class="bws-plugin-reviews-support">
-						<?php _e( 'If there is something wrong about it, please contact us', 'pdf-print' ); ?>: 
-						<a href="http://support.bestwebsoft.com">http://support.bestwebsoft.com</a>
-					</div>
-				</div>
+				<?php bws_plugin_reviews_block( $pdfprnt_plugin_info['Name'], 'pdf-print' ); ?>
 			<?php } elseif ( 'extra' == $_GET['action'] ) { ?>
 				<div class="bws_pro_version_bloc">
 					<div class="bws_pro_version_table_bloc">	
@@ -645,51 +460,9 @@ if ( ! function_exists ( 'pdfprnt_settings_page' ) ) {
 						<div class="clear"></div>					
 					</div>
 				</div>
-			<?php } elseif ( 'go_pro' == $_GET['action'] ) { ?>
-				<?php if ( isset( $pro_plugin_is_activated ) && true === $pro_plugin_is_activated ) { ?>
-					<script type="text/javascript">
-						window.setTimeout( function() {
-						    window.location.href = 'admin.php?page=pdf-print-pro.php';
-						}, 5000 );
-					</script>				
-					<p><?php _e( "Congratulations! The PRO version of the plugin is successfully download and activated.", 'pdf-print' ); ?></p>
-					<p>
-						<?php _e( "Please, go to", 'pdf-print' ); ?> <a href="admin.php?page=pdf-print-pro.php"><?php _e( 'the setting page', 'pdf-print' ); ?></a> 
-						(<?php _e( "You will be redirected automatically in 5 seconds.", 'pdf-print' ); ?>)
-					</p>
-				<?php } else { ?>
-					<form method="post" action="admin.php?page=pdf-print.php&amp;action=go_pro">
-						<p>
-							<?php _e( 'You can download and activate', 'pdf-print' ); ?> 
-							<a href="http://bestwebsoft.com/products/pdf-print/?k=d9da7c9c2046bed8dfa38d005d4bffdb&pn=101&v=<?php echo $pdfprnt_plugin_info["Version"]; ?>&wp_v=<?php echo $wp_version; ?>" target="_blank" title="PDF & Print Pro">PRO</a> 
-							<?php _e( 'version of this plugin by entering Your license key.', 'pdf-print' ); ?><br />
-							<span style="color: #888888;font-size: 10px;">
-								<?php _e( 'You can find your license key on your personal page Client area, by clicking on the link', 'pdf-print' ); ?> 
-								<a href="http://bestwebsoft.com/wp-login.php">http://bestwebsoft.com/wp-login.php</a> 
-								<?php _e( '(your username is the email you specify when purchasing the product).', 'pdf-print' ); ?>
-							</span>
-						</p>
-						<?php if ( isset( $bstwbsftwppdtplgns_options['go_pro']['pdf-print-pro/pdf-print-pro.php']['count'] ) &&
-							'5' < $bstwbsftwppdtplgns_options['go_pro']['pdf-print-pro/pdf-print-pro.php']['count'] &&
-							$bstwbsftwppdtplgns_options['go_pro']['pdf-print-pro/pdf-print-pro.php']['time'] < ( time() + ( 24 * 60 * 60 ) ) ) { ?>
-							<p>
-								<input disabled="disabled" type="text" name="bws_license_key" value="<?php echo $bws_license_key; ?>" />
-								<input disabled="disabled" type="submit" class="button-primary" value="<?php _e( 'Go!', 'pdf-print' ); ?>" />
-							</p>
-							<p>
-								<?php _e( "Unfortunately, you have exceeded the number of available tries per day. Please, upload the plugin manually.", 'pdf-print' ); ?>
-							</p>
-						<?php } else { ?>
-							<p>
-								<input type="text" name="bws_license_key" value="<?php echo $bws_license_key; ?>" />
-								<input type="hidden" name="bws_license_plugin" value="pdf-print-pro/pdf-print-pro.php" />
-								<input type="hidden" name="bws_license_submit" value="submit" />
-								<input type="submit" class="button-primary" value="<?php _e( 'Go!', 'pdf-print' ); ?>" />
-								<?php wp_nonce_field( plugin_basename(__FILE__), 'bws_license_nonce_name' ); ?>
-							</p>
-						<?php } ?>
-					</form>
-				<?php }
+				<?php bws_plugin_reviews_block( $pdfprnt_plugin_info['Name'], 'pdf-print' ); ?>
+			<?php } elseif ( 'go_pro' == $_GET['action'] ) {
+				bws_go_pro_tab( $pdfprnt_plugin_info, $plugin_basename, 'pdf-print.php', 'pdf-print-pro.php', 'pdf-print-pro/pdf-print-pro.php', 'pdf-print', 'd9da7c9c2046bed8dfa38d005d4bffdb', '101', isset( $go_pro_result['pro_plugin_is_activated'] ) );
 			} ?>
 		</div>
 	<?php }
@@ -1413,76 +1186,8 @@ if ( ! function_exists( 'pdfprnt_admin_bar_menu' ) ) {
 if ( ! function_exists ( 'pdfprnt_plugin_banner' ) ) {
 	function pdfprnt_plugin_banner() {
 		global $hook_suffix, $pdfprnt_plugin_info;
-		if ( 'plugins.php' == $hook_suffix ) {   
-			$banner_array = array(
-				array( 'sbscrbr_hide_banner_on_plugin_page', 'subscriber/subscriber.php', '1.1.8' ),
-				array( 'lmtttmpts_hide_banner_on_plugin_page', 'limit-attempts/limit-attempts.php', '1.0.2' ),
-				array( 'sndr_hide_banner_on_plugin_page', 'sender/sender.php', '0.5' ),
-				array( 'srrl_hide_banner_on_plugin_page', 'user-role/user-role.php', '1.4' ),
-				array( 'pdtr_hide_banner_on_plugin_page', 'updater/updater.php', '1.12' ),
-				array( 'cntctfrmtdb_hide_banner_on_plugin_page', 'contact-form-to-db/contact_form_to_db.php', '1.2' ),
-				array( 'cntctfrmmlt_hide_banner_on_plugin_page', 'contact-form-multi/contact-form-multi.php', '1.0.7' ),
-				array( 'gglmps_hide_banner_on_plugin_page', 'bws-google-maps/bws-google-maps.php', '1.2' ),
-				array( 'fcbkbttn_hide_banner_on_plugin_page', 'facebook-button-plugin/facebook-button-plugin.php', '2.29' ),
-				array( 'twttr_hide_banner_on_plugin_page', 'twitter-plugin/twitter.php', '2.34' ),
-				array( 'pdfprnt_hide_banner_on_plugin_page', 'pdf-print/pdf-print.php', '1.7.1' ),
-				array( 'gglplsn_hide_banner_on_plugin_page', 'google-one/google-plus-one.php', '1.1.4' ),
-				array( 'gglstmp_hide_banner_on_plugin_page', 'google-sitemap-plugin/google-sitemap-plugin.php', '2.8.4' ),
-				array( 'cntctfrmpr_for_ctfrmtdb_hide_banner_on_plugin_page', 'contact-form-pro/contact_form_pro.php', '1.14' ),
-				array( 'cntctfrm_for_ctfrmtdb_hide_banner_on_plugin_page', 'contact-form-plugin/contact_form.php', '3.62' ),
-				array( 'cntctfrm_hide_banner_on_plugin_page', 'contact-form-plugin/contact_form.php', '3.47' ),
-				array( 'cptch_hide_banner_on_plugin_page', 'captcha/captcha.php', '3.8.4' ),
-				array( 'gllr_hide_banner_on_plugin_page', 'gallery-plugin/gallery-plugin.php', '3.9.1' )	
-			);
-			if ( ! $pdfprnt_plugin_info ) 
-				$pdfprnt_plugin_info = get_plugin_data( __FILE__ );
-				
-			$all_plugins = get_plugins();
-			$this_banner = 'pdfprnt_hide_banner_on_plugin_page';
-			foreach ( $banner_array as $key => $value ) {
-				if ( $this_banner == $value[0] ) {
-					global $wp_version, $bstwbsftwppdtplgns_cookie_add;
-		       		if ( ! isset( $bstwbsftwppdtplgns_cookie_add ) ) {
-						echo '<script type="text/javascript" src="' . plugins_url( 'js/c_o_o_k_i_e.js', __FILE__ ) . '"></script>';
-						$bstwbsftwppdtplgns_cookie_add = true;
-					} ?>
-					<script type="text/javascript">		
-						(function($) {
-							$(document).ready( function() {		
-								var hide_message = $.cookie( "pdfprnt_hide_banner_on_plugin_page" );
-								if ( hide_message == "true") {
-									$( ".pdfprnt_message" ).css( "display", "none" );
-								} else {
-									$( ".pdfprnt_message" ).css( "display", "block" );
-								};
-								$( ".pdfprnt_close_icon" ).click( function() {
-									$( ".pdfprnt_message" ).css( "display", "none" );
-									$.cookie( "pdfprnt_hide_banner_on_plugin_page", "true", { expires: 32 } );
-								});	
-							});
-						})(jQuery);				
-					</script>
-					<div class="updated" style="padding: 0; margin: 0; border: none; background: none;">					                      
-						<div class="pdfprnt_message bws_banner_on_plugin_page" style="display: none;">
-							<img class="pdfprnt_close_icon close_icon" title="" src="<?php echo plugins_url( 'images/close_banner.png', __FILE__ ); ?>" alt=""/>
-							<div class="button_div">
-								<a class="button" target="_blank" href="http://bestwebsoft.com/products/pdf-print/?k=e2f2549f4d70bc4cb9b48071169d264e&pn=101&v=<?php echo $pdfprnt_plugin_info["Version"]; ?>&wp_v=<?php echo $wp_version; ?>"><?php _e( "Learn More", 'pdf-print' ); ?></a>				
-							</div>
-							<div class="text">
-								<?php _e( "It's time to upgrade your <strong>PDF & Print</strong> to <strong>PRO</strong> version", 'pdf-print' ); ?>!<br />
-								<span><?php _e( 'Extend standard plugin functionality with new great options', 'pdf-print' ); ?>.</span>
-							</div>
-							<div class="icon"> 					
-								<img title="" src="<?php echo plugins_url( 'images/banner.png', __FILE__ ); ?>" alt=""/>	
-							</div>
-						</div>  
-					</div>
-					<?php break;
-				}
-				if ( isset( $all_plugins[ $value[1] ] ) && $all_plugins[ $value[1] ]["Version"] >= $value[2] && is_plugin_active( $value[1] ) && ! isset( $_COOKIE[ $value[0] ] ) ) {
-					break;
-				}
-			}    
+		if ( 'plugins.php' == $hook_suffix ) {
+			bws_plugin_banner( $pdfprnt_plugin_info, 'pdfprnt', 'pdf-print', 'e2f2549f4d70bc4cb9b48071169d264e', '101', 'http://ps.w.org/pdf-print/assets/icon-128x128.png' );   
 		}
 	}
 }

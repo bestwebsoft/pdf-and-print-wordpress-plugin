@@ -1,10 +1,10 @@
-﻿=== PDF & Print ===
+﻿=== PDF & Print by BestWebSoft ===
 Contributors: bestwebsoft
 Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&product_id=94
 Tags: archive pdf, generate pdf, generate pdf content, generate post pdf, pdf, pdf and print, pdf button, pdf content, pdf custom post type, pdf page, pdf post, pdf print, pdf print button, pdf print content, pdf print portfolio, pdf print plugin, pdf search results, print, print button, print content, print custom post type, print page, print post, print post content, printing output, shortcode
 Requires at least: 3.0
-Tested up to: 4.1
-Stable tag: 1.7.8
+Tested up to: 4.2
+Stable tag: 1.7.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -118,6 +118,10 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 
 == Changelog ==
 
+= V1.7.9 - 24.04.2015 =
+* Bugfix : We fixed the bug with placing buttons on custom post pages, search pages and archives.
+* Update : We updated all functionality for wordpress 4.2.
+
 = V1.7.8 - 11.02.2015 =
 * Update : We updated mPDF to 5.7.4 version.
 
@@ -183,6 +187,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * NEW : Added the ability to output PDF and Print buttons on the type of page.
 
 == Upgrade Notice ==
+
+= V1.7.9 =
+We fixed the bug with placing buttons on custom post pages, search pages and archives. We updated all functionality for wordpress 4.2.
 
 = V1.7.8 =
  We updated mPDF to 5.7.4 version.
