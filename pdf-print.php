@@ -4,7 +4,7 @@ Plugin Name: PDF & Print by BestWebSoft
 Plugin URI: http://bestwebsoft.com/products/
 Description: Plugin adds PDF creation and Print button on your site.
 Author: BestWebSoft
-Version: 1.7.9
+Version: 1.8.0
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 */
@@ -29,7 +29,7 @@ License: GPLv2 or later
 if ( ! function_exists( 'pdfprnt_add_pages' ) ) {
 	function pdfprnt_add_pages() {
 		bws_add_general_menu( plugin_basename( __FILE__ ) );
-		add_submenu_page( 'bws_plugins', 'PDF & Print ' . __( 'Settings', 'pdf-print' ), 'PDF & Print', 'manage_options', "pdf-print.php", 'pdfprnt_settings_page' );
+		add_submenu_page( 'bws_plugins', __( 'PDF & Print Settings', 'pdf-print' ), 'PDF & Print', 'manage_options', 'pdf-print.php', 'pdfprnt_settings_page' );
 	}
 }
 
@@ -53,7 +53,7 @@ if ( ! function_exists ( 'pdfprnt_init' ) ) {
 		bws_wp_version_check( plugin_basename( __FILE__ ), $pdfprnt_plugin_info, "3.0" );
 
 		/* Get/Register and check settings for plugin */
-		if ( ! is_admin() || ( isset( $_GET['page'] ) && "pdf-print.php" == $_GET['page'] ) )
+		if ( ! is_admin() || ( isset( $_GET['page'] ) && 'pdf-print.php' == $_GET['page'] ) )
 			pdfprnt_settings();
 	}
 }
@@ -216,9 +216,9 @@ if ( ! function_exists ( 'pdfprnt_settings_page' ) ) {
 							</th>
 							<td>
 								<select name="pdfprnt_position">
-									<?php foreach ( $pdfprnt_positions_values as $key => $value ) : ?>
+									<?php foreach ( $pdfprnt_positions_values as $key => $value ) { ?>
 										<option value="<?php echo $key; ?>" <?php if ( $pdfprnt_options_array['position'] == $key ) echo 'selected="selected"'; ?>><?php echo $value; ?></option>
-									<?php endforeach; ?>
+									<?php } ?>
 								</select>
 							</td>
 						</tr>
@@ -790,7 +790,7 @@ if ( ! function_exists( 'pdfprnt_generate_template_for_bws_portfolio' ) ) {
 	function pdfprnt_generate_template_for_bws_portfolio() {
 		global $post;
 		ob_start(); /* Starting output buffering */
-		$portfolio_options		=	get_option( 'prtfl_options' );
+		$short_descr = $link = $date_compl = '';
 		$meta_values			=	get_post_custom( $post->ID );
 		$post_thumbnail_id		=	get_post_thumbnail_id( $post->ID );
 		if ( empty ( $post_thumbnail_id ) ) {
@@ -807,8 +807,8 @@ if ( ! function_exists( 'pdfprnt_generate_template_for_bws_portfolio' ) ) {
 		$image_alt	=	get_post_meta( $post_thumbnail_id, '_wp_attachment_image_alt', true );
 		$image_desc	=	get_post( $post_thumbnail_id );
 		$image_desc	=	$image_desc->post_content;
-		if ( '1' == get_option( 'prtfl_postmeta_update' ) ) {
-			$post_meta	=	get_post_meta( $post->ID, 'prtfl_information', true );
+		$post_meta	=	get_post_meta( $post->ID, 'prtfl_information', true );
+		if ( ! empty( $post_meta ) ) {			
 			$date_compl	=	$post_meta['_prtfl_date_compl'];
 			if ( ! empty( $date_compl ) && 'in progress' != $date_compl ) {
 				$date_compl	=	explode( '/', $date_compl );
@@ -816,36 +816,28 @@ if ( ! function_exists( 'pdfprnt_generate_template_for_bws_portfolio' ) ) {
 			}
 			$link			=	$post_meta['_prtfl_link'];
 			$short_descr	=	$post_meta['_prtfl_short_descr'];
-		} else {
-			$date_compl		=	get_post_meta( $post->ID, '_prtfl_date_compl', true );
-			if ( ! empty( $date_compl ) && 'in progress' != $date_compl ) {
-				$date_compl	=	explode( '/', $date_compl );
-				$date_compl	=	date( get_option( 'date_format' ), strtotime( $date_compl[1] . '-' . $date_compl[0] . '-' . $date_compl[2] ) );
-			}
-			$link			=	get_post_meta( $post->ID, '_prtfl_link', true);
-			$short_descr	=	$post_meta['_prtfl_short_descr'];
 		} ?>
-			<img src="<?php echo $image[0]; ?>" width="<?php echo $image[1]; ?>" alt="<?php echo $image_alt; ?>" />
-			<div>
-				<p>
-					<strong><?php _e( 'Date of completion', 'pdf-print' ); ?>:</strong> <?php echo $date_compl; ?><br/>
-					<strong><?php _e( 'Link', 'pdf-print' ); ?>:</strong> <a href="<?php echo $link; ?>"><?php echo $link; ?></a><br/>
-					<strong><?php _e( 'Description', 'pdf-print' ); ?>:</strong> <?php echo $short_descr; ?><br/>
-				</p>
+		<img src="<?php echo $image[0]; ?>" width="<?php echo $image[1]; ?>" alt="<?php echo $image_alt; ?>" />
+		<div>
+			<p>
+				<strong><?php _e( 'Date of completion', 'pdf-print' ); ?>:</strong> <?php echo $date_compl; ?><br/>
+				<strong><?php _e( 'Link', 'pdf-print' ); ?>:</strong> <a href="<?php echo $link; ?>"><?php echo $link; ?></a><br/>
+				<strong><?php _e( 'Description', 'pdf-print' ); ?>:</strong> <?php echo $short_descr; ?><br/>
+			</p>
+		</div>
+		<?php $terms = wp_get_object_terms( $post->ID, 'portfolio_technologies' );
+		if ( is_array( $terms ) && count( $terms ) > 0 ) { ?>
+			<div style="clear:both;">
+				<strong><?php _e( 'Technologies', 'pdf-print' ); ?>: </strong>
+			<?php $count = 0;
+			foreach ( $terms as $term ) {
+				if ( 0 < $count )
+					echo ', ';
+				echo '<a href="' . get_term_link( $term->slug, 'portfolio_technologies' ) . '" title="' . sprintf( __( "View all posts in %s" ), $term->name ) . '" ' . '>' . $term->name . '</a>';
+				$count++;
+			} ?>
 			</div>
-			<?php $terms = wp_get_object_terms( $post->ID, 'portfolio_technologies' );
-			if ( is_array( $terms ) && count( $terms ) > 0 ) { ?>
-				<div style="clear:both;">
-					<strong><?php _e( 'Technologies', 'pdf-print' ); ?>: </strong>
-				<?php $count = 0;
-				foreach ( $terms as $term ) {
-					if( 0 < $count )
-						echo ', ';
-					echo '<a href="' . get_term_link( $term->slug, 'portfolio_technologies' ) . '" title="' . sprintf( __( "View all posts in %s" ), $term->name ) . '" ' . '>' . $term->name . '</a>';
-					$count++;
-				} ?>
-				</div>
-			<?php }
+		<?php }
 		$content = ob_get_contents(); /* Getting output buffering */
 		ob_end_clean(); /* Closing output buffering */
 		return $content; /* Now we done with template */
@@ -1187,7 +1179,7 @@ if ( ! function_exists ( 'pdfprnt_plugin_banner' ) ) {
 	function pdfprnt_plugin_banner() {
 		global $hook_suffix, $pdfprnt_plugin_info;
 		if ( 'plugins.php' == $hook_suffix ) {
-			bws_plugin_banner( $pdfprnt_plugin_info, 'pdfprnt', 'pdf-print', 'e2f2549f4d70bc4cb9b48071169d264e', '101', 'http://ps.w.org/pdf-print/assets/icon-128x128.png' );   
+			bws_plugin_banner( $pdfprnt_plugin_info, 'pdfprnt', 'pdf-print', 'e2f2549f4d70bc4cb9b48071169d264e', '101', '//ps.w.org/pdf-print/assets/icon-128x128.png' );   
 		}
 	}
 }
@@ -1222,4 +1214,3 @@ add_filter( 'the_content', 'pdfprnt_content' );
 add_action( 'admin_notices', 'pdfprnt_plugin_banner' );
 /* Plugin uninstall function */
 register_uninstall_hook( __FILE__, 'pdfprnt_uninstall' );
-?>

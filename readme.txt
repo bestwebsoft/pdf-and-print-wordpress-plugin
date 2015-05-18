@@ -1,10 +1,10 @@
 ﻿=== PDF & Print by BestWebSoft ===
 Contributors: bestwebsoft
-Donate link: https://www.2checkout.com/checkout/purchase?sid=1430388&quantity=1&product_id=94
+Donate link: http://bestwebsoft.com/donate/
 Tags: archive pdf, generate pdf, generate pdf content, generate post pdf, pdf, pdf and print, pdf button, pdf content, pdf custom post type, pdf page, pdf post, pdf print, pdf print button, pdf print content, pdf print portfolio, pdf print plugin, pdf search results, print, print button, print content, print custom post type, print page, print post, print post content, printing output, shortcode
 Requires at least: 3.0
-Tested up to: 4.2
-Stable tag: 1.7.9
+Tested up to: 4.2.2
+Stable tag: 1.8.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -79,7 +79,7 @@ Go to the Settings page and change value for the 'Show PDF button' or 'Show Prin
 = Buttons do not appear on search and archives pages =
 
 Go to the Settings page and change value for the 'Show PDF button for search or archive page' or 'Show Print button for search or archive page' fields.
-And you need to add the source code `<?php if ( function_exists ( 'pdfprnt_show_buttons_search_archive' ) ) echo pdfprnt_show_buttons_search_archive (); ?>` In the files search.php or archives.php.
+And you need to add the source code `<?php if ( function_exists( 'pdfprnt_show_buttons_search_archive' ) ) echo pdfprnt_show_buttons_search_archive (); ?>` In the files search.php or archives.php.
 
 = Menu to generate pdf file is not displayed in the adminbar for administrator =
 
@@ -102,6 +102,7 @@ Go to the Settings page and unmark checkbox 'Settings for shortcode'.
 = I have some problems with the plugin's work. What Information should I provide to receive proper support? =
 
 Please make sure that the problem hasn't been discussed yet on our forum (<a href="http://support.bestwebsoft.com" target="_blank">http://support.bestwebsoft.com</a>). If no, please provide the following data along with your problem's description:
+
 1. the link to the page where the problem occurs
 2. the name of the plugin and its version. If you are using a pro version - your order number.
 3. the version of your WordPress installation
@@ -117,6 +118,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 6. PDF output page example.
 
 == Changelog ==
+
+= V1.8.0 - 18.05.2015 =
+* Update : We updated all functionality for wordpress 4.2.2.
 
 = V1.7.9 - 24.04.2015 =
 * Bugfix : We fixed the bug with placing buttons on custom post pages, search pages and archives.
@@ -187,6 +191,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * NEW : Added the ability to output PDF and Print buttons on the type of page.
 
 == Upgrade Notice ==
+
+= V1.8.0 =
+We updated all functionality for wordpress 4.2.2.
 
 = V1.7.9 =
 We fixed the bug with placing buttons on custom post pages, search pages and archives. We updated all functionality for wordpress 4.2.
