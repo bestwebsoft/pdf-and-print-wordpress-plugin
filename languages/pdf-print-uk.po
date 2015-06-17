@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdf-print\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-04-20 20:50+0300\n"
+"POT-Creation-Date: 2015-06-17 14:26+0300\n"
 "PO-Revision-Date: \n"
-"Last-Translator: BestWebSoft <support@bestwebsoft.com>\n"
+"Last-Translator: bestwebsoft.com <plugins@bestwebsoft.com>\n"
 "Language-Team: bestwebsoft.com <plugin@bestwebsoft.com>\n"
 "Language: uk\n"
 "MIME-Version: 1.0\n"
@@ -17,248 +17,344 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 
 #: pdf-print.php:32
-#: pdf-print.php:176
-#: pdf-print.php:660
-#: pdf-print.php:674
-msgid "Settings"
-msgstr "Налаштування"
-
-#: pdf-print.php:128
-msgid "Top Left"
-msgstr "Зверху зліва"
-
-#: pdf-print.php:129
-msgid "Top Right"
-msgstr "Зверху справа"
-
-#: pdf-print.php:130
-msgid "Bottom Left"
-msgstr "Знизу зліва"
-
-#: pdf-print.php:131
-msgid "Bottom Right"
-msgstr "Знизу справа"
-
-#: pdf-print.php:163
-msgid "Settings saved."
-msgstr "Налаштування збережено."
-
-#: pdf-print.php:174
+#: pdf-print.php:205
 msgid "PDF & Print Settings"
 msgstr "Налаштування PDF & Print"
 
-#: pdf-print.php:177
+#: pdf-print.php:129
+msgid "Top Left"
+msgstr "Ліворуч зверху"
+
+#: pdf-print.php:130
+msgid "Top Right"
+msgstr "Праворуч зверху"
+
+#: pdf-print.php:131
+msgid "Bottom Left"
+msgstr "Ліворуч знизу"
+
+#: pdf-print.php:132
+msgid "Bottom Right"
+msgstr "Праворуч знизу"
+
+#: pdf-print.php:172
+msgid "Settings saved."
+msgstr "Налаштування збережені."
+
+#: pdf-print.php:175
+msgid "The folder \"uploads/pdf-print-fonts\" was removed."
+msgstr "Папка \"uploads/pdf-print-fonts\" була видалена."
+
+#: pdf-print.php:182
+msgid "Some fonts were removed from the folder \"uploads/pdf-print-fonts\"."
+msgstr "Деякі шрифти з папки \"uploads/pdf-print-fonts\" були видалені."
+
+#: pdf-print.php:186
+msgid " You may need to reload fonts."
+msgstr "Вам можливо необхідно перезавантажити шрифти."
+
+#: pdf-print.php:207
+#: pdf-print.php:680
+#: pdf-print.php:694
+msgid "Settings"
+msgstr "Налаштування"
+
+#: pdf-print.php:208
 msgid "Extra settings"
 msgstr "Додаткові налаштування"
 
-#: pdf-print.php:178
-#: pdf-print.php:675
+#: pdf-print.php:209
+#: pdf-print.php:302
+#: pdf-print.php:695
 msgid "FAQ"
 msgstr "Розповсюджені питання"
 
-#: pdf-print.php:179
+#: pdf-print.php:210
 msgid "Go PRO"
 msgstr "Перейти на PRO"
 
-#: pdf-print.php:182
+#: pdf-print.php:213
 msgid "Notice:"
 msgstr "Зауважте:"
 
-#: pdf-print.php:182
+#: pdf-print.php:213
 msgid "The plugin's settings have been changed. In order to save them please don't forget to click the 'Save Changes' button."
 msgstr "Налаштування плагіну змінились. Щоб зберегти їх, будь ласка, не забудьте клікнути \"Зберегти зміни\"."
 
-#: pdf-print.php:188
-msgid "Use of theme stylesheet or plugin default style:"
-msgstr "Використовувати стиль теми або стандартний стиль плагіну:"
+#: pdf-print.php:219
+msgid "Load additional fonts"
+msgstr "Завантажити додаткові шрифти"
 
-#: pdf-print.php:191
+#: pdf-print.php:223
+msgid "Load Fonts"
+msgstr "Завантажити шрифти"
+
+#: pdf-print.php:224
+msgid "You can load additional fonts, needed for the PDF creation. When creating the PDF-doc, this will allow automatic selection of fonts necessary for text, according to languages used in the content."
+msgstr "Ви маєте змогу завантажити додаткові шрифти. Це дозволить, під час створення PDF-документу, автоматично підбирати необхідні шрифти для тексту, відповідно до мови, що використовується в контенті."
+
+#: pdf-print.php:228
+msgid "Additional fonts were loaded successfully"
+msgstr "Додаткові шрифти були успішно завантажені"
+
+#: pdf-print.php:233
+msgid "Use the theme stylesheet or plugin default style"
+msgstr "Використовувати стиль теми або стандартний стиль плагіну"
+
+#: pdf-print.php:236
 msgid "Default stylesheet"
 msgstr "Стандартні стилі"
 
-#: pdf-print.php:192
+#: pdf-print.php:237
 msgid "Current theme stylesheet"
 msgstr "Стилі поточної теми"
 
-#: pdf-print.php:197
-msgid "The types of posts that the plugin will use:"
-msgstr "Типи постів, що буде використовувати плагін:"
+#: pdf-print.php:242
+msgid "Types of posts that will be used in the plugin"
+msgstr "Типи постів, що буде використовувати плагін"
 
-#: pdf-print.php:210
-msgid "If you are using a Portfolio plugin (powered by bestwebsoft.com) and you need the output pdf and print buttons next to each post, you just need to insert the strings in loop into the template source code in files portfolio.php and portfolio-post.php"
-msgstr "Якщо Ви використовуєте плагін Portfolio (розроблений bestwebsoft.com) та Вам потрібно відобразити кнопку PDF та кнопку друку для кожного посту, вставте наступні строки у код файлів portfolio.php та portfolio-post.php"
+#: pdf-print.php:257
+msgid "Posts and pages"
+msgstr "Сторінки та записи"
 
-#: pdf-print.php:210
-msgid " In order to use PDF and Print buttons for all posts you need to put the strings below into the template source code in file portfolio.php"
-msgstr "Якщо  Ви бажаєте використовувати кнопку PDF  або друку для усіх постів, вставте наступні рядки у код файлу portfolio.php"
+#: pdf-print.php:258
+msgid "Search and archive pages"
+msgstr "Сторінки пошуку та архивів"
 
-#: pdf-print.php:216
-msgid "Position of buttons in content:"
-msgstr "Позиція кнопок на сторінці:"
+#: pdf-print.php:259
+msgid "Function call"
+msgstr "Під час виклику функції"
 
-#: pdf-print.php:227
-msgid "Show:"
-msgstr "Показувати:"
+#: pdf-print.php:262
+msgid "Show PDF button"
+msgstr "Показати кнопку PDF"
 
-#: pdf-print.php:229
-#: pdf-print.php:272
-#: pdf-print.php:321
-msgid "PDF button"
-msgstr "Кнопку PDF:"
+#: pdf-print.php:274
+msgid "Show Print button"
+msgstr "Показати кнопку Print"
 
-#: pdf-print.php:230
-#: pdf-print.php:273
-#: pdf-print.php:322
-msgid "Print button"
-msgstr "Кнопку друку:"
+#: pdf-print.php:286
+msgid "Position of buttons in the content"
+msgstr "Позиція кнопок на сторінці"
 
-#: pdf-print.php:235
-msgid "Default template setting for post:"
-msgstr "Налаштування стандартного шаблону для посту:"
+#: pdf-print.php:295
+msgid "Left"
+msgstr "Ліворуч"
 
-#: pdf-print.php:260
-msgid "Position of buttons in content for custom post:"
-msgstr "Позиція кнопок на сторінці кастомного посту:"
+#: pdf-print.php:296
+msgid "Right"
+msgstr "Праворуч"
 
-#: pdf-print.php:264
-#: pdf-print.php:313
-msgid "Align Left"
-msgstr "По лівому краю"
+#: pdf-print.php:302
+msgid "In order to use PDF and Print buttons in the custom post or page template, see"
+msgstr "Для того, щоб використовувати кнопки PDF та Print в кастомному записі чи сторінці, перегляньте"
 
-#: pdf-print.php:265
-#: pdf-print.php:314
-msgid "Align Right"
-msgstr "По правому краю"
+#: pdf-print.php:308
+msgid "Settings for shortcodes"
+msgstr "Налаштування для шорткодів"
 
-#: pdf-print.php:270
-msgid "Show for custom posts:"
-msgstr "Показувати для кастомного посту:"
-
-#: pdf-print.php:278
-msgid "Default template setting for custom posts:"
-msgstr "Налаштування стандартного шаблону для кастомного посту:"
-
-#: pdf-print.php:304
-msgid "In order to use PDF and Print buttons on the custom page you should use the"
-msgstr "Для використання кнопок PDF та друку, в кастомному пості потрібно вставити код"
-
-#: pdf-print.php:304
-msgid "where you have to specify query parameters for your custom post.<br/> For example:"
-msgstr " де Вам потрібно вказати параметри запиту Вашого кастомного посту.<br/> Наприклад: "
-
-#: pdf-print.php:304
-msgid "or"
-msgstr " чи"
-
-#: pdf-print.php:304
-msgid "For more information on the syntax for assigning parameters to function see <a target=\"_blank\" href=\"http://codex.wordpress.org/Class_Reference/WP_Query#Parameters\">here</a>."
-msgstr " Синтаксис для передачі параметрів у функцію можна переглянути <a target=\"_blank\" href=\"http://codex.wordpress.org/Class_Reference/WP_Query#Parameters\">тут</a>."
-
-#: pdf-print.php:309
-msgid "Position of buttons on search or archive page:"
-msgstr "Позиція кнопок на сторінці пошуку чи архіву"
-
-#: pdf-print.php:319
-msgid "Show for search or archive page:"
-msgstr "Показувати на сторінці пошуку чи архіву:"
-
-#: pdf-print.php:327
-msgid "Default template setting for search and archive:"
-msgstr "Налаштування стандартного шаблону для сторінки пошуку чи архіву:"
-
-#: pdf-print.php:353
-msgid "In order to use PDF and Print buttons on the search page or archive page you should put the strings below into the template source code in files search.php or archives.php "
-msgstr "Якщо Ви бажаєте відображати кнопки PDF та друку на сторінці пошуку чи архіву, вставте наступні рядки у код файлу search.php чи archives.php"
-
-#: pdf-print.php:358
-msgid "Settings for shorcodes:"
-msgstr "Налаштування для шорткодів:"
-
-#: pdf-print.php:361
+#: pdf-print.php:311
 msgid "Do!"
 msgstr "Виконати!"
 
-#: pdf-print.php:365
+#: pdf-print.php:315
 msgid "Show the print window"
 msgstr "Показати вікно друку"
 
-#: pdf-print.php:376
+#: pdf-print.php:326
 msgid "PDF files name"
 msgstr "Назва для PDF файлів"
 
-#: pdf-print.php:378
+#: pdf-print.php:328
 msgid "use post or page slug"
-msgstr "Викорастати ярлик сторінки або запису"
+msgstr "Використати ярлик сторінки або запису"
 
-#: pdf-print.php:381
+#: pdf-print.php:331
 msgid "File name cannot contain more than 195 symbols. The file name can include Latin letters, numbers and symbols \"-\" , \"_\" only."
 msgstr "Им’я файлу може складатись не більш ніж з 195 символів. Ви можете використовувати латинські літери, цифри, а також символи \"-\" , \"_\" ."
 
-#: pdf-print.php:386
+#: pdf-print.php:336
 msgid "Do not index pdf and print pages"
-msgstr "Не індексувати сторінки PDF і друку "
+msgstr "Не індексувати сторінки PDF і Print "
 
-#: pdf-print.php:393
-#: pdf-print.php:448
-msgid "If you upgrade to Pro version all your settings will be saved."
+#: pdf-print.php:343
+msgid "If you upgrade to Pro version, all your settings will be saved."
 msgstr "Якщо ви перейдете на Pro версію, всі налаштування буде збережено"
 
-#: pdf-print.php:400
-#: pdf-print.php:455
+#: pdf-print.php:350
+#: pdf-print.php:405
 msgid "Unlock premium options by upgrading to a PRO version."
 msgstr "Відкрийте додаткові налаштування, перейшовши на Pro версію"
 
-#: pdf-print.php:401
-#: pdf-print.php:456
+#: pdf-print.php:351
+#: pdf-print.php:406
 msgid "Learn More"
 msgstr "Дізнатись більше"
 
-#: pdf-print.php:405
-#: pdf-print.php:459
+#: pdf-print.php:355
+#: pdf-print.php:409
 msgid "Go"
 msgstr "Перейти"
 
-#: pdf-print.php:413
-#: pdf-print.php:443
+#: pdf-print.php:363
+#: pdf-print.php:393
 msgid "Save Changes"
 msgstr "Зберегти зміни"
 
-#: pdf-print.php:425
-msgid "Please choose the necessary post types (or single pages) where PDF & Print buttons will be displayed:"
+#: pdf-print.php:375
+msgid "Please choose the necessary post types (or single pages), where PDF & Print buttons should be displayed:"
 msgstr "Будь ласка виберіть тип посту чи сторінки, де будуть відображатись кнопки PDF & Print"
 
-#: pdf-print.php:432
+#: pdf-print.php:382
 msgid "Show URL for pages"
 msgstr "Показати посилання для сторінок"
 
-#: pdf-print.php:438
+#: pdf-print.php:388
 msgid "Example of site pages' tree"
 msgstr "Приклад дерева сторінок сайту"
 
-#: pdf-print.php:676
+#: pdf-print.php:398
+msgid "If you upgrade to Pro version all your settings will be saved."
+msgstr "Якщо ви перейдете на Pro версію, всі налаштування буде збережено"
+
+#: pdf-print.php:696
 msgid "Support"
 msgstr "Підтримка"
 
-#: pdf-print.php:831
+#: pdf-print.php:714
+msgid "Loading of fonts. It might take a several minutes"
+msgstr "Завантаження шрифтів. Це може зайняти декілька хвилин"
+
+#: pdf-print.php:819
 msgid "Date of completion"
 msgstr "Дата завершення"
 
-#: pdf-print.php:832
+#: pdf-print.php:820
 msgid "Link"
 msgstr "Посилання"
 
-#: pdf-print.php:833
+#: pdf-print.php:821
 msgid "Description"
 msgstr "Опис"
 
-#: pdf-print.php:839
+#: pdf-print.php:827
 msgid "Technologies"
 msgstr "Технології"
 
-#: pdf-print.php:844
+#: pdf-print.php:832
 #, php-format
 msgid "View all posts in %s"
 msgstr "Переглянути всі пости у %s"
+
+#: pdf-print.php:1268
+msgid "Check your internet connection"
+msgstr "Перевірте Ваше інтернет-з’єднання"
+
+#: pdf-print.php:1273
+msgid "Cannot load files in to \"uploads\" folder. Check your permissions"
+msgstr "Неможливо завантажити файли до папки \"uploads\". Перевірте Ваші права"
+
+#: pdf-print.php:1306
+#: pdf-print.php:1373
+msgid "Additional fonts was successfully loaded"
+msgstr "Додаткові шрифти були успішно завантажені"
+
+#: pdf-print.php:1315
+#: pdf-print.php:1318
+msgid "Some errors occur during loading files"
+msgstr "Під час завантаження файлів виникли деякі помилки"
+
+#: pdf-print.php:1321
+msgid "Cannot create \"uploads/pdf-print-fonts\" folder. Check your permissions"
+msgstr "Неможливо створити папку  \"uploads/pdf-print-fonts\". Перевірте Ваші права"
+
+#~ msgid "Additional fonts already loaded"
+#~ msgstr "Додаткові шрифти завантажені"
+
+#~ msgid "You can load additional fonts, used for PDF creation"
+#~ msgstr ""
+#~ "Ви можете завантажити додаткові шрифти, що використовуються при генерації "
+#~ "PDF-сторінок"
+
+#~ msgid ""
+#~ "Cannot open ZIP-archive from \"uploads\" folder. Check your permissions"
+#~ msgstr "Неможливо розпакуваи ZIP-архів. Перевірте Ваші права"
+
+#~ msgid ""
+#~ "Save content of any page or post from your site! Paste the following "
+#~ "string in to code of your theme"
+#~ msgstr ""
+#~ "Збережіть зміст будь-якої сторінки чи запису Вашошго сайту! Додайте "
+#~ "наступну строку до коду Вашої теми"
+
+#~ msgid ""
+#~ "where you have to specify query parameters for your post.<br/> For example"
+#~ msgstr ""
+#~ " де Вам потрібно вказати параметри запиту Вашого кастомного посту.<br/> "
+#~ "Наприклад"
+
+#~ msgid "or"
+#~ msgstr " чи"
+
+#~ msgid ""
+#~ "For more information on the syntax for assigning parameters to function "
+#~ "see"
+#~ msgstr " Синтаксис для передачі параметрів у функцію можна переглянути."
+
+#~ msgid "here"
+#~ msgstr "тут"
+
+#~ msgid ""
+#~ "If you are using a Portfolio plugin (powered by bestwebsoft.com) and you "
+#~ "need the output pdf and print buttons next to each post, you just need to "
+#~ "insert the strings in loop into the template source code in files "
+#~ "portfolio.php and portfolio-post.php"
+#~ msgstr ""
+#~ "Якщо Ви використовуєте плагін Portfolio (розроблений bestwebsoft.com) та "
+#~ "Вам потрібно відобразити кнопку PDF та кнопку друку для кожного посту, "
+#~ "вставте наступні строки у код файлів portfolio.php та portfolio-post.php"
+
+#~ msgid ""
+#~ " In order to use PDF and Print buttons for all posts you need to put the "
+#~ "strings below into the template source code in file portfolio.php"
+#~ msgstr ""
+#~ "Якщо  Ви бажаєте використовувати кнопку PDF  або друку для усіх постів, "
+#~ "вставте наступні рядки у код файлу portfolio.php"
+
+#~ msgid "Show:"
+#~ msgstr "Показувати:"
+
+#~ msgid "Default template setting for post:"
+#~ msgstr "Налаштування стандартного шаблону для посту:"
+
+#~ msgid "Position of buttons in content for custom post:"
+#~ msgstr "Позиція кнопок на сторінці кастомного посту:"
+
+#~ msgid "Align Left"
+#~ msgstr "По лівому краю"
+
+#~ msgid "Align Right"
+#~ msgstr "По правому краю"
+
+#~ msgid "Show for custom posts:"
+#~ msgstr "Показувати для кастомного посту:"
+
+#~ msgid "Default template setting for custom posts:"
+#~ msgstr "Налаштування стандартного шаблону для кастомного посту:"
+
+#~ msgid "Position of buttons on search or archive page:"
+#~ msgstr "Позиція кнопок на сторінці пошуку чи архіву"
+
+#~ msgid "Default template setting for search and archive:"
+#~ msgstr "Налаштування стандартного шаблону для сторінки пошуку чи архіву:"
+
+#~ msgid ""
+#~ "In order to use PDF and Print buttons on the search page or archive page "
+#~ "you should put the strings below into the template source code in files "
+#~ "search.php or archives.php "
+#~ msgstr ""
+#~ "Якщо Ви бажаєте відображати кнопки PDF та друку на сторінці пошуку чи "
+#~ "архіву, вставте наступні рядки у код файлу search.php чи archives.php"
 
 #~ msgid "PDF & Print"
 #~ msgstr "PDF & Print"

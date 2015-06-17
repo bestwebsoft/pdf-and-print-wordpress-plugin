@@ -2,9 +2,9 @@
 Contributors: bestwebsoft
 Donate link: http://bestwebsoft.com/donate/
 Tags: archive pdf, generate pdf, generate pdf content, generate post pdf, pdf, pdf and print, pdf button, pdf content, pdf custom post type, pdf page, pdf post, pdf print, pdf print button, pdf print content, pdf print portfolio, pdf print plugin, pdf search results, print, print button, print content, print custom post type, print page, print post, print post content, printing output, shortcode
-Requires at least: 3.0
+Requires at least: 3.1
 Tested up to: 4.2.2
-Stable tag: 1.8.0
+Stable tag: 1.8.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -15,6 +15,8 @@ Add PDF and Print button to your WordPress website.
 PDF & Print allows you in the easiest and most flexible way to create PDF and Print page with adding appropriate buttons to the content. PDF & Print using mpdf library under GPLv2 license.
 
 http://www.youtube.com/watch?v=EM6AEkD9M_s
+
+<a href="http://www.youtube.com/watch?v=4oqbcXtaxto" target="_blank">Video instruction on Installation</a>
 
 <a href="http://wordpress.org/plugins/pdf-print/faq/" target="_blank">FAQ</a>
 
@@ -29,7 +31,7 @@ http://www.youtube.com/watch?v=EM6AEkD9M_s
 * Actions: Ability to create PDF and Print content from custom post type with adding appropriate buttons to the content.
 * Actions: Ability to create PDF and Print portfolio or single portfolio for Portfolio plugin (powered by bestwebsoft.com) with adding appropriate buttons to the content.
 * Actions: Ability to use execution of shortcode in pdf and printing output.
-* Display: This plugin allows you to select the position of buttons in content (top left, top right, bottom left, bottom right), search or archives pages or custom post type (align left, align right).
+* Display: This plugin allows you to select the position of buttons in content (top left, top right, bottom left, bottom right), or via function call (align left, align right).
 
 = Recommended Plugins =
 
@@ -62,42 +64,49 @@ We can fix some things for free for the users who provide translation of our plu
 
 View a <a href="https://docs.google.com/document/d/1Wwins2PmrzAYiEgFZDtRzMNDq9Sr7XDeqjGNm7b-oi8/edit" target="_blank">Step-by-step Instruction on PDF & Print Installation</a>
 
+http://www.youtube.com/watch?v=4oqbcXtaxto
+
 == Frequently Asked Questions ==
 
 = How to change position buttons in content =
 
-Go to the Settings page and change value for the 'Position of buttons in content' field.
+Go to the Settings page and change value for the 'Position of buttons in the content' field.
 
 = How to change position buttons in search or archives pages =
 
-Go to the Settings page and change value for the 'Position of buttons on search or archive page' field.
+Go to the Settings page and change necessary values for the 'Search and archive pages' column.
 
 = Buttons for content do not appear on page =
 
 Go to the Settings page and change value for the 'Show PDF button' or 'Show Print button' fields.
 
-= Buttons do not appear on search and archives pages =
-
-Go to the Settings page and change value for the 'Show PDF button for search or archive page' or 'Show Print button for search or archive page' fields.
-And you need to add the source code `<?php if ( function_exists( 'pdfprnt_show_buttons_search_archive' ) ) echo pdfprnt_show_buttons_search_archive (); ?>` In the files search.php or archives.php.
-
-= Menu to generate pdf file is not displayed in the adminbar for administrator =
-
-Menu to generate pdf documents is displayed if you are an administrator only in the pages of the archives and if there is at least one search result.
-
-= Buttons do not appear on portfolio and portfolio page (Portfolio plugin by BestWebSoft) =
-
-In order to display PDF and Print Buttons for the post of Portfolio plugin it is necessary to insert the source code `<?php if ( function_exists( 'pdfprnt_show_buttons_for_bws_portfolio_post' ) ) echo pdfprnt_show_buttons_for_bws_portfolio_post(); ?>` in files portfolio.php or portfolio-post.php which are located in the template.
-
-In order to display PDF and Print Buttons for all posts of Portfolio plugin on a page it is neessary to insert the source code `<?php if ( function_exists( 'pdfprnt_show_buttons_for_bws_portfolio' ) ) echo pdfprnt_show_buttons_for_bws_portfolio(); ?>` in file portfolio.php which is located in the template.
-
 = Why are PDF and Print buttons not displayed in the custom post type =
 
-In order to display PDF and Print Buttons for custom post type it is necessary to insert the source code `<?php if ( function_exists( 'pdfprnt_show_buttons_for_custom_post_type' ) ) echo pdfprnt_show_buttons_for_custom_post_type( $query_posts ); ?>` where you need to specify query parameters for your custom post. For example: `<?php if ( function_exists( 'pdfprnt_show_buttons_for_custom_post_type' ) ) echo pdfprnt_show_buttons_for_custom_post_type( 'post_type=gallery&orderby=post_date' ); ?>` or `<?php if ( function_exists( 'pdfprnt_show_buttons_for_custom_post_type' ) ) echo pdfprnt_show_buttons_for_custom_post_type( array( 'post_type' => 'gallery', 'orderby' => 'post_date' ) ); ?>`. To find more information on syntax for assigning parameters to function see <a href="http://codex.wordpress.org/Class_Reference/WP_Query#Parameters">here</a>.
+In order to use PDF and Print buttons on the custom post or page template you should paste the following string:
+
+`<?php if ( function_exists( 'pdfprnt_show_buttons_for_custom_post_type' ) ) echo pdfprnt_show_buttons_for_custom_post_type(); ?>`
+
+Save content of any page or post from your site! Paste the following string in to code of your theme:
+
+`<?php if ( function_exists( 'pdfprnt_show_buttons_for_custom_post_type' ) ) echo pdfprnt_show_buttons_for_custom_post_type( $custom_query ); ?>`
+
+where you have to specify query parameters for your post. For example:
+
+`<?php if ( function_exists( 'pdfprnt_show_buttons_for_custom_post_type' ) ) echo pdfprnt_show_buttons_for_custom_post_type( 'post_type=gallery&orderby=post_date' ); ?>`
+
+or
+
+`<?php if ( function_exists( 'pdfprnt_show_buttons_for_custom_post_type' ) ) echo pdfprnt_show_buttons_for_custom_post_type( array( 'post_type'=>'gallery', 'orderby'=>'post_date' ) ); ?>`
+
+For more information on the syntax for assigning parameters to function see <a target="_blank" href="http://codex.wordpress.org/Class_Reference/WP_Query#Parameters">here</a>.
+
+= Why in pdf/print-document displayed not all information from page =
+
+For generating a pdf/print page version, PDF & Print plugin uses the content that is featured in the body of post/page before it is displayed by the browser (i.e. the data featured in the main block on this post/page in the edit mode).
 
 = If I have shortcode on the page, but I don't want them to be printed (add to pdf) =
 
-Go to the Settings page and unmark checkbox 'Settings for shortcode'.
+Go to the Settings page and unmark checkbox 'Settings for shortcodes'.
 
 = I have some problems with the plugin's work. What Information should I provide to receive proper support? =
 
@@ -113,11 +122,19 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 1. Page settings for the PDF & Print in admin panel.
 2. Displaying buttons pdf and print in the post on your WordPress website.
 3. Displaying buttons pdf and print on archive page of your WordPress website.
-4. Generating PDF document in search results and pages archive with the choice of templates only for administrator.
-5. Printing output page example.
-6. PDF output page example.
+4. Printing output page example.
+5. PDF output page example.
 
 == Changelog ==
+
+= V1.8.1 - 17.06.2015 =
+* Attention : We changed plugin settings structure. If you are experiencing problems with the plugin work, please contact us via <a href="http://support.bestwebsoft.com" target="_blank">support</a>.
+* Bugfix : We fixed the bug with displaying images in pdf-document.
+* Bugfix : We fixed the bug with creation of rtl-oriented documents.
+* New : Added ability to load additional fonts.
+* Update : We updated styles for generate pdf/print page version with default stylesheet.
+* Update : We updated functionality for displaying pdf/print buttons in any place of your site.
+* Update : We updated MPDF library to version 6.0.
 
 = V1.8.0 - 18.05.2015 =
 * Update : We updated all functionality for wordpress 4.2.2.
@@ -134,14 +151,14 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * Update : We updated all functionality for wordpress 4.1.
 
 = V1.7.6 - 16.10.2014 =
-* Budfix : We fixed js errors.
+* Bugfix : We fixed js errors.
 
 = V1.7.5 - 07.09.2014 =
-* Budfix : Security Exploit was fixed.
+* Bugfix : Security Exploit was fixed.
 
 = V1.7.4 - 06.08.2014 =
 * Update : We updated all functionality for wordpress 4.0-beta2.
-* Budfix : Bug with Warning output in Dashboard was fixed.
+* Bugfix : Bug with Warning output in Dashboard was fixed.
 
 = V1.7.3 - 28.05.2014 =
 * Update : We updated all functionality for wordpress 3.9.1.
@@ -172,7 +189,7 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * NEW : Add checking installed wordpress version.
 
 = V1.4 - 11.10.2013 =
-* NEW: Added ability to switch on/off execution of shorcodes in pdf and printing output.
+* NEW: Added ability to switch on/off execution of shortcodes in pdf and printing output.
 * NEW: Added new screenshots.
 * Update : Updated code, changed some styles.
 * Bugfix : Content on PDF preview now is shown.
@@ -191,6 +208,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * NEW : Added the ability to output PDF and Print buttons on the type of page.
 
 == Upgrade Notice ==
+
+= V1.8.1 =
+We changed plugin settings structure. We fixed the bug with displaying images in pdf-document. We fixed the bug with creation of rtl-oriented documents. Added ability to load additional fonts. We updated styles for generate pdf/print page version with default stylesheet. We updated functionality for displaying pdf/print buttons in any place of your site. We updated MPDF library to version 6.0.
 
 = V1.8.0 =
 We updated all functionality for wordpress 4.2.2.
@@ -232,7 +252,7 @@ BWS plugins section is updated. We updated all functionality for wordpress 3.8. 
 We updated all functionality for wordpress 3.7.1. Activation of radio button or checkbox by clicking on its label. Add checking installed wordpress version.
 
 = V1.4 =
-Added ability to switch on/off execution of shorcodes in pdf and printing output. Added new screenshots. Updated code, changed some styles. Content in on PDF preview now is showned. Fixed problems with styles of choosed template in admin bar.
+Added ability to switch on/off execution of shortcodes in pdf and printing output. Added new screenshots. Updated code, changed some styles. Content in on PDF preview now is showned. Fixed problems with styles of choosed template in admin bar.
 
 = V1.3 =
 Added functionality for use with custom post type.
