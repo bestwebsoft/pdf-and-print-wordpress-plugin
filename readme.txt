@@ -4,7 +4,7 @@ Donate link: http://bestwebsoft.com/donate/
 Tags: archive pdf, generate pdf, generate pdf content, generate post pdf, pdf, pdf and print, pdf button, pdf content, pdf custom post type, pdf page, pdf post, pdf print, pdf print button, pdf print content, pdf print portfolio, pdf print plugin, pdf search results, print, print button, print content, print custom post type, print page, print post, print post content, printing output, shortcode
 Requires at least: 3.1
 Tested up to: 4.2.2
-Stable tag: 1.8.1
+Stable tag: 1.8.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -127,6 +127,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 
 == Changelog ==
 
+= V1.8.2 - 19.06.2015 =
+* Bugfix : We fixed the bug with instalation of the additional fonts.
+
 = V1.8.1 - 17.06.2015 =
 * Attention : We changed plugin settings structure. If you are experiencing problems with the plugin work, please contact us via <a href="http://support.bestwebsoft.com" target="_blank">support</a>.
 * Bugfix : We fixed the bug with displaying images in pdf-document.
@@ -208,6 +211,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * NEW : Added the ability to output PDF and Print buttons on the type of page.
 
 == Upgrade Notice ==
+
+= V1.8.2 =
+We fixed the bug with instalation of the additional fonts.
 
 = V1.8.1 =
 We changed plugin settings structure. We fixed the bug with displaying images in pdf-document. We fixed the bug with creation of rtl-oriented documents. Added ability to load additional fonts. We updated styles for generate pdf/print page version with default stylesheet. We updated functionality for displaying pdf/print buttons in any place of your site. We updated MPDF library to version 6.0.

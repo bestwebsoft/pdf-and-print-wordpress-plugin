@@ -4,7 +4,7 @@ Plugin Name: PDF & Print by BestWebSoft
 Plugin URI: http://bestwebsoft.com/products/
 Description: Plugin adds PDF creation and Print button on your site.
 Author: BestWebSoft
-Version: 1.8.1
+Version: 1.8.2
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 */
@@ -218,13 +218,15 @@ if ( ! function_exists ( 'pdfprnt_settings_page' ) ) {
 						<tr id="pdfprnt_load_fonts_button">
 							<th scope="row"><?php _e( 'Load additional fonts', 'pdf-print' ); ?></th>
 							<td style="position: relative;">
-								<?php if ( 0 == $pdfprnt_options_array['additional_fonts'] ) { 
+								<?php if ( 0 == $pdfprnt_options_array['additional_fonts'] && class_exists( 'ZipArchive' ) ) { 
 									$ajax_nonce = wp_create_nonce( 'pdfprnt_ajax_nonce' ); ?>
 									<input type="submit" class="button" value="<?php _e( 'Load Fonts', 'pdf-print' ); ?>" name="pdfprnt_load_fonts" />&nbsp;<span id="pdfprnt_font_loader" class="pdfprnt_loader"><img src="<?php echo plugins_url( 'images/ajax-loader.gif', __FILE__ ); ?>" alt="loader" /></span><br />
 									<span class="pdfprnt_info"><?php _e( 'You can load additional fonts, needed for the PDF creation. When creating the PDF-doc, this will allow automatic selection of fonts necessary for text, according to languages used in the content.', 'pdf-print' ); ?></span>
 									<input type="hidden" name="pdfprnt_action" value="pdfprnt_load_fonts" />
 									<input type="hidden" name="pdfprnt_ajax_nonce" value="<?php echo $ajax_nonce; ?>" />
-								<?php } else { ?>
+								<?php } elseif ( 0 == $pdfprnt_options_array['additional_fonts'] && ! class_exists( 'ZipArchive' ) ) { ?>
+									<span style="color: red"><strong><?php _e( 'WARNING', 'pdf-print' ); ?>:&nbsp;</strong><?php _e( 'Class ZipArchive is not installed on your server. It is impossible to load additional fonts.', 'pdf-print' ); ?></span>
+								<?php } elseif ( 1 == $pdfprnt_options_array['additional_fonts'] ) { ?>
 									<span><?php _e( 'Additional fonts were loaded successfully', 'pdf-print' ); ?>.</span>
 								<?php } ?>
 							</td>
@@ -1196,7 +1198,7 @@ if ( ! function_exists( 'print_vars_callback' ) ) {
  * Class Pdfprnt_ZipArchive for extracting
  * necessary folder from zip-archive
  */
-if ( ! class_exists( 'Pdfprnt_ZipArchive' ) ) {
+if ( class_exists( 'ZipArchive' ) && ! class_exists( 'Pdfprnt_ZipArchive' ) ) {
 	class Pdfprnt_ZipArchive extends ZipArchive {
 		/**
 		 * constructor of class
@@ -1303,10 +1305,9 @@ if ( ! function_exists( 'pdfprnt_copy_fonts' ) ) {
 				/* delete zip-archive */
 				unlink( $zip_file );
 				if ( empty( $errors ) ) {
-					$result['done'] = __( 'Additional fonts was successfully loaded', 'pdf-print' );
+					$result['done'] = __( 'Additional fonts were successfully loaded', 'pdf-print' );
 					$pdfprnt_options_array['additional_fonts'] = count( scandir( $destination ) );
-					//if ( is_multisite() )
-						update_site_option( 'pdfprnt_options_array', $pdfprnt_options_array );
+					update_option( 'pdfprnt_options_array', $pdfprnt_options_array );
 					if ( is_multisite() ) {
 						$network_options['additional_fonts'] = $pdfprnt_options_array['additional_fonts'];
 						update_site_option( 'pdfprnt_options_array', $network_options );
