@@ -1,12 +1,14 @@
 /* PDF-Print settings */
 .pdfprnt-top-left,
 .pdfprnt-bottom-left,
+.pdfprnt-top-bottom-left,
 .pdfprnt-left {
 	text-align: left;
 	padding: 5px;
 }
 .pdfprnt-top-right,
 .pdfprnt-bottom-right,
+.pdfprnt-top-bottom-right,
 .pdfprnt-right {
 	text-align: right;
 	padding: 5px;
@@ -15,6 +17,8 @@
 .pdfprnt-bottom-left a,
 .pdfprnt-top-right a,
 .pdfprnt-bottom-right a,
+.pdfprnt-top-bottom-right a,
+.pdfprnt-top-bottom-left a,
 .pdfprnt-left a,
 .pdfprnt-right a {
 	padding: 0 5px;
@@ -23,6 +27,8 @@
 .entry-content .pdfprnt-bottom-left a,
 .entry-content .pdfprnt-top-right a,
 .entry-content .pdfprnt-bottom-right a,
+.entry-content .pdfprnt-top-bottom-right a,
+.entry-content .pdfprnt-top-bottom-left a,
 .entry-content .pdfprnt-left a,
 .entry-content .pdfprnt-right a {
 	border-bottom: none;
@@ -31,6 +37,8 @@
 .entry-content .pdfprnt-bottom-left a img,
 .entry-content .pdfprnt-top-right a img,
 .entry-content .pdfprnt-bottom-right a img,
+.entry-content .pdfprnt-top-bottom-right a img,
+.entry-content .pdfprnt-top-bottom-left a img,
 .entry-content .pdfprnt-left a img,
 .entry-content .pdfprnt-right a img {
     display: inline;

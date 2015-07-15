@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdf-print\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-06-18 17:38+0300\n"
+"POT-Creation-Date: 2015-07-13 10:55+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: bestwebsoft.com <plugins@bestwebsoft.com>\n"
 "Language-Team: bestwebsoft.com <plugin@bestwebsoft.com>\n"
@@ -17,265 +17,402 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 
 #: pdf-print.php:32
-#: pdf-print.php:205
 msgid "PDF & Print Settings"
 msgstr "Налаштування PDF & Print"
 
-#: pdf-print.php:129
+#: pdf-print.php:128
 msgid "Top Left"
 msgstr "Ліворуч зверху"
 
-#: pdf-print.php:130
+#: pdf-print.php:129
 msgid "Top Right"
 msgstr "Праворуч зверху"
 
-#: pdf-print.php:131
+#: pdf-print.php:130
 msgid "Bottom Left"
 msgstr "Ліворуч знизу"
 
-#: pdf-print.php:132
+#: pdf-print.php:131
 msgid "Bottom Right"
 msgstr "Праворуч знизу"
 
-#: pdf-print.php:172
+#: pdf-print.php:132
+msgid "Top & Bottom Left"
+msgstr "Ліворуч зверху & знизу"
+
+#: pdf-print.php:133
+msgid "Top & Bottom Right"
+msgstr "Праворуч зверху & знизу"
+
+#: pdf-print.php:173
 msgid "Settings saved."
 msgstr "Налаштування збережені."
 
-#: pdf-print.php:175
+#: pdf-print.php:176
 msgid "The folder \"uploads/pdf-print-fonts\" was removed."
 msgstr "Папка \"uploads/pdf-print-fonts\" була видалена."
 
-#: pdf-print.php:182
+#: pdf-print.php:183
 msgid "Some fonts were removed from the folder \"uploads/pdf-print-fonts\"."
 msgstr "Деякі шрифти з папки \"uploads/pdf-print-fonts\" були видалені."
 
-#: pdf-print.php:186
+#: pdf-print.php:187
 msgid " You may need to reload fonts."
 msgstr "Вам можливо необхідно перезавантажити шрифти."
 
-#: pdf-print.php:207
-#: pdf-print.php:682
-#: pdf-print.php:696
+#: pdf-print.php:206
+msgid "Add New Template"
+msgstr "Додати темплейт"
+
+#: pdf-print.php:208
+#: pdf-print.php:784
+#: pdf-print.php:798
 msgid "Settings"
 msgstr "Налаштування"
 
-#: pdf-print.php:208
+#: pdf-print.php:209
 msgid "Extra settings"
 msgstr "Додаткові налаштування"
 
-#: pdf-print.php:209
-#: pdf-print.php:304
-#: pdf-print.php:697
+#: pdf-print.php:210
+msgid "Templates"
+msgstr "Темплейти"
+
+#: pdf-print.php:211
+#: pdf-print.php:305
+#: pdf-print.php:799
 msgid "FAQ"
 msgstr "Розповсюджені питання"
 
-#: pdf-print.php:210
+#: pdf-print.php:212
 msgid "Go PRO"
 msgstr "Перейти на PRO"
 
-#: pdf-print.php:213
+#: pdf-print.php:215
 msgid "Notice:"
 msgstr "Зауважте:"
 
-#: pdf-print.php:213
+#: pdf-print.php:215
 msgid "The plugin's settings have been changed. In order to save them please don't forget to click the 'Save Changes' button."
 msgstr "Налаштування плагіну змінились. Щоб зберегти їх, будь ласка, не забудьте клікнути \"Зберегти зміни\"."
 
-#: pdf-print.php:219
+#: pdf-print.php:221
 msgid "Load additional fonts"
 msgstr "Завантажити додаткові шрифти"
 
-#: pdf-print.php:223
+#: pdf-print.php:225
 msgid "Load Fonts"
 msgstr "Завантажити шрифти"
 
-#: pdf-print.php:224
+#: pdf-print.php:226
 msgid "You can load additional fonts, needed for the PDF creation. When creating the PDF-doc, this will allow automatic selection of fonts necessary for text, according to languages used in the content."
 msgstr "Ви маєте змогу завантажити додаткові шрифти. Це дозволить, під час створення PDF-документу, автоматично підбирати необхідні шрифти для тексту, відповідно до мови, що використовується в контенті."
 
-#: pdf-print.php:228
+#: pdf-print.php:230
 msgid "WARNING"
 msgstr "ЗАУВАЖТЕ"
 
-#: pdf-print.php:228
+#: pdf-print.php:230
 msgid "Class ZipArchive is not installed on your server. It is impossible to load additional fonts."
 msgstr "Класс ZipArchive відсутній на Вашому сервері. Завантаження шрифтів неможливе."
 
-#: pdf-print.php:230
+#: pdf-print.php:232
 msgid "Additional fonts were loaded successfully"
 msgstr "Додаткові шрифти були успішно завантажені"
 
-#: pdf-print.php:235
+#: pdf-print.php:237
 msgid "Use the theme stylesheet or plugin default style"
 msgstr "Використовувати стиль теми або стандартний стиль плагіну"
 
-#: pdf-print.php:238
+#: pdf-print.php:240
 msgid "Default stylesheet"
 msgstr "Стандартні стилі"
 
-#: pdf-print.php:239
+#: pdf-print.php:241
 msgid "Current theme stylesheet"
 msgstr "Стилі поточної теми"
 
-#: pdf-print.php:244
+#: pdf-print.php:246
 msgid "Types of posts that will be used in the plugin"
 msgstr "Типи постів, що буде використовувати плагін"
 
-#: pdf-print.php:259
+#: pdf-print.php:261
 msgid "Posts and pages"
 msgstr "Сторінки та записи"
 
-#: pdf-print.php:260
+#: pdf-print.php:262
 msgid "Search and archive pages"
 msgstr "Сторінки пошуку та архивів"
 
-#: pdf-print.php:261
+#: pdf-print.php:263
 msgid "Function call"
 msgstr "Під час виклику функції"
 
-#: pdf-print.php:264
+#: pdf-print.php:266
 msgid "Show PDF button"
 msgstr "Показати кнопку PDF"
 
-#: pdf-print.php:276
+#: pdf-print.php:278
 msgid "Show Print button"
 msgstr "Показати кнопку Print"
 
-#: pdf-print.php:288
+#: pdf-print.php:290
 msgid "Position of buttons in the content"
 msgstr "Позиція кнопок на сторінці"
 
-#: pdf-print.php:297
+#: pdf-print.php:298
 msgid "Left"
 msgstr "Ліворуч"
 
-#: pdf-print.php:298
+#: pdf-print.php:299
 msgid "Right"
 msgstr "Праворуч"
 
-#: pdf-print.php:304
+#: pdf-print.php:305
 msgid "In order to use PDF and Print buttons in the custom post or page template, see"
 msgstr "Для того, щоб використовувати кнопки PDF та Print в кастомному записі чи сторінці, перегляньте"
 
-#: pdf-print.php:310
+#: pdf-print.php:311
 msgid "Settings for shortcodes"
 msgstr "Налаштування для шорткодів"
 
-#: pdf-print.php:313
+#: pdf-print.php:314
 msgid "Do!"
 msgstr "Виконати!"
 
-#: pdf-print.php:317
+#: pdf-print.php:318
 msgid "Show the print window"
 msgstr "Показати вікно друку"
 
-#: pdf-print.php:328
+#: pdf-print.php:329
 msgid "PDF files name"
 msgstr "Назва для PDF файлів"
 
-#: pdf-print.php:330
+#: pdf-print.php:331
 msgid "use post or page slug"
 msgstr "Використати ярлик сторінки або запису"
 
-#: pdf-print.php:333
+#: pdf-print.php:334
 msgid "File name cannot contain more than 195 symbols. The file name can include Latin letters, numbers and symbols \"-\" , \"_\" only."
 msgstr "Им’я файлу може складатись не більш ніж з 195 символів. Ви можете використовувати латинські літери, цифри, а також символи \"-\" , \"_\" ."
 
-#: pdf-print.php:338
+#: pdf-print.php:339
 msgid "Do not index pdf and print pages"
 msgstr "Не індексувати сторінки PDF і Print "
 
-#: pdf-print.php:345
+#: pdf-print.php:346
 msgid "If you upgrade to Pro version, all your settings will be saved."
 msgstr "Якщо ви перейдете на Pro версію, всі налаштування буде збережено"
 
-#: pdf-print.php:352
-#: pdf-print.php:407
+#: pdf-print.php:353
+#: pdf-print.php:408
+#: pdf-print.php:521
 msgid "Unlock premium options by upgrading to a PRO version."
 msgstr "Відкрийте додаткові налаштування, перейшовши на Pro версію"
 
-#: pdf-print.php:353
-#: pdf-print.php:408
+#: pdf-print.php:354
+#: pdf-print.php:409
+#: pdf-print.php:522
 msgid "Learn More"
 msgstr "Дізнатись більше"
 
-#: pdf-print.php:357
-#: pdf-print.php:411
+#: pdf-print.php:358
+#: pdf-print.php:412
+#: pdf-print.php:525
 msgid "Go"
 msgstr "Перейти"
 
-#: pdf-print.php:365
-#: pdf-print.php:395
+#: pdf-print.php:366
+#: pdf-print.php:396
 msgid "Save Changes"
 msgstr "Зберегти зміни"
 
-#: pdf-print.php:377
+#: pdf-print.php:378
 msgid "Please choose the necessary post types (or single pages), where PDF & Print buttons should be displayed:"
 msgstr "Будь ласка виберіть тип посту чи сторінки, де будуть відображатись кнопки PDF & Print"
 
-#: pdf-print.php:384
+#: pdf-print.php:385
 msgid "Show URL for pages"
 msgstr "Показати посилання для сторінок"
 
-#: pdf-print.php:390
+#: pdf-print.php:391
 msgid "Example of site pages' tree"
 msgstr "Приклад дерева сторінок сайту"
 
-#: pdf-print.php:400
+#: pdf-print.php:401
 msgid "If you upgrade to Pro version all your settings will be saved."
 msgstr "Якщо ви перейдете на Pro версію, всі налаштування буде збережено"
 
-#: pdf-print.php:698
+#: pdf-print.php:423
+msgid "Add New template"
+msgstr "Додати темплейт"
+
+#: pdf-print.php:424
+msgid "For more info click \"Help\" tab at the top of the page."
+msgstr "Для отримання більш детальної інформації натисніть вкладку \"Допомога\" у верхній частині сторінки."
+
+#: pdf-print.php:426
+msgid "Enter Template Title"
+msgstr "Вкажіть заголовок"
+
+#: pdf-print.php:427
+msgid "Top running title"
+msgstr "Верхній колонтитул"
+
+#: pdf-print.php:433
+#: pdf-print.php:443
+msgid "Add Media"
+msgstr "Додати медіафайл"
+
+#: pdf-print.php:439
+msgid "Bottom running title"
+msgstr "Нижній колонтитул"
+
+#: pdf-print.php:449
+msgid "Save template"
+msgstr "Зберегти"
+
+#: pdf-print.php:452
+msgid "All"
+msgstr "Всі"
+
+#: pdf-print.php:453
+#: pdf-print.php:465
+#: pdf-print.php:488
+#: pdf-print.php:499
+msgid "Trash"
+msgstr "Кошик"
+
+#: pdf-print.php:456
+#: pdf-print.php:458
+msgid "search"
+msgstr "пошук"
+
+#: pdf-print.php:462
+#: pdf-print.php:496
+msgid "Select bulk action"
+msgstr "Виберіть групову дію"
+
+#: pdf-print.php:464
+#: pdf-print.php:498
+msgid "Bulk Actions"
+msgstr "Оберіть дію"
+
+#: pdf-print.php:467
+#: pdf-print.php:501
+msgid "Apply"
+msgstr "Застосувати"
+
+#: pdf-print.php:470
+#: pdf-print.php:504
+msgid "items"
+msgstr "пункти"
+
+#: pdf-print.php:471
+#: pdf-print.php:505
+msgid "Go to the first page"
+msgstr "Перейти до першої сторінки"
+
+#: pdf-print.php:472
+#: pdf-print.php:506
+msgid "Go to the previous page"
+msgstr "Перейти до попередньої сторінки"
+
+#: pdf-print.php:474
+#: pdf-print.php:508
+msgid "Select Page"
+msgstr "Вибір сторінки"
+
+#: pdf-print.php:475
+#: pdf-print.php:509
+msgid "Current page"
+msgstr "Поточна сторінка"
+
+#: pdf-print.php:475
+#: pdf-print.php:509
+msgid "of"
+msgstr "з"
+
+#: pdf-print.php:477
+#: pdf-print.php:511
+msgid "Go to the next page"
+msgstr "Перейти до наступної сторінки"
+
+#: pdf-print.php:478
+#: pdf-print.php:512
+msgid "Go to the last page"
+msgstr "Перейти до останньої сторінки"
+
+#: pdf-print.php:485
+#: pdf-print.php:491
+msgid "Select All"
+msgstr "Виділити все"
+
+#: pdf-print.php:485
+#: pdf-print.php:491
+msgid "Title"
+msgstr "Заголовок"
+
+#: pdf-print.php:485
+#: pdf-print.php:491
+msgid "Date"
+msgstr "Дата"
+
+#: pdf-print.php:488
+msgid "Edit"
+msgstr "Редагувати"
+
+#: pdf-print.php:800
 msgid "Support"
 msgstr "Підтримка"
 
-#: pdf-print.php:716
+#: pdf-print.php:818
 msgid "Loading of fonts. It might take a several minutes"
 msgstr "Завантаження шрифтів. Це може зайняти декілька хвилин"
 
-#: pdf-print.php:821
+#: pdf-print.php:923
 msgid "Date of completion"
 msgstr "Дата завершення"
 
-#: pdf-print.php:822
+#: pdf-print.php:924
 msgid "Link"
 msgstr "Посилання"
 
-#: pdf-print.php:823
+#: pdf-print.php:925
 msgid "Description"
 msgstr "Опис"
 
-#: pdf-print.php:829
+#: pdf-print.php:931
 msgid "Technologies"
 msgstr "Технології"
 
-#: pdf-print.php:834
+#: pdf-print.php:936
 #, php-format
 msgid "View all posts in %s"
 msgstr "Переглянути всі пости у %s"
 
-#: pdf-print.php:1270
+#: pdf-print.php:1372
 msgid "Check your internet connection"
 msgstr "Перевірте Ваше інтернет-з’єднання"
 
-#: pdf-print.php:1275
+#: pdf-print.php:1377
 msgid "Cannot load files in to \"uploads\" folder. Check your permissions"
 msgstr "Неможливо завантажити файли до папки \"uploads\". Перевірте Ваші права"
 
-#: pdf-print.php:1308
+#: pdf-print.php:1410
 msgid "Additional fonts were successfully loaded"
 msgstr "Додаткові шрифти були успішно завантажені"
 
-#: pdf-print.php:1316
-#: pdf-print.php:1319
+#: pdf-print.php:1418
+#: pdf-print.php:1421
 msgid "Some errors occur during loading files"
 msgstr "Під час завантаження файлів виникли деякі помилки"
 
-#: pdf-print.php:1322
+#: pdf-print.php:1424
 msgid "Cannot create \"uploads/pdf-print-fonts\" folder. Check your permissions"
 msgstr "Неможливо створити папку  \"uploads/pdf-print-fonts\". Перевірте Ваші права"
 
-#: pdf-print.php:1374
+#: pdf-print.php:1476
 msgid "Additional fonts was successfully loaded"
 msgstr "Додаткові шрифти були успішно завантажені"
 
@@ -461,9 +598,6 @@ msgstr "Додаткові шрифти були успішно завантаж
 
 #~ msgid "Please, go to"
 #~ msgstr "Будь ласка, перейдіть на"
-
-#~ msgid "the setting page"
-#~ msgstr "сторінку налаштувань"
 
 #~ msgid "You will be redirected automatically in 5 seconds."
 #~ msgstr "Вас буде переадресовано автоматично за 5 сек"

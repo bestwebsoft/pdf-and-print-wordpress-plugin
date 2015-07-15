@@ -2,9 +2,9 @@
 Contributors: bestwebsoft
 Donate link: http://bestwebsoft.com/donate/
 Tags: archive pdf, generate pdf, generate pdf content, generate post pdf, pdf, pdf and print, pdf button, pdf content, pdf custom post type, pdf page, pdf post, pdf print, pdf print button, pdf print content, pdf print portfolio, pdf print plugin, pdf search results, print, print button, print content, print custom post type, print page, print post, print post content, printing output, shortcode
-Requires at least: 3.1
+Requires at least: 3.3
 Tested up to: 4.2.2
-Stable tag: 1.8.2
+Stable tag: 1.8.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -127,6 +127,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 
 == Changelog ==
 
+= V1.8.3 - 15.07.2015 =
+* New : We added Top & Bottom Position of buttons in the content.
+
 = V1.8.2 - 19.06.2015 =
 * Bugfix : We fixed the bug with instalation of the additional fonts.
 
@@ -211,6 +214,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * NEW : Added the ability to output PDF and Print buttons on the type of page.
 
 == Upgrade Notice ==
+
+= V1.8.3 =
+We added Top & Bottom Position of buttons in the content.
 
 = V1.8.2 =
 We fixed the bug with instalation of the additional fonts.
