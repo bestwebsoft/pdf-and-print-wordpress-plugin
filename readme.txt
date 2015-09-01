@@ -1,10 +1,10 @@
 ﻿=== PDF & Print by BestWebSoft ===
 Contributors: bestwebsoft
 Donate link: http://bestwebsoft.com/donate/
-Tags: archive pdf, generate pdf, generate pdf content, generate post pdf, pdf, pdf and print, pdf button, pdf content, pdf custom post type, pdf page, pdf post, pdf print, pdf print button, pdf print content, pdf print portfolio, pdf print plugin, pdf search results, print, print button, print content, print custom post type, print page, print post, print post content, printing output, shortcode
+Tags: add pdf button, add pdf print button, archive pdf, button, best pdf plugin, best pdf and print pugin, best pdf button, best pdf print button, free pdf plugin, free pdf and print plugin, insert shortcode, generate pdf, generate pdf content, generate post pdf, pdf, pdf and print, pdf&print, pdfandprint, pdf button, pdf content, pdf custom post type, pdf page, pdf pages, pdf post, pdf posts, pdf print, pdf print button, pdf print content, pdf print plugin, pdf print plugins, pdf print portfolio, pdf search results, plugin, print, printable, printing, print button, print content, print custom post type, print page, print pages, print post, print posts, print post content, printing output, shortcode, simple pdf plugin, simple pdf print plugin, simple pdf button, simple pdf print button, wp plugin, wp pdf plugin, wp pdf print plugin, wp pdf button, wp pdf print button, wordpress plugin, wordpress pdf plugin, wordpress pdf button, wordpress pdf print plugin, wordpress pdf print button
 Requires at least: 3.3
-Tested up to: 4.2.2
-Stable tag: 1.8.3
+Tested up to: 4.3
+Stable tag: 1.8.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -16,22 +16,22 @@ PDF & Print allows you in the easiest and most flexible way to create PDF and Pr
 
 http://www.youtube.com/watch?v=EM6AEkD9M_s
 
-<a href="http://www.youtube.com/watch?v=4oqbcXtaxto" target="_blank">Video instruction on Installation</a>
+<a href="http://www.youtube.com/watch?v=E3w9ID3p2-A" target="_blank">PDF & Print by BestWebSoft Video instruction on Installation</a>
 
-<a href="http://wordpress.org/plugins/pdf-print/faq/" target="_blank">FAQ</a>
+<a href="http://wordpress.org/plugins/pdf-print/faq/" target="_blank">PDF & Print by BestWebSoft FAQ</a>
 
-<a href="http://support.bestwebsoft.com" target="_blank">Support</a>
+<a href="http://support.bestwebsoft.com" target="_blank">PDF & Print by BestWebSoft Support</a>
 
-<a href="http://bestwebsoft.com/products/pdf-print/?k=6a544b359e625de8281a635315d84a70" target="_blank">Upgrade to Pro Version</a>
+<a href="http://bestwebsoft.com/products/pdf-print/?k=6a544b359e625de8281a635315d84a70" target="_blank">Upgrade to PDF & Print Pro by BestWebSoft</a>
 
 = Features =
 
-* Actions: Ability to create PDF and Print page with adding appropriate buttons to the content.
-* Actions: Ability to create PDF and Print search results and pages of archives with adding appropriate buttons to the content.
-* Actions: Ability to create PDF and Print content from custom post type with adding appropriate buttons to the content.
-* Actions: Ability to create PDF and Print portfolio or single portfolio for Portfolio plugin (powered by bestwebsoft.com) with adding appropriate buttons to the content.
-* Actions: Ability to use execution of shortcode in pdf and printing output.
-* Display: This plugin allows you to select the position of buttons in content (top left, top right, bottom left, bottom right), or via function call (align left, align right).
+* Ability to create PDF and Print page with adding appropriate buttons to the content.
+* Ability to create PDF and Print search results and pages of archives with adding appropriate buttons to the content.
+* Ability to create PDF and Print content from custom post type with adding appropriate buttons to the content.
+* Ability to create PDF and Print portfolio or single portfolio for Portfolio plugin (powered by bestwebsoft.com) with adding appropriate buttons to the content.
+* Ability to use execution of shortcode in pdf and printing output.
+* Select the position of buttons in content (top left, top right, bottom left, bottom right).
 
 = Recommended Plugins =
 
@@ -64,7 +64,7 @@ We can fix some things for free for the users who provide translation of our plu
 
 View a <a href="https://docs.google.com/document/d/1Wwins2PmrzAYiEgFZDtRzMNDq9Sr7XDeqjGNm7b-oi8/edit" target="_blank">Step-by-step Instruction on PDF & Print Installation</a>
 
-http://www.youtube.com/watch?v=4oqbcXtaxto
+http://www.youtube.com/watch?v=E3w9ID3p2-A
 
 == Frequently Asked Questions ==
 
@@ -84,19 +84,21 @@ Go to the Settings page and change value for the 'Show PDF button' or 'Show Prin
 
 In order to use PDF and Print buttons on the custom post or page template you should paste the following string:
 
-`<?php if ( function_exists( 'pdfprnt_show_buttons_for_custom_post_type' ) ) echo pdfprnt_show_buttons_for_custom_post_type(); ?>`
+- in the top of the post or page template
 
-Save content of any page or post from your site! Paste the following string in to code of your theme:
+`<?php do_action( 'bwsplgns_display_pdf_print_buttons', 'top' ); ?>` 
 
-`<?php if ( function_exists( 'pdfprnt_show_buttons_for_custom_post_type' ) ) echo pdfprnt_show_buttons_for_custom_post_type( $custom_query ); ?>`
+- in the bottom of the post or page template
 
-where you have to specify query parameters for your post. For example:
+`<?php do_action( 'bwsplgns_display_pdf_print_buttons', 'bottom' ); ?>` 
 
-`<?php if ( function_exists( 'pdfprnt_show_buttons_for_custom_post_type' ) ) echo pdfprnt_show_buttons_for_custom_post_type( 'post_type=gallery&orderby=post_date' ); ?>`
+You can specify some query parameters for your post. For example:
+
+`<?php do_action( 'bwsplgns_display_pdf_print_buttons', 'bottom', 'post_type=gallery&orderby=post_date' ); ?>`
 
 or
 
-`<?php if ( function_exists( 'pdfprnt_show_buttons_for_custom_post_type' ) ) echo pdfprnt_show_buttons_for_custom_post_type( array( 'post_type'=>'gallery', 'orderby'=>'post_date' ) ); ?>`
+`<?php do_action( 'bwsplgns_display_pdf_print_buttons', 'bottom', array( 'post_type'=>'gallery', 'orderby'=>'post_date' ) ); ?>`
 
 For more information on the syntax for assigning parameters to function see <a target="_blank" href="http://codex.wordpress.org/Class_Reference/WP_Query#Parameters">here</a>.
 
@@ -107,6 +109,14 @@ For generating a pdf/print page version, PDF & Print plugin uses the content tha
 = If I have shortcode on the page, but I don't want them to be printed (add to pdf) =
 
 Go to the Settings page and unmark checkbox 'Settings for shortcodes'.
+
+= How can I change the content pdf/print document? =
+
+In order to change main content of pdf/print document you can use following filter:
+
+`add_filter( 'bwsplgns_get_pdf_print_content', {your_function} )`
+
+For more information about WordPress filters see <a target="_blank" href="https://codex.wordpress.org/Function_Reference/add_filter">here</a>.
 
 = I have some problems with the plugin's work. What Information should I provide to receive proper support? =
 
@@ -126,6 +136,11 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 5. PDF output page example.
 
 == Changelog ==
+
+= V1.8.4 - 01.09.2015 =
+* New : Added hooks for the possibility of changing the content of the pdf/print document.
+* Update : We updated functionality for displaying pdf/print buttons via functions.
+* Update : We updated all functionality for wordpress 4.3.
 
 = V1.8.3 - 15.07.2015 =
 * New : We added Top & Bottom Position of buttons in the content.
@@ -214,6 +229,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * NEW : Added the ability to output PDF and Print buttons on the type of page.
 
 == Upgrade Notice ==
+
+= V1.8.4 =
+Added hooks for the possibility of changing the content of the pdf/print document. We updated functionality for displaying pdf/print buttons via functions. We updated all functionality for wordpress 4.3.
 
 = V1.8.3 =
 We added Top & Bottom Position of buttons in the content.

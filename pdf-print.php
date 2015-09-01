@@ -4,7 +4,7 @@ Plugin Name: PDF & Print by BestWebSoft
 Plugin URI: http://bestwebsoft.com/products/
 Description: Plugin adds PDF creation and Print button on your site.
 Author: BestWebSoft
-Version: 1.8.3
+Version: 1.8.4
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 */
@@ -70,7 +70,7 @@ if ( ! function_exists( 'pdfprnt_admin_init' ) ) {
 /* Register settings for plugin */
 if ( ! function_exists( 'pdfprnt_settings' ) ) {
 	function pdfprnt_settings() {
-		global $pdfprnt_options_array, $pdfprnt_plugin_info;
+		global $pdfprnt_options_array, $pdfprnt_plugin_info, $pdfprnt_options_defaults;
 
 		if ( ! $pdfprnt_plugin_info ) {
 			if ( ! function_exists( 'get_plugin_data' ) )
@@ -84,7 +84,7 @@ if ( ! function_exists( 'pdfprnt_settings' ) ) {
 		foreach ( get_post_types( array( 'public' => 1, 'show_ui' => 1,	'_builtin' => true ), 'names' ) as $value )
 			$pdfprnt_default_post_types[]	=	$value;
 
-		$pdfprnt_options_array_defaults		=	array(
+		$pdfprnt_options_defaults		=	array(
 			'plugin_option_version' 		=> $pdfprnt_plugin_info["Version"],
 			'position'						=>	'top-right',
 			'position_search_archive'		=>	'top-right',
@@ -93,8 +93,6 @@ if ( ! function_exists( 'pdfprnt_settings' ) ) {
 			'show_btn_pdf'					=>	1,
 			'show_btn_print_search_archive'	=>	1,
 			'show_btn_pdf_search_archive'	=>	1,
-			'show_btn_print_custom'			=>	1,
-			'show_btn_pdf_custom'			=>	1,
 			'use_theme_stylesheet'			=>	0,
 			'tmpl_shorcode'					=>	1,
 			'use_types_posts'				=>	$pdfprnt_default_post_types,
@@ -103,7 +101,7 @@ if ( ! function_exists( 'pdfprnt_settings' ) ) {
 		);
 		
 		if ( ! get_option( 'pdfprnt_options_array' ) )
-			add_option( 'pdfprnt_options_array', $pdfprnt_options_array_defaults );
+			add_option( 'pdfprnt_options_array', $pdfprnt_options_defaults );
 
 		$pdfprnt_options_array	= get_option( 'pdfprnt_options_array' );
 
@@ -112,7 +110,7 @@ if ( ! function_exists( 'pdfprnt_settings' ) ) {
 				$pdfprnt_options_array['position_search_archive'] = 'pdfprnt-left' == $pdfprnt_options_array['position_search_archive'] ? 'top-left' : 'top-right';
 			if ( in_array( $pdfprnt_options_array['position_custom'], array( 'pdfprnt-right', 'pdfprnt-left' ) ) )
 				$pdfprnt_options_array['position_custom'] = 'pdfprnt-left' == $pdfprnt_options_array['position_custom'] ? 'left' : 'right';
-			$pdfprnt_options_array	= array_merge( $pdfprnt_options_array_defaults, $pdfprnt_options_array );
+			$pdfprnt_options_array	= array_merge( $pdfprnt_options_defaults, $pdfprnt_options_array );
 			$pdfprnt_options_array['plugin_option_version'] = $pdfprnt_plugin_info["Version"];
 			update_option( 'pdfprnt_options_array', $pdfprnt_options_array );
 		}
@@ -120,10 +118,10 @@ if ( ! function_exists( 'pdfprnt_settings' ) ) {
 }
 
 /**
- * Display <select> on settings page
+ * Display <input type="radio">  on settings page
  **/
-if ( ! function_exists( 'pdfprnt_display_select' ) ) {
-	function pdfprnt_display_select( $name, $selected ) {
+if ( ! function_exists( 'pdfprnt_display_radio' ) ) {
+	function pdfprnt_display_radio( $name, $selected ) {
 		$positions_values	=	array(
 			'top-left'		=>	__( 'Top Left', 'pdf-print' ),
 			'top-right'		=>	__( 'Top Right', 'pdf-print' ),
@@ -140,7 +138,7 @@ if ( ! function_exists( 'pdfprnt_display_select' ) ) {
 /* Add admin page */
 if ( ! function_exists ( 'pdfprnt_settings_page' ) ) {
 	function pdfprnt_settings_page () {
-		global $pdfprnt_options_array, $wp_version, $pdfprnt_plugin_info;
+		global $pdfprnt_options_array, $wp_version, $pdfprnt_plugin_info, $pdfprnt_options_defaults;
 		$message = $error  = "";
 		$plugin_basename   = plugin_basename( __FILE__ );
 		if ( is_multisite() ) {
@@ -164,8 +162,6 @@ if ( ! function_exists ( 'pdfprnt_settings_page' ) ) {
 			$pdfprnt_options_array['show_btn_print']				=	isset( $_REQUEST['pdfprnt_show_btn_print'] ) ? 1 : 0;
 			$pdfprnt_options_array['show_btn_pdf_search_archive']	=	isset( $_REQUEST['pdfprnt_show_btn_pdf_search_archive'] ) ? 1 : 0;
 			$pdfprnt_options_array['show_btn_print_search_archive']	=	isset( $_REQUEST['pdfprnt_show_btn_print_search_archive'] ) ? 1 : 0;
-			$pdfprnt_options_array['show_btn_pdf_custom']			=	isset( $_REQUEST['pdfprnt_show_btn_pdf_custom'] ) ? 1 : 0;
-			$pdfprnt_options_array['show_btn_print_custom']			=	isset( $_REQUEST['pdfprnt_show_btn_print_custom'] ) ? 1 : 0;
 			$pdfprnt_options_array['tmpl_shorcode']					=	isset( $_REQUEST['pdfprnt_tmpl_shorcode'] ) ? 1 : 0;
 			$pdfprnt_options_array['show_print_window']				=	isset( $_REQUEST['pdfprnt_show_print_window'] ) ? 1 : 0;
 			$pdfprnt_options_array['use_types_posts']				=	isset( $_REQUEST['pdfprnt_use_types_posts'] ) ? $_REQUEST['pdfprnt_use_types_posts'] : array();
@@ -200,10 +196,16 @@ if ( ! function_exists ( 'pdfprnt_settings_page' ) ) {
 				$error .= '&nbsp;' . $result['error'];
 			if ( isset( $result['done'] ) )
 				$message .= '&nbsp;' . $result['done'];
-		} ?>
+		} 
+		if ( isset( $_REQUEST['bws_restore_confirm'] ) && check_admin_referer( $plugin_basename, 'bws_settings_nonce_name' ) ) {
+			$pdfprnt_options_array = $pdfprnt_options_defaults;
+			update_option( 'pdfprnt_options_array', $pdfprnt_options_array );
+			$message = __( 'All plugin settings were restored.', 'pdf-print' );
+		} 
+		?>
 		<div class="wrap">
 			<div class="icon32 icon32-bws" id="icon-options-general"></div>
-			<h2>PDF & Print Pro <?php if ( isset( $_GET['action'] ) && 'templates' == $_GET['action'] ) { ?><a href="admin.php?page=pdf-print.php&amp;action=templates&amp;pdfprnt_tab_action=new" class="<?php if ( 3.8 > $wp_version ) echo 'button '; ?>add-new-h2"><?php _e( 'Add New Template', 'pdf-print' ); ?></a><?php } ?></h2>
+			<h2>PDF & Print<?php if ( isset( $_GET['action'] ) && 'templates' == $_GET['action'] ) { ?> <a href="admin.php?page=pdf-print.php&amp;action=templates&amp;pdfprnt_tab_action=new" class="<?php if ( 3.8 > $wp_version ) echo 'button '; ?>add-new-h2"><?php _e( 'Add New Template', 'pdf-print' ); ?></a><?php } ?></h2>
 			<h2 class="nav-tab-wrapper">
 				<a class="nav-tab<?php if ( !isset( $_GET['action'] ) ) echo ' nav-tab-active'; ?>" href="admin.php?page=pdf-print.php"><?php _e( 'Settings', 'pdf-print' ); ?></a>
 				<a class="nav-tab<?php if ( isset( $_GET['action'] ) && 'extra' == $_GET['action'] ) echo ' nav-tab-active'; ?>" href="admin.php?page=pdf-print.php&amp;action=extra"><?php _e( 'Extra settings', 'pdf-print' ); ?></a>
@@ -214,53 +216,55 @@ if ( ! function_exists ( 'pdfprnt_settings_page' ) ) {
 			<div class="updated fade" <?php if ( empty( $message ) || "" != $error ) echo "style=\"display:none\""; ?>><p><strong><?php echo $message; ?></strong></p></div>
 			<div id="pdfprnt_settings_notice" class="updated fade" style="display:none"><p><strong><?php _e( "Notice:", 'pdf-print' ); ?></strong> <?php _e( "The plugin's settings have been changed. In order to save them please don't forget to click the 'Save Changes' button.", 'pdf-print' ); ?></p></div>
 			<div class="error" <?php if ( "" == $error ) echo "style=\"display:none\""; ?>><p><strong><?php echo $error; ?></strong></p></div>
-			<?php if ( ! isset( $_GET['action'] ) ) { ?>
-				<form method="post" action="admin.php?page=pdf-print.php" id="pdfprnt_settings_form">
-					<table class="form-table pdfprnt_settings_table">
-						<tr id="pdfprnt_load_fonts_button">
-							<th scope="row"><?php _e( 'Load additional fonts', 'pdf-print' ); ?></th>
-							<td style="position: relative;">
-								<?php if ( 0 == $pdfprnt_options_array['additional_fonts'] && class_exists( 'ZipArchive' ) ) { 
-									$ajax_nonce = wp_create_nonce( 'pdfprnt_ajax_nonce' ); ?>
-									<input type="submit" class="button" value="<?php _e( 'Load Fonts', 'pdf-print' ); ?>" name="pdfprnt_load_fonts" />&nbsp;<span id="pdfprnt_font_loader" class="pdfprnt_loader"><img src="<?php echo plugins_url( 'images/ajax-loader.gif', __FILE__ ); ?>" alt="loader" /></span><br />
-									<span class="pdfprnt_info"><?php _e( 'You can load additional fonts, needed for the PDF creation. When creating the PDF-doc, this will allow automatic selection of fonts necessary for text, according to languages used in the content.', 'pdf-print' ); ?></span>
-									<input type="hidden" name="pdfprnt_action" value="pdfprnt_load_fonts" />
-									<input type="hidden" name="pdfprnt_ajax_nonce" value="<?php echo $ajax_nonce; ?>" />
-								<?php } elseif ( 0 == $pdfprnt_options_array['additional_fonts'] && ! class_exists( 'ZipArchive' ) ) { ?>
-									<span style="color: red"><strong><?php _e( 'WARNING', 'pdf-print' ); ?>:&nbsp;</strong><?php _e( 'Class ZipArchive is not installed on your server. It is impossible to load additional fonts.', 'pdf-print' ); ?></span>
-								<?php } elseif ( 0 < $pdfprnt_options_array['additional_fonts'] ) { ?>
-									<span><?php _e( 'Additional fonts were loaded successfully', 'pdf-print' ); ?>.</span>
-								<?php } ?>
-							</td>
-						</tr>
-						<tr>
-							<th scope="row"><?php _e( 'Use the theme stylesheet or plugin default style', 'pdf-print' ); ?></th>
-							<td>
-								<select name="pdfprnt_use_theme_stylesheet">
-									<option value="0" <?php if ( 0 == $pdfprnt_options_array['use_theme_stylesheet'] ) echo 'selected="selected"'; ?>><?php echo __( 'Default stylesheet', 'pdf-print' ); ?></option>
-									<option value="1" <?php if ( 1 == $pdfprnt_options_array['use_theme_stylesheet'] ) echo 'selected="selected"'; ?>><?php echo __( 'Current theme stylesheet', 'pdf-print' ); ?></option>
-								</select>
-							</td>
-						</tr>
-						<tr>
-							<th scope="row"><?php _e( 'Types of posts that will be used in the plugin', 'pdf-print' ); ?></th>
-							<td>
-								<select name="pdfprnt_use_types_posts[]" multiple="multiple">
-									<?php foreach ( get_post_types( array( 'public' => 1, 'show_ui' => 1 ), 'objects' ) as $key => $value  ) : 
-										if ( 'attachment' != $key ) { ?>
-											<option value="<?php echo $key; ?>" <?php if ( in_array( $key, $pdfprnt_options_array['use_types_posts'] ) ) echo 'selected="selected"'; ?>><?php echo $value->label; ?></option>
-										<?php }
-									endforeach; ?>
-								</select>
-							</td>
-						</tr>
-					</table>
-					<table class="form-table pdfprnt_settings_table pdfprnt_buttons" style="width: auto !important;">
+			<?php if ( ! isset( $_GET['action'] ) ) { 
+				if ( isset( $_REQUEST['bws_restore_default'] ) && check_admin_referer( $plugin_basename, 'bws_settings_nonce_name' ) ) {
+					bws_form_restore_default_confirm( $plugin_basename );
+				} else { ?>
+					<form method="post" action="admin.php?page=pdf-print.php" id="pdfprnt_settings_form">
+						<table class="form-table pdfprnt_settings_table">
+							<tr id="pdfprnt_load_fonts_button">
+								<th scope="row"><?php _e( 'Load additional fonts', 'pdf-print' ); ?></th>
+								<td style="position: relative;">
+									<?php if ( 0 == $pdfprnt_options_array['additional_fonts'] && class_exists( 'ZipArchive' ) ) { 
+										$ajax_nonce = wp_create_nonce( 'pdfprnt_ajax_nonce' ); ?>
+										<input type="submit" class="button" value="<?php _e( 'Load Fonts', 'pdf-print' ); ?>" name="pdfprnt_load_fonts" />&nbsp;<span id="pdfprnt_font_loader" class="pdfprnt_loader"><img src="<?php echo plugins_url( 'images/ajax-loader.gif', __FILE__ ); ?>" alt="loader" /></span><br />
+										<span class="pdfprnt_info"><?php _e( 'You can load additional fonts, needed for the PDF creation. When creating the PDF-doc, this will allow automatic selection of fonts necessary for text, according to languages used in the content.', 'pdf-print' ); ?></span>
+										<input type="hidden" name="pdfprnt_action" value="pdfprnt_load_fonts" />
+										<input type="hidden" name="pdfprnt_ajax_nonce" value="<?php echo $ajax_nonce; ?>" />
+									<?php } elseif ( 0 == $pdfprnt_options_array['additional_fonts'] && ! class_exists( 'ZipArchive' ) ) { ?>
+										<span style="color: red"><strong><?php _e( 'WARNING', 'pdf-print' ); ?>:&nbsp;</strong><?php _e( 'Class ZipArchive is not installed on your server. It is impossible to load additional fonts.', 'pdf-print' ); ?></span>
+									<?php } elseif ( 0 < $pdfprnt_options_array['additional_fonts'] ) { ?>
+										<span><?php _e( 'Additional fonts were loaded successfully', 'pdf-print' ); ?>.</span>
+									<?php } ?>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row"><?php _e( 'Use the theme stylesheet or plugin default style', 'pdf-print' ); ?></th>
+								<td>
+									<select name="pdfprnt_use_theme_stylesheet">
+										<option value="0" <?php if ( 0 == $pdfprnt_options_array['use_theme_stylesheet'] ) echo 'selected="selected"'; ?>><?php echo __( 'Default stylesheet', 'pdf-print' ); ?></option>
+										<option value="1" <?php if ( 1 == $pdfprnt_options_array['use_theme_stylesheet'] ) echo 'selected="selected"'; ?>><?php echo __( 'Current theme stylesheet', 'pdf-print' ); ?></option>
+									</select>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row"><?php _e( 'Types of posts that will be used in the plugin', 'pdf-print' ); ?></th>
+								<td>
+									<select name="pdfprnt_use_types_posts[]" multiple="multiple">
+										<?php foreach ( get_post_types( array( 'public' => 1, 'show_ui' => 1 ), 'objects' ) as $key => $value  ) {
+											if ( 'attachment' != $key ) { ?>
+												<option value="<?php echo $key; ?>" <?php if ( in_array( $key, $pdfprnt_options_array['use_types_posts'] ) ) echo 'selected="selected"'; ?>><?php echo $value->label; ?></option>
+											<?php }
+										} ?>
+									</select>
+								</td>
+							</tr>
+						</table>
+						<table class="form-table pdfprnt_settings_table pdfprnt_buttons" style="width: auto !important;">
 							<tr class="pdfprnt_table_head">
 								<th scope="row"></th>
 								<th><?php _e( 'Posts and pages', 'pdf-print' ); ?></th>
 								<th><?php _e( 'Search and archive pages', 'pdf-print' ); ?></th>
-								<th><?php _e( 'Function call', 'pdf-print' ); ?></th>
 							</tr>
 							<tr class="pdfprnt_pdf_buttton">
 								<th scope="row"><?php _e( 'Show PDF button', 'pdf-print' ); ?></th>
@@ -269,9 +273,6 @@ if ( ! function_exists ( 'pdfprnt_settings_page' ) ) {
 								</td>
 								<td>
 									<input type="checkbox" name="pdfprnt_show_btn_pdf_search_archive" <?php if ( 1 == $pdfprnt_options_array['show_btn_pdf_search_archive'] ) echo 'checked="checked"'; ?> />
-								</td>
-								<td>
-									<input type="checkbox" name="pdfprnt_show_btn_pdf_custom" <?php if ( 1 == $pdfprnt_options_array['show_btn_pdf_custom'] ) echo 'checked="checked"'; ?> />
 								</td>
 							</tr>
 							<tr class="pdfprnt_print_buttton">
@@ -282,139 +283,108 @@ if ( ! function_exists ( 'pdfprnt_settings_page' ) ) {
 								<td>
 									<input type="checkbox" name="pdfprnt_show_btn_print_search_archive" <?php if ( 1 == $pdfprnt_options_array['show_btn_print_search_archive'] ) echo 'checked="checked"'; ?> />
 								</td>
-								<td>
-									<input type="checkbox" name="pdfprnt_show_btn_print_custom" <?php if ( 1 == $pdfprnt_options_array['show_btn_print_custom'] ) echo 'checked="checked"'; ?> />
-								</td>
 							</tr>
 							<tr class="pdfprnt_position_buttton">
 								<th scope="row"><?php _e( 'Position of buttons in the content', 'pdf-print' ); ?></th>
 								<td>
-									<?php pdfprnt_display_select( 'pdfprnt_position', $pdfprnt_options_array['position'] ); ?>
+									<fieldset><?php pdfprnt_display_radio( 'pdfprnt_position', $pdfprnt_options_array['position'] ); ?></fieldset>
 								</td>
 								<td>
-									<?php pdfprnt_display_select( 'pdfprnt_position_search_archive', $pdfprnt_options_array['position_search_archive'] ); ?>
-								</td>
-								<td>
-									<label><input type="radio" name="pdfprnt_position_custom" value="left"<?php echo 'left' == $pdfprnt_options_array['position_custom'] ? ' checked="checked"' : ''; ?>>&nbsp;<?php _e( 'Left', 'pdf-print' ); ?></label><br/>
-									<label><input type="radio" name="pdfprnt_position_custom" value="right"<?php echo 'right' == $pdfprnt_options_array['position_custom'] ? ' checked="checked"' : ''; ?>>&nbsp;<?php _e( 'Right', 'pdf-print' ); ?></label>
+									<fieldset><?php pdfprnt_display_radio( 'pdfprnt_position_search_archive', $pdfprnt_options_array['position_search_archive'] ); ?></fieldset>
 								</td>
 							</tr>
-					</table>
-					<div>
-						<p>
-							<?php _e( 'In order to use PDF and Print buttons in the custom post or page template, see', 'pdf-print' ); ?>&nbsp;<a href="http://bestwebsoft.com/products/pdf-print/faq/" target="_blank"><?php _e( 'FAQ', 'pdf-print' ); ?></a>
-						</p>
-					</div>
-					<table class="form-table pdfprnt_settings_table">
-						<tr>
-							<th scope="row">
-								<?php _e( 'Settings for shortcodes', 'pdf-print' ); ?>
-							</th>
-							<td>
-								<label><input type="checkbox" name="pdfprnt_tmpl_shorcode"  <?php if ( 1 == $pdfprnt_options_array['tmpl_shorcode'] ) echo 'checked="checked"'; ?> /> <span><?php _e( 'Do!', 'pdf-print' ); ?></span></label>
-							</td>
-						</tr>
-						<tr>
-							<th scope="row"><?php _e( 'Show the print window', 'pdf-print' ); ?></th>
-							<td>
-								<input type="checkbox" name="pdfprnt_show_print_window" <?php if ( 1 == $pdfprnt_options_array['show_print_window'] ) echo 'checked="checked"'; ?> />
-							</td>
-						</tr>
-					</table>
-					<div class="bws_pro_version_bloc">
-						<div class="bws_pro_version_table_bloc">
-							<div class="bws_table_bg"></div>
-							<table class="form-table bws_pro_version">
-								<tr>
-									<th scope="row"><?php _e( 'PDF files name', 'pdf-print' ); ?></th>
-									<td>
-										<label><input disabled="disabled" type="radio" name="pdfprntpr_select_file_name" value="1" /> <?php _e( 'use post or page slug', 'pdf-print' ); ?></label><br />
-										<input type="radio" disabled="disabled" name="pdfprntpr_select_file_name" value="0" /><input disabled="disabled" type="text" name='pdfprntpr_file_name' value="mpdf" /><br />
-										<span class="pdfprnt_info">
-											<?php _e( 'File name cannot contain more than 195 symbols. The file name can include Latin letters, numbers and symbols "-" , "_" only.', 'pdf-print' )  ?>	
-										</span>
-									</td>
-								</tr>
-								<tr>
-									<th scope="row"><?php _e( 'Do not index pdf and print pages', 'pdf-print' ); ?></th>
-									<td>
-										<input type="checkbox" name="pdfprntpr_noindex_page" disabled="disabled" />
-									</td>
-								</tr>
-								<tr valign="top">
-									<th scope="row" colspan="2">
-										* <?php _e( 'If you upgrade to Pro version, all your settings will be saved.', 'pdf-print' ); ?>
-									</th>
-								</tr>		
-							</table>	
+						</table>
+						<div>
+							<p>
+								<?php _e( 'In order to use PDF and Print buttons in the custom post or page template, see', 'pdf-print' ); ?>&nbsp;<a href="http://bestwebsoft.com/products/pdf-print/faq/" target="_blank"><?php _e( 'FAQ', 'pdf-print' ); ?></a>
+							</p>
 						</div>
-						<div class="bws_pro_version_tooltip">
-							<div class="bws_info">
-								<?php _e( 'Unlock premium options by upgrading to a PRO version.', 'pdf-print' ); ?> 
-								<a href="http://bestwebsoft.com/products/pdf-print/?k=d9da7c9c2046bed8dfa38d005d4bffdb&pn=101&v=<?php echo $pdfprnt_plugin_info["Version"]; ?>&wp_v=<?php echo $wp_version; ?>" target="_blank" title="PDF & Print Pro"><?php _e( 'Learn More', 'pdf-print' ); ?></a>				
+						<table class="form-table pdfprnt_settings_table">
+							<tr>
+								<th scope="row">
+									<?php _e( 'Settings for shortcodes', 'pdf-print' ); ?>
+								</th>
+								<td>
+									<label><input type="checkbox" name="pdfprnt_tmpl_shorcode"  <?php if ( 1 == $pdfprnt_options_array['tmpl_shorcode'] ) echo 'checked="checked"'; ?> /> <span><?php _e( 'Do!', 'pdf-print' ); ?></span></label>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row"><?php _e( 'Show the print window', 'pdf-print' ); ?></th>
+								<td>
+									<input type="checkbox" name="pdfprnt_show_print_window" <?php if ( 1 == $pdfprnt_options_array['show_print_window'] ) echo 'checked="checked"'; ?> />
+								</td>
+							</tr>
+						</table>
+						<div class="bws_pro_version_bloc">
+							<div class="bws_pro_version_table_bloc">
+								<div class="bws_table_bg"></div>
+								<table class="form-table bws_pro_version">
+									<tr>
+										<th scope="row"><?php _e( 'PDF files name', 'pdf-print' ); ?></th>
+										<td>
+											<fieldset>
+												<label><input disabled="disabled" type="radio" name="pdfprntpr_select_file_name" value="1" /> <?php _e( 'use post or page slug', 'pdf-print' ); ?></label><br />
+												<input type="radio" disabled="disabled" name="pdfprntpr_select_file_name" value="0" /><input disabled="disabled" type="text" name='pdfprntpr_file_name' value="mpdf" /><br />
+												<span class="pdfprnt_info">
+													<?php _e( 'File name cannot contain more than 195 symbols. The file name can include Latin letters, numbers and symbols "-" , "_" only.', 'pdf-print' )  ?>	
+												</span>
+											</fieldset>
+										</td>
+									</tr>
+									<tr>
+										<th scope="row"><?php _e( 'Do not index pdf and print pages', 'pdf-print' ); ?></th>
+										<td>
+											<input type="checkbox" name="pdfprntpr_noindex_page" disabled="disabled" />
+										</td>
+									</tr>
+									<tr valign="top">
+										<th scope="row" colspan="2">
+											* <?php _e( 'If you upgrade to Pro version, all your settings will be saved.', 'pdf-print' ); ?>
+										</th>
+									</tr>		
+								</table>	
 							</div>
-							<div class="bws_pro_links">
-								<a class="bws_button" href="http://bestwebsoft.com/products/pdf-print/buy/?k=d9da7c9c2046bed8dfa38d005d4bffdb&pn=101&v=<?php echo $pdfprnt_plugin_info["Version"]; ?>&wp_v=<?php echo $wp_version; ?>" target="_blank" title="PDF & Print Pro">
-									<?php _e( 'Go', 'pdf-print' ); ?> <strong>PRO</strong>
-								</a>
-							</div>	
-							<div class="clear"></div>					
+							<div class="bws_pro_version_tooltip">
+								<div class="bws_info">
+									<?php _e( 'Unlock premium options by upgrading to Pro version', 'pdf-print' ); ?> 
+								</div>
+								<a class="bws_button" href="http://bestwebsoft.com/products/pdf-print/?k=d9da7c9c2046bed8dfa38d005d4bffdb&pn=101&v=<?php echo $pdfprnt_plugin_info["Version"]; ?>&wp_v=<?php echo $wp_version; ?>" target="_blank" title="PDF & Print Pro"><?php _e( 'Learn More', 'pdf-print' ); ?></a>
+								<div class="clear"></div>					
+							</div>
 						</div>
-					</div>
-					<input type="hidden" name="pdfprnt_form_submit" value="1" />
-					<p class="submit">
-						<input type="submit" class="button-primary" value="<?php _e( 'Save Changes', 'pdf-print' ); ?>" />
-					</p>
-					<?php wp_nonce_field( $plugin_basename, 'pdfprnt_nonce_name' ); ?>
-				</form>
-				<?php bws_plugin_reviews_block( $pdfprnt_plugin_info['Name'], 'pdf-print' ); ?>
+						<input type="hidden" name="pdfprnt_form_submit" value="1" />
+						<p class="submit">
+							<input type="submit" class="button-primary" value="<?php _e( 'Save Changes', 'pdf-print' ); ?>" />
+						</p>
+						<?php wp_nonce_field( $plugin_basename, 'pdfprnt_nonce_name' ); ?>
+					</form>
+					<?php bws_form_restore_default_settings( $plugin_basename );
+				} ?>
 			<?php } elseif ( 'extra' == $_GET['action'] ) { ?>
 				<div class="bws_pro_version_bloc">
 					<div class="bws_pro_version_table_bloc">	
-						<div class="bws_table_bg"></div>											
-						<table class="form-table bws_pro_version">
-							<tr valign="top">
-								<td colspan="2">
-									<?php _e( 'Please choose the necessary post types (or single pages), where PDF & Print buttons should be displayed:', 'pdf-print' ); ?>
-								</td>
-							</tr>
-							<tr valign="top">
-								<td colspan="2">
-									<label>
-										<input disabled="disabled" checked="checked" id="twttrpr_jstree_url" type="checkbox" name="twttrpr_jstree_url" value="1" />
-										<?php _e( "Show URL for pages", 'pdf-print' );?>
-									</label>
-								</td>
-							</tr>
-							<tr valign="top">
-								<td colspan="2">
-									<img src="<?php echo plugins_url( 'images/pro_screen_1.png', __FILE__ ); ?>" alt="<?php _e( "Example of site pages' tree", 'pdf-print' ); ?>" title="<?php _e( "Example of site pages' tree", 'pdf-print' ); ?>" />
-								</td>
-							</tr>
-							<tr valign="top">
-								<td colspan="2">
-									<input disabled="disabled" type="submit" class="button-primary" value="<?php _e( 'Save Changes', 'pdf-print' ); ?>" />
-								</td>
-							</tr>
-							<tr valign="top">
-								<th scope="row" colspan="2">
-									* <?php _e( 'If you upgrade to Pro version all your settings will be saved.', 'pdf-print' ); ?>
-								</th>
-							</tr>				
-						</table>	
+						<div class="bws_table_bg"></div>
+						<div class="bws_pro_version">
+							<p><?php _e( 'Please choose the necessary post types (or single pages), where PDF & Print buttons should be displayed:', 'pdf-print' ); ?></p>											
+							<p><label>
+								<input disabled="disabled" checked="checked" id="twttrpr_jstree_url" type="checkbox" name="twttrpr_jstree_url" value="1" />
+								<?php _e( "Show URL for pages", 'pdf-print' );?>
+							</label></p>
+							<img src="<?php echo plugins_url( 'images/pro_screen_1.png', __FILE__ ); ?>" alt="<?php _e( "Example of site pages' tree", 'pdf-print' ); ?>" title="<?php _e( "Example of site pages' tree", 'pdf-print' ); ?>" />
+							<p class="submit">
+								<input disabled="disabled" type="submit" class="button-primary" value="<?php _e( 'Save Changes', 'pdf-print' ); ?>" />
+							</p>
+							<p><strong>* <?php _e( 'If you upgrade to Pro version all your settings will be saved.', 'pdf-print' ); ?></strong></p>
+						</div>
 					</div>
 					<div class="bws_pro_version_tooltip">
 						<div class="bws_info">
-							<?php _e( 'Unlock premium options by upgrading to a PRO version.', 'pdf-print' ); ?> 
-							<a href="http://bestwebsoft.com/products/pdf-print/?k=d9da7c9c2046bed8dfa38d005d4bffdb&pn=101&v=<?php echo $pdfprnt_plugin_info["Version"]; ?>&wp_v=<?php echo $wp_version; ?>" target="_blank" title="PDF & Print Pro"><?php _e( 'Learn More', 'pdf-print' ); ?></a>				
+							<?php _e( 'Unlock premium options by upgrading to Pro version', 'pdf-print' ); ?> 
 						</div>
-						<a class="bws_button" href="http://bestwebsoft.com/products/pdf-print/buy/?k=d9da7c9c2046bed8dfa38d005d4bffdb&pn=101&v=<?php echo $pdfprnt_plugin_info["Version"]; ?>&wp_v=<?php echo $wp_version; ?>" target="_blank" title="PDF & Print Pro">
-							<?php _e( 'Go', 'pdf-print' ); ?> <strong>PRO</strong>
-						</a>	
+						<a class="bws_button" href="http://bestwebsoft.com/products/pdf-print/?k=d9da7c9c2046bed8dfa38d005d4bffdb&pn=101&v=<?php echo $pdfprnt_plugin_info["Version"]; ?>&wp_v=<?php echo $wp_version; ?>" target="_blank" title="PDF & Print Pro"><?php _e( 'Learn More', 'pdf-print' ); ?></a>
 						<div class="clear"></div>					
 					</div>
 				</div>
-				<?php bws_plugin_reviews_block( $pdfprnt_plugin_info['Name'], 'pdf-print' ); ?>
 			<?php } elseif ( 'templates' == $_GET['action'] ) { ?>
 				<div class="bws_pro_version_bloc">
 					<div class="bws_pro_version_table_bloc">	
@@ -518,19 +488,16 @@ if ( ! function_exists ( 'pdfprnt_settings_page' ) ) {
 					</div>
 					<div class="bws_pro_version_tooltip">
 						<div class="bws_info">
-							<?php _e( 'Unlock premium options by upgrading to a PRO version.', 'pdf-print' ); ?> 
-							<a href="http://bestwebsoft.com/products/pdf-print/?k=d9da7c9c2046bed8dfa38d005d4bffdb&pn=101&v=<?php echo $pdfprnt_plugin_info["Version"]; ?>&wp_v=<?php echo $wp_version; ?>" target="_blank" title="PDF & Print Pro"><?php _e( 'Learn More', 'pdf-print' ); ?></a>				
+							<?php _e( 'Unlock premium options by upgrading to PRO version.', 'pdf-print' ); ?> 
 						</div>
-						<a class="bws_button" href="http://bestwebsoft.com/products/pdf-print/buy/?k=d9da7c9c2046bed8dfa38d005d4bffdb&pn=101&v=<?php echo $pdfprnt_plugin_info["Version"]; ?>&wp_v=<?php echo $wp_version; ?>" target="_blank" title="PDF & Print Pro">
-							<?php _e( 'Go', 'pdf-print' ); ?> <strong>PRO</strong>
-						</a>	
+						<a class="bws_button" href="http://bestwebsoft.com/products/pdf-print/?k=d9da7c9c2046bed8dfa38d005d4bffdb&pn=101&v=<?php echo $pdfprnt_plugin_info["Version"]; ?>&wp_v=<?php echo $wp_version; ?>" target="_blank" title="PDF & Print Pro"><?php _e( 'Learn More', 'pdf-print' ); ?></a>
 						<div class="clear"></div>					
 					</div>
 				</div>
-				<?php bws_plugin_reviews_block( $pdfprnt_plugin_info['Name'], 'pdf-print' ); ?>
 			<?php } elseif ( 'go_pro' == $_GET['action'] ) {
 				bws_go_pro_tab( $pdfprnt_plugin_info, $plugin_basename, 'pdf-print.php', 'pdf-print-pro.php', 'pdf-print-pro/pdf-print-pro.php', 'pdf-print', 'd9da7c9c2046bed8dfa38d005d4bffdb', '101', isset( $go_pro_result['pro_plugin_is_activated'] ) );
-			} ?>
+			}
+			bws_plugin_reviews_block( $pdfprnt_plugin_info['Name'], 'pdf-print' ); ?>
 		</div>
 	<?php }
 }
@@ -574,121 +541,100 @@ if ( ! function_exists( 'pdfprnt_content' ) ) {
 
 /* Output buttons for search or archive pages */
 if ( ! function_exists( 'pdfprnt_show_buttons_search_archive' ) ) {
-	function pdfprnt_show_buttons_search_archive( $loop_position ) {
-		global $pdfprnt_options_array, $wp, $posts, $pdfprnt_show_archive_start, $pdfprnt_show_archive_end;
-		if ( ! ( 1 == $pdfprnt_options_array['show_btn_pdf_search_archive'] || 1 == $pdfprnt_options_array['show_btn_print_search_archive'] ) )
-			return;
-		/* Check for existence the type of posts. */
-		$is_return = true;
-		foreach ( $posts as $post ) {
-			if ( in_array( $post->post_type, $pdfprnt_options_array['use_types_posts'] ) ) {
-				$is_return = false;
-				break;
-			}
-		}
-		if ( $is_return )
-			return;
-
-		if ( ( 'loop_start' == $loop_position && $pdfprnt_show_archive_start == 1 ) || ( 'loop_end' == $loop_position && $pdfprnt_show_archive_end == 1 ) )
-			return;
-
-		$current_url = ( empty( $wp->request ) ) ? add_query_arg( $wp->query_string, '', home_url() ) : home_url( $wp->request );
-
-		$str = '<div class="pdfprnt-' . $pdfprnt_options_array['position_search_archive'] . '">';
-		if ( 1 == $pdfprnt_options_array['show_btn_pdf_search_archive'] ) {
-			$permalink = add_query_arg( 'print' , 'pdf-page' , $current_url );
-			$str .= '<a href="' . $permalink . '" target="_blank"><img src="' . plugins_url( 'images/pdf.png', __FILE__ ) . '" alt="image_pdf" title="Print PDF" /></a>';
-		}
-		if ( 1 == $pdfprnt_options_array['show_btn_print_search_archive'] ) {
-			$permalink		=	add_query_arg( 'print' , 'print-page' , $current_url );
-			$str .= '<a href="' . $permalink . '" target="_blank"><img src="' . plugins_url( 'images/print.gif', __FILE__ ) . '" alt="image_print" title="Print Content" /></a>';
-		}
-		$str .= '</div>';
-		echo $str;
-		if ( 'loop_start' == $loop_position )
-			$pdfprnt_show_archive_start++;
-		elseif ( 'loop_end' == $loop_position )
-			$pdfprnt_show_archive_end++;
-	}
-}
-/**
- * Display buttons only with main loop
- * @param  array       $content   list with data of posts, which needs to displaing in the loop
- * @return void
- */
-if ( ! function_exists( 'pdfprnt_display_with_loop' ) ) {
-	function pdfprnt_display_with_loop( $content ) {
+	function pdfprnt_show_buttons_search_archive( $content ) {
 		global $wp_query;
-		if ( is_main_query() && $content === $wp_query ) { /* make sure that we display pdf/print buttons only with main loop */
-			pdfprnt_show_buttons_search_archive( current_filter() );
+		/* make sure that we display pdf/print buttons only with main loop */
+		if ( is_main_query() && $content === $wp_query ) {
+			global $pdfprnt_options_array, $wp, $posts, $pdfprnt_show_archive_start, $pdfprnt_show_archive_end;
+			$loop_position = current_filter();
+			if ( ! ( 1 == $pdfprnt_options_array['show_btn_pdf_search_archive'] || 1 == $pdfprnt_options_array['show_btn_print_search_archive'] ) )
+				return;
+			/* Check for existence the type of posts. */
+			$is_return = true;
+			foreach ( $posts as $post ) {
+				if ( in_array( $post->post_type, $pdfprnt_options_array['use_types_posts'] ) ) {
+					$is_return = false;
+					break;
+				}
+			}
+			if ( $is_return )
+				return;
+
+			if ( ( 'loop_start' == $loop_position && $pdfprnt_show_archive_start == 1 ) || ( 'loop_end' == $loop_position && $pdfprnt_show_archive_end == 1 ) )
+				return;
+
+			$current_url = ( empty( $wp->request ) ) ? add_query_arg( $wp->query_string, '', home_url() ) : home_url( $wp->request );
+
+			$str = '<div class="pdfprnt-' . $pdfprnt_options_array['position_search_archive'] . '">';
+			if ( 1 == $pdfprnt_options_array['show_btn_pdf_search_archive'] ) {
+				$permalink = add_query_arg( 'print' , 'pdf-search' , $current_url );
+				$str .= '<a href="' . $permalink . '" target="_blank"><img src="' . plugins_url( 'images/pdf.png', __FILE__ ) . '" alt="image_pdf" title="Print PDF" /></a>';
+			}
+			if ( 1 == $pdfprnt_options_array['show_btn_print_search_archive'] ) {
+				$permalink		=	add_query_arg( 'print' , 'print-search' , $current_url );
+				$str .= '<a href="' . $permalink . '" target="_blank"><img src="' . plugins_url( 'images/print.gif', __FILE__ ) . '" alt="image_print" title="Print Content" /></a>';
+			}
+			$str .= '</div>';
+			echo $str;
+			if ( 'loop_start' == $loop_position )
+				$pdfprnt_show_archive_start++;
+			elseif ( 'loop_end' == $loop_position )
+				$pdfprnt_show_archive_end++;
 		}
 	}
 }
 
+/**
+ * Add buttons before or after the loop
+ */
 if ( ! function_exists( 'pdfprnt_auto_show_buttons_search_archive' ) ) {
 	function pdfprnt_auto_show_buttons_search_archive() {
 		if ( is_search() || is_archive() || is_category() || is_tax() || is_tag() || is_author() ) {
 			global $pdfprnt_options_array, $pdfprnt_show_archive_start, $pdfprnt_show_archive_end;
 			$pdfprnt_show_archive_start = $pdfprnt_show_archive_end = 0;
 			if ( in_array( $pdfprnt_options_array['position_search_archive'], array( 'top-left', 'top-right' ) ) ) {
-				add_action( 'loop_start', 'pdfprnt_display_with_loop' ); 
+				add_action( 'loop_start', 'pdfprnt_show_buttons_search_archive' ); 
 			} elseif ( in_array( $pdfprnt_options_array['position_search_archive'], array( 'bottom-left', 'bottom-right' ) ) ) {
-				add_action( 'loop_end', 'pdfprnt_display_with_loop' );
+				add_action( 'loop_end', 'pdfprnt_show_buttons_search_archive' );
 			} else {
-				add_action( 'loop_start', 'pdfprnt_display_with_loop' );
-				add_action( 'loop_end', 'pdfprnt_display_with_loop' );
+				add_action( 'loop_start', 'pdfprnt_show_buttons_search_archive' );
+				add_action( 'loop_end', 'pdfprnt_show_buttons_search_archive' );
 			}
 		}
 	}
 }
 
-/* Output buttons of page for BWS Portfolio plugin */
+/**
+ * Output buttons of page for BWS Portfolio plugin 
+ * @deprecated since 1.8.4
+ */
 if( ! function_exists( 'pdfprnt_show_buttons_for_bws_portfolio' ) ) {
 	function pdfprnt_show_buttons_for_bws_portfolio() {
-		global $pdfprnt_options_array, $wp;
-		if ( ! ( 1 == $pdfprnt_options_array['show_btn_pdf_custom'] || 1 == $pdfprnt_options_array['show_btn_print_custom'] ) && in_array( 'portfolio', $pdfprnt_options_array['use_types_posts'] ) )
-			return;
-
-		if ( empty( $wp->request ) )
-			$current_url = add_query_arg( $wp->query_string, '', home_url() );
-		else
-			$current_url = home_url( $wp->request );
-		
-		$str = '<div class="pdfprnt-' . $pdfprnt_options_array['position_custom'] . '">';
-		if ( 1 == $pdfprnt_options_array['show_btn_pdf_custom'] ) {
-			$permalink = add_query_arg( 'print' , 'pdf-portfolio-page' , $current_url );
-			$str .= '<a href="' . $permalink . '" target="_blank"><img src="' . plugins_url( 'images/pdf.png', __FILE__ ) . '" alt="image_pdf" title="Print PDF" /></a>';
-		}
-		if ( 1 == $pdfprnt_options_array['show_btn_print_custom'] ) {
-			$permalink = add_query_arg( 'print' , 'print-portfolio-page' , $current_url );
-			$str .= '<a href="' . $permalink . '" target="_blank"><img src="' . plugins_url( 'images/print.gif', __FILE__ ) . '" alt="image_print" title="Print Content" /></a>';
-		}
-		$str .= '</div>';
-		return $str;
+		return pdfprnt_show_buttons_for_custom_post_type();
 	}
 }
 
-/* Output buttons of post for BWS Portfolio plugin */
+/**
+ * Output buttons of post for BWS Portfolio plugin 
+ * @deprecated since 1.8.4
+ */
 if ( ! function_exists( 'pdfprnt_show_buttons_for_bws_portfolio_post' ) ) {
 	function pdfprnt_show_buttons_for_bws_portfolio_post() {
+		return pdfprnt_show_buttons_for_custom_post_type();
+	}
+}
+
+
+/**
+ * Display plugin buttons via action call 
+ * @param     string       $where         where to display
+ * @param     mixed        $user_query    WP_Query parameters
+ */
+if ( ! function_exists( 'pdfprnt_display_plugin_butttons' ) ) {
+	function pdfprnt_display_plugin_butttons( $where = 'top', $user_query = '' ) {
 		global $pdfprnt_options_array;
-		if ( 
-			! ( 1 == $pdfprnt_options_array['show_btn_pdf_custom'] || 1 == $pdfprnt_options_array['show_btn_print_custom'] ) &&
-				in_array( 'portfolio', $pdfprnt_options_array['use_types_posts'] ) 
-		)
-			return;
-		$current_url = get_permalink();
-		$str = '<div class="pdfprnt-' . $pdfprnt_options_array['position_custom'] . '">';
-		if ( 1 == $pdfprnt_options_array['show_btn_pdf_custom'] ) {
-			$permalink = add_query_arg( 'print' , 'pdf-portfolio' , $current_url );
-			$str .= '<a href="' . $permalink . '" target="_blank"><img src="' . plugins_url( 'images/pdf.png', __FILE__ ) . '" alt="image_pdf" title="Print PDF" /></a>';
-		}
-		if ( 1 == $pdfprnt_options_array['show_btn_print_custom'] ) {
-			$permalink = add_query_arg( 'print' , 'print-portfolio' , $current_url );
-			$str .= '<a href="' . $permalink . '" target="_blank"><img src="' . plugins_url( 'images/print.gif', __FILE__ ) . '" alt="image_print" title="Print Content" /></a>';
-		}
-		$str .= '</div>';
-		return $str;
+		if ( preg_match( "|" . $where . "|", $pdfprnt_options_array['position'] ) || empty( $where ) )
+			echo pdfprnt_show_buttons_for_custom_post_type( $user_query );
 	}
 }
 
@@ -697,7 +643,9 @@ if ( ! function_exists( 'pdfprnt_show_buttons_for_custom_post_type' ) ) {
 	function pdfprnt_show_buttons_for_custom_post_type( $user_query = '' ) {
 		global $pdfprnt_options_array, $post, $wp, $posts;
 		if ( 
-			( ! ( 1 == $pdfprnt_options_array['show_btn_pdf_custom'] || 1 == $pdfprnt_options_array['show_btn_print_custom'] ) ) ||
+			/* not display anything if displaying buttons for post and pages is disabled */
+			( ! ( 1 == $pdfprnt_options_array['show_btn_pdf'] || 1 == $pdfprnt_options_array['show_btn_print'] ) ) ||
+			/* not display anything if we have wrong $user_query */
 			( ! ( is_array( $user_query ) || is_string( $user_query ) ) )
 		)
 			return;
@@ -715,31 +663,20 @@ if ( ! function_exists( 'pdfprnt_show_buttons_for_custom_post_type' ) ) {
 				}
 				if ( $is_return )
 					return;
-				$pdf_query_parameter   = 'pdf-page';
-				$print_query_parameter = 'print-page';
+				$pdf_query_parameter   = 'pdf-search';
+				$print_query_parameter = 'print-search';
 			} elseif ( is_page() ) { /* pages */
-				$page_template = get_post_meta( $post->ID, '_wp_page_template');
-				if ( in_array( $page_template[0], array( 'portfolio.php', 'portfolio-pro.php' ) ) ) {
-					if ( in_array( 'portfolio', $pdfprnt_options_array['use_types_posts'] ) ) {
-						$pdf_query_parameter   = 'pdf-portfolio-page';
-						$print_query_parameter = 'print-portfolio-page';
-					} else {
-						return;
-					}
-				} else {
+				if ( in_array( 'page', $pdfprnt_options_array['use_types_posts'] ) ) {
 					$nothing_else = true;
+				} else {
+					return;
 				}
 			} elseif ( is_single() ) { /* posts */
 				$post_type = get_post_type( $post->ID );
-				if ( 'portfolio' == $post_type  ) {
-					if ( in_array( 'portfolio', $pdfprnt_options_array['use_types_posts'] ) ) {
-						$pdf_query_parameter   = 'pdf-portfolio';
-						$print_query_parameter = 'print-portfolio';
-					} else {
-						return;
-					}
-				} else {
+				if ( in_array( $post_type, $pdfprnt_options_array['use_types_posts'] ) ) {
 					$nothing_else = true;
+				} else {
+					return;
 				}
 			} else { 
 				$nothing_else = true;
@@ -762,16 +699,16 @@ if ( ! function_exists( 'pdfprnt_show_buttons_for_custom_post_type' ) ) {
 			}
 			if ( $is_return )
 				return;
-			$pdf_query_parameter   = 'pdf-custom-page';
-			$print_query_parameter = 'print-custom-page';
+			$pdf_query_parameter   = 'pdf-custom';
+			$print_query_parameter = 'print-custom';
 		}
 
-		$str 			=	'<div class="pdfprnt-' . $pdfprnt_options_array['position_custom'] . '">';
-		if ( 1 == $pdfprnt_options_array['show_btn_pdf_custom'] ) {
+		$str = '<div class="pdfprnt-' . $pdfprnt_options_array['position'] . '">';
+		if ( 1 == $pdfprnt_options_array['show_btn_pdf'] ) {
 			$permalink = add_query_arg( 'print' , $pdf_query_parameter , $current_url );
 			$str .= '<a href="' . $permalink . '" target="_blank"><img src="' . plugins_url( 'images/pdf.png', __FILE__ ) . '" alt="image_pdf" title="Print PDF" /></a>';
 		}
-		if ( 1 == $pdfprnt_options_array['show_btn_print_custom'] ) {
+		if ( 1 == $pdfprnt_options_array['show_btn_print'] ) {
 			$permalink = add_query_arg( 'print' , $print_query_parameter , $current_url );
 			$str .= '<a href="' . $permalink . '" target="_blank"><img src="' . plugins_url( 'images/print.gif', __FILE__ ) . '" alt="image_print" title="Print Content" /></a>';
 		}
@@ -829,18 +766,20 @@ if ( ! function_exists ( 'pdfprnt_admin_head' ) ) {
 }
 /* Remove inline 'font-family' and 'font' styles from content */
 if ( ! function_exists( 'pdfprnt_preg_replace' ) ) {
-	function pdfprnt_preg_replace( $pattern, $content ) {
-		$content = preg_replace( "/" . $pattern . "(.*?);/", "", $content );
-		preg_match_all( "~style=(\"\'?)~", $content, $quotes );/* get array with quotes */
-		if ( isset( $quotes[1] ) && ! empty( $quotes[1] ) ) {
-			foreach ( $quotes[1] as $quote ) {
-				preg_match_all( "~style=" . $quote . "(.*?)" . $quote . "~", $content, $styles );
-				if ( ! empty( $styles[1] ) ) {
-					foreach ( $styles[1] as $style ) {
-						if ( preg_match( "/" . $pattern . "/", $style ) )
-							$content = preg_replace( "/" . $style . "/", "", $content );
+	function pdfprnt_preg_replace( $patterns, $content ) {
+		foreach( $patterns as $pattern ) {
+			$content = preg_replace( "/" . $pattern . "(.*?);/", "", $content );
+			preg_match_all( "~style=(\"\'?)~", $content, $quotes );/* get array with quotes */
+			if ( isset( $quotes[1] ) && ! empty( $quotes[1] ) ) {
+				foreach ( $quotes[1] as $quote ) {
+					preg_match_all( "~style=" . $quote . "(.*?)" . $quote . "~", $content, $styles );
+					if ( ! empty( $styles[1] ) ) {
+						foreach ( $styles[1] as $style ) {
+							if ( preg_match( "/" . $pattern . "/", $style ) )
+								$content = preg_replace( "/" . $style . "/", "", $content );
+						}
+						
 					}
-					
 				}
 			}
 		}
@@ -852,132 +791,33 @@ if ( ! function_exists( 'pdfprnt_preg_replace' ) ) {
 if ( ! function_exists( 'pdfprnt_generate_template' ) ) {
 	function pdfprnt_generate_template( $content, $isprint = false ) {
 		global $pdfprnt_options_array;
-		ob_start(); /* Starting output buffering */ ?>
-		<html>
-			<head>
-				<?php if ( 1 == $pdfprnt_options_array['use_theme_stylesheet'] ) {
+		$html =
+		'<html>
+			<head>';
+				if ( 1 == $pdfprnt_options_array['use_theme_stylesheet'] ) {
 					/* remove 'font-family' and 'font' styles from theme css-file if additional fonts not loaded */
 					if ( 0 == $pdfprnt_options_array['additional_fonts'] ) {
 						$css = file_get_contents( get_bloginfo( 'stylesheet_url' ) );
-						if ( ( ! empty( $css ) ) ) {
-							$css = preg_replace( "/font:(.*?);/", "", $css );
-							$css = preg_replace( "/font-family(.*?);/", "", $css );
-							echo '<style type="text/css">' . $css . '</style>';
-						} 
-					} else { ?>
-						<link type="text/css" rel="stylesheet" href="<?php echo get_bloginfo( 'stylesheet_url' ); ?>" media="all" />
-					<?php }
-				} else { ?>
-					<link type="text/css" rel="stylesheet" href="<?php echo plugins_url( 'css/default.css', __FILE__ ); ?>" media="all" />
-				<?php }
-				if ( $isprint && 1 == $pdfprnt_options_array['show_print_window'] ) {
-					echo '<script>window.onload = function(){ window.print(); };</script>';
-				} ?>
-			</head>
-			<body>
-				<?php if ( 0 == $pdfprnt_options_array['additional_fonts'] ) {
-					/* Remove inline 'font-family' and 'font' styles from content */
-					$content = pdfprnt_preg_replace( "font-family", $content );
-					$content = pdfprnt_preg_replace( "font:", $content );
+						if ( ( ! empty( $css ) ) )
+							$html .= '<style type="text/css">' . preg_replace( "/(font:(.*?);)|(font-family(.*?);)/", "", $css ) . '</style>';
+					} else {
+						$html .= '<link type="text/css" rel="stylesheet" href="' . get_bloginfo( 'stylesheet_url' ) . '" media="all" />';
+					}
+				} else {
+					$html .= '<link type="text/css" rel="stylesheet" href="' . plugins_url( 'css/default.css', __FILE__ ) . '" media="all" />';
 				}
-				echo $content; ?>
-			</body>
-		</html>
-		<?php $html = ob_get_contents(); /* Getting output buffering */
-		ob_end_clean(); /* Closing output buffering */
-		return $html; /* Now we done with template */
-	}
-}
-
-if ( ! function_exists( 'pdfprnt_generate_template_for_bws_portfolio' ) ) {
-	function pdfprnt_generate_template_for_bws_portfolio() {
-		global $post;
-		ob_start(); /* Starting output buffering */
-		$short_descr = $link = $date_compl = '';
-		$meta_values			=	get_post_custom( $post->ID );
-		$post_thumbnail_id		=	get_post_thumbnail_id( $post->ID );
-		if ( empty ( $post_thumbnail_id ) ) {
-			$args				=	array(
-				'post_parent'		=>	$post->ID,
-				'post_type'			=>	'attachment',
-				'post_mime_type'	=>	'image',
-				'numberposts'		=>	1
-			);
-			$attachments		=	get_children( $args );
-			$post_thumbnail_id	=	key( $attachments );
-		}
-		$image		=	wp_get_attachment_image_src( $post_thumbnail_id, 'portfolio-thumb' );
-		$image_alt	=	get_post_meta( $post_thumbnail_id, '_wp_attachment_image_alt', true );
-		$image_desc	=	get_post( $post_thumbnail_id );
-		$image_desc	=	$image_desc->post_content;
-		$post_meta	=	get_post_meta( $post->ID, 'prtfl_information', true );
-		if ( ! empty( $post_meta ) ) {			
-			$date_compl	=	$post_meta['_prtfl_date_compl'];
-			if ( ! empty( $date_compl ) && 'in progress' != $date_compl ) {
-				$date_compl	=	explode( '/', $date_compl );
-				$date_compl	=	date( get_option( 'date_format' ), strtotime( $date_compl[1] . '-' . $date_compl[0] . '-' . $date_compl[2] ) );
-			}
-			$link			=	$post_meta['_prtfl_link'];
-			$short_descr	=	$post_meta['_prtfl_short_descr'];
-		} 
-		if ( ! empty( $image[1] ) ) { ?>
-			<img src="<?php echo $image[0]; ?>" width="<?php echo $image[1]; ?>" alt="<?php echo $image_alt; ?>" />
-		<?php } ?>
-		<div>
-			<p>
-				<strong><?php _e( 'Date of completion', 'pdf-print' ); ?>:</strong> <?php echo $date_compl; ?><br/>
-				<strong><?php _e( 'Link', 'pdf-print' ); ?>:</strong> <a href="<?php echo $link; ?>"><?php echo $link; ?></a><br/>
-				<strong><?php _e( 'Description', 'pdf-print' ); ?>:</strong> <?php echo $short_descr; ?><br/>
-			</p>
-		</div>
-		<?php $terms = wp_get_object_terms( $post->ID, 'portfolio_technologies' );
-		if ( is_array( $terms ) && count( $terms ) > 0 ) { ?>
-			<div style="clear:both;">
-				<strong><?php _e( 'Technologies', 'pdf-print' ); ?>: </strong>
-			<?php $count = 0;
-			foreach ( $terms as $term ) {
-				if ( 0 < $count )
-					echo ', ';
-				echo '<a href="' . get_term_link( $term->slug, 'portfolio_technologies' ) . '" title="' . sprintf( __( "View all posts in %s" ), $term->name ) . '" ' . '>' . $term->name . '</a>';
-				$count++;
-			} ?>
-			</div>
-		<?php }
-		$content = ob_get_contents(); /* Getting output buffering */
-		ob_end_clean(); /* Closing output buffering */
-		return $content; /* Now we done with template */
-	}
-}
-
-/* Generate query posts for Portfolio plugin */
-if ( ! function_exists( 'generate_query_posts_for_portfolio' ) ) {
-	function generate_query_posts_for_portfolio() {
-		global $wp_query;
-		$paged			=	isset( $wp_query->query_vars['paged'] ) ? $wp_query->query_vars['paged'] : 1;
-		$technologies	=	isset( $wp_query->query_vars["technologies"] ) ? $wp_query->query_vars["technologies"] : "";
-		if ( "" != $technologies ) {
-			$args		=	array(
-				'post_type'			=>	'portfolio',
-				'post_status'		=>	'publish',
-				'posts_per_page'	=>	get_option('posts_per_page'),
-				'paged' 			=>	$paged,
-				'tax_query'			=>	array(
-					array(
-						'taxonomy'	=>	'portfolio_technologies',
-						'field'		=>	'slug',
-						'terms'		=>	$technologies
-					)
-				)
-			);
-		} else {
-			$args		=	array(
-				'post_type'			=>	'portfolio',
-				'post_status'		=>	'publish',
-				'posts_per_page'	=>	get_option('posts_per_page'),
-				'paged'				=>	$paged
-			);
-		}
-		query_posts( $args );
+				if ( $isprint && 1 == $pdfprnt_options_array['show_print_window'] )
+					$html .= '<script>window.onload = function(){ window.print(); };</script>';
+			$html .= 
+			'</head>
+			<body>';
+				/* Remove inline 'font-family' and 'font' styles from content */
+				if ( 0 == $pdfprnt_options_array['additional_fonts'] )
+					$content = pdfprnt_preg_replace( array( "font-family", "font:" ), $content );
+				$html .= apply_filters( 'bwsplgns_get_pdf_print_content', $content ) .
+			'</body>
+		</html>';
+		return $html;
 	}
 }
 
@@ -1041,10 +881,6 @@ if ( ! function_exists( 'pdfprnt_print' ) ) {
 							</div>';
 					$mpdf->WriteHTML( pdfprnt_generate_template( $html ) );
 					$mpdf->Output();
-					unset( $user_info );
-					unset( $html );
-					unset( $mpdf );
-					die();
 					break;
 				case 'print': /* Content for printing from post */
 					$html = '<div id="content">
@@ -1054,10 +890,9 @@ if ( ! function_exists( 'pdfprnt_print' ) ) {
 								</div>
 							</div>';
 					echo pdfprnt_generate_template( $html, true );
-					unset( $html );
 					die();
 					break;
-				case 'pdf-page': /* Content for PDF from archive or searching page */
+				case 'pdf-search': /* Content for PDF from archive or searching page */
 					$titles		=	array();
 					$authors	=	array();
 					include ( 'mpdf/mpdf.php' );
@@ -1086,7 +921,6 @@ if ( ! function_exists( 'pdfprnt_print' ) ) {
 									<div class="entry-title"><h1 class="entry-header"><a href="' . get_permalink( $p->ID ) . '">' . $p->post_title . '</a></h1></div><br/>
 									<div class="entry-content">' . apply_filters( 'the_content', $p->post_content ) . '</div>
 								</div><br/><hr/><br/>';
-						unset( $user_info );
 					}
 					$html .= '</div>';
 					$titles		=	array_unique( $titles );
@@ -1096,13 +930,8 @@ if ( ! function_exists( 'pdfprnt_print' ) ) {
 					$mpdf->SetSubject( get_bloginfo( 'blogdescription' ) );
 					$mpdf->WriteHTML( pdfprnt_generate_template( $html ) );
 					$mpdf->Output();
-					unset( $authors );
-					unset( $titles );
-					unset( $html );
-					unset( $mpdf );
-					die();
 					break;
-				case 'print-page': /* Content for printing from archive or searching page */
+				case 'print-search': /* Content for printing from archive or searching page */
 					$html = '<div id="content">';
 					foreach ( $posts as $p ) {
 						if ( ! in_array( get_post_type( $p ), $pdfprnt_options_array['use_types_posts'] ) )
@@ -1114,121 +943,17 @@ if ( ! function_exists( 'pdfprnt_print' ) ) {
 					}
 					$html .= '</div>';
 					echo pdfprnt_generate_template( $html, true );
-					unset( $html );
 					die();
 					break;
-				case 'pdf-portfolio': /* Content for PDF from portfolio post */
-					include ( 'mpdf/mpdf.php' );
-					$user_info    = get_userdata( $post->post_author );
-					$default_font = 0 == $pdfprnt_options_array['additional_fonts'] ? 'dejavusansmono' : '';
-					$mpdf         = new mPDF( '+aCJK', 'A4', 0, $default_font );
-					$mpdf->allow_charset_conversion = true;
-					$mpdf->charset_in               = get_bloginfo( 'charset' );
-					if ( ! 0 == $pdfprnt_options_array['additional_fonts'] ) {
-						$mpdf->autoScriptToLang = true;
-						$mpdf->autoLangToFont   = true;
-						$mpdf->baseScript       = 1;
-						$mpdf->autoVietnamese   = true;
-						$mpdf->autoArabic       = true;
+				case 'pdf-custom': /* Content for PDF from custom post */
+					$url_data = parse_url( $_SERVER['REQUEST_URI'] );
+					parse_str( $url_data['query'], $args );
+					unset( $args['print'] );
+					if ( ! empty( $args ) ) {
+						$posts = get_posts( $args );
 					}
-					if ( is_rtl() )
-						$mpdf->SetDirectionality( 'rtl' );
-					$mpdf->SetAuthor( $user_info->display_name );
-					$mpdf->SetTitle( $post->post_title );
-					$mpdf->SetSubject( get_bloginfo( 'blogdescription' ) );
-					$html = '<div id="content">
-								<div class="post">
-									<div class="entry-header"><h1 class="entry-title"><a href="' . get_permalink( $post->ID ) . '">' . $post->post_title . '</a></h1></div><br/>
-									<div class="entry-content">' . pdfprnt_generate_template_for_bws_portfolio() . '</div>
-								</div>
-							</div>';
-					$mpdf->WriteHTML( pdfprnt_generate_template( $html ) );
-					$mpdf->Output();
-					unset( $html );
-					unset( $user_info );
-					unset( $mpdf );
-					die();
-					break;
-				case 'print-portfolio': /* Content for printing from porfolio post */
-					$html = '<div id="content">
-								<div class="post">
-									<div class="entry-header"><h1 class="entry-title">' . $post->post_title . '</h1></div><br/>
-									<div class="entry-content">' . pdfprnt_generate_template_for_bws_portfolio() . '</div>
-								</div>
-							</div>';
-					echo pdfprnt_generate_template( $html, true );
-					unset( $html );
-					die();
-					break;
-				case 'pdf-portfolio-page': /* Content for PDF from portfolio page */
-					$html		=	'<div id="content">';
-					$titles		=	array();
-					$authors	=	array();
-					generate_query_posts_for_portfolio();
-					while ( have_posts() ) {
-						the_post();
-						global $post;
-						if ( ! in_array( get_post_type( $post ), $pdfprnt_options_array['use_types_posts'] ) )
-							continue;
-						$titles[]	=	$post->post_title;
-						$user_info	=	get_userdata( $post->post_author );
-						$authors[]	=	$user_info->display_name;
-						$html		.=	'<div class="post">
-											<div class="entry-header"><h1 class="entry-title"><a href="' . get_permalink( $post->ID ) . '">' . $post->post_title . '</a></h1></div><br/>
-											<div class="entry-content">' . pdfprnt_generate_template_for_bws_portfolio() . '</div>
-										</div><br/><hr/><br/>';
-						unset( $user_info );
-					}
-					$html .= '</div>';
-					include ( 'mpdf/mpdf.php' );
-					$default_font = 0 == $pdfprnt_options_array['additional_fonts'] ? 'dejavusansmono' : '';
-					$mpdf         = new mPDF( '+aCJK', 'A4', 0, $default_font );
-					$mpdf->allow_charset_conversion = true;
-					$mpdf->charset_in               = get_bloginfo( 'charset' );
-					if ( ! 0 == $pdfprnt_options_array['additional_fonts'] ) {
-						$mpdf->autoScriptToLang = true;
-						$mpdf->autoLangToFont   = true;
-						$mpdf->baseScript       = 1;
-						$mpdf->autoVietnamese   = true;
-						$mpdf->autoArabic       = true;
-					}
-					if ( is_rtl() )
-						$mpdf->SetDirectionality( 'rtl' );
-					$titles		=	array_unique( $titles );
-					$authors	=	array_unique( $authors );
-					$mpdf->SetTitle( implode( ',', $titles ) );
-					$mpdf->SetAuthor( implode( ',', $authors ) );
-					$mpdf->SetSubject( get_bloginfo( 'blogdescription' ) );
-					$mpdf->WriteHTML( pdfprnt_generate_template( $html ) );
-					$mpdf->Output();
-					unset( $authors );
-					unset( $titles );
-					unset( $html );
-					unset( $mpdf );
-					die();
-					break;
-				case 'print-portfolio-page': /* Content for printing from portfolio page */
-					generate_query_posts_for_portfolio();
-					$html = '<div id="content">';
-					while ( have_posts() ) {
-						the_post();
-						global $post;
-						if ( ! in_array( get_post_type( $post ), $pdfprnt_options_array['use_types_posts'] ) )
-							continue;
-						$html .= '<div class="post">
-									<div class="entry-header"><h1 class="entry-title">' . $post->post_title . '</h1></div><br/>
-									<div class="entry-content">' . pdfprnt_generate_template_for_bws_portfolio() . '</div>
-								</div><br/><hr/><br/>';
-					}
-					$html .= '</div>';
-					echo pdfprnt_generate_template( $html, true );
-					unset( $html );
-					die();
-					break;
-				case 'pdf-custom-page': /* Content for PDF from custom post */
 					$html		=	'<div id="content">';
 					$titles		=	$authors	=	array();
-
 					foreach ( $posts as $p ) {
 						if ( ! in_array( get_post_type( $p ), $pdfprnt_options_array['use_types_posts'] ) )
 							continue;
@@ -1241,7 +966,6 @@ if ( ! function_exists( 'pdfprnt_print' ) ) {
 						/*if ( has_post_thumbnail( $p->ID ) )
 							$html	.=	get_the_post_thumbnail( $p->ID, 'thumbnail' );*/
 						$html		.=	apply_filters( 'the_content', $p->post_content ) . '</div></div><br/><hr/><br/>';
-						unset( $user_info );
 					}
 					$html .= '</div>';
 					include ( 'mpdf/mpdf.php' );
@@ -1265,13 +989,14 @@ if ( ! function_exists( 'pdfprnt_print' ) ) {
 					$mpdf->SetSubject( get_bloginfo( 'blogdescription' ) );
 					$mpdf->WriteHTML( pdfprnt_generate_template( $html ) );
 					$mpdf->Output();
-					unset( $authors );
-					unset( $titles );
-					unset( $html );
-					unset( $mpdf );
-					die();
 					break;
-				case 'print-custom-page': /* Content for printing from custom post */
+				case 'print-custom': /* Content for printing from custom post */
+					$url_data = parse_url( $_SERVER['REQUEST_URI'] );
+					parse_str( $url_data['query'], $args );
+					unset( $args['print'] );
+					if ( ! empty( $args ) ) {
+						$posts = get_posts( $args );
+					}
 					$html = '<div id="content">';
 					foreach ( $posts as $p ) {
 						if ( ! in_array( get_post_type( $p ), $pdfprnt_options_array['use_types_posts'] ) )
@@ -1285,7 +1010,6 @@ if ( ! function_exists( 'pdfprnt_print' ) ) {
 					}
 					$html .= '</div>';
 					echo pdfprnt_generate_template( $html, true );
-					unset( $html );
 					die();
 					break;
 			}
@@ -1503,7 +1227,7 @@ if ( ! function_exists ( 'pdfprnt_plugin_banner' ) ) {
 	function pdfprnt_plugin_banner() {
 		global $hook_suffix, $pdfprnt_plugin_info;
 		if ( 'plugins.php' == $hook_suffix ) {
-			bws_plugin_banner( $pdfprnt_plugin_info, 'pdfprnt', 'pdf-print', 'e2f2549f4d70bc4cb9b48071169d264e', '101', '//ps.w.org/pdf-print/assets/icon-128x128.png' );   
+			bws_plugin_banner( $pdfprnt_plugin_info, 'pdfprnt', 'pdf-print', 'e2f2549f4d70bc4cb9b48071169d264e', '101', '//ps.w.org/pdf-print/assets/icon-128x128.png' );
 		}
 	}
 }
@@ -1511,7 +1235,19 @@ if ( ! function_exists ( 'pdfprnt_plugin_banner' ) ) {
 /* Deleting plugin options on uninstalling */
 if ( ! function_exists( 'pdfprnt_uninstall' ) ) {
 	function pdfprnt_uninstall() {
-		delete_option( 'pdfprnt_options_array' );
+		global $wpdb;
+		if ( is_multisite() ) {
+			/* Get all blog ids */
+			$blogids = $wpdb->get_col( "SELECT `blog_id` FROM $wpdb->blogs" );
+			$tables = '';
+			foreach ( $blogids as $blog_id ) {
+				switch_to_blog( $blog_id );
+				delete_option( 'pdfprnt_options_array' );
+			}
+			restore_current_blog();
+		} else {
+			delete_option( 'pdfprnt_options_array' );
+		}
 	}
 }
 
@@ -1538,4 +1274,6 @@ add_action( 'wp_ajax_pdfprnt_load_fonts', 'pdfprnt_load_fonts' );
 /* Adding banner */
 add_action( 'admin_notices', 'pdfprnt_plugin_banner' );
 /* Plugin uninstall function */
+
+add_action( 'bwsplgns_display_pdf_print_buttons', 'pdfprnt_display_plugin_butttons', 10, 2 );
 register_uninstall_hook( __FILE__, 'pdfprnt_uninstall' );
