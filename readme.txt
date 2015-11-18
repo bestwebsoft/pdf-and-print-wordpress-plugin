@@ -2,9 +2,9 @@
 Contributors: bestwebsoft
 Donate link: http://bestwebsoft.com/donate/
 Tags: add pdf button, add pdf print button, archive pdf, button, best pdf plugin, best pdf and print pugin, best pdf button, best pdf print button, free pdf plugin, free pdf and print plugin, insert shortcode, generate pdf, generate pdf content, generate post pdf, pdf, pdf and print, pdf&print, pdfandprint, pdf button, pdf content, pdf custom post type, pdf page, pdf pages, pdf post, pdf posts, pdf print, pdf print button, pdf print content, pdf print plugin, pdf print plugins, pdf print portfolio, pdf search results, plugin, print, printable, printing, print button, print content, print custom post type, print page, print pages, print post, print posts, print post content, printing output, shortcode, simple pdf plugin, simple pdf print plugin, simple pdf button, simple pdf print button, wp plugin, wp pdf plugin, wp pdf print plugin, wp pdf button, wp pdf print button, wordpress plugin, wordpress pdf plugin, wordpress pdf button, wordpress pdf print plugin, wordpress pdf print button
-Requires at least: 3.3
-Tested up to: 4.3
-Stable tag: 1.8.4
+Requires at least: 3.8
+Tested up to: 4.4-beta3
+Stable tag: 1.8.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -29,8 +29,10 @@ http://www.youtube.com/watch?v=EM6AEkD9M_s
 * Ability to create PDF and Print page with adding appropriate buttons to the content.
 * Ability to create PDF and Print search results and pages of archives with adding appropriate buttons to the content.
 * Ability to create PDF and Print content from custom post type with adding appropriate buttons to the content.
-* Ability to create PDF and Print portfolio or single portfolio for Portfolio plugin (powered by bestwebsoft.com) with adding appropriate buttons to the content.
 * Ability to use execution of shortcode in pdf and printing output.
+* Ability to add custom styles.
+* Ability to show title and featured image in the pdf/print document.
+* Ability to reload additional fonts.
 * Select the position of buttons in content (top left, top right, bottom left, bottom right).
 
 = Recommended Plugins =
@@ -114,9 +116,93 @@ Go to the Settings page and unmark checkbox 'Settings for shortcodes'.
 
 In order to change main content of pdf/print document you can use following filter:
 
-`add_filter( 'bwsplgns_get_pdf_print_content', {your_function} )`
+`add_filter( 'bwsplgns_get_pdf_print_content', {your_function} );`
+
+For example, add the following code to the 'functions.php' file of your theme:
+
+`add_filter( 
+	'bwsplgns_get_pdf_print_content', 
+	function( $content ) {
+		$my_content   = '<p>Lorem ipsum dolor sit amet</p>';
+		$more_content = '<p>Donec fringilla libero ac sapien</p>';
+
+		/* if you want add some data before to the main content */
+		return $my_content . $content;
+
+		/* if you want add some data after the main content */
+		return $content . $my_content;
+
+		/* if you want add some data both sides the main content */
+		return $my_content . $content . $more_content;
+
+		/* if you want add some data instead of the main content */
+		return $my_content;
+	}
+);`
+
 
 For more information about WordPress filters see <a target="_blank" href="https://codex.wordpress.org/Function_Reference/add_filter">here</a>.
+
+= How can I add different styles to PDF and Print pages? =
+
+To do that, enter the required styles in the "edit styles" field on the Settings page. You can use the class 'pdfprnt_pdf'(pdfprnt_print) in order to add some styles only for PDF(Print) pages.
+
+( To display "edit styles" field go Dashboard->BWS Plugins->PDF & Print and mark "Add custom styles" checkbox )
+
+For example:
+
+`.pdfprnt_pdf p {
+	color: green;
+}
+.pdfprnt_print p {
+	color: red;
+}`
+
+Also you can use filter 'bwsplgns_add_pdf_print_styles' to include additional css-files.
+
+For example:
+
+Let's imagine that you have files style.css, style_print.css and style_pdf.css and you want include them to your PDF or Print pages.
+
+1. upload these files to the folder 'wp-content/uploads' via FTP.
+2. add the following code to the 'functions.php' file of your theme:
+
+`add_filter( 
+	'bwsplgns_add_pdf_print_styles', 
+	function( $styles ) {
+		$styles[] = array( 'wp-content/uploads/style_pdf.css', 'pdf' ); /* file will be included to PDF pages */
+		$styles[] = array( 'wp-content/uploads/style_print.css', 'print' ); /* file will be included only to Print pages */
+		$styles[] = array( 'wp-content/uploads/style.css' ); /* file will be included to PDF and Print pages */
+		return $styles;
+	} 
+);`
+
+
+= I get an error "Warning: file_put_contents(/public_html/wp-content/plugins/pdf-print/mpdf/ttfontdata/dejavusanscondensed.GSUBGPOStables.dat): failed to open stream: Permission denied in /home/kad/www/wp.beta/wp-content/plugins/pdf-print/mpdf/classes/ttfontsuni.php on line 1145". What can I do? =
+
+Probably, you don't have sufficient access permissions to files and folders.
+
+To solve this, please try the following:
+
+1. using FTP, please go to the folder "/public_html/wp-content/plugins/pdf-print"
+2. please check what permissions are set on the "mpdf" folder (755 must be set for the folder and 644 for files)
+3. if there are another permissions set, please change them
+
+For more info see <a target="_blank" href="https://codex.wordpress.org/Changing_File_Permissions">Changing File Permissions</a>.
+
+= How can I load additional fonts for MPDF library? =
+
+Please follow the next steps:
+
+1. go to the plugin`s settings page
+2. click "Load Fonts" button
+
+or
+
+1. download MPDF library by link http://mpdf1.com/repos/MPDF60.zip
+2. using FTP, load the file MPDF60.zip to the folder "{your_site_home_folder}/wp-content/uploads"
+3. go to the plugin`s settings page
+4. click "Load Fonts" button
 
 = I have some problems with the plugin's work. What Information should I provide to receive proper support? =
 
@@ -125,7 +211,7 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 1. the link to the page where the problem occurs
 2. the name of the plugin and its version. If you are using a pro version - your order number.
 3. the version of your WordPress installation
-4. copy and paste into the message your system status report. Please read more here: <a href="https://docs.google.com/document/d/1Wi2X8RdRGXk9kMszQy1xItJrpN0ncXgioH935MaBKtc/edit" target="_blank">Instuction on System Status</a>
+4. copy and paste into the message your system status report. Please read more here: <a href="https://docs.google.com/document/d/1Wi2X8RdRGXk9kMszQy1xItJrpN0ncXgioH935MaBKtc/edit" target="_blank">Instruction on System Status</a>
 
 == Screenshots ==
 
@@ -136,6 +222,12 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 5. PDF output page example.
 
 == Changelog ==
+
+= V1.8.5 - 18.11.2015 =
+* New : An ability to add custom styles was added.
+* New : An ability to show/hide title and featured image in the pdf/print document was added.
+* Update : "Bwsplgns_get_pdf_print_content"-hook`s call was changed.
+* Update : All functionality for wordpress 4.4-beta3 was updated.
 
 = V1.8.4 - 01.09.2015 =
 * New : Added hooks for the possibility of changing the content of the pdf/print document.
@@ -229,6 +321,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * NEW : Added the ability to output PDF and Print buttons on the type of page.
 
 == Upgrade Notice ==
+
+= V1.8.5 =
+An ability to add custom styles was added. An ability to reload additional fonts was added. An ability to show/hide title and featured image in the pdf/print document was added. "Bwsplgns_get_pdf_print_content"-hook`s call was changed. All functionality for wordpress 4.4-beta3 was updated.
 
 = V1.8.4 =
 Added hooks for the possibility of changing the content of the pdf/print document. We updated functionality for displaying pdf/print buttons via functions. We updated all functionality for wordpress 4.3.

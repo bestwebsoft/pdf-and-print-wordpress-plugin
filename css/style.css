@@ -68,7 +68,7 @@
 #pdfprnt_settings_form th {
 	padding: 10px;
 }
-.pdfprnt_settings_table td div {
+.pdfprnt_settings_table td div:not(div[class*="CodeMirror"]) {
 	float: left;
 	text-align: center;
 	margin: 0 5px;
@@ -92,13 +92,49 @@
 .pdfprnt_label {
 	display: none;
 }
-.pdfprnt_info {
-	color: #888;
-	font-size: 10px;
-}
 .pdfprnt_loader {
 	position: absolute;
 	display: none;
+}
+/*
+ * css highlighter
+ */
+.pdfprnt_custom_styles .CodeMirror { 
+    max-height: 200px; 
+    max-width: 500px;
+    border: 1px solid #ddd;  }
+.pdfprnt_custom_styles .CodeMirror-scroll { 
+    height: 100%; 
+    width: 100%; 
+    box-sizing: border-box !important;
+}
+.pdfprnt_custom_styles .CodeMirror-hscrollbar {
+    left: 0 !important;
+}
+.pdfprnt_custom_styles .CodeMirror-gutters {
+    width: 30px !important;
+    height: 100%;
+    box-sizing: border-box !important;
+}
+.pdfprnt_custom_styles .CodeMirror-sizer {
+   margin-left: 30px !important;
+}
+
+.pdfprnt_pro_block .bws_pro_version_tooltip {
+	display: inline-block;
+	width: 100%;
+	box-sizing: border-box;
+	top: 5px;
+}
+.pdfprnt_templates_block .bws_pro_version_table_bloc,
+.pdfprnt_templates_new_block .bws_pro_version_table_bloc {
+	padding: 5px 5px 0 5px;
+}
+
+.pdfprnt_templates_block .bws_table_bg,
+.pdfprnt_templates_new_block .bws_table_bg {
+	top: 0;
+	left: 0;
 }
 @media only screen and ( max-width: 785px ) {
 	.pdfprnt_label {
@@ -109,5 +145,29 @@
 	}
 	.pdfprnt_table_head {
 		display: none;
+	}
+	.pdfprnt_templates_block p.search-box {
+		position: static;
+		clear: both
+	}
+}
+
+@media only screen and ( max-width: 450px ) {
+	.pdfprnt_image_block table,
+	.pdfprnt_image_block tr,
+	.pdfprnt_image_block td {
+		width: inherit;
+		display: block;
+		box-sizing: border-box;
+	}
+	.pdfprnt_templates_block .tablenav.bottom .displaying-num {
+		display: none;
+	}
+}
+
+@media only screen and ( max-width: 300px ) {
+	.pdfprnt_add_new_button {
+		display: inline-block;
+		margin-top: 10px;
 	}
 }

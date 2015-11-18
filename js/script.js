@@ -32,28 +32,44 @@
 					},
 					success: function( result ) { 
 						$( '#pdfprnt_font_loader, .updated, .error' ).hide();
-						var message = $.parseJSON( result );
+						try { 
+							var message = $.parseJSON( result );
+						} catch ( e ) {
+							$( '<div class="error"><p><strong>' + result + pdfprnt_var['need_reload'] + '.</strong></p></div>' ).insertAfter( ".nav-tab-wrapper" );
+							input.attr( 'disabled', false );
+							return false;
+						}
 						if ( message['done'] ) {
 							$( '<div class="updated fade"><p><strong>' + message['done'] + '.</strong></p></div>' ).insertAfter( ".nav-tab-wrapper" );
 							$( '#pdfprnt_load_fonts_button' ).hide();
 						}
 						if ( message['error'] ) {
-							$( '<div class="error"><p><strong>' + message['error'] + '.</strong></p></div>' ).insertAfter( ".nav-tab-wrapper" );
+							$( '<div class="error"><p><strong>' + message['error'] + pdfprnt_var['need_reload'] + '.</strong></p></div>' ).insertAfter( ".nav-tab-wrapper" );
 							input.attr( 'disabled', false );
 						}
 					}
 				});
 			return false;
 		});
-		/**
-		 + Display notices 
-		 */
-		$( '#pdfprnt_settings_form input, #pdfprnt_settings_form select' ).bind( "change click select", function() {
-			if ( $( this ).attr( 'type' ) != 'submit' ) {
-				$( '.updated.fade, .error' ).hide();
-				$( '#pdfprnt_settings_notice' ).show();
-			};
-		});
+
+		if ( $( 'input[name="pdfprnt_use_custom_styles"]' ).length ) {
+			var textarea   = $( '.pdfprnt_custom_styles' ), 
+				add_editor = false;
+			if ( textarea.is( ':visible' ) && ! add_editor ) {
+				pdfprnt_add_editor();
+				add_editor = true;
+			}
+			$( 'input[name="pdfprnt_use_custom_styles"]' ).click( function() {
+				if ( $( this ).is( ':checked' ) ) {
+					textarea.show();
+					if ( ! add_editor ) {
+						pdfprnt_add_editor();
+						add_editor = true;
+					}
+				} else
+					textarea.hide();
+			});
+		}
 	});
 })(jQuery);
 
@@ -80,4 +96,14 @@ function pdfprnt_add_labels() {
 			}		
 		}
 	})(jQuery);
+}
+
+/**
+ * Initialize CSS highlighter
+ */
+function pdfprnt_add_editor() {
+	var editor = CodeMirror.fromTextArea( 
+		document.getElementById( "pdfprnt_custom_styles" ), 
+		{ lineNumbers: true, mode: "text/css" }
+	);
 }
