@@ -13,6 +13,18 @@
 	text-align: right;
 	padding: 5px;
 }
+.pdfprnt-top-left:before,
+.pdfprnt-bottom-left:before,
+.pdfprnt-top-right:before,
+.pdfprnt-bottom-right:before,
+.pdfprnt-top-bottom-left:before,
+.pdfprnt-top-bottom-right:before,
+.pdfprnt-left:before,
+.pdfprnt-right:before {
+	content: "";
+	clear: both;
+	display: table;
+}
 .pdfprnt-top-left a,
 .pdfprnt-bottom-left a,
 .pdfprnt-top-right a,
@@ -22,26 +34,19 @@
 .pdfprnt-left a,
 .pdfprnt-right a {
 	padding: 0 5px;
+	box-shadow: none !important;
+	border: none !important;
+	outline: none !important;
 }
-.entry-content .pdfprnt-top-left a,
-.entry-content .pdfprnt-bottom-left a,
-.entry-content .pdfprnt-top-right a,
-.entry-content .pdfprnt-bottom-right a,
-.entry-content .pdfprnt-top-bottom-right a,
-.entry-content .pdfprnt-top-bottom-left a,
-.entry-content .pdfprnt-left a,
-.entry-content .pdfprnt-right a {
-	border-bottom: none;
-}
-.entry-content .pdfprnt-top-left a img,
-.entry-content .pdfprnt-bottom-left a img,
-.entry-content .pdfprnt-top-right a img,
-.entry-content .pdfprnt-bottom-right a img,
-.entry-content .pdfprnt-top-bottom-right a img,
-.entry-content .pdfprnt-top-bottom-left a img,
-.entry-content .pdfprnt-left a img,
-.entry-content .pdfprnt-right a img {
-    display: inline;
+.pdfprnt-top-left a img,
+.pdfprnt-bottom-left a img,
+.pdfprnt-top-right a img,
+.pdfprnt-bottom-right a img,
+.pdfprnt-top-bottom-right a img,
+.pdfprnt-top-bottom-left a img,
+.pdfprnt-left a img,
+.pdfprnt-right a img {
+	display: inline !important;
 }
 #wp-admin-bar-pdfprnt-bar-menu-default li {
 	cursor: pointer;
@@ -98,28 +103,22 @@
 }
 /*
  * css highlighter
- */
-.pdfprnt_custom_styles .CodeMirror { 
-    max-height: 200px; 
+*/
+.pdfprnt_custom_styles .CodeMirror {
+    max-height: 200px;
     max-width: 500px;
     border: 1px solid #ddd;  }
-.pdfprnt_custom_styles .CodeMirror-scroll { 
-    height: 100%; 
-    width: 100%; 
+.pdfprnt_custom_styles .CodeMirror-scroll {
+    height: 100%;
+    width: 100%;
     box-sizing: border-box !important;
 }
 .pdfprnt_custom_styles .CodeMirror-hscrollbar {
     left: 0 !important;
 }
-.pdfprnt_custom_styles .CodeMirror-gutters {
-    width: 30px !important;
-    height: 100%;
-    box-sizing: border-box !important;
-}
 .pdfprnt_custom_styles .CodeMirror-sizer {
-   margin-left: 30px !important;
+	border-right: none;
 }
-
 .pdfprnt_pro_block .bws_pro_version_tooltip {
 	display: inline-block;
 	width: 100%;

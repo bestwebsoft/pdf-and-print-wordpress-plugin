@@ -5,269 +5,289 @@ msgstr ""
 "POT-Creation-Date: 2016-03-10 15:34+0300\n"
 "PO-Revision-Date: 2016-03-10 15:34+0300\n"
 "Last-Translator: bestwebsoft.com <plugins@bestwebsoft.com>\n"
-"Language-Team: foken <foken@gmx.com>\n"
-"Language: ja_JP\n"
+"Language-Team: Damian Dąbrowski <contact@codester.pl>\n"
+"Language: pl_PL\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: ..\n"
-"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 "X-Generator: Poedit 1.5.4\n"
+"Plural-Forms: nplurals=3; plural=(n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2);\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: bws_functions.php:65 bws_functions.php:89
-#, fuzzy
 msgid "requires"
-msgstr "必須フィールド"
+msgstr "wymaga wersja"
 
 #: bws_functions.php:67
 msgid ""
 "or higher, that is why it has been deactivated! Please upgrade WordPress and "
 "try again."
 msgstr ""
+"lub nowsza, dlatego wtyczka została wyłączona. Zaktualizuj WordPress i "
+"spróbuj ponownie."
 
 #: bws_functions.php:68
 msgid "Back to the WordPress"
-msgstr ""
+msgstr "Wróć do WordPress"
 
 #: bws_functions.php:70
-#, fuzzy
 msgid "Plugins page"
-msgstr "Pro Plugins"
+msgstr "Wtyczki"
 
 #: bws_functions.php:91
 msgid ""
 "or higher! We do not guarantee that our plugin will work correctly. Please "
 "upgrade to WordPress latest version."
 msgstr ""
+"lub nowsza! Nie gwarantujemy, że nasza wtyczka będzie działała poprawnie. "
+"Proszę zaktualizować WordPress do najnowszej wersji."
 
 #: bws_functions.php:143 bws_functions.php:652 bws_functions.php:696
 #: bws_functions.php:755
 msgid "Close notice"
-msgstr ""
+msgstr "Zamknij powiadomienie"
 
 #: bws_functions.php:148
 msgid "It’s time to upgrade your"
-msgstr ""
+msgstr "Czas by zaktualizować"
 
 #: bws_functions.php:148
 msgid "to"
-msgstr ""
+msgstr "do"
 
 #: bws_functions.php:148
-#, fuzzy
 msgid "version!"
-msgstr "PHP バージョン"
+msgstr "wersji!"
 
 #: bws_functions.php:149
 msgid "Extend standard plugin functionality with new great options."
-msgstr ""
+msgstr "Rozszerz podstawowe funkcje wtyczki o nowe wspaniałe opcje."
 
 #: bws_functions.php:152 bws_functions.php:593
-#, fuzzy
 msgid "Learn More"
-msgstr "もっと読む"
+msgstr "Dowiedz się więcej"
 
 #: bws_functions.php:169
 msgid "If you enjoy our plugin, please give it 5 stars on WordPress"
-msgstr ""
+msgstr "Jeśli polubiłeś naszą wtyczkę daj nam 5 gwiazdek"
 
 #: bws_functions.php:170
-#, fuzzy
 msgid "Rate the plugin"
-msgstr "有効なプラグイン"
+msgstr "Oceń wtyczkę"
 
 #: bws_functions.php:173
-#, fuzzy
 msgid "If there is something wrong about it, please contact us"
-msgstr "もそご質問がある場合は、以下の方法でご連絡下さい:"
+msgstr "Jeśli wystąpią problemy proszę, skontaktuj się z nami"
 
 #: bws_functions.php:205
 msgid "Check premium options on the plugin settings page!"
-msgstr ""
+msgstr "Sprawdź dodatkowe opcje premium w ustawieniach wtyczki."
 
 #: bws_functions.php:212 bws_functions.php:248
 msgid "Wrong license key"
-msgstr ""
+msgstr "Niepoprawny klucz licencji"
 
 #: bws_functions.php:242 bws_functions.php:506 bws_functions.php:557
 msgid ""
 "Something went wrong. Please try again later. If the error appears again, "
 "please contact us"
 msgstr ""
+"Coś poszło nie tak. Spróbuj ponownie później. Jeśli błąd pojawi się ponownie "
+"proszę skontaktować się z nami"
 
 #: bws_functions.php:242 bws_functions.php:506 bws_functions.php:557
 msgid "We are sorry for inconvenience."
-msgstr ""
+msgstr "Przepraszamy za niedogodności."
 
 #: bws_functions.php:250
 msgid "This license key is bind to another site"
-msgstr ""
+msgstr "Ta licencja została przypisana do innej strony."
 
 #: bws_functions.php:252 bws_functions.php:416
 msgid ""
 "Unfortunately, you have exceeded the number of available tries per day. "
 "Please, upload the plugin manually."
 msgstr ""
+"Niestety, przekroczono liczb dostępnych prób na dziś. Proszę dodać wtyczkę "
+"manualnie."
 
 #: bws_functions.php:254
 msgid ""
 "Unfortunately, Your license has expired. To continue getting top-priority "
 "support and plugin updates you should extend it in your"
 msgstr ""
+"Niestety, Twoja licencja wygasła. By nadal korzystać z szybkiego dostępu do "
+"wsparcia oraz aktualizacji powinieneś przedłużyć licencję."
 
 #: bws_functions.php:256
 msgid ""
 "Unfortunately, the Pro licence was already installed to this domain. The Pro "
 "Trial license can be installed only once."
 msgstr ""
+"Niestety, licencja PRO była już przypisana do tej domeny. Licencja testowa "
+"może być wykorzystana tylko raz."
 
 #: bws_functions.php:277 bws_functions.php:299 bws_functions.php:321
 msgid "Failed to download the zip archive. Please, upload the plugin manually"
 msgstr ""
+"Pobieranie archiwum zip zakończyło się niepowodzeniem. Proszę dodać wtyczkę "
+"manualnie"
 
 #: bws_functions.php:289
 msgid "Failed to open the zip archive. Please, upload the plugin manually"
 msgstr ""
+"Otwieranie archiwum zip zakończyło się niepowodzeniem. Proszę dodać wtyczkę "
+"manualnie"
 
 #: bws_functions.php:295
 msgid ""
 "Your server does not support either ZipArchive or Phar. Please, upload the "
 "plugin manually"
 msgstr ""
+"Twój serwer nie wspiera ZipAcrchive lub Phar. Proszę dodać wtyczkę manualnie"
 
 #: bws_functions.php:302
 msgid "UploadDir is not writable. Please, upload the plugin manually"
 msgstr ""
+"Folder uploadu jest chroniony przez zapisem. Proszę dodać wtyczkę manualnie"
 
 #: bws_functions.php:325
 msgid ""
 "Something went wrong. Try again later or upload the plugin manually. We are "
 "sorry for inconvenience."
 msgstr ""
+"Coś poszło nie tak. Spróbuj ponowie później lub dodaj wtyczkę manualnie. "
+"Przepraszamy za niedogodności."
 
 #: bws_functions.php:350
-#, fuzzy
 msgid "Please, enter Your license key"
-msgstr "メッセージを入力して下さい..."
+msgstr "Proszę podać klucz licencji."
 
 #: bws_functions.php:380
 msgid ""
 "Congratulations! The Pro version of the plugin is successfully download and "
 "activated."
-msgstr ""
+msgstr "Gratulacje! Wersja PRO została pobrana i aktywowana pomyślnie."
 
 #: bws_functions.php:382 bws_functions.php:473
 msgid "Please, go to"
-msgstr ""
+msgstr "Proszę przejść do"
 
 #: bws_functions.php:382 bws_functions.php:473
-#, fuzzy
 msgid "the setting page"
-msgstr "追加設定"
+msgstr "ustawień"
 
 #: bws_functions.php:383 bws_functions.php:474
 msgid "You will be redirected automatically in 5 seconds."
-msgstr ""
+msgstr "Zostaniesz automatycznie przekierowany w ciągu 5 sekund."
 
 #: bws_functions.php:390
 msgid "Show Pro features"
-msgstr ""
+msgstr "Pokaż funkcje PRO"
 
 #: bws_functions.php:397
 msgid "You can download and activate"
-msgstr ""
+msgstr "Możesz pobrać i aktywować wersję"
 
 #: bws_functions.php:399
 msgid "version of this plugin by entering Your license key."
-msgstr ""
+msgstr "wtyczki poprzez podanie klucza licencji."
 
 #: bws_functions.php:401 bws_functions.php:442
 msgid ""
 "You can find your license key on your personal page Client area, by clicking "
 "on the link"
 msgstr ""
+"Możesz znaleźć Twój klucz licencji na indywidualnej stronie w Panelu Klienta "
+"poprzez kliknięcie w link"
 
 #: bws_functions.php:403 bws_functions.php:444
 msgid "(your username is the email you specify when purchasing the product)."
-msgstr ""
+msgstr "(twoja nazwa użytkownika to email podany podczas zakupu)."
 
 #: bws_functions.php:407 bws_functions.php:691
 msgid "or"
-msgstr "又は"
+msgstr "lub"
 
 #: bws_functions.php:407
 #, php-format
 msgid "Start Your Free %s-Day Trial Now"
-msgstr ""
+msgstr "Rozpocznij swój darmowy %s-dniowy okres testowy"
 
 #: bws_functions.php:413 bws_functions.php:422 bws_functions.php:452
 #: bws_functions.php:460 bws_functions.php:1232 bws_menu.php:693
 #: bws_menu.php:750
-#, fuzzy
 msgid "Activate"
-msgstr "有効なcaptcha"
+msgstr "Aktywuj"
 
 #: bws_functions.php:439 bws_functions.php:532
 #, php-format
 msgid ""
 "In order to continue using the plugin it is necessary to buy a %s license."
 msgstr ""
+"W celu dalszego wykorzystywania wtyczki niezbędne jest wykupienie licencji "
+"%s."
 
 #: bws_functions.php:440
 msgid "After that you can activate it by entering your license key."
-msgstr ""
+msgstr "Po wszystkim możesz aktywować wtyczkę poprzez podanie klucza licencji."
 
 #: bws_functions.php:454
 msgid "Unfortunately, you have exceeded the number of available tries per day."
-msgstr ""
+msgstr "Niestety, przekroczono dzienną liczbę dostępnych prób."
 
 #: bws_functions.php:471
 msgid ""
 "Congratulations! The Pro license of the plugin is successfully activated."
-msgstr ""
+msgstr "Gratulacje! Licencja do wersji PRO została aktywowana pomyślnie."
 
 #: bws_functions.php:512
 msgid "Wrong license key."
-msgstr ""
+msgstr "Niepoprawny klucz licencji"
 
 #: bws_functions.php:514
 msgid "This license key is bind to another site."
-msgstr ""
+msgstr "Klucz licencji został przypisany do innej strony."
 
 #: bws_functions.php:516
 msgid ""
 "This license key is valid, but Your license has expired. If you want to "
 "update our plugin in future, you should extend the license."
 msgstr ""
+"Klucz jest poprawny, jednak Twoja licencja wygasła. Jeśli chcesz "
+"aktualizować naszą wtyczkę w przyszłości powinieneś przedłużyć licencję."
 
 #: bws_functions.php:518
 msgid "Unfortunately, you have exceeded the number of available tries."
-msgstr ""
+msgstr "Niestety, przekroczono liczbę dostępnych prób."
 
 #: bws_functions.php:520
 msgid ""
 "Unfortunately, the Pro Trial licence was already installed to this domain. "
 "The Pro Trial license can be installed only once."
 msgstr ""
+"Niestety, licencja PRO była już przypisana do tej domeny. Licencja testowa "
+"może być wykorzystana tylko raz."
 
 #: bws_functions.php:524
 msgid "The Pro Trial license key is valid."
-msgstr ""
+msgstr "Klucz licencji do testowej wersji PRO jest poprawny."
 
 #: bws_functions.php:526
 msgid "The license key is valid."
-msgstr ""
+msgstr "Klucz licencji jest poprawny"
 
 #: bws_functions.php:529
 msgid "Your license will expire on"
-msgstr ""
+msgstr "Twoja licencja wygaśnie"
 
 #: bws_functions.php:562
-#, fuzzy
 msgid "Please, enter your license key"
-msgstr "メッセージを入力して下さい..."
+msgstr "Podaj klucz licencji"
 
 #: bws_functions.php:575
 msgid ""
@@ -275,20 +295,25 @@ msgid ""
 "field below. You can find your license key on your personal page - Client "
 "area - on our website"
 msgstr ""
+"Jeśli to konieczne możesz sprawdzić czy klucz jest poprawny lub umieścić go "
+"w polu poniżej. Możesz znaleźć swój klucz na naszej stronie w strefie - "
+"Panel Klienta"
 
 #: bws_functions.php:575
 msgid ""
 "(your username is the email you specify when purchasing the product). If "
 "necessary, please submit \"Lost your password?\" request."
 msgstr ""
+"(login to adres email podany przy zakupie). Jeśli to koniczne użyj opcji "
+"\"Zgubiłeś swoje hasło?\"."
 
 #: bws_functions.php:579
 msgid "Check license key"
-msgstr ""
+msgstr "Sprawdź klucz licencji"
 
 #: bws_functions.php:593
 msgid "WARNING: Illegal use notification"
-msgstr ""
+msgstr "UWAGA: Odnotowano nielegalne użycie"
 
 #: bws_functions.php:593
 msgid ""
@@ -297,73 +322,80 @@ msgid ""
 "We strongly recommend you to solve the problem within 24 hours, otherwise "
 "the Pro plugin will be deactivated."
 msgstr ""
+"Licencja wersji PRO może być wykorzystywana tylko na jednej domenie. Proszę "
+"sprawdź i edytuj klucz licencji lub domenę, jeśli to konieczne wykorzystaj "
+"Panel Klienta. Zalecamy rozwiązanie tego problemu w przeciągu 24 godzin, w "
+"przeciwnym wypadku wersja PRO zostanie zablokowana."
 
 #: bws_functions.php:601
 msgid ""
 "Notice: Your Pro Trial license has expired. To continue using the plugin you "
 "should buy a Pro license"
 msgstr ""
+"Uwaga: Testowa wersja PRO niestety wygasła. Aby kontynuować korzystanie z "
+"naszej wtyczki powinieneś zakupić klucz licencji."
 
 #: bws_functions.php:603
 msgid ""
 "Your license has expired. To continue getting top-priority support and "
 "plugin updates you should extend it."
 msgstr ""
+"Twoja licencja wygasła. Aby podtrzymać szybki dostęp do pomocy i "
+"aktualizacji powinieneś przedłużyć licencję."
 
 #: bws_functions.php:603 bws_functions.php:656 bws_functions.php:1198
 #: bws_menu.php:669 bws_menu.php:691 bws_menu.php:718 bws_menu.php:748
 #: bws_menu.php:794
-#, fuzzy
 msgid "Learn more"
-msgstr "もっと読む"
+msgstr "Dowiedz się więcej"
 
 #: bws_functions.php:613
 #, php-format
 msgid "Notice: You are using the Pro Trial license of %s plugin."
-msgstr ""
+msgstr "Uwaga: Wykorzystujesz próbną licencję wersji PRO dla %s."
 
 #: bws_functions.php:615
 msgid "Notice: You are using the Pro Trial license of plugin."
-msgstr ""
+msgstr "Uwaga: Wykorzystywana jest próbna licencja wtyczki."
 
 #: bws_functions.php:618
 msgid "The Pro Trial license will expire on"
-msgstr ""
+msgstr "Licencja próbna wygaśnie"
 
 #: bws_functions.php:656
 msgid "You license for"
-msgstr ""
+msgstr "Twoja licencja na"
 
 #: bws_functions.php:656
 msgid "expires on"
-msgstr ""
+msgstr "wygasa"
 
 #: bws_functions.php:656
 msgid "and you won't be granted TOP-PRIORITY SUPPORT or UPDATES."
 msgstr ""
+"zostaniesz wówczas pozbawiony SZYBKIEGO DOSTĘDO DO SUPPORTU oraz "
+"AKTUALIZACJI."
 
 #: bws_functions.php:687
-#, fuzzy
 msgid "Thank you for installing"
-msgstr "ご連絡ありがとうございます"
+msgstr "Dziękujemy za instalację"
 
 #: bws_functions.php:688
 msgid "Let's get started"
-msgstr ""
+msgstr "Zaczynajmny"
 
 #: bws_functions.php:689
-#, fuzzy
 msgid "Configure Settings"
-msgstr "コンタクトフォーム設定"
+msgstr "Konfiguruj Ustawienia"
 
 #: bws_functions.php:692
 msgid "Add New"
-msgstr ""
+msgstr "Dodaj nowy"
 
 #: bws_functions.php:750
 #, fuzzy
 msgid "Thank you for choosing"
-msgstr "ご連絡ありがとうございます"
+msgstr "Dziękujemy za instalację"
 
 #: bws_functions.php:751
 msgid ""
@@ -377,26 +409,28 @@ msgstr ""
 
 #: bws_functions.php:768
 msgid "Notice"
-msgstr ""
+msgstr "Uwaga"
 
 #: bws_functions.php:768
 msgid "The plugin's settings have been changed."
-msgstr ""
+msgstr "Ustawienia wtyczki zostały zmienione."
 
 #: bws_functions.php:769 bws_functions.php:1240
 msgid "Save Changes"
-msgstr "変更を保存"
+msgstr "Zapisz zmiany"
 
 #: bws_functions.php:786
 msgid ""
 "You can always look at premium options by clicking on the \"Show Pro features"
 "\" in the \"Go PRO\" tab"
 msgstr ""
+"Zawsze możesz sprawdzić funkcje premium poprzez kliknięcie \"Pokaż funkcje "
+"PRO\" w zakładce \"Go PRO\""
 
 #: bws_functions.php:886
 #, fuzzy
 msgid "Add shortcode"
-msgstr "短いコードの利用"
+msgstr "Dodaj BWS Shortcode"
 
 #: bws_functions.php:886
 msgid "Add BestWebSoft plugins' shortcodes using this button."
@@ -404,48 +438,45 @@ msgstr ""
 
 #: bws_functions.php:935
 msgid "Close"
-msgstr ""
+msgstr "Zamknij"
 
 #: bws_functions.php:1027
 msgid "Restore all plugin settings to defaults"
-msgstr ""
+msgstr "Przywróć wszystkie ustawienia do wartości domyśłnych"
 
 #: bws_functions.php:1029
-#, fuzzy
 msgid "Restore settings"
-msgstr "追加設定"
+msgstr "Przywróć ustawienia"
 
 #: bws_functions.php:1040
-#, fuzzy
 msgid "Are you sure you want to restore all settings by default?"
-msgstr "本当に、この言語データを削除しますか?"
+msgstr ""
+"Czy jesteś pewien, że chcesz przywrócić wszystkie ustawienia do wartości "
+"domyślnych?"
 
 #: bws_functions.php:1043
 msgid "Yes, restore all settings"
-msgstr ""
+msgstr "Tak, przywróć wszystkie ustawienia"
 
 #: bws_functions.php:1044
-#, fuzzy
 msgid "No, go back to the settings page"
-msgstr "追加設定"
+msgstr "Nie, wróć do ustawień"
 
 #: bws_functions.php:1090
-#, fuzzy
 msgid "Plugin"
-msgstr "Pro Plugins"
+msgstr "Wtyczka"
 
 #: bws_functions.php:1099
-#, fuzzy
 msgid "Shortcode settings"
-msgstr "追加設定"
+msgstr "Ustawienia shortcode"
 
 #: bws_functions.php:1104
 msgid "The shortcode will be inserted"
-msgstr ""
+msgstr "Shortcode zostanie umieszczony"
 
 #: bws_functions.php:1109
 msgid "Insert"
-msgstr ""
+msgstr "Umieść"
 
 #: bws_functions.php:1140
 msgid "Visit Help Center"
@@ -499,7 +530,7 @@ msgstr ""
 #: bws_functions.php:1235
 #, fuzzy
 msgid "Learn more about CSS"
-msgstr "もっと読む"
+msgstr "Dowiedz się więcej"
 
 #: bws_functions.php:1243
 #, php-format
@@ -510,20 +541,20 @@ msgstr ""
 
 #: bws_menu.php:509
 msgid "Not set"
-msgstr "未設定"
+msgstr "Nie ustawiono"
 
 #: bws_menu.php:511 bws_menu.php:512
 msgid "On"
-msgstr "On"
+msgstr "Włączone"
 
 #: bws_menu.php:511 bws_menu.php:512
 msgid "Off"
-msgstr "Off"
+msgstr "Wyłączone"
 
 #: bws_menu.php:513 bws_menu.php:514 bws_menu.php:515 bws_menu.php:516
 #: bws_menu.php:517 bws_menu.php:529
 msgid "N/A"
-msgstr "該当なし"
+msgstr "Brak danych"
 
 #: bws_menu.php:517
 msgid " Mb"
@@ -531,35 +562,35 @@ msgstr " Mb"
 
 #: bws_menu.php:518 bws_menu.php:519 bws_menu.php:520 bws_menu.php:525
 msgid "Yes"
-msgstr "はい"
+msgstr "Tak"
 
 #: bws_menu.php:518 bws_menu.php:519 bws_menu.php:520 bws_menu.php:527
 msgid "No"
-msgstr "いいえ"
+msgstr "Nie"
 
 #: bws_menu.php:537
 msgid "Operating System"
-msgstr "オペレーション・システム"
+msgstr "System operacyjny"
 
 #: bws_menu.php:538
 msgid "Server"
-msgstr "サーバ"
+msgstr "Serwer"
 
 #: bws_menu.php:539
 msgid "Memory usage"
-msgstr "メモリー使用"
+msgstr "Wykorzystanie pamięci"
 
 #: bws_menu.php:540
 msgid "MYSQL Version"
-msgstr "MYSQL バージョン"
+msgstr "Wersja MySQL"
 
 #: bws_menu.php:541
 msgid "SQL Mode"
-msgstr "SQLモード"
+msgstr "Tryb SQL"
 
 #: bws_menu.php:542
 msgid "PHP Version"
-msgstr "PHP バージョン"
+msgstr "Wersja PHP"
 
 #: bws_menu.php:543
 msgid "PHP Safe Mode"
@@ -567,214 +598,207 @@ msgstr "PHP Safe Mode"
 
 #: bws_menu.php:544
 msgid "PHP Allow URL fopen"
-msgstr "PHP Allow URL fopen"
+msgstr "Zezwól na PHP fopen"
 
 #: bws_menu.php:545
 msgid "PHP Memory Limit"
-msgstr "PHP Memory Limit"
+msgstr "PHP Limit pamięci"
 
 #: bws_menu.php:546
 msgid "PHP Max Upload Size"
-msgstr "PHP Max Upload Size"
+msgstr "PHP Max rozmiar przesyłanego pliku"
 
 #: bws_menu.php:547
 msgid "PHP Max Post Size"
-msgstr "PHP Max Post Size"
+msgstr "PHP Max rozmiar przesyłania POST"
 
 #: bws_menu.php:548
 msgid "PHP Max Script Execute Time"
-msgstr "PHP Max Script Execute Time"
+msgstr "PHP Max czas przetwarzania skryptu"
 
 #: bws_menu.php:549
 msgid "PHP Exif support"
-msgstr "PHP Exif サポート"
+msgstr "PHP Wsparcie Exif"
 
 #: bws_menu.php:550
 msgid "PHP IPTC support"
-msgstr "PHP IPTC サポート"
+msgstr "PHP Wsparcie IPTC"
 
 #: bws_menu.php:551
 msgid "PHP XML support"
-msgstr "PHP XML サポート"
+msgstr "PHP Wsparcie XML"
 
 #: bws_menu.php:552
 msgid "Site URL"
-msgstr "サイトURL"
+msgstr "Adres strony:"
 
 #: bws_menu.php:553
 msgid "Home URL"
-msgstr "ホームURL"
+msgstr "Adres strony głównej:"
 
 #: bws_menu.php:556
 msgid "WordPress Version"
-msgstr "WordPress バージョン"
+msgstr "Wersja WordPress"
 
 #: bws_menu.php:557
 msgid "WordPress DB Version"
-msgstr "WordPress データベース バージョン"
+msgstr "Wersja Bazy Danych dla WordPress"
 
 #: bws_menu.php:558
 msgid "Multisite"
-msgstr "複数サイト"
+msgstr "Multisite"
 
 #: bws_menu.php:559
 msgid "Active Theme"
-msgstr "有効なテーマ"
+msgstr "Aktywny motyw"
 
 #: bws_menu.php:574
 msgid "Please enter a valid email address."
-msgstr "正確なEメール・アドレスを入力して下さい。"
+msgstr "Podaj poprawny adres email"
 
 #: bws_menu.php:578
 msgid "Email with system info is sent to "
-msgstr "システム情報をメールで送信:"
+msgstr "Wiadomość z informacjami systemowymi zostanie wysłana do "
 
 #: bws_menu.php:582
 msgid "Thank you for contacting us."
-msgstr "ご連絡ありがとうございます"
+msgstr "Dziękujemy za kontakt."
 
 #: bws_menu.php:615
 msgid "Sorry, email message could not be delivered."
-msgstr "申し訳ございませんが、貴方のemailは配信できませんでした。"
+msgstr "Przepraszamy, wiadomość nie została dostarczona."
 
 #: bws_menu.php:622
 msgid "Need help?"
-msgstr ""
+msgstr "Potrzebujesz pomocy?"
 
 #: bws_menu.php:623
 msgid "Client area"
-msgstr ""
+msgstr "Panel Klienta"
 
 #: bws_menu.php:624 bws_menu.php:933
 msgid "System status"
-msgstr "システム状況"
+msgstr "Status systemu"
 
 #: bws_menu.php:629
-#, fuzzy
 msgid "Plugins"
-msgstr "Pro Plugins"
+msgstr "Wtyczki"
 
 #: bws_menu.php:630
 msgid "Themes"
-msgstr ""
+msgstr "Motywy"
 
 #: bws_menu.php:634
 msgid "All"
-msgstr ""
+msgstr "Wszystko"
 
 #: bws_menu.php:635
-#, fuzzy
 msgid "Installed"
-msgstr "%s 導入"
+msgstr "Zainstalowane"
 
 #: bws_menu.php:636
-#, fuzzy
 msgid "Recommended"
-msgstr "推奨プラグイン"
+msgstr "Polecane"
 
 #: bws_menu.php:640
 msgid "Installed plugins"
-msgstr "導入済みプラグイン"
+msgstr "Zainstalowane"
 
 #: bws_menu.php:672 bws_menu.php:721
 msgid "Settings"
-msgstr "設定"
+msgstr "Ustawienia"
 
 #: bws_menu.php:693 bws_menu.php:750
-#, fuzzy
 msgid "Activate this plugin"
-msgstr "有効なプラグイン"
+msgstr "Aktywuj wtyczkę"
 
 #: bws_menu.php:708 bws_menu.php:738 bws_menu.php:784
 msgid "Go"
-msgstr ""
+msgstr "Go"
 
 #: bws_menu.php:712 bws_menu.php:742 bws_menu.php:788
 msgid "DONATE"
-msgstr ""
+msgstr "DOTACJA"
 
 #: bws_menu.php:758
 msgid "Recommended plugins"
-msgstr "推奨プラグイン"
+msgstr "Polecane"
 
 #: bws_menu.php:796
-#, fuzzy
 msgid "Install now"
-msgstr "Installa Ora"
+msgstr "Instaluj teraz"
 
 #: bws_menu.php:817
 msgid "Try again"
-msgstr ""
+msgstr "Spróbuj ponownie"
 
 #: bws_menu.php:835
 #, php-format
 msgid "Preview &#8220;%s&#8221;"
-msgstr ""
+msgstr "Podgląd &#8220;%s&#8221;"
 
 #: bws_menu.php:866
 #, php-format
 msgid "Install %s"
-msgstr "%s 導入"
+msgstr "Instaluj %s"
 
 #: bws_menu.php:866
 msgid "Install Now"
-msgstr "Installa Ora"
+msgstr "Instaluj teraz"
 
 #: bws_menu.php:869
 #, php-format
 msgid "Update to version %s"
-msgstr ""
+msgstr "Aktualizuj do wersji %s"
 
 #: bws_menu.php:869
 msgid "Update"
-msgstr ""
+msgstr "Aktualizuj"
 
 #: bws_menu.php:876
 #, php-format
 msgid "Preview %s"
-msgstr ""
+msgstr "Podgląd %s"
 
 #: bws_menu.php:876
 msgid "Preview"
-msgstr ""
+msgstr "Podgląd"
 
 #: bws_menu.php:882 bws_menu.php:914
 #, php-format
 msgid "By %s"
-msgstr ""
+msgstr "Od %s"
 
 #: bws_menu.php:888
 msgid "Details"
-msgstr ""
+msgstr "Szczegóły"
 
 #: bws_menu.php:920
-#, fuzzy
 msgid "Already Installed"
-msgstr "%s 導入"
+msgstr "Zainstalowane"
 
 #: bws_menu.php:936
 msgid "Environment"
-msgstr "環境"
+msgstr "Środowisko"
 
 #: bws_menu.php:947
 msgid "Active Plugins"
-msgstr "有効なプラグイン"
+msgstr "Aktywne wtyczki"
 
 #: bws_menu.php:960
 msgid "Inactive Plugins"
-msgstr "無効なプラグイン"
+msgstr "Nieaktywne wtyczki"
 
 #: bws_menu.php:976
 msgid "Send to support"
-msgstr "サポートに送信"
+msgstr "Wyślij do supportu"
 
 #: bws_menu.php:983
 msgid "Send to custom email &#187;"
-msgstr "カスタムEメールに送信&#187;"
+msgstr "Prześlij na własny adres &#187;"
 
-#, fuzzy
 #~ msgid "Add BWS Plugins Shortcode"
-#~ msgstr "短いコードの利用"
+#~ msgstr "Dodaj BWS Shortcode"
 
 #~ msgid "Pro plugins"
 #~ msgstr "Pro Plugins"

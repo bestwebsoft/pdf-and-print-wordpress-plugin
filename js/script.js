@@ -3,8 +3,8 @@
  */
 (function($) {
 	$(document).ready( function() {
-		/** 
-		 * For responsive design 
+		/**
+		 * For responsive design
 		 */
 		pdfprnt_add_labels();
 		$( window ).resize( function() {
@@ -19,7 +19,7 @@
 				$.ajax({
 					url: ajaxurl,
 					type: "POST",
-					data: { action: 'pdfprnt_load_fonts', pdfprnt_ajax_nonce: pdfprnt_var['ajax_nonce'] }, 
+					data: { action: 'pdfprnt_load_fonts', pdfprnt_ajax_nonce: pdfprnt_var['ajax_nonce'] },
 					beforeSend: function() {
 						$( '#pdfprnt_font_loader' ).show();
 						$( '.updated, .error' ).hide();
@@ -30,9 +30,9 @@
 							return true;
 						};
 					},
-					success: function( result ) { 
+					success: function( result ) {
 						$( '#pdfprnt_font_loader, .updated, .error' ).hide();
-						try { 
+						try {
 							var message = $.parseJSON( result );
 						} catch ( e ) {
 							$( '<div class="error"><p><strong>' + result + pdfprnt_var['need_reload'] + '.</strong></p></div>' ).insertAfter( ".nav-tab-wrapper" );
@@ -53,7 +53,7 @@
 		});
 
 		if ( $( 'input[name="pdfprnt_use_custom_styles"]' ).length ) {
-			var textarea   = $( '.pdfprnt_custom_styles' ), 
+			var textarea   = $( '.pdfprnt_custom_styles' ),
 				add_editor = false;
 			if ( textarea.is( ':visible' ) && ! add_editor ) {
 				pdfprnt_add_editor();
@@ -74,11 +74,11 @@
 })(jQuery);
 
 /**
- * Add labels to 'position of buttons'-table on settings page  
+ * Add labels to 'position of buttons'-table on settings page
  */
 function pdfprnt_add_labels() {
 	(function($) {
-		var labels = [], 
+		var labels = [],
 			i = 0;
 		if ( $(window).width() <= 785 ) {
 			if ( ! $( '.pdfprnt_label' ).length ) {
@@ -92,8 +92,8 @@ function pdfprnt_add_labels() {
 					html = '<label class="pdfprnt_label">' + labels[ i - 1 ] +'</label>';
 					$( '.pdfprnt_pdf_buttton td:nth-child(' + i + '), .pdfprnt_print_buttton td:nth-child(' + i + ')' ).append( html );
 					$( '.pdfprnt_position_buttton td:nth-child(' + i + ')' ).prepend( html );
-				}	
-			}		
+				}
+			}
 		}
 	})(jQuery);
 }
@@ -102,8 +102,13 @@ function pdfprnt_add_labels() {
  * Initialize CSS highlighter
  */
 function pdfprnt_add_editor() {
-	var editor = CodeMirror.fromTextArea( 
-		document.getElementById( "pdfprnt_custom_styles" ), 
-		{ lineNumbers: true, mode: "text/css" }
+	var editor = CodeMirror.fromTextArea(
+		document.getElementById( "pdfprnt_custom_styles" ), {
+			mode:            "css",
+			theme:           "default",
+			styleActiveLine: true,
+			matchBrackets:   true,
+			lineNumbers:     true
+		}
 	);
 }

@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: http://bestwebsoft.com/donate/
 Tags: add pdf button, add pdf print button, archive pdf, button, best pdf plugin, best pdf and print pugin, best pdf button, best pdf print button, free pdf plugin, free pdf and print plugin, insert shortcode, generate pdf, generate pdf content, generate post pdf, pdf, pdf and print, pdf&print, pdfandprint, pdf button, pdf content, pdf custom post type, pdf page, pdf pages, pdf post, pdf posts, pdf print, pdf print button, pdf print content, pdf print plugin, pdf print plugins, pdf print portfolio, pdf search results, plugin, print, printable, printing, print button, print content, print custom post type, print page, print pages, print post, print posts, print post content, printing output, shortcode, simple pdf plugin, simple pdf print plugin, simple pdf button, simple pdf print button, wp plugin, wp pdf plugin, wp pdf print plugin, wp pdf button, wp pdf print button, wordpress plugin, wordpress pdf plugin, wordpress pdf button, wordpress pdf print plugin, wordpress pdf print button
 Requires at least: 3.8
-Tested up to: 4.4-beta3
-Stable tag: 1.8.5
+Tested up to: 4.4.2
+Stable tag: 1.8.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -26,14 +26,16 @@ http://www.youtube.com/watch?v=EM6AEkD9M_s
 
 = Features =
 
-* Ability to create PDF and Print page with adding appropriate buttons to the content.
-* Ability to create PDF and Print search results and pages of archives with adding appropriate buttons to the content.
-* Ability to create PDF and Print content from custom post type with adding appropriate buttons to the content.
-* Ability to use execution of shortcode in pdf and printing output.
-* Ability to add custom styles.
-* Ability to show title and featured image in the pdf/print document.
-* Ability to reload additional fonts.
+* Create PDF and Print page with adding appropriate buttons to the content.
+* Create PDF and Print search results and pages of archives with adding appropriate buttons to the content.
+* Create PDF and Print content from custom post type with adding appropriate buttons to the content.
+* Use execution of shortcode in pdf and printing output.
+* Add custom styles.
+* Show title and featured image in the pdf/print document.
+* Load additional fonts.
 * Select the position of buttons in content (top left, top right, bottom left, bottom right).
+
+If you have a feature, suggestion or idea you'd like to see in the plugin, we'd love to hear about it! <a href="http://support.bestwebsoft.com/hc/en-us/requests/new" target="_blank">Suggest a Feature</a>
 
 = Recommended Plugins =
 
@@ -82,17 +84,25 @@ Go to the Settings page and change necessary values for the 'Search and archive 
 
 Go to the Settings page and change value for the 'Show PDF button' or 'Show Print button' fields.
 
-= Why are PDF and Print buttons not displayed in the custom post type =
+= Why are PDF and Print buttons not displayed in the custom post type ? =
 
-In order to use PDF and Print buttons on the custom post or page template you should paste the following string:
+1. Please make sure that the necessary custom post type is selected in the "Types of posts that will be used in the plugin" setting block. If necessary, select the post type and save changes.
+2. Check displaying the buttons on the specified pages in the front end of your site.
+
+If buttons are still not displayed, please complete the following:
+
+1. Try activating a standard WordPress theme for a while (Twenty Fifteen, Twenty Sixteen) and check if the problem remains.
+2. Try deactivating all of your plugins except PDF & Print by BestWebsoft and also check if the problem is still present. If it is not, activate the plugins one-by-one, meanwhile checking, after which plugin activation the problem appears again.
+
+Also, if you are using custom template you should paste the following string to the custom post or page template in order to use PDF and Print buttons:
 
 - in the top of the post or page template
 
-`<?php do_action( 'bwsplgns_display_pdf_print_buttons', 'top' ); ?>` 
+`<?php do_action( 'bwsplgns_display_pdf_print_buttons', 'top' ); ?>`
 
 - in the bottom of the post or page template
 
-`<?php do_action( 'bwsplgns_display_pdf_print_buttons', 'bottom' ); ?>` 
+`<?php do_action( 'bwsplgns_display_pdf_print_buttons', 'bottom' ); ?>`
 
 You can specify some query parameters for your post. For example:
 
@@ -120,8 +130,8 @@ In order to change main content of pdf/print document you can use following filt
 
 For example, add the following code to the 'functions.php' file of your theme:
 
-`add_filter( 
-	'bwsplgns_get_pdf_print_content', 
+`add_filter(
+	'bwsplgns_get_pdf_print_content',
 	function( $content ) {
 		$my_content   = '<p>Lorem ipsum dolor sit amet</p>';
 		$more_content = '<p>Donec fringilla libero ac sapien</p>';
@@ -167,14 +177,14 @@ Let's imagine that you have files style.css, style_print.css and style_pdf.css a
 1. upload these files to the folder 'wp-content/uploads' via FTP.
 2. add the following code to the 'functions.php' file of your theme:
 
-`add_filter( 
-	'bwsplgns_add_pdf_print_styles', 
+`add_filter(
+	'bwsplgns_add_pdf_print_styles',
 	function( $styles ) {
 		$styles[] = array( 'wp-content/uploads/style_pdf.css', 'pdf' ); /* file will be included to PDF pages */
 		$styles[] = array( 'wp-content/uploads/style_print.css', 'print' ); /* file will be included only to Print pages */
 		$styles[] = array( 'wp-content/uploads/style.css' ); /* file will be included to PDF and Print pages */
 		return $styles;
-	} 
+	}
 );`
 
 
@@ -222,6 +232,14 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 5. PDF output page example.
 
 == Changelog ==
+
+= V1.8.7 - 21.03.2016 =
+* Update : Styles for correct displaying of PDF and Print buttons with theme 2016 have been added.
+* Bugfix : The bug with displaying of PDF and Print buttons in site RSS has been fixed.
+
+= V1.8.6 - 30.11.2015 =
+* Bugfix : The bug with plugin menu duplicating was fixed.
+* Bugfix : The bug with the function which is outputted using 'the_content' was fixed.
 
 = V1.8.5 - 18.11.2015 =
 * New : An ability to add custom styles was added.
@@ -279,13 +297,13 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * Bugfix : Bug with dispalying error while searching in admin area was fixed.
 
 = V1.7.2 - 14.04.2014 =
-* Update : We updated all functionality for wordpress 3.8.2. 
+* Update : We updated all functionality for wordpress 3.8.2.
 
 = V1.7.1 - 05.03.2014 =
 * Bugfix : Plugin optimization is done.
 * Update : Plugin tabs is added.
 
-= V1.7 - 21.02.2014 = 
+= V1.7 - 21.02.2014 =
 * New : We added posibility to turn on showing of Printer choosing window.
 * Update : Screenshots are updated.
 * Update : We updated all functionality for wordpress 3.8.1.
@@ -321,6 +339,12 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * NEW : Added the ability to output PDF and Print buttons on the type of page.
 
 == Upgrade Notice ==
+
+= V1.8.7 =
+Styles for correct displaying of PDF and Print buttons with theme 2016 have been added. The bug with displaying of PDF and Print buttons in site RSS has been fixed.
+
+= V1.8.6 =
+The bug with plugin menu duplicating was fixed. The bug with the function which is outputted using 'the_content' was fixed.
 
 = V1.8.5 =
 An ability to add custom styles was added. An ability to reload additional fonts was added. An ability to show/hide title and featured image in the pdf/print document was added. "Bwsplgns_get_pdf_print_content"-hook`s call was changed. All functionality for wordpress 4.4-beta3 was updated.

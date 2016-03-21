@@ -5,13 +5,13 @@
  * @since 1.8.5
  */
 
-/** 
+/**
  * Show ads for PRO
  * @param     string     $func        function to call
- * @return    void 
+ * @return    void
  */
 if ( ! function_exists( 'pdfprnt_pro_block' ) ) {
-	function pdfprnt_pro_block( $func, $show_cross = true ) { 
+	function pdfprnt_pro_block( $func, $show_cross = true ) {
 		global $pdfprnt_plugin_info, $wp_version, $pdfprnt_options_array;
 		if ( ! bws_hide_premium_options_check( $pdfprnt_options_array ) || ! $show_cross ) { ?>
 			<div class="bws_pro_version_bloc pdfprnt_pro_block <?php echo $func;?>" title="<?php _e( 'This options is available in Pro version of plugin', 'pdf-print' ); ?>">
@@ -24,65 +24,93 @@ if ( ! function_exists( 'pdfprnt_pro_block' ) ) {
 				</div>
 				<div class="bws_pro_version_tooltip">
 					<div class="bws_info"><?php _e( 'Unlock premium options by upgrading to Pro version', 'pdf-print' ); ?></div>
-					<a class="bws_button" href="http://bestwebsoft.com/products/pdf-print/?k=d9da7c9c2046bed8dfa38d005d4bffdb&pn=101&v=<?php echo $pdfprnt_plugin_info["Version"]; ?>&wp_v=<?php echo $wp_version; ?>" target="_blank" title="User Role Pro Plugin"><?php _e( 'Learn More', 'pdf-print' ); ?></a>
+					<a class="bws_button" href="http://bestwebsoft.com/products/pdf-print/?k=d9da7c9c2046bed8dfa38d005d4bffdb&pn=101&v=<?php echo $pdfprnt_plugin_info["Version"]; ?>&wp_v=<?php echo $wp_version; ?>" target="_blank" title="PDF & Print Pro Plugin"><?php _e( 'Learn More', 'pdf-print' ); ?></a>
 				</div>
 			</div>
-	<?php }
+		<?php }
 	}
 }
 
 if ( ! function_exists( 'pdfprnt_image_block' ) ) {
 	function pdfprnt_image_block() { ?>
-	<table class="form-table bws_pro_version">
-		<?php $buttons = array(
-			array( 'title' => __( 'PDF button image', 'pdf-print' ), 'image' => 'pdf.png' ),
-			array( 'title' => __( 'Print button image', 'pdf-print' ), 'image' => 'print.gif' )
-		);
-		foreach ( $buttons as $button ) { ?>
+		<table class="form-table bws_pro_version">
+			<?php $buttons = array(
+				array( 'title' => __( 'PDF button image', 'pdf-print' ), 'image' => 'pdf.png' ),
+				array( 'title' => __( 'Print button image', 'pdf-print' ), 'image' => 'print.gif' )
+			);
+			foreach ( $buttons as $button ) { ?>
+				<tr>
+					<th scope="row"><?php echo $button['title']; ?></th>
+					<td>
+						<select disabled="disabled" style="min-width: 120px;">
+							<option value="1"><?php _e( 'Custom', 'pdf-print' ); ?></option>
+						</select>
+					</td>
+				</tr>
+				<tr>
+					<th scope="row"></th>
+					<td><input type="file" disabled="disabled" /></td>
+				</tr>
+				<tr>
+					<th scope="row"></th>
+					<td>
+						<span><?php _e( 'Current image', 'pdf-print' ); ?>:</span>
+						<img alt="Default Image" src="<?php echo plugins_url( "images/" . $button['image'], dirname( __FILE__ ) ); ?>" />
+					</td>
+				</tr>
+			<?php } ?>
 			<tr>
-				<th scope="row"><?php echo $button['title']; ?></th>
+				<th scope="row"><?php _e( 'PDF files name', 'pdf-print' ); ?></th>
 				<td>
-					<select disabled="disabled" style="min-width: 120px;">
-						<option value="1"><?php _e( 'Custom', 'pdf-print' ); ?></option>
-					</select>
+					<fieldset>
+						<label><input disabled="disabled" type="radio" /> <?php _e( 'use post or page slug', 'pdf-print' ); ?></label><br />
+						<input type="radio" disabled="disabled" /><input disabled="disabled" type="text" value="mpdf" /><br />
+						<span class="bws_info">
+							<?php _e( 'File name cannot contain more than 195 symbols. The file name can include Latin letters, numbers and symbols "-" , "_" only.', 'pdf-print' )  ?>
+						</span>
+					</fieldset>
 				</td>
 			</tr>
 			<tr>
-				<th scope="row"></th>
-				<td><input type="file" disabled="disabled" /></td>
-			</tr>
-			<tr>
-				<th scope="row"></th>
+				<th scope="row"><?php _e( 'Do not index pdf and print pages', 'pdf-print' ); ?></th>
 				<td>
-					<span><?php _e( 'Current image', 'pdf-print' ); ?>:</span>
-					<img alt="Default Image" src="<?php echo plugins_url( "images/" . $button['image'], dirname( __FILE__ ) ); ?>" />
+					<input type="checkbox" disabled="disabled" />
 				</td>
 			</tr>
-		<?php } ?>
-		<tr>
-			<th scope="row"><?php _e( 'PDF files name', 'pdf-print' ); ?></th>
-			<td>
-				<fieldset>
-					<label><input disabled="disabled" type="radio" /> <?php _e( 'use post or page slug', 'pdf-print' ); ?></label><br />
-					<input type="radio" disabled="disabled" /><input disabled="disabled" type="text" value="mpdf" /><br />
-					<span class="bws_info">
-						<?php _e( 'File name cannot contain more than 195 symbols. The file name can include Latin letters, numbers and symbols "-" , "_" only.', 'pdf-print' )  ?>	
-					</span>
-				</fieldset>
-			</td>
-		</tr>
-		<tr>
-			<th scope="row"><?php _e( 'Do not index pdf and print pages', 'pdf-print' ); ?></th>
-			<td>
-				<input type="checkbox" disabled="disabled" />
-			</td>
-		</tr>
-		<tr valign="top">
-			<th scope="row" colspan="2">
-				* <?php _e( 'If you upgrade to Pro version, all your settings will be saved.', 'pdf-print' ); ?>
-			</th>
-		</tr>
-	</table>
+			<tr>
+				<th scope="row" colspan="2">
+					* <?php _e( 'If you upgrade to Pro version, all your settings will be saved.', 'pdf-print' ); ?>
+				</th>
+			</tr>
+		</table>
+	<?php }
+}
+
+if ( ! function_exists( 'pdfprnt_woocommerce_block' ) ) {
+	function pdfprnt_woocommerce_block () { ?>
+		<table class="form-table bws_pro_version">
+			<tr>
+				<th scope="row"><?php _e( 'Compatibility with Woocommerce', 'pdf-print' ); ?></th>
+				<td><label><input type="checkbox" disabled="disabled"></label></td>
+			</tr>
+			<tr>
+				<th scope="row"><?php _e( 'Display product data', 'pdf-print' ); ?></th>
+				<td>
+					<fieldset>
+						<label><input type="checkbox" disabled="disabled"><?php _e( 'Rating', 'pdf-print' ); ?></label><br>
+						<label><input type="checkbox" disabled="disabled"><?php _e( 'Price', 'pdf-print' ); ?></label><br>
+						<label><input type="checkbox" disabled="disabled"><?php _e( 'Stock', 'pdf-print' ); ?></label><br>
+						<label><input type="checkbox" disabled="disabled"><?php _e( 'SKU', 'pdf-print' ); ?></label><br>
+						<label><input type="checkbox" disabled="disabled"><?php _e( 'Categories', 'pdf-print' ); ?></label><br>
+						<label><input type="checkbox" disabled="disabled"><?php _e( 'Tags', 'pdf-print' ); ?></label><br>
+						<label><input type="checkbox" disabled="disabled"><?php _e( 'Product Variations', 'pdf-print' ); ?></label><br>
+						<label><input type="checkbox" disabled="disabled"><?php _e( 'Product Short Description', 'pdf-print' ); ?></label><br>
+						<label><input type="checkbox" disabled="disabled"><?php _e( 'Additional Information', 'pdf-print' ); ?></label><br>
+						<label><input type="checkbox" disabled="disabled"><?php _e( 'Product Gallery', 'pdf-print' ); ?></label>
+					</fieldset>
+				</td>
+			</tr>
+		</table>
 	<?php }
 }
 
