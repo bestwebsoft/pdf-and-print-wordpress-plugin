@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdf-print\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-03-18 12:42+0300\n"
+"POT-Creation-Date: 2016-04-15 15:16+0300\n"
 "PO-Revision-Date: \n"
 "Last-Translator: BestWebSoft team <wp@bestwebsoft.com>\n"
 "Language-Team: bestwebsoft.com <plugin@bestwebsoft.com>\n"
@@ -124,11 +124,11 @@ msgstr "та"
 msgid "Types of posts that will be used in the plugin"
 msgstr "Типи постів, що буде використовувати плагін"
 
-#: pdf-print.php:317
+#: pdf-print.php:317 includes/pro_banners.php:39
 msgid "Posts and pages"
 msgstr "Сторінки та записи"
 
-#: pdf-print.php:318
+#: pdf-print.php:318 includes/pro_banners.php:40
 msgid "Search and archive pages"
 msgstr "Сторінки пошуку та архивів"
 
@@ -229,7 +229,7 @@ msgstr "Ви можете ввести не більше 10 000 символів
 msgid "Display additional elements"
 msgstr "Відображати додаткові елементи"
 
-#: pdf-print.php:416 includes/pro_banners.php:193 includes/pro_banners.php:218
+#: pdf-print.php:416 includes/pro_banners.php:213 includes/pro_banners.php:238
 msgid "Title"
 msgstr "Заголовок"
 
@@ -249,7 +249,7 @@ msgstr "Виконати!"
 msgid "Show the print window"
 msgstr "Показати вікно друку"
 
-#: pdf-print.php:438 includes/pro_banners.php:128
+#: pdf-print.php:438 includes/pro_banners.php:148
 msgid "Save Changes"
 msgstr "Зберегти зміни"
 
@@ -307,31 +307,43 @@ msgstr "Відкрийте додаткові можливості, перейш
 msgid "Learn More"
 msgstr "Дізнатись більше"
 
-#: includes/pro_banners.php:38
+#: includes/pro_banners.php:43
+msgid "Layout"
+msgstr "Орієнтація"
+
+#: includes/pro_banners.php:46 includes/pro_banners.php:52
+msgid "Portrait"
+msgstr "Портретна"
+
+#: includes/pro_banners.php:47 includes/pro_banners.php:53
+msgid "Landscape"
+msgstr "Альбомна"
+
+#: includes/pro_banners.php:58
 msgid "PDF button image"
 msgstr "Зображення для кнопки PDF"
 
-#: includes/pro_banners.php:39
+#: includes/pro_banners.php:59
 msgid "Print button image"
 msgstr "Зображення для кнопки Print"
 
-#: includes/pro_banners.php:46
+#: includes/pro_banners.php:66
 msgid "Custom"
 msgstr "Користувацьке"
 
-#: includes/pro_banners.php:57
+#: includes/pro_banners.php:77
 msgid "Current image"
 msgstr "Поточне зображення"
 
-#: includes/pro_banners.php:63
+#: includes/pro_banners.php:83
 msgid "PDF files name"
 msgstr "Назва для PDF файлів"
 
-#: includes/pro_banners.php:66
+#: includes/pro_banners.php:86
 msgid "use post or page slug"
 msgstr "Використати ярлик сторінки або запису"
 
-#: includes/pro_banners.php:69
+#: includes/pro_banners.php:89
 msgid ""
 "File name cannot contain more than 195 symbols. The file name can include "
 "Latin letters, numbers and symbols \"-\" , \"_\" only."
@@ -339,63 +351,63 @@ msgstr ""
 "Им’я файлу може складатись не більш ніж з 195 символів. Ви можете "
 "використовувати латинські літери, цифри, а також символи \"-\" , \"_\" ."
 
-#: includes/pro_banners.php:75
+#: includes/pro_banners.php:95
 msgid "Do not index pdf and print pages"
 msgstr "Не індексувати сторінки PDF і Print "
 
-#: includes/pro_banners.php:82
+#: includes/pro_banners.php:102
 msgid "If you upgrade to Pro version, all your settings will be saved."
 msgstr "Якщо ви перейдете на Pro версію, всі налаштування буде збережено"
 
-#: includes/pro_banners.php:93
+#: includes/pro_banners.php:113
 msgid "Compatibility with Woocommerce"
 msgstr "Сумісність з WooCommerce"
 
-#: includes/pro_banners.php:97
+#: includes/pro_banners.php:117
 msgid "Display product data"
 msgstr "Відобразити дані продукту"
 
-#: includes/pro_banners.php:100
+#: includes/pro_banners.php:120
 msgid "Rating"
 msgstr "Рейтинг"
 
-#: includes/pro_banners.php:101
+#: includes/pro_banners.php:121
 msgid "Price"
 msgstr "Ціна"
 
-#: includes/pro_banners.php:102
+#: includes/pro_banners.php:122
 msgid "Stock"
 msgstr "Наявність"
 
-#: includes/pro_banners.php:103
+#: includes/pro_banners.php:123
 msgid "SKU"
 msgstr "Артикул"
 
-#: includes/pro_banners.php:104
+#: includes/pro_banners.php:124
 msgid "Categories"
 msgstr "Категорії"
 
-#: includes/pro_banners.php:105
+#: includes/pro_banners.php:125
 msgid "Tags"
 msgstr "Ключові слова"
 
-#: includes/pro_banners.php:106
+#: includes/pro_banners.php:126
 msgid "Product Variations"
 msgstr "Варіації Продукту"
 
-#: includes/pro_banners.php:107
+#: includes/pro_banners.php:127
 msgid "Product Short Description"
 msgstr "Опис Продукту"
 
-#: includes/pro_banners.php:108
+#: includes/pro_banners.php:128
 msgid "Additional Information"
 msgstr "Додаткова інформація"
 
-#: includes/pro_banners.php:109
+#: includes/pro_banners.php:129
 msgid "Product Gallery"
 msgstr "Галерея Продукту"
 
-#: includes/pro_banners.php:120
+#: includes/pro_banners.php:140
 msgid ""
 "Please choose the necessary post types (or single pages), where PDF & Print "
 "buttons should be displayed:"
@@ -403,73 +415,73 @@ msgstr ""
 "Будь ласка виберіть тип посту чи сторінки, де будуть відображатись кнопки "
 "PDF & Print"
 
-#: includes/pro_banners.php:123
+#: includes/pro_banners.php:143
 msgid "Show URL for pages"
 msgstr "Показати посилання для сторінок"
 
-#: includes/pro_banners.php:126
+#: includes/pro_banners.php:146
 msgid "Example of site pages' tree"
 msgstr "Приклад дерева сторінок сайту"
 
-#: includes/pro_banners.php:130
+#: includes/pro_banners.php:150
 msgid "If you upgrade to Pro version all your settings will be saved."
 msgstr "Якщо ви перейдете на Pro версію, всі налаштування буде збережено"
 
-#: includes/pro_banners.php:137
+#: includes/pro_banners.php:157
 msgid "Add New template"
 msgstr "Додати темплейт"
 
-#: includes/pro_banners.php:138
+#: includes/pro_banners.php:158
 msgid "For more info click \"Help\" tab at the top of the page."
 msgstr ""
 "Для отримання більш детальної інформації натисніть вкладку \"Допомога\" у "
 "верхній частині сторінки."
 
-#: includes/pro_banners.php:140
+#: includes/pro_banners.php:160
 msgid "Enter Template Title"
 msgstr "Вкажіть заголовок"
 
-#: includes/pro_banners.php:141
+#: includes/pro_banners.php:161
 msgid "Top running title"
 msgstr "Верхній колонтитул"
 
-#: includes/pro_banners.php:147 includes/pro_banners.php:157
+#: includes/pro_banners.php:167 includes/pro_banners.php:177
 msgid "Add Media"
 msgstr "Додати медіафайл"
 
-#: includes/pro_banners.php:153
+#: includes/pro_banners.php:173
 msgid "Bottom running title"
 msgstr "Нижній колонтитул"
 
-#: includes/pro_banners.php:163
+#: includes/pro_banners.php:183
 msgid "Save template"
 msgstr "Зберегти"
 
-#: includes/pro_banners.php:170
+#: includes/pro_banners.php:190
 msgid "All"
 msgstr "Всі"
 
-#: includes/pro_banners.php:171
+#: includes/pro_banners.php:191
 msgid "Trash"
 msgstr "Кошик"
 
-#: includes/pro_banners.php:175
+#: includes/pro_banners.php:195
 msgid "search"
 msgstr "пошук"
 
-#: includes/pro_banners.php:180 includes/pro_banners.php:228
+#: includes/pro_banners.php:200 includes/pro_banners.php:248
 msgid "Bulk Actions"
 msgstr "Оберіть дію"
 
-#: includes/pro_banners.php:182 includes/pro_banners.php:230
+#: includes/pro_banners.php:202 includes/pro_banners.php:250
 msgid "Apply"
 msgstr "Застосувати"
 
-#: includes/pro_banners.php:185 includes/pro_banners.php:233
+#: includes/pro_banners.php:205 includes/pro_banners.php:253
 msgid "items"
 msgstr "пункти"
 
-#: includes/pro_banners.php:196 includes/pro_banners.php:221
+#: includes/pro_banners.php:216 includes/pro_banners.php:241
 msgid "Date"
 msgstr "Дата"
 

@@ -1,7 +1,7 @@
 <?php
 /*
 * Function for displaying BestWebSoft menu
-* Version: 1.8.3
+* Version: 1.8.4
 */
 
 if ( ! function_exists ( 'bws_admin_enqueue_scripts' ) )
@@ -470,6 +470,14 @@ if ( ! function_exists( 'bws_add_menu_render' ) ) {
 				'download'		=> 'http://bestwebsoft.com/products/error-log-viewer/download/?k=da0de8bd2c7a0b2fea5df64d55a368b3&pn=' . $bws_plugin_info["id"] . '&v=' . $bws_plugin_info["version"] . '&wp_v=' . $wp_version,
 				'wp_install'	=> $admin_url . 'plugin-install.php?tab=search&type=term&s=Error+Log+Viewer+BestWebSoft&plugin-search-input=Search+Plugins',
 				'settings'		=> 'admin.php?page=rrrlgvwr.php&tab=settings'
+			),
+			'bws-pinterest/bws-pinterest.php' => array(
+				'name'			=> 'Pinterest',
+				'description'	=> 'Add Pinterest buttons and widgets to your WordPress website',
+				'link'			=> 'http://bestwebsoft.com/products/pinterest/?k=504107b6213f247a67fe7ffb94e97c78&pn=' . $bws_plugin_info["id"] . '&v=' . $bws_plugin_info["version"] . '&wp_v=' . $wp_version,
+				'download'		=> 'http://bestwebsoft.com/products/pinterest/download/?k=504107b6213f247a67fe7ffb94e97c78&pn=' . $bws_plugin_info["id"] . '&v=' . $bws_plugin_info["version"] . '&wp_v=' . $wp_version,
+				'wp_install'	=> $admin_url . 'plugin-install.php?tab=search&type=term&s=Pinterest+BestWebSoft&plugin-search-input=Search+Plugins',
+				'settings'		=> 'admin.php?page=pinterest.php'
 			)		
 		);
 
@@ -823,109 +831,112 @@ if ( ! function_exists( 'bws_add_menu_render' ) ) {
 						'infinite_scroll' => true,
 					) );
 					$themes = $theme_class->items;
-					if ( $wp_version < '3.9' ) {
-						foreach ( $themes as $theme ) { ?>
-							<div class="available-theme installable-theme"><?php
-								global $themes_allowedtags;
-								if ( empty( $theme ) )
-									return;
+					if ( empty( $themes ) ) {
+						echo '<p>' . __( 'Having trouble viewing this page?', 'bestwebsoft' ) . ' <a href="http://bestwebsoft.com/categories/themes/" target="_blank">' . __( 'Click here', 'bestwebsoft' ) . '</a></p>';
+					} else {
+						if ( $wp_version < '3.9' ) {
+							foreach ( $themes as $theme ) { ?>
+								<div class="available-theme installable-theme"><?php
+									global $themes_allowedtags;
+									if ( empty( $theme ) )
+										return;
 
-								$name   = wp_kses( $theme->name,   $themes_allowedtags );
-								$author = wp_kses( $theme->author, $themes_allowedtags );
-								$preview_title = sprintf( __( 'Preview &#8220;%s&#8221;', 'bestwebsoft' ), $name );
-								$preview_url   = add_query_arg( array(
-									'tab'   => 'theme-information',
-									'theme' => $theme->slug,
-								), self_admin_url( 'theme-install.php' ) );
+									$name   = wp_kses( $theme->name,   $themes_allowedtags );
+									$author = wp_kses( $theme->author, $themes_allowedtags );
+									$preview_title = sprintf( __( 'Preview &#8220;%s&#8221;', 'bestwebsoft' ), $name );
+									$preview_url   = add_query_arg( array(
+										'tab'   => 'theme-information',
+										'theme' => $theme->slug,
+									), self_admin_url( 'theme-install.php' ) );
 
-								$actions = array();
+									$actions = array();
 
-								$install_url = add_query_arg( array(
-									'action' => 'install-theme',
-									'theme'  => $theme->slug,
-								), self_admin_url( 'update.php' ) );
+									$install_url = add_query_arg( array(
+										'action' => 'install-theme',
+										'theme'  => $theme->slug,
+									), self_admin_url( 'update.php' ) );
 
-								$update_url = add_query_arg( array(
-									'action' => 'upgrade-theme',
-									'theme'  => $theme->slug,
-								), self_admin_url( 'update.php' ) );
+									$update_url = add_query_arg( array(
+										'action' => 'upgrade-theme',
+										'theme'  => $theme->slug,
+									), self_admin_url( 'update.php' ) );
 
-								$status = 'install';
-								$installed_theme = wp_get_theme( $theme->slug );
-								if ( $installed_theme->exists() ) {
-									if ( version_compare( $installed_theme->get('Version'), $theme->version, '=' ) )
-										$status = 'latest_installed';
-									elseif ( version_compare( $installed_theme->get('Version'), $theme->version, '>' ) )
-										$status = 'newer_installed';
-									else
-										$status = 'update_available';
-								}
-								switch ( $status ) {
-									default:
-									case 'install':
-										$actions[] = '<a class="install-now" href="' . esc_url( wp_nonce_url( $install_url, 'install-theme_' . $theme->slug ) ) . '" title="' . esc_attr( sprintf( __( 'Install %s', 'bestwebsoft' ), $name ) ) . '">' . __( 'Install Now', 'bestwebsoft' ) . '</a>';
-										break;
-									case 'update_available':
-										$actions[] = '<a class="install-now" href="' . esc_url( wp_nonce_url( $update_url, 'upgrade-theme_' . $theme->slug ) ) . '" title="' . esc_attr( sprintf( __( 'Update to version %s', 'bestwebsoft' ), $theme->version ) ) . '">' . __( 'Update', 'bestwebsoft' ) . '</a>';
-										break;
-									case 'newer_installed':
-									case 'latest_installed':
-										$actions[] = '<span class="install-now" title="' . esc_attr__( 'This theme is already installed and is up to date' ) . '">' . _x( 'Installed', 'theme', 'bestwebsoft' ) . '</span>';
-										break;
-								}
-								$actions[] = '<a class="install-theme-preview" href="' . esc_url( $preview_url ) . '" title="' . esc_attr( sprintf( __( 'Preview %s', 'bestwebsoft' ), $name ) ) . '">' . __( 'Preview', 'bestwebsoft' ) . '</a>';
-								$actions = apply_filters( 'theme_install_actions', $actions, $theme ); ?>
-								<a class="screenshot install-theme-preview" href="<?php echo esc_url( $preview_url ); ?>" title="<?php echo esc_attr( $preview_title ); ?>">
-									<img src='<?php echo esc_url( $theme->screenshot_url ); ?>' width='150' />
-								</a>
-								<h3><?php echo $name; ?></h3>
-								<div class="theme-author"><?php printf( __( 'By %s', 'bestwebsoft' ), $author ); ?></div>
-								<div class="action-links">
-									<ul>
-										<?php foreach ( $actions as $action ): ?>
-											<li><?php echo $action; ?></li>
-										<?php endforeach; ?>
-										<li class="hide-if-no-js"><a href="#" class="theme-detail"><?php _e( 'Details', 'bestwebsoft' ) ?></a></li>
-									</ul>
-								</div>
-								<?php $theme_class->install_theme_info( $theme ); ?>
-							</div>
-						<?php }
-						// end foreach $theme_names
-						$theme_class->theme_installer();
-					} else { ?>
-						<div class="theme-browser">
-							<div class="themes">
-						<?php foreach ( $themes as $key => $theme ) {
-							$installed_theme = wp_get_theme( $theme->slug );
-							if ( $installed_theme->exists() )
-								$theme->installed = true;
-							else
-								$theme->installed = false;
-							?>
-							<div class="theme" tabindex="0">
-								<?php if ( $theme->screenshot_url ) { ?>
-									<div class="theme-screenshot">
-										<img src="<?php echo $theme->screenshot_url; ?>" alt="" />
+									$status = 'install';
+									$installed_theme = wp_get_theme( $theme->slug );
+									if ( $installed_theme->exists() ) {
+										if ( version_compare( $installed_theme->get('Version'), $theme->version, '=' ) )
+											$status = 'latest_installed';
+										elseif ( version_compare( $installed_theme->get('Version'), $theme->version, '>' ) )
+											$status = 'newer_installed';
+										else
+											$status = 'update_available';
+									}
+									switch ( $status ) {
+										default:
+										case 'install':
+											$actions[] = '<a class="install-now" href="' . esc_url( wp_nonce_url( $install_url, 'install-theme_' . $theme->slug ) ) . '" title="' . esc_attr( sprintf( __( 'Install %s', 'bestwebsoft' ), $name ) ) . '">' . __( 'Install Now', 'bestwebsoft' ) . '</a>';
+											break;
+										case 'update_available':
+											$actions[] = '<a class="install-now" href="' . esc_url( wp_nonce_url( $update_url, 'upgrade-theme_' . $theme->slug ) ) . '" title="' . esc_attr( sprintf( __( 'Update to version %s', 'bestwebsoft' ), $theme->version ) ) . '">' . __( 'Update', 'bestwebsoft' ) . '</a>';
+											break;
+										case 'newer_installed':
+										case 'latest_installed':
+											$actions[] = '<span class="install-now" title="' . esc_attr__( 'This theme is already installed and is up to date' ) . '">' . _x( 'Installed', 'theme', 'bestwebsoft' ) . '</span>';
+											break;
+									}
+									$actions[] = '<a class="install-theme-preview" href="' . esc_url( $preview_url ) . '" title="' . esc_attr( sprintf( __( 'Preview %s', 'bestwebsoft' ), $name ) ) . '">' . __( 'Preview', 'bestwebsoft' ) . '</a>';
+									$actions = apply_filters( 'theme_install_actions', $actions, $theme ); ?>
+									<a class="screenshot install-theme-preview" href="<?php echo esc_url( $preview_url ); ?>" title="<?php echo esc_attr( $preview_title ); ?>">
+										<img src='<?php echo esc_url( $theme->screenshot_url ); ?>' width='150' />
+									</a>
+									<h3><?php echo $name; ?></h3>
+									<div class="theme-author"><?php printf( __( 'By %s', 'bestwebsoft' ), $author ); ?></div>
+									<div class="action-links">
+										<ul>
+											<?php foreach ( $actions as $action ): ?>
+												<li><?php echo $action; ?></li>
+											<?php endforeach; ?>
+											<li class="hide-if-no-js"><a href="#" class="theme-detail"><?php _e( 'Details', 'bestwebsoft' ) ?></a></li>
+										</ul>
 									</div>
-								<?php } else { ?>
-									<div class="theme-screenshot blank"></div>
-								<?php } ?>
-								<div class="theme-author"><?php printf( __( 'By %s', 'bestwebsoft' ), $theme->author ); ?></div>
-								<h3 class="theme-name"><?php echo $theme->name; ?></h3>
-								<div class="theme-actions">
-									<a class="button button-secondary preview install-theme-preview" href="theme-install.php?theme=<?php echo $theme->slug ?>"><?php esc_html_e( 'Learn More', 'bestwebsoft' ); ?></a>
+									<?php $theme_class->install_theme_info( $theme ); ?>
 								</div>
-								<?php if ( $theme->installed ) { ?>
-									<div class="theme-installed"><?php _e( 'Already Installed', 'bestwebsoft' ); ?></div>
-								<?php } ?>
+							<?php }
+							$theme_class->theme_installer();
+						} else { ?>
+							<div class="theme-browser">
+								<div class="themes">
+							<?php foreach ( $themes as $key => $theme ) {
+								$installed_theme = wp_get_theme( $theme->slug );
+								if ( $installed_theme->exists() )
+									$theme->installed = true;
+								else
+									$theme->installed = false;
+								?>
+								<div class="theme" tabindex="0">
+									<?php if ( $theme->screenshot_url ) { ?>
+										<div class="theme-screenshot">
+											<img src="<?php echo $theme->screenshot_url; ?>" alt="" />
+										</div>
+									<?php } else { ?>
+										<div class="theme-screenshot blank"></div>
+									<?php } ?>
+									<div class="theme-author"><?php printf( __( 'By %s', 'bestwebsoft' ), $theme->author ); ?></div>
+									<h3 class="theme-name"><?php echo $theme->name; ?></h3>
+									<div class="theme-actions">
+										<a class="button button-secondary preview install-theme-preview" href="theme-install.php?theme=<?php echo $theme->slug ?>"><?php esc_html_e( 'Learn More', 'bestwebsoft' ); ?></a>
+									</div>
+									<?php if ( $theme->installed ) { ?>
+										<div class="theme-installed"><?php _e( 'Already Installed', 'bestwebsoft' ); ?></div>
+									<?php } ?>
+								</div>
+							<?php } ?>
+								<br class="clear" />
+								</div>
 							</div>
-						<?php } ?>
-							<br class="clear" />
-							</div>
-						</div>
-						<div class="theme-overlay"></div>
-					<?php } ?>
+							<div class="theme-overlay"></div>
+						<?php }
+					} ?>
 				</div>
 			<?php } elseif ( 'system_status' == $_GET['action'] ) {	?>
 				<div class="updated fade" <?php if ( ! ( isset( $_REQUEST['bwsmn_form_submit'] ) || isset( $_REQUEST['bwsmn_form_submit_custom_email'] ) ) || $error != "" ) echo "style=\"display:none\""; ?>><p><strong><?php echo $message; ?></strong></p></div>

@@ -53,7 +53,9 @@ if ( ! function_exists ( 'bws_wp_version_check' ) ) {
 if ( ! function_exists ( 'bws_wp_min_version_check' ) ) {
 	function bws_wp_min_version_check( $plugin_basename, $plugin_info, $require_wp, $min_wp = false ) {
 		global $wp_version, $bws_versions_notice_array;
-		if ( false != $min_wp && version_compare( $wp_version, $min_wp, "<" ) ) {
+		if ( false == $min_wp )
+			$min_wp = $require_wp;
+		if ( version_compare( $wp_version, $min_wp, "<" ) ) {
 			include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 			if ( is_plugin_active( $plugin_basename ) ) {
 				deactivate_plugins( $plugin_basename );

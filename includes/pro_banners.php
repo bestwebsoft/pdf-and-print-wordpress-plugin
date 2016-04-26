@@ -34,6 +34,26 @@ if ( ! function_exists( 'pdfprnt_pro_block' ) ) {
 if ( ! function_exists( 'pdfprnt_image_block' ) ) {
 	function pdfprnt_image_block() { ?>
 		<table class="form-table bws_pro_version">
+			<tr class="pdfprnt_table_head">
+				<th scope="row"></th>
+				<th><?php _e( 'Posts and pages', 'pdf-print' ); ?></th>
+				<th><?php _e( 'Search and archive pages', 'pdf-print' ); ?></th>
+			</tr>
+			<tr class="pdfprnt_layout">
+				<th scope="row"><?php _e( 'Layout', 'pdf-print' ); ?></th>
+				<td>
+					<fieldset>
+						<label><input disabled="disabled" type="radio" name="pdfprntpr_layout_single" value="portrait" checked="checked" />&nbsp;<?php _e( "Portrait", 'pdf-print' ); ?></label><br/>
+						<label><input disabled="disabled" type="radio" name="pdfprntpr_layout_single" value="landscape" />&nbsp;<?php _e( "Landscape", 'pdf-print' ); ?></label>
+					</fieldset>
+				</td>
+				<td>
+					<fieldset>
+						<label><input disabled="disabled" type="radio" name="pdfprntpr_layout_search_archive" value="portrait" checked="checked" />&nbsp;<?php _e( "Portrait", 'pdf-print' ); ?></label><br/>
+						<label><input disabled="disabled" type="radio" name="pdfprntpr_layout_search_archive" value="landscape" />&nbsp;<?php _e( "Landscape", 'pdf-print' ); ?></label>
+					</fieldset>
+				</td>	
+			</tr>
 			<?php $buttons = array(
 				array( 'title' => __( 'PDF button image', 'pdf-print' ), 'image' => 'pdf.png' ),
 				array( 'title' => __( 'Print button image', 'pdf-print' ), 'image' => 'print.gif' )

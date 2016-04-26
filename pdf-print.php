@@ -6,7 +6,7 @@ Description: Plugin adds PDF creation and Print button on your site.
 Author: BestWebSoft
 Text Domain: pdf-print
 Domain Path: /languages
-Version: 1.8.7
+Version: 1.8.8
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 */
@@ -247,7 +247,7 @@ if ( ! function_exists ( 'pdfprnt_settings_page' ) ) {
 			if ( isset( $result['done'] ) )
 				$message .= '&nbsp;' . $result['done'];
 		}
-		if ( isset( $_REQUEST['bws_restore_confirm'] ) && check_admin_referer( $plugin_basename, 'pdfprnt_nonce_name' ) ) {
+		if ( isset( $_REQUEST['bws_restore_confirm'] ) && check_admin_referer( $plugin_basename, 'bws_settings_nonce_name' ) ) {
 			$pdfprnt_options_array = $pdfprnt_options_defaults;
 			update_option( 'pdfprnt_options_array', $pdfprnt_options_array );
 			$message = __( 'All plugin settings were restored.', 'pdf-print' );
@@ -311,7 +311,7 @@ if ( ! function_exists ( 'pdfprnt_settings_page' ) ) {
 								</td>
 							</tr>
 						</table>
-						<table class="form-table pdfprnt_settings_table pdfprnt_buttons" style="width: auto !important;">
+						<table class="form-table pdfprnt_settings_table pdfprnt_buttons">
 							<tr class="pdfprnt_table_head">
 								<th scope="row"></th>
 								<th><?php _e( 'Posts and pages', 'pdf-print' ); ?></th>
@@ -791,7 +791,7 @@ if ( ! function_exists( 'pdfprnt_generate_template' ) ) {
 				if ( $isprint && 1 == $pdfprnt_options_array['show_print_window'] )
 					$html .= '<script>window.onload = function(){ window.print(); };</script>';
 			$html .=
-			'</head>
+			'</head>			
 			<body' . ( $isprint ? ' class="pdfprnt_print"' : '' ) . '>';
 				/* Remove inline 'font-family' and 'font' styles from content */
 				if ( 0 == $pdfprnt_options_array['additional_fonts'] )
@@ -807,19 +807,19 @@ if ( ! function_exists( 'pdfprnt_additional_styles' ) ) {
 	function pdfprnt_additional_styles( $isprint ) {
 		$styles = apply_filters( 'bwsplgns_add_pdf_print_styles', array() );
 		$html = '';
-		if( ! empty( $styles ) && is_array( $styles ) ) {
+		if ( ! empty( $styles ) && is_array( $styles ) ) {
 			$url  = get_bloginfo( 'url' );
 			require_once( ABSPATH . 'wp-admin/includes/file.php' );
 			$path = get_home_path();
 			foreach ( $styles as $style ) {
-				if( ! empty( $style[0] ) && file_exists( $path . $style[0] ) ) {
+				if ( ! empty( $style[0] ) && file_exists( $path . $style[0] ) ) {
 					/* if "get print" */
 					if ( $isprint ) {
 						if( ( isset( $style[1] ) && 'print' ==  $style[1] ) || ! isset( $style[1] ) )
 							$html .= '<link type="text/css" rel="stylesheet" href="' . $url . '/' . $style[0] . '" media="all" />';
 					/* if "get pdf" */
 					} else {
-						if( ( isset( $style[1] ) && 'pdf' ==  $style[1] ) || ! isset( $style[1] ) )
+						if ( ( isset( $style[1] ) && 'pdf' ==  $style[1] ) || ! isset( $style[1] ) )
 							$html .= '<link type="text/css" rel="stylesheet" href="' . $url . '/' . $style[0] . '" media="all" />';
 					}
 				}
@@ -857,7 +857,7 @@ if ( ! function_exists( 'pdfprnt_print' ) ) {
 
 		/* for seach or archives */
 		if ( isset( $doc_type[1] ) ) {
-			switch( $doc_type[1] ) {
+			switch ( $doc_type[1] ) {
 				case 'custom':
 					$url_data = parse_url( $_SERVER['REQUEST_URI'] );
 					parse_str( $url_data['query'], $args );
@@ -1055,7 +1055,7 @@ if ( ! function_exists( 'pdfprnt_download_zip' ) ) {
 			$fp     = fopen( $zip_file, 'w+');
 			$curl   = curl_init();
 			$curl_parametres = array(
-				CURLOPT_URL       => 'http://mpdf1.com/repos/MPDF60.zip',
+				CURLOPT_URL       => 'http://www.mpdfonline.com/repos/MPDF_6_0.zip',
 				CURLOPT_FILE      => $fp,
 				CURLOPT_USERAGENT => ( isset( $_SERVER['HTTP_USER_AGENT'] ) ? $_SERVER['HTTP_USER_AGENT'] : "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:18.0) Gecko/20100101 Firefox/18.0" )
 			);
@@ -1149,7 +1149,7 @@ if ( ! function_exists( 'pdfprnt_load_fonts' ) ) {
 			} else {
 				$upload_dir = wp_upload_dir();
 			}
-			$zip_file    = $upload_dir['basedir'] . '/MPDF60.zip';
+			$zip_file    = $upload_dir['basedir'] . '/MPDF_6_0.zip';
 			$destination = $upload_dir['basedir'] .'/pdf-print-fonts';
 			if ( file_exists( $destination ) ) { /* if folder with fonts already exists */
 				if ( is_multisite() ) {

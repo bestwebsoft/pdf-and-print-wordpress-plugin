@@ -21,7 +21,7 @@
 					type: "POST",
 					data: { action: 'pdfprnt_load_fonts', pdfprnt_ajax_nonce: pdfprnt_var['ajax_nonce'] },
 					beforeSend: function() {
-						$( '#pdfprnt_font_loader' ).show();
+						$( '#pdfprnt_font_loader' ).css( 'display', 'inline-block' );
 						$( '.updated, .error' ).hide();
 						$( '<div class="updated fade"><p><strong>' + pdfprnt_var['loading_fonts'] + '.</strong></p></div>' ).insertAfter( ".nav-tab-wrapper" );
 						/* display 'warning'-window while fonts loading */
@@ -84,14 +84,14 @@ function pdfprnt_add_labels() {
 			if ( ! $( '.pdfprnt_label' ).length ) {
 				/* get text of column headers */
 				$( '.pdfprnt_table_head' ).children().each( function() {
-				 	labels[i] = $(this).text();
-				 	 i ++;
+				 	labels[i] = $( this ).text();
+				 	i ++;
 				});
 				/* add labels */
 				for ( i = 1; i < 5; i ++ ) {
 					html = '<label class="pdfprnt_label">' + labels[ i - 1 ] +'</label>';
 					$( '.pdfprnt_pdf_buttton td:nth-child(' + i + '), .pdfprnt_print_buttton td:nth-child(' + i + ')' ).append( html );
-					$( '.pdfprnt_position_buttton td:nth-child(' + i + ')' ).prepend( html );
+					$( '.pdfprnt_position_buttton td:nth-child(' + i + '), .pdfprnt_layout td:nth-child(' + i + ')' ).prepend( html );
 				}
 			}
 		}

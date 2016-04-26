@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: http://bestwebsoft.com/donate/
 Tags: add pdf button, add pdf print button, archive pdf, button, best pdf plugin, best pdf and print pugin, best pdf button, best pdf print button, free pdf plugin, free pdf and print plugin, insert shortcode, generate pdf, generate pdf content, generate post pdf, pdf, pdf and print, pdf&print, pdfandprint, pdf button, pdf content, pdf custom post type, pdf page, pdf pages, pdf post, pdf posts, pdf print, pdf print button, pdf print content, pdf print plugin, pdf print plugins, pdf print portfolio, pdf search results, plugin, print, printable, printing, print button, print content, print custom post type, print page, print pages, print post, print posts, print post content, printing output, shortcode, simple pdf plugin, simple pdf print plugin, simple pdf button, simple pdf print button, wp plugin, wp pdf plugin, wp pdf print plugin, wp pdf button, wp pdf print button, wordpress plugin, wordpress pdf plugin, wordpress pdf button, wordpress pdf print plugin, wordpress pdf print button
 Requires at least: 3.8
-Tested up to: 4.4.2
-Stable tag: 1.8.7
+Tested up to: 4.5
+Stable tag: 1.8.8
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -53,7 +53,7 @@ If you would like to create your own language pack or update the existing one, y
 
 = Technical support =
 
-Dear users, our plugins are available for free download. If you have any questions or recommendations regarding the functionality of our plugins (existing options, new options, current issues), please feel free to contact us. Please note that we accept requests in English only. All messages in another languages won't be accepted.
+Dear users, our plugins are available for free download. If you have any questions or recommendations regarding the functionality of our plugins (existing options, new options, current issues), please feel free to contact us. Please note that we accept requests in English only. All messages in other languages won't be accepted.
 
 If you notice any bugs in the plugin's work, you can notify us about it and we'll investigate and fix the issue then. Your request should contain URL of the website, issues description and WordPress admin panel credentials.
 
@@ -155,13 +155,13 @@ For more information about WordPress filters see <a target="_blank" href="https:
 
 = How can I add different styles to PDF and Print pages? =
 
-To do that, enter the required styles in the "edit styles" field on the Settings page. You can use the class 'pdfprnt_pdf'(pdfprnt_print) in order to add some styles only for PDF(Print) pages.
+To do that, enter the required styles in the "edit styles" field on the Settings page. You can use the class 'pdfprnt_print' in order to add some styles only for Print pages.
 
 ( To display "edit styles" field go Dashboard->BWS Plugins->PDF & Print and mark "Add custom styles" checkbox )
 
 For example:
 
-`.pdfprnt_pdf p {
+`body p {
 	color: green;
 }
 .pdfprnt_print p {
@@ -188,7 +188,7 @@ Let's imagine that you have files style.css, style_print.css and style_pdf.css a
 );`
 
 
-= I get an error "Warning: file_put_contents(/public_html/wp-content/plugins/pdf-print/mpdf/ttfontdata/dejavusanscondensed.GSUBGPOStables.dat): failed to open stream: Permission denied in /home/kad/www/wp.beta/wp-content/plugins/pdf-print/mpdf/classes/ttfontsuni.php on line 1145". What can I do? =
+= I get an error "Warning: file_put_contents(/public_html/wp-content/plugins/pdf-print/mpdf/ttfontdata/dejavusanscondensed.GSUBGPOStables.dat): failed to open stream: Permission denied in /***/wp-content/plugins/pdf-print/mpdf/classes/ttfontsuni.php on line 1145". What can I do? =
 
 Probably, you don't have sufficient access permissions to files and folders.
 
@@ -209,8 +209,8 @@ Please follow the next steps:
 
 or
 
-1. download MPDF library by link http://mpdf1.com/repos/MPDF60.zip
-2. using FTP, load the file MPDF60.zip to the folder "{your_site_home_folder}/wp-content/uploads"
+1. download MPDF library by link http://www.mpdfonline.com/repos/MPDF_6_0.zip
+2. using FTP, load the file MPDF_6_0.zip to the folder "{your_site_home_folder}/wp-content/uploads"
 3. go to the plugin`s settings page
 4. click "Load Fonts" button
 
@@ -225,13 +225,16 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 
 == Screenshots ==
 
-1. Page settings for the PDF & Print in admin panel.
-2. Displaying buttons pdf and print in the post on your WordPress website.
-3. Displaying buttons pdf and print on archive page of your WordPress website.
-4. Printing output page example.
-5. PDF output page example.
+1. Displaying buttons pdf and print in the post on your WordPress website.
+2. Displaying buttons pdf and print on archive page of your WordPress website.
+3. Printing output page example.
+4. PDF output page example.
+5. Page settings for the PDF & Print in admin panel.
 
 == Changelog ==
+
+= V1.8.8 - 26.04.2016 =
+* Bugfix : We fixed the bug with instalation of the additional fonts.
 
 = V1.8.7 - 21.03.2016 =
 * Update : Styles for correct displaying of PDF and Print buttons with theme 2016 have been added.
@@ -242,18 +245,18 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * Bugfix : The bug with the function which is outputted using 'the_content' was fixed.
 
 = V1.8.5 - 18.11.2015 =
-* New : An ability to add custom styles was added.
-* New : An ability to show/hide title and featured image in the pdf/print document was added.
+* NEW : An ability to add custom styles was added.
+* NEW : An ability to show/hide title and featured image in the pdf/print document was added.
 * Update : "Bwsplgns_get_pdf_print_content"-hook`s call was changed.
 * Update : All functionality for wordpress 4.4-beta3 was updated.
 
 = V1.8.4 - 01.09.2015 =
-* New : Added hooks for the possibility of changing the content of the pdf/print document.
+* NEW : Added hooks for the possibility of changing the content of the pdf/print document.
 * Update : We updated functionality for displaying pdf/print buttons via functions.
 * Update : We updated all functionality for wordpress 4.3.
 
 = V1.8.3 - 15.07.2015 =
-* New : We added Top & Bottom Position of buttons in the content.
+* NEW : We added Top & Bottom Position of buttons in the content.
 
 = V1.8.2 - 19.06.2015 =
 * Bugfix : We fixed the bug with instalation of the additional fonts.
@@ -262,7 +265,7 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * Attention : We changed plugin settings structure. If you are experiencing problems with the plugin work, please contact us via <a href="http://support.bestwebsoft.com" target="_blank">support</a>.
 * Bugfix : We fixed the bug with displaying images in pdf-document.
 * Bugfix : We fixed the bug with creation of rtl-oriented documents.
-* New : Added ability to load additional fonts.
+* NEW : Added ability to load additional fonts.
 * Update : We updated styles for generate pdf/print page version with default stylesheet.
 * Update : We updated functionality for displaying pdf/print buttons in any place of your site.
 * Update : We updated MPDF library to version 6.0.
@@ -304,7 +307,7 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * Update : Plugin tabs is added.
 
 = V1.7 - 21.02.2014 =
-* New : We added posibility to turn on showing of Printer choosing window.
+* NEW : We added posibility to turn on showing of Printer choosing window.
 * Update : Screenshots are updated.
 * Update : We updated all functionality for wordpress 3.8.1.
 
@@ -339,6 +342,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * NEW : Added the ability to output PDF and Print buttons on the type of page.
 
 == Upgrade Notice ==
+
+= V1.8.8 =
+We fixed the bug with instalation of the additional fonts.
 
 = V1.8.7 =
 Styles for correct displaying of PDF and Print buttons with theme 2016 have been added. The bug with displaying of PDF and Print buttons in site RSS has been fixed.
