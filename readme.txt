@@ -1,14 +1,14 @@
 ﻿=== PDF & Print by BestWebSoft ===
 Contributors: bestwebsoft
 Donate link: http://bestwebsoft.com/donate/
-Tags: add pdf button, add pdf print button, archive pdf, button, best pdf plugin, best pdf and print pugin, best pdf button, best pdf print button, free pdf plugin, free pdf and print plugin, insert shortcode, generate pdf, generate pdf content, generate post pdf, pdf, pdf and print, pdf&print, pdfandprint, pdf button, pdf content, pdf custom post type, pdf page, pdf pages, pdf post, pdf posts, pdf print, pdf print button, pdf print content, pdf print plugin, pdf print plugins, pdf print portfolio, pdf search results, plugin, print, printable, printing, print button, print content, print custom post type, print page, print pages, print post, print posts, print post content, printing output, shortcode, simple pdf plugin, simple pdf print plugin, simple pdf button, simple pdf print button, wp plugin, wp pdf plugin, wp pdf print plugin, wp pdf button, wp pdf print button, wordpress plugin, wordpress pdf plugin, wordpress pdf button, wordpress pdf print plugin, wordpress pdf print button
+Tags: generate pdf, add pdf button, add print button, pdf plugin, pdf pages, print pages, generate pdf content, generate post pdf, pdf print, pdf print plugin, pdf custom post type, pdf content
 Requires at least: 3.8
-Tested up to: 4.5
-Stable tag: 1.8.8
+Tested up to: 4.5.3
+Stable tag: 1.8.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Add PDF and Print button to your WordPress website.
+Generate PDF files and print WordPress posts/pages. Customize document header/footer styles and appearance.
 
 == Description ==
 
@@ -49,7 +49,7 @@ There is also a premium version of the plugin <a href="http://bestwebsoft.com/pr
 * Russian (ru_RU)
 * Ukrainian (uk)
 
-If you would like to create your own language pack or update the existing one, you can send <a href="http://codex.wordpress.org/Translating_WordPress" target="_blank">the text of PO and MO files</a> for <a href="http://support.bestwebsoft.com" target="_blank">BestWebSoft</a> and we'll add it to the plugin. You can download the latest version of the program for work with PO and MO files  <a href="http://www.poedit.net/download.php" target="_blank">Poedit</a>.
+If you would like to create your own language pack or update the existing one, you can send <a href="http://codex.wordpress.org/Translating_WordPress" target="_blank">the text of PO and MO files</a> for <a href="http://support.bestwebsoft.com/hc/en-us/requests/new" target="_blank">BestWebSoft</a> and we'll add it to the plugin. You can download the latest version of the program for work with PO and MO files  <a href="http://www.poedit.net/download.php" target="_blank">Poedit</a>.
 
 = Technical support =
 
@@ -64,7 +64,7 @@ We can fix some things for free for the users who provide translation of our plu
 
 1. Upload `pdf-print` folder to the `/wp-content/plugins/` directory.
 2. Activate the plugin via the 'Plugins' menu in WordPress.
-3. Plugin settings are located in "BWS Plugins" > "PDF & Print".
+3. Plugin settings are located in "BWS Panel" > "PDF & Print".
 
 View a <a href="https://docs.google.com/document/d/1Wwins2PmrzAYiEgFZDtRzMNDq9Sr7XDeqjGNm7b-oi8/edit" target="_blank">Step-by-step Instruction on PDF & Print Installation</a>
 
@@ -157,7 +157,7 @@ For more information about WordPress filters see <a target="_blank" href="https:
 
 To do that, enter the required styles in the "edit styles" field on the Settings page. You can use the class 'pdfprnt_print' in order to add some styles only for Print pages.
 
-( To display "edit styles" field go Dashboard->BWS Plugins->PDF & Print and mark "Add custom styles" checkbox )
+( To display "edit styles" field go Dashboard->BWS Panel->PDF & Print and mark "Add custom styles" checkbox )
 
 For example:
 
@@ -232,6 +232,10 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 5. Page settings for the PDF & Print in admin panel.
 
 == Changelog ==
+
+= V1.8.9 - 13.07.2016 =
+* Bugfix : Custom styles saving is updated.
+* Update : BWS Panel section is updated. 
 
 = V1.8.8 - 26.04.2016 =
 * Bugfix : We fixed the bug with instalation of the additional fonts.
@@ -342,6 +346,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * NEW : Added the ability to output PDF and Print buttons on the type of page.
 
 == Upgrade Notice ==
+
+= V1.8.9 =
+Custom styles saving is updated. BWS Panel section is updated.
 
 = V1.8.8 =
 We fixed the bug with instalation of the additional fonts.

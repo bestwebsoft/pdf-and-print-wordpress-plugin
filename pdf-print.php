@@ -1,37 +1,37 @@
 <?php
 /*
 Plugin Name: PDF & Print by BestWebSoft
-Plugin URI: http://bestwebsoft.com/products/
-Description: Plugin adds PDF creation and Print button on your site.
+Plugin URI: http://bestwebsoft.com/products/pdf-print/
+Description: Generate PDF files and print WordPress posts/pages. Customize document header/footer styles and appearance.
 Author: BestWebSoft
 Text Domain: pdf-print
 Domain Path: /languages
-Version: 1.8.8
+Version: 1.8.9
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 */
 
 /*  © Copyright 2016  BestWebSoft  ( http://support.bestwebsoft.com )
 
-    This program is free software; you can redistribute it and/or modify
-    it under the terms of the GNU General Public License, version 2, as
-    published by the Free Software Foundation.
+	This program is free software; you can redistribute it and/or modify
+	it under the terms of the GNU General Public License, version 2, as
+	published by the Free Software Foundation.
 
-    This program is distributed in the hope that it will be useful,
-    but WITHOUT ANY WARRANTY; without even the implied warranty of
-    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+	This program is distributed in the hope that it will be useful,
+	but WITHOUT ANY WARRANTY; without even the implied warranty of
+	MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+	GNU General Public License for more details.
 
-    You should have received a copy of the GNU General Public License
-    along with this program; if not, write to the Free Software
-    Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+	You should have received a copy of the GNU General Public License
+	along with this program; if not, write to the Free Software
+	Foundation, Inc., 51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
 */
 
 /* Add our own menu */
 if ( ! function_exists( 'pdfprnt_add_pages' ) ) {
 	function pdfprnt_add_pages() {
 		bws_general_menu();
-		$settings = add_submenu_page( 'bws_plugins', __( 'PDF & Print Settings', 'pdf-print' ), 'PDF & Print', 'manage_options', 'pdf-print.php', 'pdfprnt_settings_page' );
+		$settings = add_submenu_page( 'bws_panel', __( 'PDF & Print Settings', 'pdf-print' ), 'PDF & Print', 'manage_options', 'pdf-print.php', 'pdfprnt_settings_page' );
 		add_action( "load-{$settings}", 'pdfprnt_add_tabs' );
 	}
 }
@@ -206,7 +206,7 @@ if ( ! function_exists ( 'pdfprnt_settings_page' ) ) {
 			$pdfprnt_options_array['show_title']					=	isset( $_REQUEST['pdfprnt_show_title'] ) ? 1 : 0;
 			$pdfprnt_options_array['show_featured_image']			=	isset( $_REQUEST['pdfprnt_show_featured_image'] ) ? 1 : 0;
 			if ( isset( $_REQUEST['pdfprnt_custom_styles'] ) ) {
-				$custom_styles = stripslashes( esc_html( trim( $_REQUEST['pdfprnt_custom_styles'] ) ) );
+				$custom_styles = trim( strip_tags( stripslashes( $_REQUEST['pdfprnt_custom_styles'] ) ) );
 				if ( 10000 < strlen( $custom_styles ) )
 					$error .= __( 'You have entered too much text in the "edit styles" field.', 'pdf-print' );
 				else
@@ -777,8 +777,8 @@ if ( ! function_exists( 'pdfprnt_generate_template' ) ) {
 					/* remove 'font-family' and 'font' styles from theme css-file if additional fonts not loaded */
 					if ( 0 == $pdfprnt_options_array['additional_fonts'] ) {
 						$css = file_get_contents( get_bloginfo( 'stylesheet_url' ) );
-						if ( ( ! empty( $css ) ) )
-							$html .= '<style type="text/css">' . preg_replace( "/(font:(.*?);)|(font-family(.*?);)/", "", $css ) . '</style>';
+						 if ( ! empty( $css['body'] ) )
+							$html .= '<style type="text/css">' . preg_replace( "/(font:(.*?);)|(font-family(.*?);)/", "", $css['body'] ) . '</style>';
 					} else {
 						$html .= '<link type="text/css" rel="stylesheet" href="' . get_bloginfo( 'stylesheet_url' ) . '" media="all" />';
 					}
@@ -791,7 +791,7 @@ if ( ! function_exists( 'pdfprnt_generate_template' ) ) {
 				if ( $isprint && 1 == $pdfprnt_options_array['show_print_window'] )
 					$html .= '<script>window.onload = function(){ window.print(); };</script>';
 			$html .=
-			'</head>			
+			'</head>
 			<body' . ( $isprint ? ' class="pdfprnt_print"' : '' ) . '>';
 				/* Remove inline 'font-family' and 'font' styles from content */
 				if ( 0 == $pdfprnt_options_array['additional_fonts'] )
@@ -855,7 +855,7 @@ if ( ! function_exists( 'pdfprnt_print' ) ) {
 		if ( ! is_array( $doc_type ) )
 			return;
 
-		/* for seach or archives */
+		/* for search or archives */
 		if ( isset( $doc_type[1] ) ) {
 			switch ( $doc_type[1] ) {
 				case 'custom':
@@ -870,10 +870,16 @@ if ( ! function_exists( 'pdfprnt_print' ) ) {
 					break;
 			}
 		/* for single posts or pages */
+		} elseif (
+			( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] == get_home_url() . '/?print=' . $doc_type[0]
+			&&
+			'page' == get_option( 'show_on_front' )
+		) {
+			$post_id = get_option( 'page_on_front' );
+			$posts = query_posts( array( 'page_id' => $post_id ) );
 		} else {
 			$posts = array( $post );
 		}
-
 		switch( $doc_type[0] ) {
 			case 'pdf':
 
