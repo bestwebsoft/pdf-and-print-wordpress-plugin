@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bestwebsoft\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-07-04 10:21+0300\n"
-"PO-Revision-Date: 2016-07-04 10:22+0300\n"
+"POT-Creation-Date: 2016-07-14 15:18+0300\n"
+"PO-Revision-Date: 2016-07-14 15:18+0300\n"
 "Last-Translator: Luc Capronnier <lcapronnier@yahoo.com>\n"
 "Language-Team: Luc Capronnier <lcapronnier@yahoo.com>\n"
 "Language: fr_FR\n"
@@ -17,7 +17,7 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: bws_functions.php:38 bws_menu.php:282 bws_menu.php:330
+#: bws_functions.php:38 bws_menu.php:282 bws_menu.php:328
 msgid "Plugins"
 msgstr "Extensions"
 
@@ -189,19 +189,19 @@ msgstr ""
 "peut-être installée qu'une seule fois."
 
 #: bws_functions.php:349 bws_functions.php:371 bws_functions.php:393
-#: bws_menu.php:370 bws_menu.php:401 bws_menu.php:412
+#: bws_menu.php:368 bws_menu.php:399 bws_menu.php:410
 msgid "Failed to download the zip archive. Please, upload the plugin manually"
 msgstr ""
 "Erreur de téléchargement de l'archive ZIP. Merci de télécharger l'extension "
 "manuellement."
 
-#: bws_functions.php:361 bws_menu.php:387
+#: bws_functions.php:361 bws_menu.php:385
 msgid "Failed to open the zip archive. Please, upload the plugin manually"
 msgstr ""
 "Erreur d'ouverture de l'archive zip. Merci de télécharger l'extension "
 "manuellement."
 
-#: bws_functions.php:367 bws_menu.php:394
+#: bws_functions.php:367 bws_menu.php:392
 msgid ""
 "Your server does not support either ZipArchive or Phar. Please, upload the "
 "plugin manually"
@@ -209,7 +209,7 @@ msgstr ""
 "Votre serveur n'a pas le support du format des archives ZIP ou Phar. Merci "
 "de télécharger l'extension manuellement."
 
-#: bws_functions.php:374 bws_menu.php:404
+#: bws_functions.php:374 bws_menu.php:402
 msgid "UploadDir is not writable. Please, upload the plugin manually"
 msgstr ""
 "Erreur d'ouverture de l'archive zip. Merci de télécharger l'extension "
@@ -293,7 +293,7 @@ msgid "After that you can activate it by entering your license key."
 msgstr ""
 " Après vous pouvez activer cette extension en donnant votre clé de licence."
 
-#: bws_functions.php:526 bws_menu.php:118 bws_menu.php:306
+#: bws_functions.php:526 bws_menu.php:118 bws_menu.php:304
 msgid "Unfortunately, you have exceeded the number of available tries per day."
 msgstr ""
 "Désoler mais vous avez dépassé le nombre d'essai de la journée. Merci de "
@@ -372,7 +372,7 @@ msgstr ""
 "l'achat de l'extension). Si nécessaire, utilisez la fonction de demande de "
 "mot de passe perdu."
 
-#: bws_functions.php:651 bws_menu.php:304 bws_menu.php:315
+#: bws_functions.php:651 bws_menu.php:302 bws_menu.php:313
 msgid "Check license key"
 msgstr "Vérifier la clé de licence"
 
@@ -768,43 +768,28 @@ msgstr "Gérer les licences et les adhésions"
 msgid "Client Area"
 msgstr "Espace client"
 
-#: bws_menu.php:296
-#, php-format
-msgid "Get Access to %s+ Premium Plugins"
-msgstr "Accéder à plus de %s extension premiums"
-
-#: bws_menu.php:297
-#, php-format
-msgid ""
-"Join BestWebSoft Pro Membership today, cancel any time and use all plugins "
-"on a single website %s for only %s per month."
-msgstr ""
-"Rejoignez le réseau PRO de BestWebSoft, arrêtez quand vous le vouler et "
-"utiliser toutes les extensions sur un seul site %s pour seulement %s par "
-"mois."
-
-#: bws_menu.php:309
+#: bws_menu.php:307
 msgid "Enter your license key"
 msgstr "Merci de saisir votre clé de licence"
 
-#: bws_menu.php:313
+#: bws_menu.php:311
 msgid "Activate Membership"
 msgstr "Activer l'adhésion"
 
-#: bws_menu.php:322
+#: bws_menu.php:320
 msgid "Don’t have valid license key yet?"
 msgstr "Vous n'avez pas encore de licence valide ?"
 
-#: bws_menu.php:322
+#: bws_menu.php:320
 #, fuzzy
 msgid "Subscribe to Pro Membership Now"
 msgstr "Souscrire une adhésion PRO"
 
-#: bws_menu.php:331
+#: bws_menu.php:329
 msgid "Upload Plugin"
 msgstr "Charger l'extension"
 
-#: bws_menu.php:335
+#: bws_menu.php:333
 #, php-format
 msgid ""
 "The plugin generated %d characters of <strong>unexpected output</strong> "
@@ -817,7 +802,7 @@ msgstr ""
 "sent&#8221;, des problèmes avec les flux de syndication ou autres, essayez "
 "de désactiver l'extension ou supprimer l'extension."
 
-#: bws_menu.php:337
+#: bws_menu.php:335
 msgid ""
 "Plugin could not be activated because it triggered a <strong>fatal error</"
 "strong>."
@@ -825,57 +810,62 @@ msgstr ""
 "L'extension ne peut pas être activée car une <strong>erreur fatale</strong> "
 "a été détectée."
 
-#: bws_menu.php:340
+#: bws_menu.php:338
 msgid "Plugin <strong>activated</strong>."
 msgstr "Extension <strong>activée</strong>."
 
-#: bws_menu.php:347
+#: bws_menu.php:345
 msgid "Installing Plugin"
 msgstr "Extensions installées"
 
-#: bws_menu.php:353
+#: bws_menu.php:351
 msgid "Downloading install package from"
 msgstr "Télécharger le paquet d'installation depuis"
 
-#: bws_menu.php:378
+#: bws_menu.php:376
 msgid "Unpacking the package"
 msgstr "Décompresser le paquet"
 
-#: bws_menu.php:383 bws_menu.php:391
+#: bws_menu.php:381 bws_menu.php:389
 msgid "Installing the plugin"
 msgstr "Installer l'extension"
 
-#: bws_menu.php:397
+#: bws_menu.php:395
 msgid "Successfully installed the plugin"
 msgstr "Extension installée avec succès"
 
-#: bws_menu.php:409
+#: bws_menu.php:407
 msgid "Activate Plugin"
 msgstr "Activer l'extension"
 
-#: bws_menu.php:409 bws_menu.php:415
+#: bws_menu.php:407 bws_menu.php:413
 msgid "Return to BestWebSoft Panel"
 msgstr "Retourner à l'administration BestWebSoft"
 
-#: bws_menu.php:419 bws_menu.php:434 bws_menu.php:561
+#: bws_menu.php:417 bws_menu.php:432 bws_menu.php:561
 msgid "All"
 msgstr "Tous"
 
-#: bws_menu.php:420
+#: bws_menu.php:418
 msgid "Installed"
 msgstr "Installé"
 
-#: bws_menu.php:421
+#: bws_menu.php:419
 msgid "Not Installed"
 msgstr "Non installé"
 
-#: bws_menu.php:427
+#: bws_menu.php:425
 msgid "Filter results"
 msgstr "Filtrer les résultats"
 
-#: bws_menu.php:430 bws_menu.php:557
+#: bws_menu.php:428 bws_menu.php:557
 msgid "Category"
 msgstr "Catégorie"
+
+#: bws_menu.php:492
+#, fuzzy
+msgid "Not installed"
+msgstr "Non installé"
 
 #: bws_menu.php:496
 msgid "Renew to get updates"
@@ -978,6 +968,17 @@ msgstr "Utilitaires"
 #: product_list.php:15
 msgid "Other"
 msgstr "Autre"
+
+#~ msgid "Get Access to %s+ Premium Plugins"
+#~ msgstr "Accéder à plus de %s extension premiums"
+
+#~ msgid ""
+#~ "Join BestWebSoft Pro Membership today, cancel any time and use all "
+#~ "plugins on a single website %s for only %s per month."
+#~ msgstr ""
+#~ "Rejoignez le réseau PRO de BestWebSoft, arrêtez quand vous le vouler et "
+#~ "utiliser toutes les extensions sur un seul site %s pour seulement %s par "
+#~ "mois."
 
 #~ msgid "My Account"
 #~ msgstr "Mon compte"

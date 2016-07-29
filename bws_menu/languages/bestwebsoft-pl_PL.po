@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bestwebsoft\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-30 14:13+0300\n"
-"PO-Revision-Date: 2016-06-30 14:13+0300\n"
+"POT-Creation-Date: 2016-07-14 15:18+0300\n"
+"PO-Revision-Date: 2016-07-14 15:18+0300\n"
 "Last-Translator: bestwebsoft.com <plugins@bestwebsoft.com>\n"
 "Language-Team: Damian Dąbrowski <contact@codester.pl>\n"
 "Language: pl_PL\n"
@@ -18,7 +18,7 @@ msgstr ""
 "|| n%100>=20) ? 1 : 2);\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: bws_functions.php:38 bws_menu.php:282 bws_menu.php:330
+#: bws_functions.php:38 bws_menu.php:282 bws_menu.php:328
 msgid "Plugins"
 msgstr "Wtyczki"
 
@@ -188,26 +188,26 @@ msgstr ""
 "może być wykorzystana tylko raz."
 
 #: bws_functions.php:349 bws_functions.php:371 bws_functions.php:393
-#: bws_menu.php:370 bws_menu.php:401 bws_menu.php:412
+#: bws_menu.php:368 bws_menu.php:399 bws_menu.php:410
 msgid "Failed to download the zip archive. Please, upload the plugin manually"
 msgstr ""
 "Pobieranie archiwum zip zakończyło się niepowodzeniem. Proszę dodać wtyczkę "
 "manualnie"
 
-#: bws_functions.php:361 bws_menu.php:387
+#: bws_functions.php:361 bws_menu.php:385
 msgid "Failed to open the zip archive. Please, upload the plugin manually"
 msgstr ""
 "Otwieranie archiwum zip zakończyło się niepowodzeniem. Proszę dodać wtyczkę "
 "manualnie"
 
-#: bws_functions.php:367 bws_menu.php:394
+#: bws_functions.php:367 bws_menu.php:392
 msgid ""
 "Your server does not support either ZipArchive or Phar. Please, upload the "
 "plugin manually"
 msgstr ""
 "Twój serwer nie wspiera ZipAcrchive lub Phar. Proszę dodać wtyczkę manualnie"
 
-#: bws_functions.php:374 bws_menu.php:404
+#: bws_functions.php:374 bws_menu.php:402
 msgid "UploadDir is not writable. Please, upload the plugin manually"
 msgstr ""
 "Folder uploadu jest chroniony przez zapisem. Proszę dodać wtyczkę manualnie"
@@ -288,7 +288,7 @@ msgstr ""
 msgid "After that you can activate it by entering your license key."
 msgstr "Po wszystkim możesz aktywować wtyczkę poprzez podanie klucza licencji."
 
-#: bws_functions.php:526 bws_menu.php:118 bws_menu.php:306
+#: bws_functions.php:526 bws_menu.php:118 bws_menu.php:304
 msgid "Unfortunately, you have exceeded the number of available tries per day."
 msgstr "Niestety, przekroczono dzienną liczbę dostępnych prób."
 
@@ -360,7 +360,7 @@ msgstr ""
 "(login to adres email podany przy zakupie). Jeśli to koniczne użyj opcji "
 "\"Zgubiłeś swoje hasło?\"."
 
-#: bws_functions.php:651 bws_menu.php:304 bws_menu.php:315
+#: bws_functions.php:651 bws_menu.php:302 bws_menu.php:313
 msgid "Check license key"
 msgstr "Sprawdź klucz licencji"
 
@@ -753,42 +753,30 @@ msgstr ""
 msgid "Client Area"
 msgstr "Panel Klienta"
 
-#: bws_menu.php:296
-#, php-format
-msgid "Get Access to %s+ Premium Plugins"
-msgstr ""
-
-#: bws_menu.php:297
-#, php-format
-msgid ""
-"Join BestWebSoft Pro Membership today, cancel any time and use all plugins "
-"on a single website %s for only %s per month."
-msgstr ""
-
-#: bws_menu.php:309
+#: bws_menu.php:307
 #, fuzzy
 msgid "Enter your license key"
 msgstr "Podaj klucz licencji"
 
-#: bws_menu.php:313
+#: bws_menu.php:311
 #, fuzzy
 msgid "Activate Membership"
 msgstr "有効なテーマ"
 
-#: bws_menu.php:322
+#: bws_menu.php:320
 msgid "Don’t have valid license key yet?"
 msgstr ""
 
-#: bws_menu.php:322
+#: bws_menu.php:320
 msgid "Subscribe to Pro Membership Now"
 msgstr ""
 
-#: bws_menu.php:331
+#: bws_menu.php:329
 #, fuzzy
 msgid "Upload Plugin"
 msgstr "Wtyczka"
 
-#: bws_menu.php:335
+#: bws_menu.php:333
 #, php-format
 msgid ""
 "The plugin generated %d characters of <strong>unexpected output</strong> "
@@ -797,68 +785,73 @@ msgid ""
 "or removing this plugin."
 msgstr ""
 
-#: bws_menu.php:337
+#: bws_menu.php:335
 msgid ""
 "Plugin could not be activated because it triggered a <strong>fatal error</"
 "strong>."
 msgstr ""
 
-#: bws_menu.php:340
+#: bws_menu.php:338
 msgid "Plugin <strong>activated</strong>."
 msgstr ""
 
-#: bws_menu.php:347
+#: bws_menu.php:345
 #, fuzzy
 msgid "Installing Plugin"
 msgstr "Zainstalowane"
 
-#: bws_menu.php:353
+#: bws_menu.php:351
 msgid "Downloading install package from"
 msgstr ""
 
-#: bws_menu.php:378
+#: bws_menu.php:376
 msgid "Unpacking the package"
 msgstr ""
 
-#: bws_menu.php:383 bws_menu.php:391
+#: bws_menu.php:381 bws_menu.php:389
 #, fuzzy
 msgid "Installing the plugin"
 msgstr "Zainstalowane"
 
-#: bws_menu.php:397
+#: bws_menu.php:395
 #, fuzzy
 msgid "Successfully installed the plugin"
 msgstr "Zainstalowane"
 
-#: bws_menu.php:409
+#: bws_menu.php:407
 #, fuzzy
 msgid "Activate Plugin"
 msgstr "Aktywne wtyczki"
 
-#: bws_menu.php:409 bws_menu.php:415
+#: bws_menu.php:407 bws_menu.php:413
 msgid "Return to BestWebSoft Panel"
 msgstr ""
 
-#: bws_menu.php:419 bws_menu.php:434 bws_menu.php:561
+#: bws_menu.php:417 bws_menu.php:432 bws_menu.php:561
 msgid "All"
 msgstr "Wszystko"
 
-#: bws_menu.php:420
+#: bws_menu.php:418
 msgid "Installed"
 msgstr "Zainstalowane"
 
-#: bws_menu.php:421
+#: bws_menu.php:419
 #, fuzzy
 msgid "Not Installed"
 msgstr "Zainstalowane"
 
-#: bws_menu.php:427
+#: bws_menu.php:425
 msgid "Filter results"
 msgstr ""
 
-#: bws_menu.php:430 bws_menu.php:557
+#: bws_menu.php:428 bws_menu.php:557
 msgid "Category"
 msgstr ""
+
+#: bws_menu.php:492
+#, fuzzy
+msgid "Not installed"
+msgstr "Zainstalowane"
 
 #: bws_menu.php:496
 #, fuzzy

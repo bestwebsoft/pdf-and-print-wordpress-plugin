@@ -1,7 +1,7 @@
 <?php
 /*
 * Function for displaying BestWebSoft menu
-* Version: 1.9.0
+* Version: 1.9.1
 */
 
 if ( ! function_exists ( 'bws_admin_enqueue_scripts' ) )
@@ -113,11 +113,11 @@ if ( ! function_exists( 'bws_add_menu_render' ) ) {
 									if ( "wrong_license_key" == $value->package ) {
 										$error = __( "Wrong license key", 'bestwebsoft' ); 
 									} elseif ( "wrong_domain" == $value->package ) {
-										$error = __( 'This license key is bind to another website. Change it via personal Client Area.', 'bestwebsoft' ) . '<a target="_blank" href="http://bestwebsoft.com/wp-admin/admin.php?page=bws_plugins_client_area">' . __( 'Log in', 'bestwebsoft' ) . '</a>';
+										$error = __( 'This license key is bind to another website. Change it via personal Client Area.', 'bestwebsoft' ) . '<a target="_blank" href="http://bestwebsoft.com/wp-admin/admin.php?page=client-area">' . __( 'Log in', 'bestwebsoft' ) . '</a>';
 									} elseif ( "you_are_banned" == $value->package ) {
 										$error = __( "Unfortunately, you have exceeded the number of available tries per day.", 'bestwebsoft' );
 									} elseif ( "time_out" == $value->package ) {
-										$error = __( "Unfortunately, Your license has expired. To continue getting top-priority support and plugin updates you should extend it in your", 'bestwebsoft' ) . ' <a target="_blank" href="http://bestwebsoft.com/wp-admin/admin.php?page=bws_plugins_client_area">Client Area</a>';
+										$error = __( "Unfortunately, Your license has expired. To continue getting top-priority support and plugin updates you should extend it in your", 'bestwebsoft' ) . ' <a target="_blank" href="http://bestwebsoft.com/wp-admin/admin.php?page=client-area">Client Area</a>';
 									} elseif ( "duplicate_domen_for_trial" == $value->package ) {
 										$error = __( "Unfortunately, the Pro licence was already installed to this domain. The Pro Trial license can be installed only once.", 'bestwebsoft' );
 									} elseif ( is_array( $value->package ) && ! empty( $value->package ) ) {
@@ -293,8 +293,6 @@ if ( ! function_exists( 'bws_add_menu_render' ) ) {
 				<div class="bws-membership-wrap">
 					<div class="bws-membership-backround"></div>
 					<div class="bws-membership">
-						<div class="bws-membership-title"><?php printf( __( 'Get Access to %s+ Premium Plugins', 'bestwebsoft' ), '30' ); ?></div>
-						<div class="bws-membership-description"><?php printf( __( 'Join BestWebSoft Pro Membership today, cancel any time and use all plugins on a single website %s for only %s per month.', 'bestwebsoft' ), "<br/>", '$40' ); ?></div>					
 						<form method="post" action="">								
 							<?php if ( isset( $bstwbsftwppdtplgns_options['go_pro'][ $bws_license_plugin ]['count'] ) &&
 								'5' < $bstwbsftwppdtplgns_options['go_pro'][ $bws_license_plugin ]['count'] &&
@@ -490,6 +488,8 @@ if ( ! function_exists( 'bws_add_menu_render' ) ) {
 												if ( ! empty( $value_plugin['expired'] ) || ! empty( $value_plugin['update_availible'] ) )
 													echo ' class="bws-update-available"';
 												echo '>v ' . $all_plugins[ $key_plugin ]['Version'] . '</span>';	
+											} else {
+												echo '<span>' . __( 'Not installed', 'bestwebsoft' ) . '</span>';												
 											}
 
 											if ( ! empty( $value_plugin['expired'] ) ) {

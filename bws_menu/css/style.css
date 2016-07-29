@@ -2,14 +2,12 @@ a.toplevel_page_bws_panel.wp-has-current-submenu:after {
     display: none;
 }
 .toplevel_page_bws_panel #wpcontent,
-.bws-panel_page_bws_plugins #wpcontent,
 .bws-panel_page_bws_themes #wpcontent,
 .bws-panel_page_bws_system_status #wpcontent {
     padding-left: 0;
     padding-right: 0;
 }
 .toplevel_page_bws_panel .update-nag,
-.bws-panel_page_bws_plugins .update-nag,
 .bws-panel_page_bws_themes .update-nag,
 .bws-panel_page_bws_system_status .update-nag {
     display: none;
@@ -112,6 +110,8 @@ a.toplevel_page_bws_panel.wp-has-current-submenu:after {
     background: url("../images/membership-background.jpg") no-repeat center #fff;     
     overflow: hidden;
     position: relative;
+    margin: 20px 20px 0 20px;
+    border-radius: 4px;
 }
 .bws-membership-backround {
     background-color: #000;
@@ -130,17 +130,6 @@ a.toplevel_page_bws_panel.wp-has-current-submenu:after {
 }
 .bws-membership * {
     text-align: center;
-}
-.bws-membership-title {    
-    font-size: 27px;
-    font-weight: 600;
-    line-height: initial;
-}
-.bws-membership-description {
-    font-size: 15px;
-    line-height: 24px;
-    margin: 18px 0 23px;
-    color: #999;
 }
 .bws-membership input[type="text"] {
     border-radius: 3px;
@@ -220,6 +209,9 @@ a.toplevel_page_bws_panel.wp-has-current-submenu:after {
     float: left;
     margin-right: 10px;
     max-width: 400px;
+}
+.rtl .bws_system_info {
+    float: right;
 }
 .bws_system_info th {
     padding: 10px 0;

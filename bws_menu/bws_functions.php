@@ -33,7 +33,7 @@ if ( ! function_exists ( 'bws_general_menu' ) ) {
 				}
 			}
 
-			add_menu_page( 'BWS Panel', 'BWS Panel', 'manage_options', 'bws_panel', 'bws_add_menu_render', plugins_url( 'images/bestwebsoft-logo-white.svg', __FILE__ ), '2.1' );
+			add_menu_page( 'BWS Panel', 'BWS Panel', 'manage_options', 'bws_panel', 'bws_add_menu_render', plugins_url( 'images/bestwebsoft-logo-white.svg', __FILE__ ), '1001' );
 
 			add_submenu_page( 'bws_panel', __( 'Plugins', 'bestwebsoft' ), __( 'Plugins', 'bestwebsoft' ), 'manage_options', 'bws_panel', 'bws_add_menu_render' );
 			add_submenu_page( 'bws_panel', __( 'Themes', 'bestwebsoft' ), __( 'Themes', 'bestwebsoft' ), 'manage_options', 'bws_themes', 'bws_add_menu_render' );
@@ -323,7 +323,7 @@ if ( ! function_exists( 'bws_go_pro_tab_check' ) ) {
 										} elseif ( "you_are_banned" == $value->package ) {
 											$result['error'] = __( "Unfortunately, you have exceeded the number of available tries per day. Please, upload the plugin manually.", 'bestwebsoft' );
 										} elseif ( "time_out" == $value->package ) {
-											$result['error'] = __( "Unfortunately, Your license has expired. To continue getting top-priority support and plugin updates you should extend it in your", 'bestwebsoft' ) . ' <a href="http://bestwebsoft.com/wp-admin/admin.php?page=bws_plugins_client_area">Client area</a>';
+											$result['error'] = __( "Unfortunately, Your license has expired. To continue getting top-priority support and plugin updates you should extend it in your", 'bestwebsoft' ) . ' <a href="http://bestwebsoft.com/wp-admin/admin.php?page=client-area">Client area</a>';
 										} elseif ( "duplicate_domen_for_trial" == $value->package ) {
 											$result['error'] = __( "Unfortunately, the Pro licence was already installed to this domain. The Pro Trial license can be installed only once.", 'bestwebsoft' );
 										}
@@ -876,7 +876,7 @@ if ( ! function_exists ( 'bws_plugins_admin_init' ) ) {
 			$result = activate_plugin( $plugin, '', is_network_admin() );				
 			if ( is_wp_error( $result ) ) {
 				if ( 'unexpected_output' == $result->get_error_code() ) {
-					$redirect = self_admin_url( 'admin.php?page=bws_plugins&error=true&charsout=' . strlen( $result->get_error_data() ) . '&plugin=' . $plugin );
+					$redirect = self_admin_url( 'admin.php?page=bws_panel&error=true&charsout=' . strlen( $result->get_error_data() ) . '&plugin=' . $plugin );
 					wp_redirect( add_query_arg( '_error_nonce', wp_create_nonce( 'plugin-activation-error_' . $plugin ), $redirect ) );
 					exit();
 				} else {
@@ -893,11 +893,11 @@ if ( ! function_exists ( 'bws_plugins_admin_init' ) ) {
 				unset( $recent[ $plugin ] );
 				update_site_option( 'recently_activated', $recent );
 			}
-			wp_redirect( self_admin_url( 'admin.php?page=bws_plugins&activate=true' ) );
+			wp_redirect( self_admin_url( 'admin.php?page=bws_panel&activate=true' ) );
 			exit();
 		}
 
-		if ( isset( $_GET['page'] ) && $_GET['page'] == 'bws_plugins' ) {
+		if ( isset( $_GET['page'] ) && $_GET['page'] == 'bws_panel' ) {
 			if ( ! session_id() )
 				@session_start();
 		}
@@ -912,7 +912,7 @@ if ( ! function_exists ( 'bws_admin_enqueue_scripts' ) ) {
 		wp_enqueue_style( 'bws-admin-css', plugins_url( 'css/general_style.css', __FILE__ ) );
 		wp_enqueue_script( 'bws-admin-scripts', plugins_url( 'js/general_script.js', __FILE__ ), array( 'jquery' ) );
 
-		if ( isset( $_GET['page'] ) && in_array( $_GET['page'], array( 'bws_panel', 'bws_plugins', 'bws_themes', 'bws_system_status' ) ) ) {
+		if ( isset( $_GET['page'] ) && in_array( $_GET['page'], array( 'bws_panel', 'bws_themes', 'bws_system_status' ) ) ) {
 			wp_enqueue_style( 'bws_menu_style', plugins_url( 'css/style.css', __FILE__ ) );
 			wp_enqueue_script( 'bws_menu_script', plugins_url( 'js/bws_menu.js' , __FILE__ ) );
 			wp_enqueue_script( 'theme-install' );
@@ -925,7 +925,7 @@ if ( ! function_exists ( 'bws_admin_enqueue_scripts' ) ) {
 if ( ! function_exists ( 'bws_plugins_admin_head' ) ) {
 	function bws_plugins_admin_head() {
 		global $bws_shortcode_list, $wp_version, $post_type;
-		if ( isset( $_GET['page'] ) && $_GET['page'] == "bws_plugins" ) { ?>
+		if ( isset( $_GET['page'] ) && $_GET['page'] == "bws_panel" ) { ?>
 			<noscript>
 				<style type="text/css">
 					.bws_product_button {

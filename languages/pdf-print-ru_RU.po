@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdf-print\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-04-15 14:59+0300\n"
-"PO-Revision-Date: 2016-04-15 15:16+0300\n"
+"POT-Creation-Date: 2016-07-21 16:33+0300\n"
+"PO-Revision-Date: 2016-07-21 16:33+0300\n"
 "Last-Translator: BestWebSoft team <wp@bestwebsoft.com>\n"
 "Language-Team: bestwebsoft <plugin@bestwebsoft.com>\n"
 "Language: ru_RU\n"
@@ -228,7 +228,7 @@ msgstr "Вы можете ввести не более 10 000 символов"
 msgid "Display additional elements"
 msgstr "Отображать дополнительные элементы"
 
-#: pdf-print.php:416 includes/pro_banners.php:213 includes/pro_banners.php:238
+#: pdf-print.php:416 includes/pro_banners.php:242 includes/pro_banners.php:267
 msgid "Title"
 msgstr "Заголовок"
 
@@ -248,7 +248,7 @@ msgstr "Выполнять!"
 msgid "Show the print window"
 msgstr "Показать окно печати"
 
-#: pdf-print.php:438 includes/pro_banners.php:148
+#: pdf-print.php:438 includes/pro_banners.php:177
 msgid "Save Changes"
 msgstr "Сохранить изменения"
 
@@ -260,33 +260,33 @@ msgstr "Поддержка"
 msgid "Loading of fonts. It might take a several minutes"
 msgstr "Загрузка шрифтов. Это может занять несколько минут"
 
-#: pdf-print.php:1066
+#: pdf-print.php:1072
 msgid "Check your internet connection"
 msgstr "Проверьте Ваше интернет-соединение"
 
-#: pdf-print.php:1071
+#: pdf-print.php:1077
 msgid "Cannot load files in to \"uploads\" folder. Check your permissions"
 msgstr "Невозможно создать папку \"uploads\". Проверьте свои права"
 
-#: pdf-print.php:1100
+#: pdf-print.php:1106
 msgid "Additional fonts were successfully loaded"
 msgstr "Дополнительные шрифты были успешно загружены"
 
-#: pdf-print.php:1103
+#: pdf-print.php:1109
 msgid "Some errors occur during loading files"
 msgstr "Произошли какие-то ошибки во время загрузки файлов"
 
-#: pdf-print.php:1106
+#: pdf-print.php:1112
 msgid "Can not extract files from zip-archive"
 msgstr "Невозможно извлечь файлы из zip-архива"
 
-#: pdf-print.php:1110
+#: pdf-print.php:1116
 msgid ""
 "Cannot create \"uploads/pdf-print-fonts\" folder. Check your permissions"
 msgstr ""
 "Невозможно создать папку \"uploads/pdf-print-fonts\". Проверьте свои права"
 
-#: pdf-print.php:1158
+#: pdf-print.php:1164
 msgid "Additional fonts was successfully loaded"
 msgstr "Дополнительные шрифты были успешно загружены"
 
@@ -339,7 +339,7 @@ msgid "PDF files name"
 msgstr "Имя PDF файлов"
 
 #: includes/pro_banners.php:86
-msgid "use post or page slug"
+msgid "Use post or page slug"
 msgstr "Использовать ярлык записи или страницы"
 
 #: includes/pro_banners.php:89
@@ -358,55 +358,71 @@ msgstr "Не индексировать страницы  PDF и Print"
 msgid "If you upgrade to Pro version, all your settings will be saved."
 msgstr "При установке Pro версии плагина, все ваши настройки сохраняются."
 
-#: includes/pro_banners.php:113
+#: includes/pro_banners.php:112
+msgid "Watermark"
+msgstr "Водяной знак"
+
+#: includes/pro_banners.php:116
+msgid "None"
+msgstr "Не использовать"
+
+#: includes/pro_banners.php:124
+msgid "Text"
+msgstr "Текст"
+
+#: includes/pro_banners.php:137
+msgid "Image"
+msgstr "Изображение"
+
+#: includes/pro_banners.php:142
 msgid "Compatibility with Woocommerce"
 msgstr "Совместимость с Woocommerce"
 
-#: includes/pro_banners.php:117
+#: includes/pro_banners.php:146
 msgid "Display product data"
 msgstr "Отобразить данные продукта"
 
-#: includes/pro_banners.php:120
+#: includes/pro_banners.php:149
 msgid "Rating"
 msgstr "Рейтинг"
 
-#: includes/pro_banners.php:121
+#: includes/pro_banners.php:150
 msgid "Price"
 msgstr "Цена"
 
-#: includes/pro_banners.php:122
+#: includes/pro_banners.php:151
 msgid "Stock"
 msgstr "Наличие"
 
-#: includes/pro_banners.php:123
+#: includes/pro_banners.php:152
 msgid "SKU"
 msgstr "Артикул"
 
-#: includes/pro_banners.php:124
+#: includes/pro_banners.php:153
 msgid "Categories"
 msgstr "Категории"
 
-#: includes/pro_banners.php:125
+#: includes/pro_banners.php:154
 msgid "Tags"
 msgstr "Метки"
 
-#: includes/pro_banners.php:126
+#: includes/pro_banners.php:155
 msgid "Product Variations"
 msgstr "Вариации товара"
 
-#: includes/pro_banners.php:127
+#: includes/pro_banners.php:156
 msgid "Product Short Description"
 msgstr "Описание товара"
 
-#: includes/pro_banners.php:128
+#: includes/pro_banners.php:157
 msgid "Additional Information"
 msgstr "Дополнительная информация"
 
-#: includes/pro_banners.php:129
+#: includes/pro_banners.php:158
 msgid "Product Gallery"
 msgstr "Галерея Товара"
 
-#: includes/pro_banners.php:140
+#: includes/pro_banners.php:169
 msgid ""
 "Please choose the necessary post types (or single pages), where PDF & Print "
 "buttons should be displayed:"
@@ -414,73 +430,73 @@ msgstr ""
 "Пожалуйста, выберите те типы постов (или отдельные страницы), где будут "
 "отображаться кнопки PDF & Print:"
 
-#: includes/pro_banners.php:143
+#: includes/pro_banners.php:172
 msgid "Show URL for pages"
 msgstr "Отображать URL для страниц"
 
-#: includes/pro_banners.php:146
+#: includes/pro_banners.php:175
 msgid "Example of site pages' tree"
 msgstr "Пример дерева страниц сайта"
 
-#: includes/pro_banners.php:150
+#: includes/pro_banners.php:179
 msgid "If you upgrade to Pro version all your settings will be saved."
 msgstr "При установке Pro версии плагина, все ваши настройки сохраняются."
 
-#: includes/pro_banners.php:157
+#: includes/pro_banners.php:186
 msgid "Add New template"
 msgstr "Добавить шаблон"
 
-#: includes/pro_banners.php:158
+#: includes/pro_banners.php:187
 msgid "For more info click \"Help\" tab at the top of the page."
 msgstr ""
 "Для получения более подробной информации нажмите &laquo;Помощь&raquo; в "
 "правом верхнем углу."
 
-#: includes/pro_banners.php:160
+#: includes/pro_banners.php:189
 msgid "Enter Template Title"
 msgstr "Редактировать заголовок шаблона"
 
-#: includes/pro_banners.php:161
+#: includes/pro_banners.php:190
 msgid "Top running title"
 msgstr "Верхний колонтитул"
 
-#: includes/pro_banners.php:167 includes/pro_banners.php:177
+#: includes/pro_banners.php:196 includes/pro_banners.php:206
 msgid "Add Media"
 msgstr "Добавить медиафайл"
 
-#: includes/pro_banners.php:173
+#: includes/pro_banners.php:202
 msgid "Bottom running title"
 msgstr "Нижний колонтитул"
 
-#: includes/pro_banners.php:183
+#: includes/pro_banners.php:212
 msgid "Save template"
 msgstr "Сохранить шаблон"
 
-#: includes/pro_banners.php:190
+#: includes/pro_banners.php:219
 msgid "All"
 msgstr "Все"
 
-#: includes/pro_banners.php:191
+#: includes/pro_banners.php:220
 msgid "Trash"
 msgstr "Корзина"
 
-#: includes/pro_banners.php:195
+#: includes/pro_banners.php:224
 msgid "search"
 msgstr "поиск"
 
-#: includes/pro_banners.php:200 includes/pro_banners.php:248
+#: includes/pro_banners.php:229 includes/pro_banners.php:277
 msgid "Bulk Actions"
 msgstr "Действия"
 
-#: includes/pro_banners.php:202 includes/pro_banners.php:250
+#: includes/pro_banners.php:231 includes/pro_banners.php:279
 msgid "Apply"
 msgstr "Применить"
 
-#: includes/pro_banners.php:205 includes/pro_banners.php:253
+#: includes/pro_banners.php:234 includes/pro_banners.php:282
 msgid "items"
 msgstr "элементы"
 
-#: includes/pro_banners.php:216 includes/pro_banners.php:241
+#: includes/pro_banners.php:245 includes/pro_banners.php:270
 msgid "Date"
 msgstr "Дата"
 

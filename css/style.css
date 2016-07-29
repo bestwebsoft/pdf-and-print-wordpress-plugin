@@ -91,6 +91,9 @@
 .pdfprnt_settings_table td select {
 	min-width: 210px;
 }
+.rtl #pdfprnt_custom_styles {
+	direction: ltr;
+}
 .pdfprnt_buttons {
 	width: auto !important;
 }
@@ -139,7 +142,7 @@
 	.pdfprnt_label {
 		display: inline;
 	}
-	.pdfprnt_position_buttton .pdfprnt_label {
+	.pdfprnt_position_button .pdfprnt_label {
 		display: block;
 	}
 	.pdfprnt_table_head {

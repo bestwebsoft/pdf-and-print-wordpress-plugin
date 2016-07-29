@@ -43,16 +43,16 @@ if ( ! function_exists( 'pdfprnt_image_block' ) ) {
 				<th scope="row"><?php _e( 'Layout', 'pdf-print' ); ?></th>
 				<td>
 					<fieldset>
-						<label><input disabled="disabled" type="radio" name="pdfprntpr_layout_single" value="portrait" checked="checked" />&nbsp;<?php _e( "Portrait", 'pdf-print' ); ?></label><br/>
-						<label><input disabled="disabled" type="radio" name="pdfprntpr_layout_single" value="landscape" />&nbsp;<?php _e( "Landscape", 'pdf-print' ); ?></label>
+						<label><input disabled="disabled" type="radio" value="portrait" checked="checked" />&nbsp;<?php _e( "Portrait", 'pdf-print' ); ?></label><br/>
+						<label><input disabled="disabled" type="radio" value="landscape" />&nbsp;<?php _e( "Landscape", 'pdf-print' ); ?></label>
 					</fieldset>
 				</td>
 				<td>
 					<fieldset>
-						<label><input disabled="disabled" type="radio" name="pdfprntpr_layout_search_archive" value="portrait" checked="checked" />&nbsp;<?php _e( "Portrait", 'pdf-print' ); ?></label><br/>
-						<label><input disabled="disabled" type="radio" name="pdfprntpr_layout_search_archive" value="landscape" />&nbsp;<?php _e( "Landscape", 'pdf-print' ); ?></label>
+						<label><input disabled="disabled" type="radio" value="portrait" checked="checked" />&nbsp;<?php _e( "Portrait", 'pdf-print' ); ?></label><br/>
+						<label><input disabled="disabled" type="radio" value="landscape" />&nbsp;<?php _e( "Landscape", 'pdf-print' ); ?></label>
 					</fieldset>
-				</td>	
+				</td>
 			</tr>
 			<?php $buttons = array(
 				array( 'title' => __( 'PDF button image', 'pdf-print' ), 'image' => 'pdf.png' ),
@@ -83,7 +83,7 @@ if ( ! function_exists( 'pdfprnt_image_block' ) ) {
 				<th scope="row"><?php _e( 'PDF files name', 'pdf-print' ); ?></th>
 				<td>
 					<fieldset>
-						<label><input disabled="disabled" type="radio" /> <?php _e( 'use post or page slug', 'pdf-print' ); ?></label><br />
+						<label><input disabled="disabled" type="radio" /> <?php _e( 'Use post or page slug', 'pdf-print' ); ?></label><br />
 						<input type="radio" disabled="disabled" /><input disabled="disabled" type="text" value="mpdf" /><br />
 						<span class="bws_info">
 							<?php _e( 'File name cannot contain more than 195 symbols. The file name can include Latin letters, numbers and symbols "-" , "_" only.', 'pdf-print' )  ?>
@@ -109,6 +109,35 @@ if ( ! function_exists( 'pdfprnt_image_block' ) ) {
 if ( ! function_exists( 'pdfprnt_woocommerce_block' ) ) {
 	function pdfprnt_woocommerce_block () { ?>
 		<table class="form-table bws_pro_version">
+			<tr class="pdfprnt_watermark_row"><th scope="row"><?php _e( 'Watermark', 'pdf-print' ); ?></th>
+				<td>
+					<input disabled="disabled" type="radio">
+					<label for="pdfprnt_no_watermark">
+						<?php _e( 'None', 'pdf-print' ); ?>
+					</label>
+				</td>
+			</tr>
+			<tr class="pdfprnt_watermark_row"><th scope="row"></th>
+				<td>
+					<input disabled="disabled" type="radio" checked="checked">
+					<label>
+						<?php _e( 'Text', 'pdf-print' ); ?>
+					</label>
+				</td>
+			</tr>
+			<tr class="pdfprnt_watermark_row"><th scope="row"></th>
+				<td>
+					<textarea disabled="disabled" rows="3" cols="45"></textarea>
+				</td>
+			</tr>
+			<tr class="pdfprnt_watermark_row"><th scope="row"></th>
+				<td>
+					<input disabled="disabled" type="radio">
+					<label for="pdfprnt_image_watermark">
+						<?php _e( 'Image', 'pdf-print' ); ?>
+					</label>
+				</td>
+			</tr>
 			<tr>
 				<th scope="row"><?php _e( 'Compatibility with Woocommerce', 'pdf-print' ); ?></th>
 				<td><label><input type="checkbox" disabled="disabled"></label></td>
@@ -156,31 +185,31 @@ if ( ! function_exists( 'pdfprnt_templates_new_block' ) ) {
 	function pdfprnt_templates_new_block() { ?>
 		<h2><?php _e( 'Add New template', 'pdf-print' ); ?></h2>
 		<p class="hide-if-no-js desription"><i><?php _e( 'For more info click "Help" tab at the top of the page.', 'pdf-print' ); ?></i></p>
-		<div id="pdfprntpr_template_page">
-			<div id="titlediv"><div id="titlewrap"><input disabled type="text" name="pdfprntpr_template_title" size="30" value="" id="title" placeholder="<?php _e( 'Enter Template Title', 'pdf-print' ); ?>" /></div></div>
+		<div>
+			<div id="titlediv"><div id="titlewrap"><input disabled type="text" size="30" value="" id="title" placeholder="<?php _e( 'Enter Template Title', 'pdf-print' ); ?>" /></div></div>
 			<h3><span><?php _e( 'Top running title', 'pdf-print' ); ?></span></h3>
 			<div class="postarea wp-editor-expand">
-				<div id="wp-pdfprntpr_top-wrap" class="wp-core-ui wp-editor-wrap tmce-active">
-				<div id="wp-pdfprntpr_top-editor-tools" class="wp-editor-tools hide-if-no-js">
-					<div id="wp-pdfprntpr_top-media-buttons" class="wp-media-buttons">
+				<div class="wp-core-ui wp-editor-wrap tmce-active">
+				<div class="wp-editor-tools hide-if-no-js">
+					<div class="wp-media-buttons">
 						<link rel='stylesheet' id='editor-buttons-css'  href='#' type='text/css' media='all' />
-						<a disabled href="#" id="insert-media-button" class="button insert-media add_media" data-editor="pdfprntpr_top" title="<?php _e( 'Add Media', 'pdf-print' ); ?>"><span class="wp-media-buttons-icon"></span> <?php _e( 'Add Media', 'pdf-print' ); ?></a>
+						<a disabled href="#" id="insert-media-button" class="button insert-media add_media" data-editor="pdfprnt_top" title="<?php _e( 'Add Media', 'pdf-print' ); ?>"><span class="wp-media-buttons-icon"></span> <?php _e( 'Add Media', 'pdf-print' ); ?></a>
 					</div>
 				</div>
-				<div id="wp-pdfprntpr_top-editor-container" class="wp-editor-container"><textarea disabled style="width: 100%;" class="pdfprntpr_top wp-editor-area" rows="5" autocomplete="off" name="pdfprntpr_top" id="pdfprntpr_top"></textarea></div>
+				<div class="wp-editor-container"><textarea disabled style="width: 100%;" class="wp-editor-area" rows="5" autocomplete="off"></textarea></div>
 				</div>
 			</div>
 			<h3><span><?php _e( 'Bottom running title', 'pdf-print' ); ?></span></h3>
 			<div class="postarea wp-editor-expand">
-				<div id="wp-pdfprntpr_bottom-wrap" class="wp-core-ui wp-editor-wrap tmce-active">
-					<div id="wp-pdfprntpr_bottom-editor-tools" class="wp-editor-tools hide-if-no-js">
-						<div id="wp-pdfprntpr_bottom-media-buttons" class="wp-media-buttons"><a disabled href="#" class="button insert-media add_media" data-editor="pdfprntpr_bottom" title="<?php _e( 'Add Media', 'pdf-print' ); ?>"><span class="wp-media-buttons-icon"></span> <?php _e( 'Add Media', 'pdf-print' ); ?></a></div>
+				<div class="wp-core-ui wp-editor-wrap tmce-active">
+					<div class="wp-editor-tools hide-if-no-js">
+						<div class="wp-media-buttons"><a disabled href="#" class="button insert-media add_media" data-editor="pdfprnt_bottom" title="<?php _e( 'Add Media', 'pdf-print' ); ?>"><span class="wp-media-buttons-icon"></span> <?php _e( 'Add Media', 'pdf-print' ); ?></a></div>
 					</div>
-					<div id="wp-pdfprntpr_bottom-editor-container" class="wp-editor-container"><textarea disabled style="width: 100%;" class="pdfprntpr_bottom wp-editor-area" rows="5" autocomplete="off" name="pdfprntpr_bottom" id="pdfprntpr_bottom"></textarea></div>
+					<div class="wp-editor-container"><textarea disabled style="width: 100%;" class="wp-editor-area" rows="5" autocomplete="off"></textarea></div>
 				</div>
 			</div>
 		</div>
-		<p><input disabled name="pdfprntpr_template_submit" type="submit" class="button-primary" value="<?php _e( 'Save template', 'pdf-print' ); ?>" /></p>
+		<p><input disabled type="submit" class="button-primary" value="<?php _e( 'Save template', 'pdf-print' ); ?>" /></p>
 	<?php }
 }
 

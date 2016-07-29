@@ -4,7 +4,7 @@ Donate link: http://bestwebsoft.com/donate/
 Tags: generate pdf, add pdf button, add print button, pdf plugin, pdf pages, print pages, generate pdf content, generate post pdf, pdf print, pdf print plugin, pdf custom post type, pdf content
 Requires at least: 3.8
 Tested up to: 4.5.3
-Stable tag: 1.8.9
+Stable tag: 1.9.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -124,9 +124,13 @@ Go to the Settings page and unmark checkbox 'Settings for shortcodes'.
 
 = How can I change the content pdf/print document? =
 
-In order to change main content of pdf/print document you can use following filter:
+- in order to change main content of pdf/print document you can use following filter:
 
 `add_filter( 'bwsplgns_get_pdf_print_content', {your_function} );`
+
+- in order to change the title of pdf/print document
+
+`add_filter( 'bwsplgns_get_pdf_print_title', {your_function}, 10, 2 );`
 
 For example, add the following code to the 'functions.php' file of your theme:
 
@@ -233,9 +237,18 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 
 == Changelog ==
 
+= V1.9.0 - 29.07.2016 =
+* Update : We updated all functionality for wordpress 4.5.3.
+* Update : 'pdfprntpr_options_array' option was renamed into 'pdfprnt_options'.
+* Pro : The ability to add watermark has been added.
+* Pro : 'pdfprntpr_options' option was renamed into 'pdfprnt_options'.
+* Pro : Template running titles overlay was fixed.
+* Pro : We fixed the bug with pdf and print buttons positions for archive and search pages.
+* Pro : We fixed the bug with pdf and print buttons output for custom post types.
+
 = V1.8.9 - 13.07.2016 =
 * Bugfix : Custom styles saving is updated.
-* Update : BWS Panel section is updated. 
+* Update : BWS Panel section is updated.
 
 = V1.8.8 - 26.04.2016 =
 * Bugfix : We fixed the bug with instalation of the additional fonts.
@@ -346,6 +359,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<a hre
 * NEW : Added the ability to output PDF and Print buttons on the type of page.
 
 == Upgrade Notice ==
+
+= V1.9.0 =
+* The compatibility with new WordPress version updated.
 
 = V1.8.9 =
 Custom styles saving is updated. BWS Panel section is updated.

@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: bestwebsoft\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2016-06-30 14:14+0300\n"
-"PO-Revision-Date: 2016-06-30 14:14+0300\n"
+"POT-Creation-Date: 2016-07-14 15:18+0300\n"
+"PO-Revision-Date: 2016-07-14 15:18+0300\n"
 "Last-Translator: bestwebsoft.com <plugins@bestwebsoft.com>\n"
 "Language-Team: bestwebsoft.com <http://support.bestwebsoft.com>\n"
 "Language: ru_RU\n"
@@ -16,7 +16,7 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: bws_functions.php:38 bws_menu.php:282 bws_menu.php:330
+#: bws_functions.php:38 bws_menu.php:282 bws_menu.php:328
 msgid "Plugins"
 msgstr "Плагины"
 
@@ -184,16 +184,16 @@ msgstr ""
 "лицензия может быть установлена только один раз."
 
 #: bws_functions.php:349 bws_functions.php:371 bws_functions.php:393
-#: bws_menu.php:370 bws_menu.php:401 bws_menu.php:412
+#: bws_menu.php:368 bws_menu.php:399 bws_menu.php:410
 msgid "Failed to download the zip archive. Please, upload the plugin manually"
 msgstr ""
 "Не удалось загрузить архив плагина. Пожалуйста, загрузите плагин вручную"
 
-#: bws_functions.php:361 bws_menu.php:387
+#: bws_functions.php:361 bws_menu.php:385
 msgid "Failed to open the zip archive. Please, upload the plugin manually"
 msgstr "Не удалось открыть архив ZIP. Пожалуйста, загрузите плагин вручную"
 
-#: bws_functions.php:367 bws_menu.php:394
+#: bws_functions.php:367 bws_menu.php:392
 msgid ""
 "Your server does not support either ZipArchive or Phar. Please, upload the "
 "plugin manually"
@@ -201,7 +201,7 @@ msgstr ""
 "Ваш сервер не поддерживает ни библиотеку ZipArchive, ни библиотеку Phar. "
 "Пожалуйста, загрузите плагин вручную"
 
-#: bws_functions.php:374 bws_menu.php:404
+#: bws_functions.php:374 bws_menu.php:402
 msgid "UploadDir is not writable. Please, upload the plugin manually"
 msgstr ""
 "Папка загрузки не доступна для записи. Пожалуйста, загрузите плагин вручную"
@@ -278,7 +278,7 @@ msgstr ""
 msgid "After that you can activate it by entering your license key."
 msgstr "После этого вы сможете активировать его введя лицензионный ключ."
 
-#: bws_functions.php:526 bws_menu.php:118 bws_menu.php:306
+#: bws_functions.php:526 bws_menu.php:118 bws_menu.php:304
 msgid "Unfortunately, you have exceeded the number of available tries per day."
 msgstr "К сожалению, вы превысили количество доступных попыток."
 
@@ -349,7 +349,7 @@ msgstr ""
 "(ваше имя пользователя - это емейл, указанный при покупке). При "
 "необходимости нажмите \"Забыли пароль?\"."
 
-#: bws_functions.php:651 bws_menu.php:304 bws_menu.php:315
+#: bws_functions.php:651 bws_menu.php:302 bws_menu.php:313
 msgid "Check license key"
 msgstr "Проверка лицензионного ключа"
 
@@ -743,42 +743,27 @@ msgstr "Управление купленными лицензиями и под
 msgid "Client Area"
 msgstr "Client Area"
 
-#: bws_menu.php:296
-#, php-format
-msgid "Get Access to %s+ Premium Plugins"
-msgstr "Получить Доступ к %s+ Премиум Плагинам"
-
-#: bws_menu.php:297
-#, php-format
-msgid ""
-"Join BestWebSoft Pro Membership today, cancel any time and use all plugins "
-"on a single website %s for only %s per month."
-msgstr ""
-"Присоединяйтесь к BestWebSoft Pro Membership сегодня, отменяйте подписку в "
-"любое время и используйте все плагины на одном сайте  %s всего лишь за %s в "
-"месяц."
-
-#: bws_menu.php:309
+#: bws_menu.php:307
 msgid "Enter your license key"
 msgstr "Ваш лицензионный ключ"
 
-#: bws_menu.php:313
+#: bws_menu.php:311
 msgid "Activate Membership"
 msgstr "Активировать Membership"
 
-#: bws_menu.php:322
+#: bws_menu.php:320
 msgid "Don’t have valid license key yet?"
 msgstr "Нет действующего лицензионного ключа?"
 
-#: bws_menu.php:322
+#: bws_menu.php:320
 msgid "Subscribe to Pro Membership Now"
 msgstr "Подписаться на Pro Membership Сейчас"
 
-#: bws_menu.php:331
+#: bws_menu.php:329
 msgid "Upload Plugin"
 msgstr "Добавить новый"
 
-#: bws_menu.php:335
+#: bws_menu.php:333
 #, php-format
 msgid ""
 "The plugin generated %d characters of <strong>unexpected output</strong> "
@@ -791,7 +776,7 @@ msgstr ""
 "проблемы с RSS-лентами или другие неполадки, попробуйте деактивировать или "
 "удалить этот плагин."
 
-#: bws_menu.php:337
+#: bws_menu.php:335
 msgid ""
 "Plugin could not be activated because it triggered a <strong>fatal error</"
 "strong>."
@@ -799,57 +784,61 @@ msgstr ""
 "Плагин не может быть активирован, поскольку он вызвал <strong>фатальную "
 "ошибку</strong>."
 
-#: bws_menu.php:340
+#: bws_menu.php:338
 msgid "Plugin <strong>activated</strong>."
 msgstr "Плагин <strong>активировано</strong>."
 
-#: bws_menu.php:347
+#: bws_menu.php:345
 msgid "Installing Plugin"
 msgstr "Установка плагина"
 
-#: bws_menu.php:353
+#: bws_menu.php:351
 msgid "Downloading install package from"
 msgstr "Скачивание установочного пакета из"
 
-#: bws_menu.php:378
+#: bws_menu.php:376
 msgid "Unpacking the package"
 msgstr "Распаковка пакета"
 
-#: bws_menu.php:383 bws_menu.php:391
+#: bws_menu.php:381 bws_menu.php:389
 msgid "Installing the plugin"
 msgstr "Установка плагина"
 
-#: bws_menu.php:397
+#: bws_menu.php:395
 msgid "Successfully installed the plugin"
 msgstr "Успешно установлен плагин"
 
-#: bws_menu.php:409
+#: bws_menu.php:407
 msgid "Activate Plugin"
 msgstr "Активировать плагин"
 
-#: bws_menu.php:409 bws_menu.php:415
+#: bws_menu.php:407 bws_menu.php:413
 msgid "Return to BestWebSoft Panel"
 msgstr "Возврат к BestWebSoft Panel"
 
-#: bws_menu.php:419 bws_menu.php:434 bws_menu.php:561
+#: bws_menu.php:417 bws_menu.php:432 bws_menu.php:561
 msgid "All"
 msgstr "Все"
 
-#: bws_menu.php:420
+#: bws_menu.php:418
 msgid "Installed"
 msgstr "Установленные"
 
-#: bws_menu.php:421
+#: bws_menu.php:419
 msgid "Not Installed"
 msgstr "Не установленные"
 
-#: bws_menu.php:427
+#: bws_menu.php:425
 msgid "Filter results"
 msgstr "Фильтр результатов"
 
-#: bws_menu.php:430 bws_menu.php:557
+#: bws_menu.php:428 bws_menu.php:557
 msgid "Category"
 msgstr "Категория"
+
+#: bws_menu.php:492
+msgid "Not installed"
+msgstr "Не установлен"
 
 #: bws_menu.php:496
 msgid "Renew to get updates"
@@ -952,6 +941,17 @@ msgstr "Утилиты"
 #: product_list.php:15
 msgid "Other"
 msgstr "Другое"
+
+#~ msgid "Get Access to %s+ Premium Plugins"
+#~ msgstr "Получить Доступ к %s+ Премиум Плагинам"
+
+#~ msgid ""
+#~ "Join BestWebSoft Pro Membership today, cancel any time and use all "
+#~ "plugins on a single website %s for only %s per month."
+#~ msgstr ""
+#~ "Присоединяйтесь к BestWebSoft Pro Membership сегодня, отменяйте подписку "
+#~ "в любое время и используйте все плагины на одном сайте  %s всего лишь за "
+#~ "%s в месяц."
 
 #~ msgid "My Account"
 #~ msgstr "Мой аккаунт"
