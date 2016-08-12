@@ -1,7 +1,7 @@
 <a href="http://bestwebsoft.com/products/pdf-print/" target=_blank>PDF & Print WordPress Plugin</a>
 ========================
 
-PDF &#38; Print allows you in the easiest and most flexible way to create PDF and Print page with adding appropriate buttons to the content. PDF &#38; Print using mpdf library under GPLv2 license.
+Create PDF files and print pages quickly. Add PDF &#38; print buttons to WordPress website page or post. Generate documents with custom styles and useful data for archiving, sharing, or saving.
 
 <img src="http://bestwebsoft.com/wp-content/uploads/2014/09/pdf-print-banner-website1.jpg" />
 
@@ -15,14 +15,14 @@ PDF &#38; Print allows you in the easiest and most flexible way to create PDF an
 
 Features
 -----------------------------
-* Create PDF and Print page with adding appropriate buttons to the content.
-* Create PDF and Print search results and pages of archives with adding appropriate buttons to the content.
-* Create PDF and Print content from custom post type with adding appropriate buttons to the content.
-* Use execution of shortcode in pdf and printing output.
-* Add custom styles.
-* Show title and featured image in the pdf/print document.
-* Load additional fonts.
-* Select the position of buttons in content (top left, top right, bottom left, bottom right).
+* Add PDF &#38; Print buttons to:
+
+
+* Pages
+* Posts
+* Search results
+* Archives
+* Custom post types
 
 
 Translation
