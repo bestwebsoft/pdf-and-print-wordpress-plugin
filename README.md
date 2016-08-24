@@ -5,14 +5,6 @@ Generate PDF files and print WordPress posts/pages. Customize document header/fo
 
 <img src="http://bestwebsoft.com/wp-content/uploads/2014/09/pdf-print-banner-website1.jpg" />
 
-<a href="http://bestwebsoft.com/products/pdf-print/description/" target=_blank>Description</a> | 
-<a href="http://bestwebsoft.com/products/pdf-print/installation/" target=_blank>Installation</a> | 
-<a href="http://bestwebsoft.com/products/pdf-print/faq/" target=_blank>FAQ</a> | 
-<a href="http://bestwebsoft.com/products/pdf-print/screenshots/" target=_blank>Screenshots</a> | 
-<a href="http://bestwebsoft.com/products/pdf-print/changelog/" target=_blank>Changelog</a> | 
-<a href="http://bestwebsoft.com/products/pdf-print/download/" target=_blank>Download</a>
-
-
 <p>Create PDF files and print pages quickly. Add PDF &#38; print buttons to WordPress website page or post. Generate documents with custom styles and useful data for archiving, sharing, or saving.</p>
 
 
