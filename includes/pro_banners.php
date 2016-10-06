@@ -12,8 +12,8 @@
  */
 if ( ! function_exists( 'pdfprnt_pro_block' ) ) {
 	function pdfprnt_pro_block( $func, $show_cross = true ) {
-		global $pdfprnt_plugin_info, $wp_version, $pdfprnt_options_array;
-		if ( ! bws_hide_premium_options_check( $pdfprnt_options_array ) || ! $show_cross ) { ?>
+		global $pdfprnt_plugin_info, $wp_version, $pdfprnt_options;
+		if ( ! bws_hide_premium_options_check( $pdfprnt_options ) || ! $show_cross ) { ?>
 			<div class="bws_pro_version_bloc pdfprnt_pro_block <?php echo $func;?>" title="<?php _e( 'This options is available in Pro version of plugin', 'pdf-print' ); ?>">
 				<div class="bws_pro_version_table_bloc">
 					<?php if ( $show_cross ) { ?>
@@ -24,15 +24,15 @@ if ( ! function_exists( 'pdfprnt_pro_block' ) ) {
 				</div>
 				<div class="bws_pro_version_tooltip">
 					<div class="bws_info"><?php _e( 'Unlock premium options by upgrading to Pro version', 'pdf-print' ); ?></div>
-					<a class="bws_button" href="http://bestwebsoft.com/products/pdf-print/?k=d9da7c9c2046bed8dfa38d005d4bffdb&pn=101&v=<?php echo $pdfprnt_plugin_info["Version"]; ?>&wp_v=<?php echo $wp_version; ?>" target="_blank" title="PDF & Print Pro Plugin"><?php _e( 'Learn More', 'pdf-print' ); ?></a>
+					<a class="bws_button" href="http://bestwebsoft.com/products/wordpress/plugins/pdf-print/?k=d9da7c9c2046bed8dfa38d005d4bffdb&pn=101&v=<?php echo $pdfprnt_plugin_info["Version"]; ?>&wp_v=<?php echo $wp_version; ?>" target="_blank" title="PDF & Print Pro Plugin"><?php _e( 'Learn More', 'pdf-print' ); ?></a>
 				</div>
 			</div>
 		<?php }
 	}
 }
 
-if ( ! function_exists( 'pdfprnt_image_block' ) ) {
-	function pdfprnt_image_block() { ?>
+if ( ! function_exists( 'pdfprnt_layout_block' ) ) {
+	function pdfprnt_layout_block() { ?>
 		<table class="form-table bws_pro_version">
 			<tr class="pdfprnt_table_head">
 				<th scope="row"></th>
@@ -54,31 +54,6 @@ if ( ! function_exists( 'pdfprnt_image_block' ) ) {
 					</fieldset>
 				</td>
 			</tr>
-			<?php $buttons = array(
-				array( 'title' => __( 'PDF button image', 'pdf-print' ), 'image' => 'pdf.png' ),
-				array( 'title' => __( 'Print button image', 'pdf-print' ), 'image' => 'print.gif' )
-			);
-			foreach ( $buttons as $button ) { ?>
-				<tr>
-					<th scope="row"><?php echo $button['title']; ?></th>
-					<td>
-						<select disabled="disabled" style="min-width: 120px;">
-							<option value="1"><?php _e( 'Custom', 'pdf-print' ); ?></option>
-						</select>
-					</td>
-				</tr>
-				<tr>
-					<th scope="row"></th>
-					<td><input type="file" disabled="disabled" /></td>
-				</tr>
-				<tr>
-					<th scope="row"></th>
-					<td>
-						<span><?php _e( 'Current image', 'pdf-print' ); ?>:</span>
-						<img alt="Default Image" src="<?php echo plugins_url( "images/" . $button['image'], dirname( __FILE__ ) ); ?>" />
-					</td>
-				</tr>
-			<?php } ?>
 			<tr>
 				<th scope="row"><?php _e( 'PDF files name', 'pdf-print' ); ?></th>
 				<td>
@@ -103,6 +78,26 @@ if ( ! function_exists( 'pdfprnt_image_block' ) ) {
 				</th>
 			</tr>
 		</table>
+	<?php }
+}
+
+if ( ! function_exists( 'pdfprnt_pdf_image_block' ) ) {
+	function pdfprnt_pdf_image_block() { ?>
+		<div class="pdfprnt_pro_button_settings bws_pro_version">
+			<input type="file" disabled="disabled" />
+			<span><?php _e( 'Current image', 'pdf-print' ); ?>:</span>
+			<img alt="Default Image" src="<?php echo plugins_url( "images/pdf.png", dirname( __FILE__ ) ); ?>" />
+		</div>
+	<?php }
+}
+
+if ( ! function_exists( 'pdfprnt_print_image_block' ) ) {
+	function pdfprnt_print_image_block() { ?>
+		<div class="pdfprnt_pro_button_settings bws_pro_version">
+			<input type="file" disabled="disabled" />
+			<span><?php _e( 'Current image', 'pdf-print' ); ?>:</span>
+			<img alt="Default Image" src="<?php echo plugins_url( "images/print.gif", dirname( __FILE__ ) ); ?>" />
+		</div>
 	<?php }
 }
 
@@ -183,10 +178,10 @@ if ( ! function_exists( 'pdfprnt_extra_block' ) ) {
 
 if ( ! function_exists( 'pdfprnt_templates_new_block' ) ) {
 	function pdfprnt_templates_new_block() { ?>
-		<h2><?php _e( 'Add New template', 'pdf-print' ); ?></h2>
+		<h2><?php _e( 'Add New Running Titles', 'pdf-print' ); ?></h2>
 		<p class="hide-if-no-js desription"><i><?php _e( 'For more info click "Help" tab at the top of the page.', 'pdf-print' ); ?></i></p>
 		<div>
-			<div id="titlediv"><div id="titlewrap"><input disabled type="text" size="30" value="" id="title" placeholder="<?php _e( 'Enter Template Title', 'pdf-print' ); ?>" /></div></div>
+			<div id="titlediv"><div id="titlewrap"><input disabled type="text" size="30" value="" id="title" placeholder="<?php _e( 'Enter Title', 'pdf-print' ); ?>" /></div></div>
 			<h3><span><?php _e( 'Top running title', 'pdf-print' ); ?></span></h3>
 			<div class="postarea wp-editor-expand">
 				<div class="wp-core-ui wp-editor-wrap tmce-active">
@@ -209,7 +204,7 @@ if ( ! function_exists( 'pdfprnt_templates_new_block' ) ) {
 				</div>
 			</div>
 		</div>
-		<p><input disabled type="submit" class="button-primary" value="<?php _e( 'Save template', 'pdf-print' ); ?>" /></p>
+		<p><input disabled type="submit" class="button-primary" value="<?php _e( 'Save running titles', 'pdf-print' ); ?>" /></p>
 	<?php }
 }
 
@@ -248,14 +243,14 @@ if ( ! function_exists( 'pdfprnt_templates_block' ) ) {
 			<tbody id="the-list" data-wp-lists='list:template'>
 				<tr>
 					<th scope="row" class="check-column"><input disabled="disabled" type="checkbox" /></th>
-					<td class='title column-title column-primary'><strong><a href="#">Custom template</a></strong> </td>
+					<td class='title column-title column-primary'><strong><a href="#"><?php _e( 'Custom running titles', 'pdf-print' ); ?></a></strong> </td>
 					<td class='pdf column-pdf'><input disabled="disabled" type="radio" /></td>
 					<td class='print column-print'><input disabled="disabled" type="radio" /></td>
 					<td class='date column-date'>June 26, 2015</td>
 				</tr>
 				<tr>
 					<th scope="row" class="check-column"><input disabled="disabled" type="checkbox" /></th>
-					<td class='title column-title column-primary'>	<strong><a href="#">New template</a></strong></td>
+					<td class='title column-title column-primary'>	<strong><a href="#"><?php _e( 'New running titles', 'pdf-print' ); ?></a></strong></td>
 					<td class='pdf column-pdf'><input disabled="disabled" type="radio" /></td>
 					<td class='print column-print'><input disabled="disabled" type="radio" /></td>
 					<td class='date column-date'>June 25, 2015</td>
