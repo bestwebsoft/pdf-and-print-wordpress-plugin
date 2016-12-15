@@ -6,7 +6,7 @@ Description: Generate PDF files and print WordPress posts/pages. Customize docum
 Author: BestWebSoft
 Text Domain: pdf-print
 Domain Path: /languages
-Version: 1.9.2
+Version: 1.9.3
 Author URI: http://bestwebsoft.com/
 License: GPLv2 or later
 */
@@ -88,7 +88,7 @@ if ( ! function_exists( 'pdfprnt_admin_init' ) ) {
 	function pdfprnt_admin_init() {
 		global $bws_plugin_info, $pdfprnt_plugin_info, $bws_shortcode_list;
 
-		if ( ! isset( $bws_plugin_info ) || empty( $bws_plugin_info ) )
+		if ( empty( $bws_plugin_info ) )
 			$bws_plugin_info = array( 'id' => '101', 'version' => $pdfprnt_plugin_info["Version"] );
 		/* add PDF&Print to global $bws_shortcode_list ##*/
 		$bws_shortcode_list['pdfprnt'] = array( 'name' => 'PDF&Print', 'js_function' => 'pdfprnt_shortcode_init' );
@@ -284,7 +284,7 @@ if ( ! function_exists ( 'pdfprnt_settings_page' ) ) {
 		if ( $need_fonts_reload ) {
 			$error .= '.&nbsp;' . sprintf(
 				__( 'You may need to reload fonts. For more info see %s', 'pdf-print' ),
-				'<a href="http://bestwebsoft.com/products/wordpress/plugins/pdf-print/faq" target="_blank">' . __( 'FAQ', 'pdf-print' ) . '</a>'
+				'<a href="http://support.bestwebsoft.com/hc/en-us/sections/200538669" target="_blank">' . __( 'FAQ', 'pdf-print' ) . '</a>'
 			);
 			pdfprnt_update_option( -1, true );
 		}
@@ -295,7 +295,7 @@ if ( ! function_exists ( 'pdfprnt_settings_page' ) ) {
 				$error .= '&nbsp;' . $result['error'] . '.&nbsp;' .
 					sprintf(
 						__( 'You may need to reload fonts. For more info see %s', 'pdf-print' ),
-						'<a href="http://bestwebsoft.com/products/wordpress/plugins/pdf-print/faq" target="_blank">' . __( 'FAQ', 'pdf-print' ) . '</a>'
+						'<a href="http://support.bestwebsoft.com/hc/en-us/sections/200538669" target="_blank">' . __( 'FAQ', 'pdf-print' ) . '</a>'
 					);
 				$need_fonts_reload = true;
 			}
@@ -340,7 +340,7 @@ if ( ! function_exists ( 'pdfprnt_settings_page' ) ) {
 								<?php _e( 'Please check and change permissions for your plugins` folder ( for folders - 755, for files - 644 ). For more info see', 'pdf-print' ); ?>&nbsp;
 								<a href="https://codex.wordpress.org/Changing_File_Permissions" target="_blank"><?php _e( 'Changing File Permissions', 'pdf-print' ); ?></a>
 								&nbsp;<?php _e( 'and', 'pdf-print' ); ?>&nbsp;
-								<a href="http://bestwebsoft.com/products/wordpress/plugins/pdf-print/faq" target="_blank"><?php _e( 'FAQ', 'pdf-print' ); ?></a>.
+								<a href="http://support.bestwebsoft.com/hc/en-us/sections/200538669" target="_blank"><?php _e( 'FAQ', 'pdf-print' ); ?></a>.
 							</strong>
 						</p>
 					</div>
@@ -450,7 +450,7 @@ if ( ! function_exists ( 'pdfprnt_settings_page' ) ) {
 						</table>
 						<div>
 							<p>
-								<?php _e( 'In order to use PDF and Print buttons in the custom post or page template, see', 'pdf-print' ); ?>&nbsp;<a href="http://bestwebsoft.com/products/wordpress/plugins/pdf-print/faq/" target="_blank"><?php _e( 'FAQ', 'pdf-print' ); ?></a>
+								<?php _e( 'In order to use PDF and Print buttons in the custom post or page template, see', 'pdf-print' ); ?>&nbsp;<a href="http://support.bestwebsoft.com/hc/en-us/sections/200538669" target="_blank"><?php _e( 'FAQ', 'pdf-print' ); ?></a>
 							</p>
 						</div>
 						<?php pdfprnt_pro_block( 'pdfprnt_layout_block' ); ?>
@@ -473,7 +473,7 @@ if ( ! function_exists ( 'pdfprnt_settings_page' ) ) {
 											<span><?php _e( 'Additional fonts were loaded successfully', 'pdf-print' ); ?>.</span>
 										<?php } else {
 											if ( -1 == $pdfprnt_options['additional_fonts'] ) { ?>
-												<span><?php _e( 'If you have some problems with your internet connection, please, try to load additional fonts manually. For more info see', 'pdf-print' ); ?>&nbsp;<a href="http://bestwebsoft.com/products/wordpress/plugins/pdf-print/faq" target="_blank"><?php _e( 'FAQ', 'pdf-print' ); ?></a>.</span><br />
+												<span><?php _e( 'If you have some problems with your internet connection, please, try to load additional fonts manually. For more info see', 'pdf-print' ); ?>&nbsp;<a href="http://support.bestwebsoft.com/hc/en-us/sections/200538669" target="_blank"><?php _e( 'FAQ', 'pdf-print' ); ?></a>.</span><br />
 											<?php } ?>
 											<span class="bws_info"><?php _e( 'You can load additional fonts, needed for the PDF creation. When creating the PDF-doc, this will allow automatic selection of fonts necessary for text, according to languages used in the content.', 'pdf-print' ); ?></span>
 										<?php }
@@ -963,7 +963,7 @@ if ( ! function_exists( 'pdfprnt_links' ) ) {
 		if ( $file == $base ) {
 			if ( ! is_network_admin() && is_plugin_inactive( 'pdf-print-pro/pdf-print-pro.php' ) )
 				$links[]	=	'<a href="admin.php?page=pdf-print.php">' . __( 'Settings', 'pdf-print' ) . '</a>';
-			$links[]	=	'<a href="http://wordpress.org/plugins/pdf-print/faq/" target="_blank">' . __( 'FAQ', 'pdf-print' ) . '</a>';
+			$links[]	=	'<a href="http://support.bestwebsoft.com/hc/en-us/sections/200538669" target="_blank">' . __( 'FAQ', 'pdf-print' ) . '</a>';
 			$links[]	=	'<a href="http://support.bestwebsoft.com">' . __( 'Support', 'pdf-print' ) . '</a>';
 		}
 		return $links;
@@ -1170,11 +1170,18 @@ if ( ! function_exists( 'pdfprnt_print' ) ) {
 						foreach ( array_unique( $matches[0] ) as $value )
 							$p->post_content = str_replace( $value, "", $p->post_content );
 					}
+
+					$post_content = apply_filters( 'the_content', $p->post_content );
+					if ( defined( 'WPB_VC_VERSION' ) ) {
+						$post_content = preg_replace( "/\[((\/){1}|())(vc_|az_)(.*?)\]/", '', $post_content );
+					}
+					$post_content = apply_filters( 'bwsplgns_get_pdf_print_content', $post_content, $p );
+
 					$html .=
 						'<div class="post">' .
 							$image .
 							$title .
-							'<div class="entry-content">' . apply_filters( 'bwsplgns_get_pdf_print_content', apply_filters( 'the_content', $p->post_content ), $p ) . '</div>
+							'<div class="entry-content">' . $post_content . '</div>
 						</div>';
 					if ( $i != $last ) {
 						$html .= '<br/><hr/><br/>';
@@ -1222,11 +1229,18 @@ if ( ! function_exists( 'pdfprnt_print' ) ) {
 						foreach ( array_unique( $matches[0] ) as $value )
 							$p->post_content = str_replace( $value, "", $p->post_content );
 					}
+
+					$post_content = apply_filters( 'the_content', $p->post_content );
+					if ( defined( 'WPB_VC_VERSION' ) ) {
+						$post_content = preg_replace( "/\[((\/){1}|())(vc_|az_)(.*?)\]/", '', $post_content );
+					}
+					$post_content = apply_filters( 'bwsplgns_get_pdf_print_content', $post_content, $p );
+
 					ob_start(); ?>
 						<div class="post">
 							<?php echo $image .
 							$title; ?>
-							<div class="entry-content"><?php echo apply_filters( 'bwsplgns_get_pdf_print_content', apply_filters( 'the_content', $p->post_content ), $p ); ?></div>
+							<div class="entry-content"><?php echo $post_content; ?></div>
 						</div>
 					<?php $html .= ob_get_clean();
 					if ( $i != $last ) {
