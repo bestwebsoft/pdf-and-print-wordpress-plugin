@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: http://bestwebsoft.com/donate/
 Tags: generate pdf, add pdf button, add print button, pdf plugin, pdf pages, print pages, generate pdf content, generate post pdf, pdf print, pdf print plugin, pdf custom post type, pdf content
 Requires at least: 3.8
-Tested up to: 4.7
-Stable tag: 1.9.3
+Tested up to: 4.7.3
+Stable tag: 1.9.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -291,8 +291,11 @@ Please make sure that the problem hasn't been discussed yet on our forum (<http:
 
 == Changelog ==
 
+= V1.9.4 - 14.04.2017 =
+* Bugfix : Multiple Cross-Site Scripting (XSS) vulnerability was fixed.
+
 = V1.9.3 - 15.12.2016 =
-* Update : Visual Composer shortcodes have been removed for PDF&Print pages. 
+* Update : Visual Composer shortcodes have been removed for PDF&Print pages.
 
 = V1.9.2 - 06.10.2016 =
 * NEW : Widget PDF&Print Buttons has been added.
@@ -426,6 +429,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<http:
 * NEW : Added the ability to output PDF and Print buttons on the type of page.
 
 == Upgrade Notice ==
+
+= V1.9.4 =
+* Bugs fixed.
 
 = V1.9.3 =
 * Plugin optimization completed.

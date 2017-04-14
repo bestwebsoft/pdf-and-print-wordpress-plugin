@@ -1,4 +1,4 @@
-<a href="http://bestwebsoft.com/products/wordpress/plugins/pdf-print/" target=_blank>PDF & Print WordPress Plugin</a>
+<a href="https://bestwebsoft.com/products/wordpress/plugins/pdf-print/" target=_blank>PDF & Print WordPress Plugin</a>
 ========================
 
 Generate PDF files and print WordPress posts/pages. Customize document header/footer styles and appearance.
