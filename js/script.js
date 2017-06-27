@@ -10,6 +10,24 @@
 		$( window ).resize( function() {
 			pdfprnt_add_labels();
 		} );
+
+		/* Display/hide default Button Image on radio switch */
+		$( 'input[name="pdfprnt_button_image[pdf]"], input[name="pdfprnt_button_image[print]"]' ).on( 'change', function() {
+			if ( $( this ).is( ':checked' ) ) {
+				var $input = $( this ),
+					button = $input.attr( 'data-button' );
+
+				switch( $input.val() ) {
+					case 'none':
+						$( '.pdfprnt-button-image-default-' + button ).hide();
+						break;
+					case 'default':
+						$( '.pdfprnt-button-image-default-' + button ).show();
+						break;
+				}
+			}
+		} ).trigger('change');
+
 		/**
  		 * Ajax request for load additional fonts
  		 */
@@ -23,7 +41,7 @@
 					beforeSend: function() {
 						$( '#pdfprnt_font_loader' ).css( 'display', 'inline-block' );
 						$( '.updated, .error' ).hide();
-						$( '<div class="updated fade"><p><strong>' + pdfprnt_var['loading_fonts'] + '.</strong></p></div>' ).insertAfter( ".nav-tab-wrapper" );
+						$( '<div class="updated fade"><p><strong>' + pdfprnt_var['loading_fonts'] + '.</strong></p></div>' ).insertAfter( ".pdfprnt-title" );
 						/* display 'warning'-window while fonts loading */
 						window.onbeforeunload = function(e) {
 							if ( $( '#pdfprnt_font_loader' ).is( ':visible' ) )
@@ -35,16 +53,16 @@
 						try {
 							var message = $.parseJSON( result );
 						} catch ( e ) {
-							$( '<div class="error"><p><strong>' + result + pdfprnt_var['need_reload'] + '.</strong></p></div>' ).insertAfter( ".nav-tab-wrapper" );
+							$( '<div class="error"><p><strong>' + result + pdfprnt_var['need_reload'] + '.</strong></p></div>' ).insertAfter( ".pdfprnt-title" );
 							input.attr( 'disabled', false );
 							return false;
 						}
 						if ( message['done'] ) {
-							$( '<div class="updated fade"><p><strong>' + message['done'] + '.</strong></p></div>' ).insertAfter( ".nav-tab-wrapper" );
+							$( '<div class="updated fade"><p><strong>' + message['done'] + '.</strong></p></div>' ).insertAfter( ".pdfprnt-title" );
 							$( '#pdfprnt_load_fonts_button' ).hide();
 						}
 						if ( message['error'] ) {
-							$( '<div class="error"><p><strong>' + message['error'] + pdfprnt_var['need_reload'] + '.</strong></p></div>' ).insertAfter( ".nav-tab-wrapper" );
+							$( '<div class="error"><p><strong>' + message['error'] + pdfprnt_var['need_reload'] + '.</strong></p></div>' ).insertAfter( ".pdfprnt-title" );
 							input.attr( 'disabled', false );
 						}
 					}
@@ -52,14 +70,15 @@
 			return false;
 		} );
 
-		if ( $( 'input[name="pdfprnt_use_custom_styles"]' ).length ) {
-			var textarea   = $( '.pdfprnt_custom_styles' ),
+		if ( $( 'input[name="pdfprnt_use_custom_css"]' ).length ) {
+			var textarea   = $( '#pdfprnt_custom_css_code_wrap' ),
 				add_editor = false;
 			if ( textarea.is( ':visible' ) && ! textarea.parents( 'body' ).hasClass( 'rtl' ) && ! add_editor ) { /* excluding .rtl pages because codeMirror doesn`t work properly in case textarea is inside table td */
 				pdfprnt_add_editor();
 				add_editor = true;
 			}
-			$( 'input[name="pdfprnt_use_custom_styles"]' ).click( function() {
+			$( 'input[name="pdfprnt_use_custom_css"]' ).click( function() {
+
 				if ( $( this ).is( ':checked' ) && ! $( this ).parents( 'body' ).hasClass( 'rtl' ) ) { /* excluding .rtl pages because codeMirror doesn`t work properly in case textarea is inside table td */
 					textarea.show();
 					if ( ! add_editor ) {
@@ -106,7 +125,7 @@ function pdfprnt_add_labels() {
  */
 function pdfprnt_add_editor() {
 	var editor = CodeMirror.fromTextArea(
-		document.getElementById( "pdfprnt_custom_styles" ), {
+		document.getElementById( "pdfprnt_custom_css_code" ), {
 			mode:            "css",
 			theme:           "default",
 			styleActiveLine: true,

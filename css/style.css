@@ -1,203 +1,57 @@
-/* PDF-Print settings */
-.pdfprnt-top-left,
-.pdfprnt-bottom-left,
-.pdfprnt-top-bottom-left,
-.pdfprnt-left {
-	text-align: left;
-	padding: 5px;
+/* General styles */
+.pdfprnt-table-settings * {
+	box-sizing: border-box;
+	word-break: break-word;
 }
-.pdfprnt-top-right,
-.pdfprnt-bottom-right,
-.pdfprnt-top-bottom-right,
-.pdfprnt-right {
-	text-align: right;
-	padding: 5px;
+.pdfprnt-table-settings th {
+	width: 20%;
 }
-.pdfprnt-top-left:before,
-.pdfprnt-bottom-left:before,
-.pdfprnt-top-right:before,
-.pdfprnt-bottom-right:before,
-.pdfprnt-top-bottom-left:before,
-.pdfprnt-top-bottom-right:before,
-.pdfprnt-left:before,
-.pdfprnt-right:before {
-	content: "";
-	clear: both;
-	display: table;
+.form-table td .pdfprnt-pro-feature {
+	margin: 0 -20px 0 -10px;
 }
-.pdfprnt-top-left a,
-.pdfprnt-bottom-left a,
-.pdfprnt-top-right a,
-.pdfprnt-bottom-right a,
-.pdfprnt-top-bottom-right a,
-.pdfprnt-top-bottom-left a,
-.pdfprnt-left a,
-.pdfprnt-right a {
-	padding: 0 5px;
-	box-shadow: none !important;
-	border: none !important;
-	outline: none !important;
-}
-.pdfprnt-top-left a img,
-.pdfprnt-bottom-left a img,
-.pdfprnt-top-right a img,
-.pdfprnt-bottom-right a img,
-.pdfprnt-top-bottom-right a img,
-.pdfprnt-top-bottom-left a img,
-.pdfprnt-left a img,
-.pdfprnt-right a img {
-	display: inline !important;
-}
-.pdfprnt-buttons {
-	display: inline-block;
-}
-.entry-content .pdfprnt-buttons > a > img,
-.entry-content .pdfprnt-buttons > a > span {
-	display: inline-block;
-}
-.pdfprnt-button img,
-.pdfprnt-button-title {
-	display: inline-block !important;
-	vertical-align: middle;
-	padding: 5px;
-}
-
-/* PDF-Print settings .form-table */
-#pdfprnt_settings_form th {
-	padding: 10px;
-}
-.pdfprnt_settings_table td div:not(div[class*="CodeMirror"]) {
+.pdfprnt-col {
 	float: left;
-	text-align: center;
-	margin: 0 5px;
+	margin-left: 0;
+	margin-right: 0;
+	padding-right: 10px;
 }
-.pdfprnt_settings_table td {
-	vertical-align: top;
-	padding: 10px;
+.rtl .pdfprnt-col {
+	float: right;
+	padding-right: initial;
+	padding-left: 10px;
 }
-.pdfprnt_settings_table td select {
-	min-width: 210px;
+.pdfprnt-col > * {
+	max-width: 100%;
 }
-.pdfprnt_button_layout span,
-.pdfprnt_button_layout select {
-	display: block;
-	margin-bottom: 15px;
-}
-.pdfprnt_pro_button_settings input {
-	display: block;
-	margin-bottom: 15px;
-}
-.pdfprnt_pro_button_settings input[type="file"] {
-	width: 100%;
+.pdfprnt-col-2 {
+	width: 50%;
 }
 
-.pdfprnt_pro_button_settings span,
-.pdfprnt_pro_button_settings img {
-	margin: 0;
-	display: inline-block;
-	vertical-align: middle;
+/* Settings tab */
+.pdfprnt-button-image-default-pdf,
+.pdfprnt-button-image-default-print {
+	margin: 5px auto;
 }
-#pdfprnt_settings_form .pdfprnt_settings_table td select[multiple] {
-	height: auto;
-}
-.pdfprnt_pdf_margin_settings th {
-	font-weight: normal;
-	width: auto;
-}
-.pdfprnt_pdf_margin_settings table,
-.pdfprnt_pdf_margin_settings .bws_help_box.dashicons-editor-help {
-	display: inline-block;
-}
-.pdfprnt_pdf_margin_settings .bws_help_box.dashicons-editor-help {
-	padding-top: 5px;
-}
-#pdfprnt_settings_form .pdfprnt_pdf_margin_settings th,
-#pdfprnt_settings_form .pdfprnt_pdf_margin_settings td {
-	vertical-align: middle;
-	padding: 5px;
-}
-#pdfprnt_settings_form .pdfprnt_pdf_margin_settings {
-	padding-top: 0;
-}
-.rtl #pdfprnt_custom_styles {
-	direction: ltr;
-}
-.pdfprnt_buttons {
-	width: auto !important;
-}
-.pdfprnt_label {
-	display: none;
-}
+
+/* Output tab */
 .pdfprnt_loader {
 	position: absolute;
 	display: none;
 }
-/*
- * css highlighter
-*/
-.pdfprnt_custom_styles .CodeMirror {
-	max-height: 200px;
-	max-width: 500px;
-	border: 1px solid #ddd;  }
-.pdfprnt_custom_styles .CodeMirror-scroll {
-	height: 100%;
-	width: 100%;
-	box-sizing: border-box !important;
-}
-.pdfprnt_custom_styles .CodeMirror-hscrollbar {
-	left: 0 !important;
-}
-.pdfprnt_custom_styles .CodeMirror-sizer {
-	border-right: none;
-}
-.pdfprnt_pro_block .bws_pro_version_tooltip {
-	display: inline-block;
-	width: 100%;
-	box-sizing: border-box;
-	top: 5px;
-}
-.pdfprnt_templates_block .bws_pro_version_table_bloc,
-.pdfprnt_templates_new_block .bws_pro_version_table_bloc {
-	padding: 5px 5px 0 5px;
-}
 
-.pdfprnt_templates_block .bws_table_bg,
-.pdfprnt_templates_new_block .bws_table_bg {
-	top: 0;
-	left: 0;
-}
-@media only screen and ( max-width: 785px ) {
-	.pdfprnt_label {
-		display: inline;
-	}
-	.pdfprnt_position_button .pdfprnt_label {
-		display: block;
-	}
-	.pdfprnt_table_head {
-		display: none;
-	}
-	.pdfprnt_templates_block p.search-box {
-		position: static;
-		clear: both
+@media screen and ( max-width: 782px ) {
+	.pdfprnt-table-settings th {
+		width: auto;
 	}
 }
 
-@media only screen and ( max-width: 450px ) {
-	.pdfprnt_image_block table,
-	.pdfprnt_image_block tr,
-	.pdfprnt_image_block td {
-		width: inherit;
-		display: block;
-		box-sizing: border-box;
+@media screen and ( max-width: 520px ) {
+	.pdfprnt-col,
+	.pdfprnt-col-2 {
+		padding-left: 0;
+		padding-right: 0;
 	}
-	.pdfprnt_templates_block .tablenav.bottom .displaying-num {
-		display: none;
-	}
-}
-
-@media only screen and ( max-width: 300px ) {
-	.pdfprnt_add_new_button {
-		display: inline-block;
-		margin-top: 10px;
+	.pdfprnt-col-2 {
+		width: 100%;
 	}
 }

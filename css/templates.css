@@ -1,0 +1,48 @@
+.pdfprnt-pro-feature-templates .column-pdf {
+	width: 10%;
+	text-align: center;
+}
+.pdfprnt-pro-feature-templates .column-print {
+	width: 25%;
+}
+.pdfprnt-pro-feature-templates .column-date {
+	width: 170px;
+}
+.pdfprnt_noscript {
+	display: none;
+}
+.pdfprnt-template-editor-title {
+	margin: 10px 0;
+	padding: 0 10px;
+	float: left;
+}
+.rtl .pdfprnt-template-editor-title {
+	float: right;
+}
+.pdfprnt-template-editor {
+	margin: 20px 0;
+	border: 1px solid #e5e5e5;
+	background-color: #ffffff;
+}
+.pdfprnt-template-editor .postarea {
+	border-top: 1px solid #e5e5e5;
+	padding: 10px 10px 0;
+}
+.bws_info.pdfprnt-template-editor-shortcodes {
+	padding: 0 10px 10px;
+	word-break: normal;
+}
+@media screen and (max-width: 782px) {
+	.pdfprnt-pro-feature-templates .column-pdf,
+	.pdfprnt-pro-feature-templates .column-print {
+		text-align: left;
+	}
+	.pdfprnt-pro-feature-templates p.search-box {
+		margin-bottom: -5px;
+	}
+
+	.pdfprnt-pro-feature-templates .pdfprnt_old_wp .column-pdf,
+	.pdfprnt-pro-feature-templates .pdfprnt_old_wp .column-print {
+		display: none;
+	}
+}

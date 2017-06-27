@@ -1,0 +1,6 @@
+.menu-top.toplevel_page_pdf-print .wp-menu-image:before {
+	content: "\e91e" !important;
+	font-family: 'bwsicons' !important;
+	font-size: 16px;
+	padding: 9px 0;
+}

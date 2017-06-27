@@ -13947,7 +13947,7 @@ function WriteHTML($html,$sub=0,$init=true,$close=true) {
 	}
 	if ($sub == 1) { $html = '<style> '.$html.' </style>'; }	// stylesheet only
 
-	if ($this->allow_charset_conversion) {
+	if ($this->allow_charset_conversion && function_exists('iconv')) {
 		if ($sub < 1) { 
 			$this->ReadCharset($html); 
 		}
@@ -30912,7 +30912,9 @@ function purify_utf8($html,$lo=true) {
 	// converts html_entities > ASCII 127 to UTF-8
 	// Only exception - leaves low ASCII entities e.g. &lt; &amp; etc.
 	// Leaves in particular &lt; to distinguish from tag marker
-	if (!$this->is_utf8($html)) { 
+	if (! function_exists('iconv') ) {
+		echo "<p><b>'iconv' is not installed!</b></p>"; 
+	} elseif (!$this->is_utf8($html)) { 
 		echo "<p><b>HTML contains invalid UTF-8 character(s)</b></p>"; 
 		while (mb_convert_encoding(mb_convert_encoding($html, "UTF-32", "UTF-8"), "UTF-8", "UTF-32") != $html) {
 			$a = iconv('UTF-8', 'UTF-8', $html);

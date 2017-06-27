@@ -1,10 +1,10 @@
 ﻿=== PDF & Print by BestWebSoft ===
 Contributors: bestwebsoft
-Donate link: http://bestwebsoft.com/donate/
+Donate link: https://bestwebsoft.com/donate/
 Tags: generate pdf, add pdf button, add print button, pdf plugin, pdf pages, print pages, generate pdf content, generate post pdf, pdf print, pdf print plugin, pdf custom post type, pdf content
-Requires at least: 3.8
-Tested up to: 4.7.3
-Stable tag: 1.9.4
+Requires at least: 3.9
+Tested up to: 4.8
+Stable tag: 1.9.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,7 +12,7 @@ Generate PDF files and print WordPress posts/pages. Customize document header/fo
 
 == Description ==
 
-Create PDF files and print pages quickly. Add PDF & print buttons to WordPress website page or post.
+With this plugin you can create PDF files and print pages quickly. Add PDF & print buttons to WordPress website pages, posts, and widgets.
 
 Generate documents with custom styles and useful data for archiving, sharing, or saving.
 
@@ -77,40 +77,34 @@ http://www.youtube.com/watch?v=EM6AEkD9M_s
 > * Change default PDF file name
 > * Prevent search engines from indexing links in documents
 > * Configure all subsites on the network
-> * Get answer to your support question within one business day ([Support Policy](http://bestwebsoft.com/support-policy/))
+> * Get answer to your support question within one business day ([Support Policy](https://bestwebsoft.com/support-policy/))
 >
-> [Upgrade to Pro Now](http://bestwebsoft.com/products/wordpress/plugins/pdf-print/?k=6a544b359e625de8281a635315d84a70)
+> [Upgrade to Pro Now](https://bestwebsoft.com/products/wordpress/plugins/pdf-print/?k=6a544b359e625de8281a635315d84a70)
 
-If you have a feature suggestion or idea you'd like to see in the plugin, we'd love to hear about it! [Suggest a Feature](http://support.bestwebsoft.com/hc/en-us/requests/new)
+If you have a feature suggestion or idea you'd like to see in the plugin, we'd love to hear about it! [Suggest a Feature](https://support.bestwebsoft.com/hc/en-us/requests/new)
 
 = Documentation & Videos =
 
-* [[Doc] Installation](https://docs.google.com/document/d/1Wwins2PmrzAYiEgFZDtRzMNDq9Sr7XDeqjGNm7b-oi8/)
-* [[Doc] Purchase, Installation & Configuration](https://docs.google.com/document/d/1VwxFpeduD20TsP_sG-kLWvN9x7_V50dQQuV-p8_Y18o/)
+* [[Doc] Installation](https://docs.google.com/document/d/1-hvn6WRvWnOqj5v5pLUk7Awyu87lq5B_dO-Tv-MC9JQ/)
+* [[Doc] Purchase](https://docs.google.com/document/d/1EUdBVvnm7IHZ6y0DNyldZypUQKpB8UVPToSc_LdOYQI/)
 * [[Video] Purchase, Installation, Configuration Tutorial](https://www.youtube.com/watch?v=K6aT6Ew9J0g)
 * [[Video] Installation Instruction](http://www.youtube.com/watch?v=E3w9ID3p2-A)
 
 = Help & Support =
 
-Visit our Help Center if you have any questions, our friendly Support Team is happy to help - <http://support.bestwebsoft.com/>
+Visit our Help Center if you have any questions, our friendly Support Team is happy to help - <https://support.bestwebsoft.com/>
 
 = Translation =
 
 * Russian (ru_RU)
 * Ukrainian (uk)
 
-Some of these translations are not complete. We are constantly adding new features which should be translated. If you would like to create your own language pack or update the existing one, you can send [the text of PO and MO files](http://codex.wordpress.org/Translating_WordPress) to [BestWebSoft](http://support.bestwebsoft.com/hc/en-us/requests/new) and we'll add it to the plugin. You can download the latest version of the program for work with PO and MO [files Poedit](http://www.poedit.net/download.php).
+Some of these translations are not complete. We are constantly adding new features which should be translated. If you would like to create your own language pack or update the existing one, you can send [the text of PO and MO files](http://codex.wordpress.org/Translating_WordPress) to [BestWebSoft](https://support.bestwebsoft.com/hc/en-us/requests/new) and we'll add it to the plugin. You can download the latest version of the program for work with PO and MO [files Poedit](http://www.poedit.net/download.php).
 
 = Recommended Plugins =
 
-* [Updater](http://bestwebsoft.com/products/wordpress/plugins/updater/?k=d74ca3ffdf910e4ec8ee8774573e7b67) - Automatically check and update WordPress core with all installed plugins to the latest versions. Manual mode, email notifications and backups of all your files and database before updating.
-* [Multilanguage](http://bestwebsoft.com/products/wordpress/plugins/multilanguage/?k=de96d16614089322ff4067a7868cf910) - Translate WordPress website content to other languages manually. Create multilingual pages, posts, widgets, menus, etc.
-
-= Donate =
-
-Donations play an important role in supporting open-source projects. We greatly appreciate any donation you can make to help us continue further development of free products.
-
-[Donate Now](http://bestwebsoft.com/donate/)
+* [Updater](https://bestwebsoft.com/products/wordpress/plugins/updater/?k=d74ca3ffdf910e4ec8ee8774573e7b67) - Automatically check and update WordPress website core with all installed plugins and themes to the latest versions.
+* [Multilanguage](https://bestwebsoft.com/products/wordpress/plugins/multilanguage/?k=de96d16614089322ff4067a7868cf910) - Translate WordPress website content to other languages manually. Create multilingual pages, posts, widgets, menus, etc.
 
 == Installation ==
 
@@ -118,7 +112,7 @@ Donations play an important role in supporting open-source projects. We greatly 
 2. Activate the plugin via the 'Plugins' menu in WordPress.
 3. Plugin settings are located in "BWS Panel" > "PDF & Print".
 
-View a [Step-by-step Instruction on PDF & Print Installation](https://docs.google.com/document/d/1Wwins2PmrzAYiEgFZDtRzMNDq9Sr7XDeqjGNm7b-oi8/)
+View a [Step-by-step Instruction on PDF & Print Installation](https://docs.google.com/document/d/1-hvn6WRvWnOqj5v5pLUk7Awyu87lq5B_dO-Tv-MC9JQ/)
 
 http://www.youtube.com/watch?v=E3w9ID3p2-A
 
@@ -260,19 +254,21 @@ For more info see [Changing File Permissions](https://codex.wordpress.org/Changi
 
 Please follow the next steps:
 
-1. go to the plugin`s settings page
-2. click "Load Fonts" button
+1. Go to the plugin`s settings page
+2. Switch to the "Output" tab
+3. Find "Additional Fonts" option and click "Load Fonts" button
 
 or
 
-1. download MPDF library by link http://www.mpdfonline.com/repos/MPDF_6_0.zip
-2. using FTP, load the file MPDF_6_0.zip to the folder "{your_site_home_folder}/wp-content/uploads"
-3. go to the plugin`s settings page
-4. click "Load Fonts" button
+1. Download MPDF library by link http://www.mpdfonline.com/repos/MPDF_6_0.zip
+2. Using FTP, load the file MPDF_6_0.zip to the folder "{your_site_home_folder}/wp-content/uploads"
+3. Go to the plugin`s settings page
+4. Switch to the "Output" tab
+5. Find "Additional Fonts" option and click "Load Fonts" button
 
 = I have some problems with the plugin's work. What Information should I provide to receive proper support? =
 
-Please make sure that the problem hasn't been discussed yet on our forum (<http://support.bestwebsoft.com>). If no, please provide the following data along with your problem's description:
+Please make sure that the problem hasn't been discussed yet on our forum (<https://support.bestwebsoft.com>). If no, please provide the following data along with your problem's description:
 
 1. the link to the page where the problem occurs
 2. the name of the plugin and its version. If you are using a pro version - your order number.
@@ -286,10 +282,15 @@ Please make sure that the problem hasn't been discussed yet on our forum (<http:
 3. Displaying PDF&Print buttons in widget.
 4. Printing output page example.
 5. PDF output page example.
-6. Settings page for the PDF&Print by BestWebSoft plugin in admin panel.
-7. Settings page for the PDF&Print by BestWebSoft plugin in admin panel.
+6. Settings page (Settings tab) for the PDF&Print by BestWebSoft plugin in admin panel.
+7. Settings page (Output tab) for the PDF&Print by BestWebSoft plugin in admin panel.
 
 == Changelog ==
+
+= V1.9.5 - 27.06.2017 =
+* Bugfix : The bug with displaying PDF & Print pages via the shortcode has been fixed.
+* Bugfix : The bug with removing Visual Composer shortcodes has been fixed.
+* Update : The plugin settings page has been updated.
 
 = V1.9.4 - 14.04.2017 =
 * Bugfix : Multiple Cross-Site Scripting (XSS) vulnerability was fixed.
@@ -349,7 +350,7 @@ Please make sure that the problem hasn't been discussed yet on our forum (<http:
 * Bugfix : We fixed the bug with instalation of the additional fonts.
 
 = V1.8.1 - 17.06.2015 =
-* Attention : We changed plugin settings structure. If you are experiencing problems with the plugin work, please contact us via <http://support.bestwebsoft.com>.
+* Attention : We changed plugin settings structure. If you are experiencing problems with the plugin work, please contact us via <https://support.bestwebsoft.com>.
 * Bugfix : We fixed the bug with displaying images in pdf-document.
 * Bugfix : We fixed the bug with creation of rtl-oriented documents.
 * NEW : Added ability to load additional fonts.
@@ -429,6 +430,10 @@ Please make sure that the problem hasn't been discussed yet on our forum (<http:
 * NEW : Added the ability to output PDF and Print buttons on the type of page.
 
 == Upgrade Notice ==
+
+= V1.9.5 =
+* Bugs fixed.
+* Usability improved.
 
 = V1.9.4 =
 * Bugs fixed.
