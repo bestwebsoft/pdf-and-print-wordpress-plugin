@@ -7,7 +7,7 @@ require_once( dirname( dirname( __FILE__ ) ) . '/bws_menu/class-bws-settings.php
 
 if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 	class Pdfprnt_Settings_Tabs extends Bws_Settings_Tabs {
-		public $post_types, $button_positions, $button_image, $margin_positions, $default_css_types;
+		public $post_types, $button_positions, $button_image, $margin_positions, $default_css_types, $upload_dir;
 		public $need_fonts_reload = false;
 
 		/**
@@ -90,6 +90,14 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 				'default'	=> __( 'Default', 'pdf-print' ),
 				'theme'		=> __( 'Current theme', 'pdf-print' )
 			);
+
+			if ( $this->is_multisite ) {
+				switch_to_blog( 1 );
+				$this->upload_dir = wp_upload_dir();
+				restore_current_blog();
+			} else {
+				$this->upload_dir = wp_upload_dir();
+			}
 		}
 
 		/**
@@ -99,9 +107,14 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 		 * @return void
 		 */
 		public function display_custom_messages( $save_results ) {
+			global $pdfprnt_is_old_php;
 			$message = $error = ""; ?>
 			<noscript><div class="error below-h2"><p><strong><?php _e( "Please enable JavaScript in Your browser.", 'pdf-print' ); ?></strong></p></div></noscript>
-			<?php /* Check fonts folder rights */
+			<?php if ( $pdfprnt_is_old_php ) { ?>
+				<div class="error below-h2"><p><strong><?php printf( __( "Pdf&Print plugin requires PHP %s or higher. Please contact your hosting provider to upgrade PHP version.", 'pdf-print' ), '5.4.0' ); ?></strong></p></div>
+			<?php }
+
+			/* Check fonts folder rights */
 			$plugin_dir = realpath( dirname( __FILE__ ) . '/..' );
 			$ttfontdata = $plugin_dir . '/mpdf/ttfontdata';
 			if ( ! is_writable( $ttfontdata ) ) {
@@ -110,41 +123,32 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 						<p>
 							<strong>
 								<?php _e( "Warning: Not enough permissions for the folder", 'pdf-print' ); ?>&nbsp;<i><?php echo $ttfontdata; ?></i>.<br />
-								<?php _e( 'Please check and change permissions for your plugins` folder (for folders - 755, for files - 644). For more info, please see', 'pdf-print' ); ?>&nbsp;
-								<a href="https://codex.wordpress.org/Changing_File_Permissions" target="_blank"><?php _e( 'Changing File Permissions', 'pdf-print' ); ?></a>
-								&nbsp;<?php _e( 'and', 'pdf-print' ); ?>&nbsp;
-								<a href="https://support.bestwebsoft.com/hc/en-us/articles/115000108003" target="_blank"><?php _e( 'FAQ', 'pdf-print' ); ?></a>.
+								<?php printf( __( 'Please check and change permissions for your plugins folder (for folders - 755, for files - 644). For more info, please see %s and %s.', 'pdf-print' ),
+									'<a href="https://codex.wordpress.org/Changing_File_Permissions" target="_blank">' . __( 'Changing File Permissions', 'pdf-print' ) . '</a>',
+									'<a href="https://support.bestwebsoft.com/hc/en-us/articles/115000108003" target="_blank">' . __( 'FAQ', 'pdf-print' ) . '</a>' ); ?>
 							</strong>
 						</p>
 					</div>
 				<?php }
-			}
+			}			
 
-			if ( $this->is_multisite ) {
-				switch_to_blog( 1 );
-				$upload_dir = wp_upload_dir();
-				restore_current_blog();
-			} else {
-				$upload_dir = wp_upload_dir();
-			}
-
-			$fonts_path = $upload_dir['basedir'] .'/pdf-print-fonts';
+			$fonts_path = $this->upload_dir['basedir'] .'/pdf-print-fonts';
 
 			if ( ! is_dir( $fonts_path ) && $this->options['additional_fonts'] != 0 ) { /* if "pdf-print-fonts" folder was removed somehow */
-				$error = __( 'The folder "uploads/pdf-print-fonts" was removed', 'pdf-print' );
+				$error = sprintf( __( 'The folder %s was removed.', 'pdf-print' ), '"uploads/pdf-print-fonts"' );
 				$this->need_fonts_reload = true;
 			} elseif (
 				is_dir( $fonts_path ) &&
 				$this->options['additional_fonts'] != count( scandir( $fonts_path ) ) &&
 				0 < $this->options['additional_fonts']
 			) { /* if some fonts was removed somehow from "pdf-print-fonts" folder */
-				$error = __( 'Some fonts were removed from "uploads/pdf-print-fonts" folder', 'pdf-print' );
+				$error = sprintf( __( 'Some fonts were removed from %s folder.', 'pdf-print' ), '"uploads/pdf-print-fonts"' );
 				$this->need_fonts_reload = true;
 			}
 
 			if ( $this->need_fonts_reload ) {
-				$error .= '.&nbsp;' . sprintf(
-					__( 'It is necessary to reload fonts. For more info, please see %s', 'pdf-print' ),
+				$error .= '&nbsp;' . sprintf(
+					__( 'It is necessary to reload fonts. For more info, please see %s.', 'pdf-print' ),
 					'<a href="https://support.bestwebsoft.com/hc/en-us/articles/206693223" target="_blank">' . __( 'FAQ', 'pdf-print' ) . '</a>'
 				);
 				pdfprnt_update_option( -1, true );
@@ -262,7 +266,7 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 			}
 
 			update_option( 'pdfprnt_options', $this->options );
-			$message = __( 'Settings saved', 'pdf-print' );
+			$message = __( 'Settings saved.', 'pdf-print' );
 
 			return compact( 'message', 'notice', 'error' );
 		}

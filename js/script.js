@@ -41,7 +41,7 @@
 					beforeSend: function() {
 						$( '#pdfprnt_font_loader' ).css( 'display', 'inline-block' );
 						$( '.updated, .error' ).hide();
-						$( '<div class="updated fade"><p><strong>' + pdfprnt_var['loading_fonts'] + '.</strong></p></div>' ).insertAfter( ".pdfprnt-title" );
+						$( '<div class="updated fade"><p><strong>' + pdfprnt_var['loading_fonts'] + '</strong></p></div>' ).insertAfter( ".pdfprnt-title" );
 						/* display 'warning'-window while fonts loading */
 						window.onbeforeunload = function(e) {
 							if ( $( '#pdfprnt_font_loader' ).is( ':visible' ) )
@@ -53,16 +53,16 @@
 						try {
 							var message = $.parseJSON( result );
 						} catch ( e ) {
-							$( '<div class="error"><p><strong>' + result + pdfprnt_var['need_reload'] + '.</strong></p></div>' ).insertAfter( ".pdfprnt-title" );
+							$( '<div class="error"><p><strong>' + result + pdfprnt_var['need_reload'] + '</strong></p></div>' ).insertAfter( ".pdfprnt-title" );
 							input.attr( 'disabled', false );
 							return false;
 						}
 						if ( message['done'] ) {
-							$( '<div class="updated fade"><p><strong>' + message['done'] + '.</strong></p></div>' ).insertAfter( ".pdfprnt-title" );
+							$( '<div class="updated fade"><p><strong>' + message['done'] + '</strong></p></div>' ).insertAfter( ".pdfprnt-title" );
 							$( '#pdfprnt_load_fonts_button' ).hide();
 						}
 						if ( message['error'] ) {
-							$( '<div class="error"><p><strong>' + message['error'] + pdfprnt_var['need_reload'] + '.</strong></p></div>' ).insertAfter( ".pdfprnt-title" );
+							$( '<div class="error"><p><strong>' + message['error'] + pdfprnt_var['need_reload'] + '</strong></p></div>' ).insertAfter( ".pdfprnt-title" );
 							input.attr( 'disabled', false );
 						}
 					}

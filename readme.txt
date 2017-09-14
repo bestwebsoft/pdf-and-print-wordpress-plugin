@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://bestwebsoft.com/donate/
 Tags: generate pdf, add pdf button, add print button, pdf plugin, pdf pages, print pages, generate pdf content, generate post pdf, pdf print, pdf print plugin, pdf custom post type, pdf content
 Requires at least: 3.9
-Tested up to: 4.8
-Stable tag: 1.9.5
+Tested up to: 4.8.1
+Stable tag: 1.9.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -110,7 +110,7 @@ Some of these translations are not complete. We are constantly adding new featur
 
 1. Upload `pdf-print` folder to the `/wp-content/plugins/` directory.
 2. Activate the plugin via the 'Plugins' menu in WordPress.
-3. Plugin settings are located in "BWS Panel" > "PDF & Print".
+3. Plugin settings are located in "PDF & Print".
 
 View a [Step-by-step Instruction on PDF & Print Installation](https://docs.google.com/document/d/1-hvn6WRvWnOqj5v5pLUk7Awyu87lq5B_dO-Tv-MC9JQ/)
 
@@ -118,21 +118,13 @@ http://www.youtube.com/watch?v=E3w9ID3p2-A
 
 == Frequently Asked Questions ==
 
-= How to change position buttons in content =
-
-Go to the Settings page and change value for the 'Position of buttons in the content' field.
-
-= How to change position buttons in search or archives pages =
-
-Go to the Settings page and change necessary values for the 'Search and archive pages' column.
-
 = Buttons for content do not appear on page =
 
-Go to the Settings page and change value for the 'Show PDF button' or 'Show Print button' fields.
+Go to the Settings page and change value for the 'Add Button to' option.
 
 = Why are PDF and Print buttons not displayed in the custom post type ? =
 
-1. Please make sure that the necessary custom post type is selected in the "Types of posts that will be used in the plugin" setting block. If necessary, select the post type and save changes.
+1. Please make sure that displaying of PDF/Print buttons is enabled for the necessary custom post type on the plugin settings page. If necessary, mark the checkboxes and save changes.
 2. Check displaying the buttons on the specified pages in the front end of your site.
 
 If buttons are still not displayed, please complete the following:
@@ -166,7 +158,7 @@ For generating a pdf/print page version, PDF & Print plugin uses the content tha
 
 = If I have shortcode on the page, but I don't want them to be printed (add to pdf) =
 
-Go to the Settings page and unmark checkbox 'Settings for shortcodes'.
+Go to the Settings page and unmark checkbox 'Print Shortcodes'.
 
 = How can I change the content pdf/print document? =
 
@@ -200,14 +192,11 @@ For example, add the following code to the 'functions.php' file of your theme:
 	}
 );`
 
-
 For more information about WordPress filters see [here](https://codex.wordpress.org/Function_Reference/add_filter).
 
 = How can I add different styles to PDF and Print pages? =
 
-To do that, enter the required styles in the "edit styles" field on the Settings page. You can use the class 'pdfprnt_print' in order to add some styles only for Print pages.
-
-( To display "edit styles" field go Dashboard->BWS Panel->PDF & Print and mark "Add custom styles" checkbox )
+To do that, go to Dashboard->PDF & Print->Output and mark "Custom CSS" checkbox. Enter the required styles in the "Custom CSS" field. You can use the class 'pdfprnt_print' in order to add some styles only for Print pages.
 
 For example:
 
@@ -224,8 +213,9 @@ For example:
 
 Let's imagine that you have files style.css, style_print.css and style_pdf.css and you want include them to your PDF or Print pages.
 
-1. upload these files to the folder 'wp-content/uploads' via FTP.
-2. add the following code to the 'functions.php' file of your theme:
+1. Upload these files to the folder 'wp-content/uploads' via FTP.
+2. Go to the plugin settings page and open "Custom Code" tab.
+2. Mark "Activate custom PHP code" checkbox in "PHP" section and insert the following code:
 
 `add_filter(
 	'bwsplgns_add_pdf_print_styles',
@@ -236,7 +226,6 @@ Let's imagine that you have files style.css, style_print.css and style_pdf.css a
 		return $styles;
 	}
 );`
-
 
 = I get an error "Warning: file_put_contents(/public_html/wp-content/plugins/pdf-print/mpdf/ttfontdata/dejavusanscondensed.GSUBGPOStables.dat): failed to open stream: Permission denied in /***/wp-content/plugins/pdf-print/mpdf/classes/ttfontsuni.php on line 1145". What can I do? =
 
@@ -254,7 +243,7 @@ For more info see [Changing File Permissions](https://codex.wordpress.org/Changi
 
 Please follow the next steps:
 
-1. Go to the plugin`s settings page
+1. Go to the plugin settings page
 2. Switch to the "Output" tab
 3. Find "Additional Fonts" option and click "Load Fonts" button
 
@@ -262,7 +251,7 @@ or
 
 1. Download MPDF library by link http://www.mpdfonline.com/repos/MPDF_6_0.zip
 2. Using FTP, load the file MPDF_6_0.zip to the folder "{your_site_home_folder}/wp-content/uploads"
-3. Go to the plugin`s settings page
+3. Go to the plugin settings page
 4. Switch to the "Output" tab
 5. Find "Additional Fonts" option and click "Load Fonts" button
 
@@ -273,7 +262,7 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 1. the link to the page where the problem occurs
 2. the name of the plugin and its version. If you are using a pro version - your order number.
 3. the version of your WordPress installation
-4. copy and paste into the message your system status report. Please read more here: [Instruction on System Status](https://docs.google.com/document/d/1Wi2X8RdRGXk9kMszQy1xItJrpN0ncXgioH935MaBKtc/edit)
+4. copy and paste into the message your system status report. Please read more here: [Instruction on System Status](https://docs.google.com/document/d/1Wi2X8RdRGXk9kMszQy1xItJrpN0ncXgioH935MaBKtc/)
 
 == Screenshots ==
 
@@ -282,10 +271,15 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 3. Displaying PDF&Print buttons in widget.
 4. Printing output page example.
 5. PDF output page example.
-6. Settings page (Settings tab) for the PDF&Print by BestWebSoft plugin in admin panel.
-7. Settings page (Output tab) for the PDF&Print by BestWebSoft plugin in admin panel.
+6. Settings page (Settings tab) for the PDF&Print in admin panel.
+7. Settings page (Output tab) for the PDF&Print in admin panel.
 
 == Changelog ==
+
+= V1.9.6 - 14.09.2017 =
+* Update : MPDF library has been updated to version 6.1.4.
+* Bugfix : The bug with pdf file generation has been fixed.
+* Bugfix : The bug with pdf file title has been fixed.
 
 = V1.9.5 - 27.06.2017 =
 * Bugfix : The bug with displaying PDF & Print pages via the shortcode has been fixed.
@@ -430,6 +424,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 * NEW : Added the ability to output PDF and Print buttons on the type of page.
 
 == Upgrade Notice ==
+
+= V1.9.6 =
+* Bugs fixed.
 
 = V1.9.5 =
 * Bugs fixed.
