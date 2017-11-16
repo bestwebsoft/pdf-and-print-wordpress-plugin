@@ -27,8 +27,9 @@ include("../mpdf.php");
 $mpdf=new mPDF('');
 if ($checkdir) {
 	$ttfdir = $checkdir;
+} else {
+	$ttfdir = _MPDF_TTFONTPATH;
 }
-else { $ttfdir = _MPDF_TTFONTPATH; }
 
 
 

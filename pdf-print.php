@@ -6,7 +6,7 @@ Description: Generate PDF files and print WordPress posts/pages. Customize docum
 Author: BestWebSoft
 Text Domain: pdf-print
 Domain Path: /languages
-Version: 1.9.6
+Version: 1.9.7
 Author URI: https://bestwebsoft.com/
 License: GPLv2 or later
 */
@@ -38,15 +38,17 @@ if ( ! function_exists( 'pdfprnt_add_admin_menu' ) ) {
 
 		$settings = add_menu_page( __( 'PDF & Print Settings', 'pdf-print' ), 'PDF & Print', 'manage_options', 'pdf-print.php', 'pdfprnt_settings_page' );
 		add_submenu_page( 'pdf-print.php', __( 'PDF & Print Settings', 'pdf-print' ), __( 'Settings', 'pdf-print' ), 'manage_options', 'pdf-print.php', 'pdfprnt_settings_page' );
-		if ( ! bws_hide_premium_options_check( $pdfprnt_options ) )
+		if ( ! bws_hide_premium_options_check( $pdfprnt_options ) ) {
 			add_submenu_page( 'pdf-print.php', __( 'Headers & Footers', 'pdf-print' ), __( 'Headers & Footers', 'pdf-print' ), 'manage_options', 'pdf-print-templates.php', 'pdfprnt_templates' );
+		}
 		add_submenu_page( 'pdf-print.php', 'BWS Panel', 'BWS Panel', 'manage_options', 'pdfprnt-bws-panel', 'bws_add_menu_render' );
 
-		if ( isset( $submenu['pdf-print.php'] ) )
+		if ( isset( $submenu['pdf-print.php'] ) ) {
 			$submenu['pdf-print.php'][] = array(
 				'<span style="color:#d86463"> ' . __( 'Upgrade to Pro', 'pdf-print' ) . '</span>',
 				'manage_options',
 				'https://bestwebsoft.com/products/wordpress/plugins/pdf-print/?k=d9da7c9c2046bed8dfa38d005d4bffdb&pn=101&v=' . $pdfprnt_plugin_info["Version"] . '&wp_v=' . $wp_version );
+		}
 
 		add_action( "load-{$settings}", 'pdfprnt_add_tabs' );
 	}
@@ -101,8 +103,9 @@ if ( ! function_exists ( 'pdfprnt_init' ) ) {
 		$pdfprnt_is_old_php = version_compare( PHP_VERSION, '5.4.0', '<' );
 
 		/* Get/Register and check settings for plugin */
-		if ( ! is_admin() || ( isset( $_GET['page'] ) && 'pdf-print.php' == $_GET['page'] ) )
+		if ( ! is_admin() || ( isset( $_GET['page'] ) && 'pdf-print.php' == $_GET['page'] ) ) {
 			pdfprnt_settings();
+		}
 	}
 }
 
@@ -113,10 +116,26 @@ if ( ! function_exists( 'pdfprnt_admin_init' ) ) {
 	function pdfprnt_admin_init() {
 		global $bws_plugin_info, $pdfprnt_plugin_info, $bws_shortcode_list;
 
-		if ( empty( $bws_plugin_info ) )
+		if ( empty( $bws_plugin_info ) ) {
 			$bws_plugin_info = array( 'id' => '101', 'version' => $pdfprnt_plugin_info["Version"] );
+		}
 		/* add PDF&Print to global $bws_shortcode_list */
 		$bws_shortcode_list['pdfprnt'] = array( 'name' => 'PDF&Print', 'js_function' => 'pdfprnt_shortcode_init' );
+	}
+}
+
+/**
+ * Function for activation
+ */
+if ( ! function_exists( 'pdfprnt_plugin_activate' ) ) {
+	function pdfprnt_plugin_activate() {
+		if ( is_multisite() ) {
+			switch_to_blog( 1 );
+			register_uninstall_hook( __FILE__, 'pdfprnt_uninstall' );
+			restore_current_blog();
+		} else {
+			register_uninstall_hook( __FILE__, 'pdfprnt_uninstall' );
+		}
 	}
 }
 
@@ -131,8 +150,9 @@ if ( ! function_exists( 'pdfprnt_settings' ) ) {
 		 * @deprecated since 1.9.5
 		 * @todo remove after 01.11.2017
 		 */
-		if ( function_exists( 'pdfprnt_check_options' ) )
+		if ( function_exists( 'pdfprnt_check_options' ) ) {
 			pdfprnt_check_options();
+		}
 
 		if ( ! get_option( 'pdfprnt_options' ) ) {
 			$options_default = pdfprnt_get_options_default();
@@ -160,13 +180,7 @@ if ( ! function_exists( 'pdfprnt_settings' ) ) {
 
 			update_option( 'pdfprnt_options', $pdfprnt_options );
 
-			if ( is_multisite() ) {
-				switch_to_blog( 1 );
-				register_uninstall_hook( __FILE__, 'pdfprnt_uninstall' );
-				restore_current_blog();
-			} else {
-				register_uninstall_hook( __FILE__, 'pdfprnt_uninstall' );
-			}
+			pdfprnt_plugin_activate();
 		}
 	}
 }
@@ -299,9 +313,10 @@ if ( ! function_exists( 'pdfprnt_shortcode' ) ) {
 	function pdfprnt_shortcode( $attr ) {
 		global $pdfprnt_options, $pdfprnt_is_old_php;
 
-		if ( isset( $_REQUEST['print'] ) || $pdfprnt_is_old_php )
+		if ( isset( $_REQUEST['print'] ) || $pdfprnt_is_old_php ) {
 			return;
-		
+		}
+
 		$buttons = '';
 		if ( is_home() ) {
 			global $post;
@@ -320,11 +335,12 @@ if ( ! function_exists( 'pdfprnt_shortcode' ) ) {
 				$buttons .= pdfprnt_get_button( 'print', $permalink );
 			}
 		}
-		if ( ! empty( $buttons ) )
+		if ( ! empty( $buttons ) ) {
 			$buttons = sprintf(
 				'<div class="pdfprnt-buttons">%s</div>',
 				$buttons
 			);
+		}
 		return $buttons;
 	}
 }
@@ -385,13 +401,14 @@ if ( ! function_exists( 'pdfprnt_shortcode_button_content' ) ) {
 if ( ! function_exists( 'pdfprnt_get_button' ) ) {
 	function pdfprnt_get_button( $button = 'pdf', $url = '', $custom_query_arg = '' ) {
 		global $pdfprnt_options;
-		if ( empty( $url ) )
+		if ( empty( $url ) ) {
 			$url = home_url( '/' );
+		}
 		$button = ( 'print' == $button ) ? 'print' : 'pdf';
 
-		if ( $pdfprnt_options[ 'button_image' ][ $button ]['type'] == 'default' && ! empty( $pdfprnt_options[ 'button_image' ][ $button ]['image_src'] ) ) {
+		if ( $pdfprnt_options['button_image'][ $button ]['type'] == 'default' && ! empty( $pdfprnt_options['button_image'][ $button ]['image_src'] ) ) {
 			$image = sprintf( '<img src="%s" alt="image_%s" title="%s" />',
-				esc_attr( $pdfprnt_options[ 'button_image' ][ $button ]['image_src'] ),
+				esc_attr( $pdfprnt_options['button_image'][ $button ]['image_src'] ),
 				$button,
 				( ( 'print' == $button ) ? __( 'Print Content', 'pdf-print' ) : __( 'View PDF', 'pdf-print' ) )
 			);
@@ -428,11 +445,12 @@ if ( ! function_exists( 'pdfprnt_content' ) ) {
 	function pdfprnt_content( $content ) {
 		global $pdfprnt_options, $post, $pdfprnt_is_old_php;
 
-		if ( $pdfprnt_is_old_php || is_admin() || is_feed() || is_search() || is_archive() || is_category() || is_tax() || is_tag() || is_author() )
+		if ( $pdfprnt_is_old_php || is_admin() || is_feed() || is_search() || is_archive() || is_category() || is_tax() || is_tag() || is_author() ) {
 			return $content;
+		}
 
-		$show_button_pdf = in_array( $post->post_type, $pdfprnt_options['button_post_types']['pdf'] );
-		$show_button_print = in_array( $post->post_type, $pdfprnt_options['button_post_types']['print'] );
+		$show_button_pdf = ! empty( $pdfprnt_options['button_post_types']['pdf'] ) && in_array( $post->post_type, $pdfprnt_options['button_post_types']['pdf'] );
+		$show_button_print = ! empty( $pdfprnt_options['button_post_types']['print'] ) && in_array( $post->post_type, $pdfprnt_options['button_post_types']['print'] );
 
 		if ( $show_button_pdf || $show_button_print ) {
 
@@ -489,19 +507,13 @@ if ( ! function_exists( 'pdfprnt_show_buttons_search_archive' ) ) {
 			}
 
 			$loop_position = current_filter();
-			if ( ! ( $show_button_pdf || $show_button_print ) )
+			if ( ! ( $show_button_pdf || $show_button_print ) ) {
 				return;
-
-			/* Check for existence the type of posts. */
-			foreach ( $posts as $post ) {
-				if ( ! in_array( $post->post_type, $pdfprnt_options['button_post_types']['pdf'] ) )
-					$show_button_pdf = false;
-				if ( ! in_array( $post->post_type, $pdfprnt_options['button_post_types']['print'] ) )
-					$show_button_print = false;
 			}
 
-			if ( ( 'loop_start' == $loop_position && $pdfprnt_show_archive_start == 1 ) || ( 'loop_end' == $loop_position && $pdfprnt_show_archive_end == 1 ) )
+			if ( ( 'loop_start' == $loop_position && $pdfprnt_show_archive_start == 1 ) || ( 'loop_end' == $loop_position && $pdfprnt_show_archive_end == 1 ) ) {
 				return;
+			}
 
 			global $pdfprnt_is_search_archive;
 			$current_url = set_url_scheme( ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
@@ -516,10 +528,11 @@ if ( ! function_exists( 'pdfprnt_show_buttons_search_archive' ) ) {
 			}
 			$str .= '</div>';
 			echo $str;
-			if ( 'loop_start' == $loop_position )
+			if ( 'loop_start' == $loop_position ) {
 				$pdfprnt_show_archive_start++;
-			elseif ( 'loop_end' == $loop_position )
+			} elseif ( 'loop_end' == $loop_position ) {
 				$pdfprnt_show_archive_end++;
+			}
 		}
 	}
 }
@@ -531,8 +544,9 @@ if ( ! function_exists( 'pdfprnt_auto_show_buttons_search_archive' ) ) {
 	function pdfprnt_auto_show_buttons_search_archive() {
 		global $pdfprnt_options, $pdfprnt_is_old_php;
 
-		if ( $pdfprnt_is_old_php )
+		if ( $pdfprnt_is_old_php ) {
 			return;
+		}
 
 		$display_in_search = ( is_search() && ( in_array( 'pdfprnt_search', $pdfprnt_options['button_post_types']['pdf'] ) || in_array( 'pdfprnt_search', $pdfprnt_options['button_post_types']['print'] ) ) );
 		$display_in_archive = ( ( is_archive() || is_category() || is_tax() || is_tag() || is_author() ) && ( in_array( 'pdfprnt_archives', $pdfprnt_options['button_post_types']['pdf'] ) || in_array( 'pdfprnt_archives', $pdfprnt_options['button_post_types']['print'] ) ) );
@@ -561,11 +575,13 @@ if ( ! function_exists( 'pdfprnt_display_plugin_buttons' ) ) {
 	function pdfprnt_display_plugin_buttons( $where = 'top', $user_query = '' ) {
 		global $pdfprnt_options, $pdfprnt_is_old_php;
 
-		if ( $pdfprnt_is_old_php )
+		if ( $pdfprnt_is_old_php ) {
 			return;
+		}
 
-		if ( preg_match( "|" . $where . "|", $pdfprnt_options['buttons_position'] ) || empty( $where ) )
+		if ( preg_match( "|" . $where . "|", $pdfprnt_options['buttons_position'] ) || empty( $where ) ) {
 			echo pdfprnt_show_buttons_for_custom_post_type( $user_query );
+		}
 	}
 }
 
@@ -584,8 +600,9 @@ if ( ! function_exists( 'pdfprnt_show_buttons_for_custom_post_type' ) ) {
 			( ! ( $show_button_pdf || $show_button_print ) ) ||
 			/* not display anything if we have wrong $user_query */
 			( ! ( is_array( $user_query ) || is_string( $user_query ) ) )
-		)
+		) {
 			return;
+		}
 
 		$current_url = set_url_scheme( ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
 		$is_return   = true;
@@ -599,8 +616,9 @@ if ( ! function_exists( 'pdfprnt_show_buttons_for_custom_post_type' ) ) {
 						break;
 					}
 				}
-				if ( $is_return )
+				if ( $is_return ) {
 					return;
+				}
 				$pdf_query_parameter   = 'pdf-search';
 				$print_query_parameter = 'print-search';
 			} elseif ( is_page() ) { /* pages */
@@ -635,8 +653,9 @@ if ( ! function_exists( 'pdfprnt_show_buttons_for_custom_post_type' ) ) {
 					}
 				}
 			}
-			if ( $is_return )
+			if ( $is_return ) {
 				return;
+			}
 			global $pdfprnt_is_custom_post_type;
 			$pdfprnt_is_custom_post_type = true;
 			$pdf_query_parameter   = 'pdf-custom';
@@ -678,8 +697,9 @@ if ( ! function_exists( 'pdfprnt_links' ) ) {
 	function pdfprnt_links( $links, $file ) {
 		$base = plugin_basename( __FILE__ );
 		if ( $file == $base ) {
-			if ( ! is_network_admin() && is_plugin_inactive( 'pdf-print-pro/pdf-print-pro.php' ) )
+			if ( ! is_network_admin() && is_plugin_inactive( 'pdf-print-pro/pdf-print-pro.php' ) ) {
 				$links[]	=	'<a href="admin.php?page=pdf-print.php">' . __( 'Settings', 'pdf-print' ) . '</a>';
+			}
 			$links[]	=	'<a href="https://support.bestwebsoft.com/hc/en-us/sections/200538669" target="_blank">' . __( 'FAQ', 'pdf-print' ) . '</a>';
 			$links[]	=	'<a href="https://support.bestwebsoft.com">' . __( 'Support', 'pdf-print' ) . '</a>';
 		}
@@ -734,8 +754,9 @@ if ( ! function_exists( 'pdfprnt_preg_replace' ) ) {
 					preg_match_all( "~style=" . $quote . "(.*?)" . $quote . "~", $content, $styles );
 					if ( ! empty( $styles[1] ) ) {
 						foreach ( $styles[1] as $style ) {
-							if ( preg_match( "/" . $pattern . "/", $style ) )
+							if ( preg_match( "/" . $pattern . "/", $style ) ) {
 								$content = preg_replace( "/" . $style . "/", "", $content );
+							}
 						}
 
 					}
@@ -773,8 +794,9 @@ if ( ! function_exists( 'pdfprnt_generate_template' ) ) {
 					/* remove 'font-family' and 'font' styles from theme css-file if additional fonts not loaded */
 					if ( 0 == $pdfprnt_options['additional_fonts'] ) {
 						$css = wp_remote_get( get_bloginfo( 'stylesheet_url' ) );
-						if ( ! empty( $css['body'] ) )
+						if ( ! empty( $css['body'] ) ) {
 							$html .= '<style type="text/css">' . preg_replace( "/(font:(.*?);)|(font-family(.*?);)/", "", $css['body'] ) . '</style>';
+						}
 					} else {
 						$html .= '<link type="text/css" rel="stylesheet" href="' . get_bloginfo( 'stylesheet_url' ) . '" media="all" />';
 					}
@@ -782,16 +804,19 @@ if ( ! function_exists( 'pdfprnt_generate_template' ) ) {
 					$html .= '<link type="text/css" rel="stylesheet" href="' . plugins_url( 'css/default.css', __FILE__ ) . '" media="all" />';
 				}
 				$html .= pdfprnt_additional_styles( $is_print );
-				if ( 1 == $pdfprnt_options['use_custom_css'] && ! empty( $pdfprnt_options['custom_css_code'] ) )
+				if ( 1 == $pdfprnt_options['use_custom_css'] && ! empty( $pdfprnt_options['custom_css_code'] ) ) {
 					$html .= '<style type="text/css">' . $pdfprnt_options['custom_css_code'] . '</style>';
-				if ( $is_print && 1 == $pdfprnt_options['show_print_window'] )
+				}
+				if ( $is_print && 1 == $pdfprnt_options['show_print_window'] ) {
 					$html .= '<script>window.onload = function(){ window.print(); };</script>';
+				}
 			$html .=
 			'</head>
 				<body class="' . ( $is_print ? 'pdfprnt_print ' : '' ) . $wp_locale->text_direction . '">';
 				/* Remove inline 'font-family' and 'font' styles from content */
-				if ( 0 == $pdfprnt_options['additional_fonts'] )
+				if ( 0 == $pdfprnt_options['additional_fonts'] ) {
 					$content = pdfprnt_preg_replace( array( "font-family", "font:" ), $content );
+				}
 				$html .= $content .
 			'</body>
 		</html>';
@@ -811,12 +836,14 @@ if ( ! function_exists( 'pdfprnt_additional_styles' ) ) {
 				if ( ! empty( $style[0] ) && file_exists( $path . $style[0] ) ) {
 					/* if "get print" */
 					if ( $is_print ) {
-						if( ( isset( $style[1] ) && 'print' ==  $style[1] ) || ! isset( $style[1] ) )
+						if( ( isset( $style[1] ) && 'print' ==  $style[1] ) || ! isset( $style[1] ) ) {
 							$html .= '<link type="text/css" rel="stylesheet" href="' . $url . '/' . $style[0] . '" media="all" />';
+						}
 					/* if "get pdf" */
 					} else {
-						if ( ( isset( $style[1] ) && 'pdf' ==  $style[1] ) || ! isset( $style[1] ) )
+						if ( ( isset( $style[1] ) && 'pdf' ==  $style[1] ) || ! isset( $style[1] ) ) {
 							$html .= '<link type="text/css" rel="stylesheet" href="' . $url . '/' . $style[0] . '" media="all" />';
+						}
 					}
 				}
 			}
@@ -832,8 +859,9 @@ if ( ! function_exists( 'pdfprnt_print' ) ) {
 	function pdfprnt_print( $query ) {
 		global $pdfprnt_options, $posts, $post, $pdfprnt_is_old_php;
 
-		if ( $pdfprnt_is_old_php || ! $print = get_query_var( 'print' ) )
+		if ( $pdfprnt_is_old_php || ! $print = get_query_var( 'print' ) ) {
 			return;
+		}
 
 		if ( apply_filters( 'bwsplgns_remove_content_filters', true ) ) {
 			remove_all_filters( 'the_content' );
@@ -843,8 +871,9 @@ if ( ! function_exists( 'pdfprnt_print' ) ) {
 			add_filter( 'the_content', 'convert_chars' );
 			add_filter( 'the_content', 'wpautop' );
 
-			if ( ! class_exists( 'WP_Embed' ) )
+			if ( ! class_exists( 'WP_Embed' ) ) {
 				require_once( ABSPATH . WPINC . '/class-wp-embed.php' );
+			}
 			new WP_Embed();
 		}
 		do_action( 'bwsplgns_pdf_print_the_content' );
@@ -857,8 +886,9 @@ if ( ! function_exists( 'pdfprnt_print' ) ) {
 
 		$doc_type = explode( '-', $print );
 
-		if ( ! is_array( $doc_type ) )
+		if ( ! is_array( $doc_type ) ) {
 			return;
+		}
 
 		/* for search or archives */
 		if ( isset( $doc_type[1] ) ) {
@@ -883,8 +913,9 @@ if ( ! function_exists( 'pdfprnt_print' ) ) {
 			$post_id = get_option( 'page_on_front' );
 			$posts = query_posts( array( 'page_id' => $post_id ) );
 		} else {
-			if ( ! is_home() )
+			if ( ! is_home() ) {
 				$posts = array( $post );
+			}
 		}
 
 		switch( $doc_type[0] ) {
@@ -925,7 +956,7 @@ if ( ! function_exists( 'pdfprnt_print' ) ) {
 					$post_content = apply_filters( 'bwsplgns_get_pdf_print_content', $p->post_content, $p );
 					$post_content = apply_filters( 'the_content', $post_content );
 					$shortcodes = implode( '|', apply_filters( 'bwsplgns_pdf_print_remove_shortcodes', array( 'vc_', 'az_' ) ) );
-					$post_content = preg_replace( "/\[\/?({$shortcodes})[^\]]*?\]/", '', $post_content );					
+					$post_content = preg_replace( "/\[\/?({$shortcodes})[^\]]*?\]/", '', $post_content );
 
 					$html .=
 						'<div class="post">' .
@@ -954,8 +985,9 @@ if ( ! function_exists( 'pdfprnt_print' ) ) {
 					$mpdf->autoVietnamese   = true;
 					$mpdf->autoArabic       = true;
 				}
-				if ( is_rtl() )
+				if ( is_rtl() ) {
 					$mpdf->SetDirectionality( 'rtl' );
+				}
 				$mpdf->SetTitle( implode( ',', $titles ) );
 				$mpdf->SetAuthor( implode( ',', $authors ) );
 				$mpdf->SetSubject( get_bloginfo( 'blogdescription' ) );
@@ -982,7 +1014,7 @@ if ( ! function_exists( 'pdfprnt_print' ) ) {
 					$post_content = apply_filters( 'bwsplgns_get_pdf_print_content', $p->post_content, $p );
 					$post_content = apply_filters( 'the_content', $post_content );
 					$shortcodes = implode( '|', apply_filters( 'bwsplgns_pdf_print_remove_shortcodes', array( 'vc_', 'az_' ) ) );
-					$post_content = preg_replace( "/\[\/?({$shortcodes})[^\]]*?\]/", '', $post_content );					
+					$post_content = preg_replace( "/\[\/?({$shortcodes})[^\]]*?\]/", '', $post_content );
 
 					ob_start(); ?>
 						<div class="post">
@@ -1029,11 +1061,13 @@ if ( class_exists( 'ZipArchive' ) && ! class_exists( 'Pdfprnt_ZipArchive' ) ) {
 			$destination = str_replace( array( "/", "\\" ), DIRECTORY_SEPARATOR, $destination );
 			$subdir = str_replace( array( "/", "\\" ), "/", $subdir);
 
-			if ( substr( $destination, mb_strlen( DIRECTORY_SEPARATOR, $charset ) * -1 ) != DIRECTORY_SEPARATOR )
+			if ( substr( $destination, mb_strlen( DIRECTORY_SEPARATOR, $charset ) * -1 ) != DIRECTORY_SEPARATOR ) {
 				$destination .= DIRECTORY_SEPARATOR;
+			}
 
-			if ( substr( $subdir, -1 ) != "/" )
+			if ( substr( $subdir, -1 ) != "/" ) {
 				$subdir .= "/";
+			}
 			// Extract files
 			for ( $i = 0; $i < $this->numFiles; $i++ ) {
 				$filename = $this->getNameIndex( $i );
@@ -1044,9 +1078,11 @@ if ( class_exists( 'ZipArchive' ) && ! class_exists( 'Pdfprnt_ZipArchive' ) ) {
 
 					if ( mb_strlen( $relativePath, $charset ) > 0 ) {
 						if ( substr( $filename, -1 ) == "/" ) {
-							if ( ! is_dir( $destination . $relativePath ) )
-								if ( ! @mkdir( $destination . $relativePath, 0755, true ) )
-									$errors[$i] = $filename;
+							if ( ! is_dir( $destination . $relativePath ) ) {
+								if ( ! @mkdir( $destination . $relativePath, 0755, true ) ) {
+									$errors[ $i ] = $filename;
+								}
+							}
 						} else {
 							if ( dirname( $relativePath) != "." ) {
 								if ( ! is_dir( $destination . dirname( $relativePath ) ) ) {
@@ -1055,8 +1091,9 @@ if ( class_exists( 'ZipArchive' ) && ! class_exists( 'Pdfprnt_ZipArchive' ) ) {
 								}
 							}
 							// New file
-							if ( @file_put_contents( $destination . $relativePath, $this->getFromIndex( $i ) ) === false )
-								$errors[$i] = $filename;
+							if ( @file_put_contents( $destination . $relativePath, $this->getFromIndex( $i ) ) === false ) {
+								$errors[ $i ] = $filename;
+							}
 						}
 					}
 				}
@@ -1104,8 +1141,9 @@ if ( ! function_exists( 'pdfprnt_download_zip' ) ) {
 if ( ! function_exists( 'pdfprnt_copy_fonts' ) ) {
 	function pdfprnt_copy_fonts( $zip_file, $upload_dir ) {
 		global $pdfprnt_options;
-		if ( empty( $pdfprnt_options ) )
+		if ( empty( $pdfprnt_options ) ) {
 			$pdfprnt_options = get_option( 'pdfprnt_options' );
+		}
 		$destination = $upload_dir .'/pdf-print-fonts';
 		if ( ! file_exists( $destination ) ) {
 			mkdir( $destination, 0755, true );
@@ -1145,8 +1183,9 @@ if ( ! function_exists( 'pdfprnt_copy_fonts' ) ) {
 if ( ! function_exists( 'pdfprnt_load_and_copy' ) ) {
 	function pdfprnt_load_and_copy( $zip_file, $upload_dir ) {
 		$result = file_exists( $zip_file ) ? array( 'done' => 'ok' ) : pdfprnt_download_zip( $zip_file, $upload_dir );
-		if ( isset( $result['done'] ) )
+		if ( isset( $result['done'] ) ) {
 			$result = pdfprnt_copy_fonts( $zip_file, $upload_dir );
+		}
 		return $result;
 	}
 }
@@ -1156,8 +1195,9 @@ if ( ! function_exists( 'pdfprnt_load_and_copy' ) ) {
 if ( ! function_exists( 'pdfprnt_load_fonts' ) ) {
 	function pdfprnt_load_fonts() {
 		global $pdfprnt_options;
-		if ( empty( $pdfprnt_options ) )
+		if ( empty( $pdfprnt_options ) ) {
 			$pdfprnt_options = get_option( 'pdfprnt_options' );
+		}
 		$ajax_request = isset( $_REQUEST['action'] ) && 'pdfprnt_load_fonts' == $_REQUEST['action'] ? true : false;
 		$php_request  = isset( $_REQUEST['pdfprnt_action'] ) && 'pdfprnt_load_fonts' == $_REQUEST['pdfprnt_action'] ? true : false;
 		$verified     = isset( $_REQUEST['pdfprnt_ajax_nonce'] ) && wp_verify_nonce( $_REQUEST['pdfprnt_ajax_nonce'], 'pdfprnt_ajax_nonce' ) ? true : false;
@@ -1190,21 +1230,24 @@ if ( ! function_exists( 'pdfprnt_load_fonts' ) ) {
 				mkdir( $destination, 0755, true );
 				$result = pdfprnt_load_and_copy( $zip_file, $upload_dir['basedir'] );
 			}
-			if ( $ajax_request )
+			if ( $ajax_request ) {
 				echo json_encode( $result );
-			else
+			} else {
 				return $result;
+			}
 		}
-		if ( $ajax_request )
+		if ( $ajax_request ) {
 			die();
+		}
 	}
 }
 
 if ( ! function_exists( 'pdfprnt_update_option' ) ) {
 	function pdfprnt_update_option( $value, $update_network = false ) {
 		global $pdfprnt_options;
-		if ( empty( $pdfprnt_options ) )
+		if ( empty( $pdfprnt_options ) ) {
 			$pdfprnt_options = get_option( 'pdfprnt_options' );
+		}
 		$pdfprnt_options['additional_fonts'] = $value;
 		update_option( 'pdfprnt_options', $pdfprnt_options );
 		if ( $update_network ) {
@@ -1218,11 +1261,13 @@ if ( ! function_exists( 'pdfprnt_update_option' ) ) {
 if ( ! function_exists ( 'pdfprnt_plugin_banner' ) ) {
 	function pdfprnt_plugin_banner() {
 		global $hook_suffix, $pdfprnt_plugin_info, $pdfprnt_options;
-		if ( empty( $pdfprnt_options ) )
+		if ( empty( $pdfprnt_options ) ) {
 			$pdfprnt_options = get_option( 'pdfprnt_options' );
+		}
 		if ( 'plugins.php' == $hook_suffix ) {
-			if ( isset( $pdfprnt_options['first_install'] ) && strtotime( '-1 week' ) > $pdfprnt_options['first_install'] )
+			if ( isset( $pdfprnt_options['first_install'] ) && strtotime( '-1 week' ) > $pdfprnt_options['first_install'] ) {
 				bws_plugin_banner( $pdfprnt_plugin_info, 'pdfprnt', 'pdf-print', 'e2f2549f4d70bc4cb9b48071169d264e', '101', '//ps.w.org/pdf-print/assets/icon-128x128.png' );
+			}
 			bws_plugin_banner_to_settings( $pdfprnt_plugin_info, 'pdfprnt_options', 'pdf-print', 'admin.php?page=pdf-print.php' );
 		}
 
@@ -1250,21 +1295,22 @@ if ( ! class_exists( 'Pdfprnt_Buttons_Widget' ) ) {
 				$instance[ $button . '_button_show' ]	= ! empty( $instance[ $button . '_button_show' ] ) ? 1 : 0;
 				$instance[ $button . '_button_title' ]	= strip_tags( $pdfprnt_options['button_title'][ $button ] );
 				if (
-					isset( $pdfprnt_options[ 'button_image' ][ $button ]['type'] ) &&
-					in_array( $pdfprnt_options[ 'button_image' ][ $button ]['type'], array( 'none', 'default' ) )
+					isset( $pdfprnt_options['button_image'][ $button ]['type'] ) &&
+					in_array( $pdfprnt_options['button_image'][ $button ]['type'], array( 'none', 'default' ) )
 				) {
-					$instance[ $button . '_button_image' ] = $pdfprnt_options[ 'button_image' ][ $button ]['type'];
+					$instance[ $button . '_button_image' ] = $pdfprnt_options['button_image'][ $button ]['type'];
 				} else {
 					$instance[ $button . '_button_image' ] = 'default';
 				}
 			}
 
-			if ( ! empty( $pdfprnt_is_search_archive ) )
+			if ( ! empty( $pdfprnt_is_search_archive ) ) {
 				$custom_query = '-search';
-			elseif ( ! empty( $pdfprnt_is_custom_post_type ) )
+			} elseif ( ! empty( $pdfprnt_is_custom_post_type ) ) {
 				$custom_query = '-custom';
-			else
+			} else {
 				$custom_query = '';
+			}
 
 			if ( 1 == $instance['pdf_button_show'] ) {
 				$pdf_url = add_query_arg( 'print' , 'pdf' . $custom_query, $url );
@@ -1296,8 +1342,9 @@ if ( ! class_exists( 'Pdfprnt_Buttons_Widget' ) ) {
 					$buttons
 				);
 				echo $args['before_widget'];
-				if ( ! empty( $title ) )
+				if ( ! empty( $title ) ) {
 					echo $args['before_title'] . $title . $args['after_title'];
+				}
 				echo $buttons;
 				echo $args['after_widget'];
 			}
@@ -1348,8 +1395,9 @@ if ( ! class_exists( 'Pdfprnt_Buttons_Widget' ) ) {
 if ( ! function_exists( 'pdfprnt_register_buttons_widget' ) ) {
 	function pdfprnt_register_buttons_widget() {
 		global $pdfprnt_is_old_php;
-		if ( ! $pdfprnt_is_old_php )
+		if ( ! $pdfprnt_is_old_php ) {
 			register_widget( 'Pdfprnt_Buttons_Widget' );
+		}
 	}
 }
 
@@ -1358,8 +1406,9 @@ if ( ! function_exists( 'pdfprnt_register_buttons_widget' ) ) {
  */
 if ( ! function_exists( 'pdfprnt_uninstall' ) ) {
 	function pdfprnt_uninstall() {
-		if ( ! function_exists( 'get_plugins' ) )
+		if ( ! function_exists( 'get_plugins' ) ) {
 			require_once( ABSPATH . 'wp-admin/includes/plugin.php' );
+		}
 		$all_plugins = get_plugins();
 
 		if ( ! array_key_exists( 'pdf-print-pro/pdf-print-pro.php', $all_plugins ) ) {
@@ -1387,6 +1436,7 @@ if ( ! function_exists( 'pdfprnt_uninstall' ) ) {
 }
 
 /* Adding function to output PDF document or pirnt page */
+register_activation_hook( __FILE__, 'pdfprnt_plugin_activate' );
 add_action( 'wp', 'pdfprnt_print' );
 add_action( 'wp_head', 'pdfprnt_auto_show_buttons_search_archive' );
 add_action( 'plugins_loaded', 'pdfprnt_plugins_loaded' );

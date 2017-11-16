@@ -15905,7 +15905,8 @@ class mPDF
 			if ($sub < 1) {
 				$this->ReadCharset($html);
 			}
-			if ($this->charset_in && $sub != 4) {
+			$iconv_is_disabled = apply_filters( 'bws_pdfprnt_disable_iconv', false ) || ( ! function_exists( 'iconv' ) ) ;
+			if ( ! $iconv_is_disabled && $this->charset_in && $sub != 4) {
 				$success = iconv($this->charset_in, 'UTF-8//TRANSLIT', $html);
 				if ($success) {
 					$html = $success;
@@ -29392,7 +29393,8 @@ class mPDF
 		if (!$this->is_utf8($html)) {
 			echo "<p><b>HTML contains invalid UTF-8 character(s)</b></p>";
 			while (mb_convert_encoding(mb_convert_encoding($html, "UTF-32", "UTF-8"), "UTF-8", "UTF-32") != $html) {
-				$a = iconv('UTF-8', 'UTF-8', $html);
+				$iconv_is_disabled = apply_filters( 'bws_pdfprnt_disable_iconv', false ) || ( ! function_exists( 'iconv' ) ) ;
+				$a = ( $iconv_is_disabled ) ? $html : iconv('UTF-8', 'UTF-8', $html);
 				echo ($a);
 				$pos = $start = strlen($a);
 				$err = '';

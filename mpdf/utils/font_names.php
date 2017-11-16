@@ -29,7 +29,9 @@ $mpdf->useSubstitutions = true;
 if ($checkdir) {
 	$ttfdir = $checkdir;
 }
-else { $ttfdir = _MPDF_TTFONTPATH; }
+else {
+	$ttfdir = _MPDF_TTFONTPATH;
+}
 
 $mqr=ini_get("magic_quotes_runtime");
 if ($mqr) { set_magic_quotes_runtime(0); }

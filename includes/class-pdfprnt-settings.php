@@ -130,7 +130,7 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 						</p>
 					</div>
 				<?php }
-			}			
+			}
 
 			$fonts_path = $this->upload_dir['basedir'] .'/pdf-print-fonts';
 
@@ -165,8 +165,9 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 						);
 					$this->need_fonts_reload = true;
 				}
-				if ( isset( $result['done'] ) )
+				if ( isset( $result['done'] ) ) {
 					$message .= '&nbsp;' . $result['done'];
+				}
 			} ?>
 			<div class="updated below-h2" <?php if ( empty( $message ) || "" != $error ) echo "style=\"display:none\""; ?>><p><strong><?php echo $message; ?></strong></p></div>
 			<div class="error below-h2" <?php if ( "" == $error ) echo "style=\"display:none\""; ?>><p><strong><?php echo $error; ?></strong></p></div>
@@ -188,8 +189,8 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 
 				/* Add Button to */
 				$this->options['button_post_types'][ $button ] = array();
-				if ( isset( $_POST[ 'pdfprnt_button_post_types' ][ $button ] ) && is_array( $_POST[ 'pdfprnt_button_post_types' ][ $button ] ) ) {
-					foreach ( $_POST[ 'pdfprnt_button_post_types' ][ $button ] as $post_type ) {
+				if ( isset( $_POST['pdfprnt_button_post_types'][ $button ] ) && is_array( $_POST['pdfprnt_button_post_types'][ $button ] ) ) {
+					foreach ( $_POST['pdfprnt_button_post_types'][ $button ] as $post_type ) {
 						if ( array_key_exists( $post_type, $this->post_types ) ) {
 							$this->options['button_post_types'][ $button ][] = $post_type;
 						}
@@ -197,8 +198,8 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 				}
 
 				/* Button Image */
-				if ( isset( $_POST[ 'pdfprnt_button_image' ][ $button ] ) ) {
-					$new_button_image = $_POST[ 'pdfprnt_button_image' ][ $button ];
+				if ( isset( $_POST['pdfprnt_button_image'][ $button ] ) ) {
+					$new_button_image = $_POST['pdfprnt_button_image'][ $button ];
 
 					$this->options['button_image'][ $button ]['type'] =
 						( array_key_exists( $new_button_image, $this->button_image ) )
@@ -250,19 +251,20 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 
 			/* Default CSS */
 			$this->options['use_default_css'] =
-				( isset( $_POST[ 'pdfprnt_use_default_css' ] ) && array_key_exists( $_POST[ 'pdfprnt_use_default_css' ], $this->default_css_types ) )
-			? $_POST[ 'pdfprnt_use_default_css' ]
+				( isset( $_POST['pdfprnt_use_default_css'] ) && array_key_exists( $_POST['pdfprnt_use_default_css'], $this->default_css_types ) )
+			? $_POST['pdfprnt_use_default_css']
 
 			: 'default';
 
-			$this->options['use_custom_css'] = ( isset( $_POST[ 'pdfprnt_use_custom_css' ] ) ) ? 1 : 0;
+			$this->options['use_custom_css'] = ( isset( $_POST['pdfprnt_use_custom_css'] ) ) ? 1 : 0;
 
-			if ( isset( $_POST[ 'pdfprnt_custom_css_code' ] ) ) {
-				$custom_css_code = trim( strip_tags( stripslashes( $_POST[ 'pdfprnt_custom_css_code' ] ) ) );
-				if ( 10000 < strlen( $custom_css_code ) )
+			if ( isset( $_POST['pdfprnt_custom_css_code'] ) ) {
+				$custom_css_code = trim( strip_tags( stripslashes( $_POST['pdfprnt_custom_css_code'] ) ) );
+				if ( 10000 < strlen( $custom_css_code ) ) {
 					$error = __( 'You have entered too much text in the "edit styles" field.', 'pdf-print' );
-				else
+				} else {
 					$this->options['custom_css_code'] = $custom_css_code;
+				}
 			}
 
 			update_option( 'pdfprnt_options', $this->options );
@@ -428,7 +430,7 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 								<?php } ?>
 							</div>
 						<?php } else { ?>
-							<span style="color: red;"><strong><?php _e( 'WARNING', 'pdf-print' ); ?>:&nbsp;</strong><?php _e( 'Class ZipArchive is not installed on your server. It is impossible to load additional fonts.', 'pdf-print' ); ?></span>
+							<span style="color: red;"><strong><?php _e( 'WARNING', 'pdf-print' ); ?>:&nbsp;</strong><?php _e( 'ZipArchive Class is not installed on your server. It is impossible to load additional fonts.', 'pdf-print' ); ?></span>
 						<?php } ?>
 					</td>
 				</tr>
@@ -466,7 +468,6 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 			<hr>
 			<?php $this->pro_block( 'fancytree_block' );
 		}
-
 
 		/* Display bws_pro_version block by its name */
 		public function pro_block( $block_name = '', $args = array(), $force = false ) {

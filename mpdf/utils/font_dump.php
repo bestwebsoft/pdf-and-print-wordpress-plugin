@@ -81,8 +81,7 @@ include(_MPDF_TTFONTDATAPATH.$font.'.mtx.php');
 
 if ($smp) {
 	$max = min($max,131071);
-}
-else {
+} else {
 	$max = min($max,65535);
 }
 

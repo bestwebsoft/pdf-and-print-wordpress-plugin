@@ -30,8 +30,9 @@ $mpdf->debug = true;
 $mpdf->simpleTables = true;
 if ($checkdir) {
 	$ttfdir = $checkdir;
+} else {
+	$ttfdir = _MPDF_TTFONTPATH;
 }
-else { $ttfdir = _MPDF_TTFONTPATH; }
 
 
 

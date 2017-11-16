@@ -69,6 +69,18 @@
 </ul>
 </li>
 <li>Set custom top and bottom margins for running title</li>
+<li>Add and manage: [NEW]
+<ul>
+<li>Custom fields</li>
+<li>Custom data</li>
+</ul>
+</li>
+<li>Add custom fields/custom data: [NEW]
+<ul>
+<li>Before content</li>
+<li>After content</li>
+</ul>
+</li>
 <li>WooCommerce compatibility</li>
 <li>Set PDF layout:
 <ul>

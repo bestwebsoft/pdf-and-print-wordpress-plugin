@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://bestwebsoft.com/donate/
 Tags: generate pdf, add pdf button, add print button, pdf plugin, pdf pages, print pages, generate pdf content, generate post pdf, pdf print, pdf print plugin, pdf custom post type, pdf content
 Requires at least: 3.9
-Tested up to: 4.8.1
-Stable tag: 1.9.6
+Tested up to: 4.9
+Stable tag: 1.9.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -68,6 +68,12 @@ http://www.youtube.com/watch?v=EM6AEkD9M_s
 > 	* Total pages count in document (for PDF only)
 > 	* Post author (for single posts or pages only)
 > * Set custom top and bottom margins for running title
+> * Add and manage: [NEW]
+> 	* Custom fields
+> 	* Custom data
+> * Add custom fields/custom data: [NEW]
+> 	* Before content
+> 	* After content
 > * WooCommerce compatibility
 > * Set PDF layout:
 > 	* Portrait
@@ -276,6 +282,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 
 == Changelog ==
 
+= V1.9.7 - 16.11.2017 =
+* Update : All functionality has been updated for WordPress 4.8.3.
+
 = V1.9.6 - 14.09.2017 =
 * Update : MPDF library has been updated to version 6.1.4.
 * Bugfix : The bug with pdf file generation has been fixed.
@@ -424,6 +433,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 * NEW : Added the ability to output PDF and Print buttons on the type of page.
 
 == Upgrade Notice ==
+
+= V1.9.7 =
+* The compatibility with new WordPress version updated.
 
 = V1.9.6 =
 * Bugs fixed.
