@@ -105,18 +105,23 @@ b {
 input {
 	margin: 5px 0;
 }
-
 .alignleft {
 	float: left;
 	margin: 7px 24px 7px 0;
 }
-
 .alignright {
 	float: right;
 	margin: 7px 0 7px 24px;
 }
-
 .aligncenter {
 	display: block;
 	margin: 7px auto;
+}
+.entry-thumbnail img {
+	max-width: 100%;
+	height: auto;
+}
+.entry-title a {
+	color: #000;
+	text-decoration: none;
 }

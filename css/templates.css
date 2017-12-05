@@ -32,6 +32,7 @@
 	padding: 0 10px 10px;
 	word-break: normal;
 }
+
 @media screen and (max-width: 782px) {
 	.pdfprnt-pro-feature-templates .column-pdf,
 	.pdfprnt-pro-feature-templates .column-print {
@@ -40,7 +41,6 @@
 	.pdfprnt-pro-feature-templates p.search-box {
 		margin-bottom: -5px;
 	}
-
 	.pdfprnt-pro-feature-templates .pdfprnt_old_wp .column-pdf,
 	.pdfprnt-pro-feature-templates .pdfprnt_old_wp .column-print {
 		display: none;

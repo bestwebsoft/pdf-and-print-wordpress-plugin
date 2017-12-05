@@ -87,7 +87,7 @@ if ( ! function_exists( 'pdfprnt_filename_orientation_block' ) ) {
 				</td>
 			</tr>
 			<tr>
-				<th><?php _e( 'Orientation', 'pdf-print' ); ?></th>
+				<th><?php _e( 'Layout', 'pdf-print' ); ?></th>
 				<td>
 					<?php if ( $orientation_post_types ) {
 						foreach ( array( 'portrait' => __( 'Portrait', 'pdf-print' ), 'landscape' => __( 'Landscape', 'pdf-print' ) ) as $orientation => $orientation_name ) { ?>
@@ -141,9 +141,24 @@ if ( ! function_exists( 'pdfprnt_woocommerce_watermark_block' ) ) {
 				<th><?php _e( 'Watermark Protection', 'pdf-print' ); ?></th>
 				<td>
 					<fieldset>
-						<label><input disabled="disabled" type="radio" checked="checked" /> <?php _e( 'None', 'pdf-print' ); ?></label><br>
-						<label><input disabled="disabled" type="radio" /> <?php _e( 'Text', 'pdf-print' ); ?></label><br>
+						<label><input disabled="disabled" type="radio" /> <?php _e( 'None', 'pdf-print' ); ?></label><br>
+						<label><input disabled="disabled" type="radio" checked="checked" /> <?php _e( 'Text', 'pdf-print' ); ?></label><br>
+						<div id="pdfprnt-watermark-text-wrap">
+							<textarea maxlength="100" rows="3" cols="45"></textarea>
+						</div>
 						<label><input disabled="disabled" type="radio" /> <?php _e( 'Image', 'pdf-print' ); ?></label>
+					</fieldset>
+				</td>
+			</tr>
+			<tr>
+				<th><?php _e( 'Watermark Opacity', 'pdf-print' ); ?></th>
+				<td>
+					<fieldset>
+						<input id="pdfprnt-watermark-opacity" disabled="disabled" type="number" />
+						<div id="pdfprnt_watermark_opacity_wrap">
+							<span id="pdfprnt_watermark_opacity_value"></span>
+							<div id="pdfprnt_watermark_opacity_slider"></div>
+						</div>
 					</fieldset>
 				</td>
 			</tr>
@@ -154,11 +169,79 @@ if ( ! function_exists( 'pdfprnt_woocommerce_watermark_block' ) ) {
 if ( ! function_exists( 'pdfprnt_fancytree_block' ) ) {
 	function pdfprnt_fancytree_block() { ?>
 		<p><?php _e( 'Please choose the necessary post types (or single pages) where PDF & Print buttons will be displayed', 'pdf-print' ); ?>:</p>
-		<p class="bws_jstree_url_wrap"><label>
-			<input disabled="disabled" type="checkbox" checked="checked" />
-			<?php _e( "Show URL", 'pdf-print' ); ?>
-		</label></p>
+		<p class="bws_jstree_url_wrap">
+			<label>
+				<input disabled="disabled" type="checkbox" checked="checked" />
+				<?php _e( "Show URL", 'pdf-print' ); ?>
+			</label>
+		</p>
 		<img src="<?php echo plugins_url( "images/pro_screen_1.png", dirname( __FILE__ ) ); ?>">
+	<?php }
+}
+
+if ( ! function_exists( 'pdfprnt_custom_fields_block' ) ) {
+	function pdfprnt_custom_fields_block() { ?>
+		<div class="pdfprnt-custom-fields-tab-title">
+				<?php _e( 'Available Registered Post Types:', 'pdf-print' );?>
+			</div>
+			<div class="pdfprnt-custom-fields-tab-desc">
+				<?php _e( "Add custom fields and custom data before/after PDF & Print document's content", 'pdf-print' );?>
+			</div>
+			<div class="pdfprnt-custom-accordion">
+				<h3><?php _e( 'Posts', 'pdf-print' );?></h3>
+				<div>
+					<div>
+						<div class="pdfprnt-before-after-title">
+								<?php _e( 'Data Before Content', 'pdf-print' );?>
+							</div>
+						<img class="pdfprnt_banner_accordion" src="<?php echo plugins_url( "images/pro_screen_2.png", dirname( __FILE__ ) ); ?>">
+						<div class="pdfprnt-before-after-title">
+								<?php _e( 'Data After Content', 'pdf-print' );?>
+							</div>
+						<img class="pdfprnt_banner_accordion" src="<?php echo plugins_url( "images/pro_screen_2.png", dirname( __FILE__ ) ); ?>">
+						<table class="form-table">
+							<tr>
+								<th scope="row"><?php _e( 'Custom Fields Displaying', 'pdf-print' ) ?></th>
+								<td>
+									<fieldset>
+										<label>
+											<input disabled="disabled" type="radio" >&nbsp;<?php _e( 'Default', 'pdf-print' ); ?>
+												<span class="pdfprnt-custom-fields-commentary">
+													(<?php _e( 'custom fields are shown by default; you can hide them using "Do not show PDF & Print Custom fields" option', 'pdf-print' ); ?>)
+												</span>
+										</label>
+										<br>
+										<label>
+											<input disabled="disabled" type="radio">&nbsp;<?php _e( 'Force Hide', 'pdf-print' ); ?>
+												<span class="pdfprnt-custom-fields-commentary">
+													(<?php _e( 'custom fields are hidden regardless the "Do not show PDF & Print Custom fields" option', 'pdf-print' ); ?>)
+												</span>
+										</label>
+										<br>
+										<label>
+											<input disabled="disabled" type="radio" >&nbsp;<?php _e( 'Force Show', 'pdf-print' ); ?>
+												<span class="pdfprnt-custom-fields-commentary">
+													(<?php _e( 'custom fields are shown regardless the "Do not show PDF & Print Custom fields" option', 'pdf-print' ); ?>)
+												</span>
+										</label>
+									</fieldset>
+								</td>
+							</tr>
+							<tr>
+								<th scope="row"><?php _e( 'Clear all "Do not show PDF & Print Custom fields" options', 'pdf-print' );?></th>
+								<td>
+									<button name="pdfprnt_clean_custom_fields_for_all" class="button">
+										<?php _e( 'Clear Options', 'pdf-print' ); ?>
+									</button>
+									<div class="bws_info"><?php _e( 'This will clear all "Do not show PDF & Print Custom Fields" options for all Posts.' , 'pdf-print' );?></div>
+								</td>
+							</tr>
+						</table>
+					</div>
+				</div>
+				<h3><?php _e( 'Pages', 'pdf-print' );?></h3>
+				<h3><?php _e( 'Products', 'pdf-print' );?></h3>
+			</div>
 	<?php }
 }
 
@@ -343,18 +426,18 @@ if ( ! function_exists( 'pdfprnt_headers_footers_editor_block' ) ) {
 							<div class="clear"></div>
 							<div class="postarea wp-editor-expand">
 								<?php if ( function_exists( 'wp_editor' ) ) {
-									$settings  = array(
-											'wpautop'       => 1,
-											'media_buttons' => 1,
-											'textarea_name' => 'pdfprnt_top',
-											'textarea_rows' => 5,
-											'tabindex'      => null,
-											'editor_css'    => '<style>.mce-content-body { width: 100%; max-width: 100%; background: red;}</style>',
-											'editor_class'  => 'pdfprnt_top',
-											'teeny'         => 0,
-											'dfw'           => 0,
-											'tinymce'       => 1,
-											'quicktags'     => 1
+									$settings = array(
+											'wpautop'		=> 1,
+											'media_buttons'	=> 1,
+											'textarea_name'	=> 'pdfprnt_top',
+											'textarea_rows'	=> 5,
+											'tabindex'		=> null,
+											'editor_css'	=> '<style>.mce-content-body { width: 100%; max-width: 100%; background: red;}</style>',
+											'editor_class'	=> 'pdfprnt_top',
+											'teeny'			=> 0,
+											'dfw'			=> 0,
+											'tinymce'		=> 1,
+											'quicktags'		=> 1
 										);
 									wp_editor( '', 'pdfprnt_top', $settings );
 								} else { ?>
@@ -379,32 +462,32 @@ if ( ! function_exists( 'pdfprnt_headers_footers_editor_block' ) ) {
 									<strong>{POSTDATE}</strong> - <?php _e( 'The date when the post was created', 'pdf-print' ); ?>&nbsp;(&nbsp;<?php _e( 'this shortcode will be replaced to the current date on search or archive pages', 'pdf-print' ); ?>&nbsp;).
 								</span>
 								<span>
-									<?php _e( 'You can specify your own DateTime format for {DATE} and {POSTDATE} shortcodes. For example', 'pdf-print-pro', 'pdf-print' ); ?>:
+									<?php _e( 'You can specify your own DateTime format for {DATE} and {POSTDATE} shortcodes. For example', 'pdf-print' ); ?>:
 								</span>
 								<code>{DATE l, F j, Y g:i a}</code>&nbsp;<?php _e( 'or', 'pdf-print' ); ?>&nbsp;<code>{POSTDATE l, F j, Y g:i a}</code>
 								<a target="_blank" href="https://codex.wordpress.org/Formatting_Date_and_Time"><?php _e( 'Read more about date and time formatting', 'pdf-print' ); ?></a><br />
 								<span>
 									<strong>{POSTAUTHOR}</strong> - <?php echo __( 'Author of the post', 'pdf-print' ) . '&nbsp;(&nbsp;' . __( 'for single posts or pages only', 'pdf-print' ); ?>&nbsp;).
 								</span>
-							</div><!-- .pdfprnt-template-editor-shortcodes  -->
+							</div><!-- .pdfprnt-template-editor-shortcodes -->
 						</div>
 						<div class="pdfprnt-template-editor">
 							<h3 class="pdfprnt-template-editor-title"><span><?php _e( 'Footer', 'pdf-print' ); ?></span></h3>
 							<div class="clear"></div>
 							<div class="postarea wp-editor-expand">
 								<?php if ( function_exists( 'wp_editor' ) ) {
-									$settings  = array(
-										'wpautop'       => 1,
-										'media_buttons' => 1,
-										'textarea_name' => 'pdfprnt_bottom',
-										'textarea_rows' => 5,
-										'tabindex'      => null,
-										'editor_css'    => '',
-										'editor_class'  => 'pdfprnt_bottom',
-										'teeny'         => 0,
-										'dfw'           => 0,
-										'tinymce'       => 1,
-										'quicktags'     => 1
+									$settings = array(
+										'wpautop'		=> 1,
+										'media_buttons'	=> 1,
+										'textarea_name'	=> 'pdfprnt_bottom',
+										'textarea_rows'	=> 5,
+										'tabindex'		=> null,
+										'editor_css'	=> '',
+										'editor_class'	=> 'pdfprnt_bottom',
+										'teeny'			=> 0,
+										'dfw'			=> 0,
+										'tinymce'		=> 1,
+										'quicktags'		=> 1
 									);
 									wp_editor( '', 'pdfprnt_bottom', $settings );
 								} else { ?>
@@ -429,14 +512,14 @@ if ( ! function_exists( 'pdfprnt_headers_footers_editor_block' ) ) {
 									<strong>{POSTDATE}</strong> - <?php _e( 'The date when the post was created', 'pdf-print' ); ?>&nbsp;(&nbsp;<?php _e( 'this shortcode will be replaced to the current date on search or archive pages', 'pdf-print' ); ?>&nbsp;).
 								</span>
 								<span>
-									<?php _e( 'You can specify your own DateTime format for {DATE} and {POSTDATE} shortcodes. For example', 'pdf-print-pro', 'pdf-print' ); ?>:
+									<?php _e( 'You can specify your own DateTime format for {DATE} and {POSTDATE} shortcodes. For example', 'pdf-print' ); ?>:
 								</span>
 								<code>{DATE l, F j, Y g:i a}</code>&nbsp;<?php _e( 'or', 'pdf-print' ); ?>&nbsp;<code>{POSTDATE l, F j, Y g:i a}</code>
 								<a target="_blank" href="https://codex.wordpress.org/Formatting_Date_and_Time"><?php _e( 'Read more about date and time formatting', 'pdf-print' ); ?></a><br />
 								<span>
 									<strong>{POSTAUTHOR}</strong> - <?php echo __( 'Author of the post', 'pdf-print' ) . '&nbsp;(&nbsp;' . __( 'for single posts or pages only', 'pdf-print' ); ?>&nbsp;).
 								</span>
-							</div><!-- .pdfprnt-template-editor-shortcodes  -->
+							</div><!-- .pdfprnt-template-editor-shortcodes -->
 						</div>
 					</div>
 				</div>

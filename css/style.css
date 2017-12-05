@@ -38,6 +38,58 @@
 	position: absolute;
 	display: none;
 }
+#pdfprnt-watermark-text-wrap {
+	margin: 0 0 20px;
+	max-width: 500px;
+	width: 100%;
+}
+#pdfprnt_watermark_opacity_slider {
+	width: 140px;
+	display: inline-block;
+	margin-left: 10px;
+}
+#pdfprnt_watermark_opacity_value {
+	color: #444;
+}
+.pdfprnt-before-after-title,
+.pdfprnt-custom-fields-tab-title {
+	vertical-align: top;
+	padding: 10px 10px 20px 0;
+	width: auto;
+	line-height: 1.3;
+	text-align: left;
+	font-weight: 600;
+	font-size: 14px;
+}
+.pdfprnt-custom-fields-tab-desc {
+	padding-bottom: 20px;
+}
+.pdfprnt-custom-fields-commentary {
+	color: #888;
+	font-size: 13px;
+	font-style: italic;
+}
+.rtl .pdfprnt-before-after-title {
+	padding: 10px 0 20px 10px;
+	text-align: right;
+}
+#pdfprnt_custom_fields_tab .ui-accordion-header {
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background: initial;
+	border: 1px solid #aaa;
+	color: #212121;
+	font-style: italic;
+	font-weight: normal;
+	font-size: 14px;
+}
+
+@media screen and ( max-width: 1200px ) {
+	.pdfprnt_banner_accordion {
+		width: 100%;
+		height: auto;
+	}
+}
 
 @media screen and ( max-width: 782px ) {
 	.pdfprnt-table-settings th {

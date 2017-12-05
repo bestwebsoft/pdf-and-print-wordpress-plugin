@@ -7,7 +7,7 @@ require_once( dirname( dirname( __FILE__ ) ) . '/bws_menu/class-bws-settings.php
 
 if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 	class Pdfprnt_Settings_Tabs extends Bws_Settings_Tabs {
-		public $post_types, $button_positions, $button_image, $margin_positions, $default_css_types, $upload_dir;
+		public $post_types, $button_positions, $button_image, $margin_positions, $default_css_types, $upload_dir, $page_sizes;
 		public $need_fonts_reload = false;
 
 		/**
@@ -26,7 +26,8 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 				'settings'		=> array( 'label' => __( 'Settings', 'pdf-print' ) ),
 				'output'		=> array( 'label' => __( 'Output', 'pdf-print' ) ),
 				'display'		=> array( 'label' => __( 'Display', 'pdf-print' ), 'is_pro' => 1 ),
-				'misc' 			=> array( 'label' => __( 'Misc', 'pdf-print' ) ),
+				'misc'			=> array( 'label' => __( 'Misc', 'pdf-print' ) ),
+				'custom_fields'	=> array( 'label' => __( 'Custom Fields', 'pdf-print' ) , 'is_pro' => 1 ),
 				'custom_code'	=> array( 'label' => __( 'Custom Code', 'pdf-print' ) ),
 				'license'		=> array( 'label' => __( 'License Key', 'pdf-print' ) ),
 			);
@@ -49,8 +50,8 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 			add_action( get_parent_class( $this ) . '_display_custom_messages', array( $this, 'display_custom_messages' ) );
 
 			$this->buttons = array(
-				'pdf' => __( 'PDF', 'pdf-print' ),
-				'print' => __( 'Print', 'pdf-print' )
+				'pdf'	=> __( 'PDF', 'pdf-print' ),
+				'print'	=> __( 'Print', 'pdf-print' )
 			);
 
 			/* Get post types */
@@ -91,6 +92,8 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 				'theme'		=> __( 'Current theme', 'pdf-print' )
 			);
 
+			$this->page_sizes = pdfprnt_get_pdf_page_sizes();
+
 			if ( $this->is_multisite ) {
 				switch_to_blog( 1 );
 				$this->upload_dir = wp_upload_dir();
@@ -109,7 +112,7 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 		public function display_custom_messages( $save_results ) {
 			global $pdfprnt_is_old_php;
 			$message = $error = ""; ?>
-			<noscript><div class="error below-h2"><p><strong><?php _e( "Please enable JavaScript in Your browser.", 'pdf-print' ); ?></strong></p></div></noscript>
+			<noscript><div class="error below-h2"><p><strong><?php _e( "Please enable JavaScript in your browser.", 'pdf-print' ); ?></strong></p></div></noscript>
 			<?php if ( $pdfprnt_is_old_php ) { ?>
 				<div class="error below-h2"><p><strong><?php printf( __( "Pdf&Print plugin requires PHP %s or higher. Please contact your hosting provider to upgrade PHP version.", 'pdf-print' ), '5.4.0' ); ?></strong></p></div>
 			<?php }
@@ -211,7 +214,7 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 
 				/* Button Title */
 				$this->options['button_title'][ $button ] =
-					(	isset( $_POST['pdfprnt_button_title'][ $button ] )	)
+					( isset( $_POST['pdfprnt_button_title'][ $button ] ) )
 				?
 					stripslashes( sanitize_text_field( $_POST['pdfprnt_button_title'][ $button ] ) )
 				:
@@ -235,6 +238,9 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 			/* Shortcode Settings */
 			$this->options['do_shorcodes'] = isset( $_POST['pdfprnt_do_shorcodes'] ) ? 1 : 0;
 
+			/* PDF Page Size */
+			$this->options['pdf_page_size'] = ( isset( $_POST['pdfprnt_pdf_page_size'] ) && in_array( $_POST['pdfprnt_pdf_page_size'], $this->page_sizes ) ) ? $_POST['pdfprnt_pdf_page_size'] : 'A4';
+
 			/* Margins */
 			if ( isset( $_POST['pdfprnt_pdf_margins'] ) && is_array( $_POST['pdfprnt_pdf_margins'] ) ) {
 
@@ -249,12 +255,12 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 			$this->options['show_title'] = isset( $_POST['pdfprnt_show_title'] ) ? 1 : 0;
 			$this->options['show_featured_image'] = isset( $_POST['pdfprnt_show_featured_image'] ) ? 1 : 0;
 
+			/* Featured Image Size */
+			$this->options['featured_image_size'] = isset( $_POST['pdfprnt_featured_image_size'] ) ? esc_attr( $_POST['pdfprnt_featured_image_size'] ) : 'thumbnail';
+
 			/* Default CSS */
 			$this->options['use_default_css'] =
-				( isset( $_POST['pdfprnt_use_default_css'] ) && array_key_exists( $_POST['pdfprnt_use_default_css'], $this->default_css_types ) )
-			? $_POST['pdfprnt_use_default_css']
-
-			: 'default';
+				( isset( $_POST['pdfprnt_use_default_css'] ) && array_key_exists( $_POST['pdfprnt_use_default_css'], $this->default_css_types ) ) ? $_POST['pdfprnt_use_default_css'] : 'default';
 
 			$this->options['use_custom_css'] = ( isset( $_POST['pdfprnt_use_custom_css'] ) ) ? 1 : 0;
 
@@ -371,12 +377,27 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 		<?php }
 
 		public function tab_output() {
-			$margin_positions_groups = array_chunk( array_keys( $this->margin_positions ), 2 ); ?>
+			$margin_positions_groups = array_chunk( array_keys( $this->margin_positions ), 2 );
+			$wp_sizes = get_intermediate_image_sizes(); ?>
 			<h3 class="bws_tab_label"><?php _e( 'Document Output Settings', 'pdf-print' ); ?></h3>
 			<?php $this->help_phrase(); ?>
 			<hr>
 			<?php $this->pro_block( 'filename_orientation_block', $this->post_types ); ?>
 			<table class="form-table pdfprnt-table-settings">
+				<tr>
+					<th><?php _e( 'PDF Page Size', 'pdf-print' ); ?></th>
+					<td>
+						<fieldset>
+							<select name="pdfprnt_pdf_page_size">
+								<?php for ($i=0; $i < count( $this->page_sizes ); $i++) {
+										$selected = ( $this->options['pdf_page_size'] == $this->page_sizes[$i] ) ? ' selected' : '';
+										echo '<option value="'.$this->page_sizes[$i].'"'.$selected.'>'.$this->page_sizes[$i].'</option>';
+									}
+								?>
+							</select>
+						</fieldset>
+					</td>
+				</tr>
 				<tr>
 					<th><?php _e( 'Margins', 'pdf-print' ); ?></th>
 					<td>
@@ -400,6 +421,21 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 							<label><input type="checkbox" name="pdfprnt_show_title" value="1" <?php checked( 1, $this->options['show_title'] ); ?> /> <?php _e( 'Title', 'pdf-print' ); ?></label><br>
 							<label><input type="checkbox" name="pdfprnt_show_featured_image" value="1" <?php checked( 1, $this->options['show_featured_image'] ); ?> /> <?php _e( 'Featured image', 'pdf-print' ); ?></label>
 						</fieldset>
+					</td>
+				</tr>
+				<tr id="pdfprnt_featured_image_size_wrap" valign="top">
+					<th scope="row"><?php _e( 'Featured Image Size', 'pdf-print' ); ?></th>
+					<td>
+						<select name="pdfprnt_featured_image_size">
+							<?php for ($i=0; $i < count( $wp_sizes ); $i++) {
+								printf(
+									'<option value="%s" %s>%s</option>',
+										$wp_sizes[$i],
+										selected( ( $this->options['featured_image_size'] == $wp_sizes[$i] ), true, false ),
+										$wp_sizes[$i]
+								);
+							} ?>
+						</select>
 					</td>
 				</tr>
 			</table>
@@ -467,6 +503,14 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 			<?php $this->help_phrase(); ?>
 			<hr>
 			<?php $this->pro_block( 'fancytree_block' );
+		}
+
+		/* display Custom Fields settings tab */
+		public function tab_custom_fields() { ?>
+			<h3 class="bws_tab_label"><?php _e( 'Custom Fields Settings', 'pdf-print' ); ?></h3>
+			<?php $this->help_phrase(); ?>
+			<hr>
+			<?php $this->pro_block( 'custom_fields_block' );
 		}
 
 		/* Display bws_pro_version block by its name */

@@ -26,7 +26,7 @@
 						break;
 				}
 			}
-		} ).trigger('change');
+		} ).trigger( 'change' );
 
 		/**
  		 * Ajax request for load additional fonts
@@ -71,7 +71,7 @@
 		} );
 
 		if ( $( 'input[name="pdfprnt_use_custom_css"]' ).length ) {
-			var textarea   = $( '#pdfprnt_custom_css_code_wrap' ),
+			var textarea = $( '#pdfprnt_custom_css_code_wrap' ),
 				add_editor = false;
 			if ( textarea.is( ':visible' ) && ! textarea.parents( 'body' ).hasClass( 'rtl' ) && ! add_editor ) { /* excluding .rtl pages because codeMirror doesn`t work properly in case textarea is inside table td */
 				pdfprnt_add_editor();
@@ -92,6 +92,32 @@
 				}
 			} );
 		}
+
+		/* Featured Image Size */
+		$( 'input[name="pdfprnt_show_featured_image"]' ).on('change', function() {
+			if ( $( this ).is( ':checked' ) ) {
+				$( "#pdfprnt_featured_image_size_wrap" ).show();
+			} else {
+				$( "#pdfprnt_featured_image_size_wrap" ).hide();
+			}
+		}).trigger( 'change' );
+
+		/* Watermark Opacity */
+		$( '#pdfprnt_watermark_opacity_slider' ).slider( {
+			value : 0.3,
+			min   : 0.1,
+			max   : 1,
+			step  : 0.05,
+			create : function( event, ui ) {
+				$( '#pdfprnt_watermark_opacity_value' ).text( '[' + $( this ).slider( 'value' ) + ']' );
+				$( '#pdfprnt-watermark-opacity' ).hide();
+			},
+			disabled: true
+		} );
+
+		$( '.pdfprnt-custom-accordion' ).accordion( {
+			heightStyle: 'content'
+		} );
 	} );
 } )( jQuery );
 
@@ -106,8 +132,8 @@ function pdfprnt_add_labels() {
 			if ( ! $( '.pdfprnt_label' ).length ) {
 				/* get text of column headers */
 				$( '.pdfprnt_table_head' ).children().each( function() {
-				 	labels[i] = $( this ).text();
-				 	i ++;
+					labels[i] = $( this ).text();
+					i ++;
 				} );
 				/* add labels */
 				for ( i = 1; i < 5; i ++ ) {
