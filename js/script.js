@@ -29,6 +29,26 @@
 		} ).trigger( 'change' );
 
 		/**
+			* Add All select *
+		*/
+		$( '.pdfprnt_role' ).on( 'change', function() {
+			var checkboxes = $( '.pdfprnt_role' );
+			if ( checkboxes.filter( ':checked' ).length == checkboxes.length ) {
+				$( '.pdfprnt_select_all' ).prop( 'checked', true );
+			} else {
+				$( '.pdfprnt_select_all' ).prop( 'checked', false );
+			}
+		} ).trigger( 'change' );
+
+		$( '.pdfprnt_select_all' ).on( 'change', function() {
+			if ( $( this ).is( ':checked' ) ) {
+				$( '.pdfprnt_role' ).prop( 'checked', true );
+			} else {
+				$( '.pdfprnt_role' ).prop( 'checked', false );
+			}
+		} );
+
+		/**
  		 * Ajax request for load additional fonts
  		 */
 		var input = $( 'input[name="pdfprnt_load_fonts"]' );
@@ -77,8 +97,8 @@
 				pdfprnt_add_editor();
 				add_editor = true;
 			}
-			$( 'input[name="pdfprnt_use_custom_css"]' ).click( function() {
 
+			$( 'input[name="pdfprnt_use_custom_css"]' ).click( function() {
 				if ( $( this ).is( ':checked' ) && ! $( this ).parents( 'body' ).hasClass( 'rtl' ) ) { /* excluding .rtl pages because codeMirror doesn`t work properly in case textarea is inside table td */
 					textarea.show();
 					if ( ! add_editor ) {
@@ -160,3 +180,4 @@ function pdfprnt_add_editor() {
 		}
 	);
 }
+

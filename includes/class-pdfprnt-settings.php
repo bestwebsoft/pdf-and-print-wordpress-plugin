@@ -7,7 +7,7 @@ require_once( dirname( dirname( __FILE__ ) ) . '/bws_menu/class-bws-settings.php
 
 if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 	class Pdfprnt_Settings_Tabs extends Bws_Settings_Tabs {
-		public $post_types, $button_positions, $button_image, $margin_positions, $default_css_types, $upload_dir, $page_sizes;
+		public $post_types, $button_positions, $button_image, $margin_positions, $default_css_types, $upload_dir, $page_sizes, $editable_roles;
 		public $need_fonts_reload = false;
 
 		/**
@@ -20,46 +20,46 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 		 * @param string $plugin_basename
 		 */
 		public function __construct( $plugin_basename ) {
-			global $pdfprnt_options, $pdfprnt_plugin_info;
+			global $pdfprnt_options, $pdfprnt_plugin_info, $wp_roles;
 
 			$tabs = array(
-				'settings'		=> array( 'label' => __( 'Settings', 'pdf-print' ) ),
-				'output'		=> array( 'label' => __( 'Output', 'pdf-print' ) ),
-				'display'		=> array( 'label' => __( 'Display', 'pdf-print' ), 'is_pro' => 1 ),
-				'misc'			=> array( 'label' => __( 'Misc', 'pdf-print' ) ),
-				'custom_fields'	=> array( 'label' => __( 'Custom Fields', 'pdf-print' ) , 'is_pro' => 1 ),
-				'custom_code'	=> array( 'label' => __( 'Custom Code', 'pdf-print' ) ),
-				'license'		=> array( 'label' => __( 'License Key', 'pdf-print' ) ),
+				'settings'				=> array( 'label' => __( 'Settings', 'pdf-print' ) ),
+				'output'				=> array( 'label' => __( 'Output', 'pdf-print' ) ),
+				'display'				=> array( 'label' => __( 'Display', 'pdf-print' ), 'is_pro' => 1 ),
+				'misc'					=> array( 'label' => __( 'Misc', 'pdf-print' ) ),
+				'custom_fields'			=> array( 'label' => __( 'Custom Fields', 'pdf-print' ) , 'is_pro' => 1 ),
+				'custom_code'			=> array( 'label' => __( 'Custom Code', 'pdf-print' ) ),
+				'license'				=> array( 'label' => __( 'License Key', 'pdf-print' ) ),
 			);
 
 			parent::__construct( array(
-				'plugin_basename'		=> $plugin_basename,
-				'plugins_info'			=> $pdfprnt_plugin_info,
-				'prefix'				=> 'pdfprnt',
-				'default_options'		=> pdfprnt_get_options_default(),
-				'options'				=> $pdfprnt_options,
-				'is_network_options'	=> is_network_admin(),
-				'tabs'					=> $tabs,
-				'wp_slug'				=> 'pdf-print',
-				'pro_page'				=> 'admin.php?page=pdf-print-pro.php',
-				'bws_license_plugin'	=> 'pdf-print-pro/pdf-print-pro.php',
-				'link_key'				=> 'd9da7c9c2046bed8dfa38d005d4bffdb',
-				'link_pn'				=> '101'
+				'plugin_basename'			=> $plugin_basename,
+				'plugins_info'				=> $pdfprnt_plugin_info,
+				'prefix'					=> 'pdfprnt',
+				'default_options'			=> pdfprnt_get_options_default(),
+				'options'					=> $pdfprnt_options,
+				'is_network_options'		=> is_network_admin(),
+				'tabs'						=> $tabs,
+				'wp_slug'					=> 'pdf-print',
+				'pro_page'					=> 'admin.php?page=pdf-print-pro.php',
+				'bws_license_plugin'		=> 'pdf-print-pro/pdf-print-pro.php',
+				'link_key'					=> 'd9da7c9c2046bed8dfa38d005d4bffdb',
+				'link_pn'					=> '101'
 			) );
 
 			add_action( get_parent_class( $this ) . '_display_custom_messages', array( $this, 'display_custom_messages' ) );
 
 			$this->buttons = array(
-				'pdf'	=> __( 'PDF', 'pdf-print' ),
-				'print'	=> __( 'Print', 'pdf-print' )
+				'pdf'		=> __( 'PDF', 'pdf-print' ),
+				'print'		=> __( 'Print', 'pdf-print' )
 			);
 
 			/* Get post types */
 			$this->post_types = get_post_types( array( 'public' => 1, 'show_ui' => 1 ), 'objects' );
 			unset( $this->post_types['attachment'] );
 			$standard_post_types = array(
-				'pdfprnt_search'	=> __( 'Search results', 'pdf-print' ),
-				'pdfprnt_archives'	=> __( 'Archives', 'pdf-print' )
+				'pdfprnt_search'		=> __( 'Search results', 'pdf-print' ),
+				'pdfprnt_archives'		=> __( 'Archives', 'pdf-print' )
 			);
 			foreach ( $standard_post_types as $key => $value ) {
 				$add_post_type = new stdClass();
@@ -67,12 +67,12 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 			}
 
 			$this->button_positions = array(
-				'top-left'			=> __( 'Top Left', 'pdf-print' ),
-				'top-right'			=> __( 'Top Right', 'pdf-print' ),
-				'bottom-left'		=> __( 'Bottom Left', 'pdf-print' ),
-				'bottom-right'		=> __( 'Bottom Right', 'pdf-print' ),
-				'top-bottom-left'	=> __( 'Top & Bottom Left', 'pdf-print' ),
-				'top-bottom-right'	=> __( 'Top & Bottom Right', 'pdf-print' )
+				'top-left'					=> __( 'Top Left', 'pdf-print' ),
+				'top-right'					=> __( 'Top Right', 'pdf-print' ),
+				'bottom-left'				=> __( 'Bottom Left', 'pdf-print' ),
+				'bottom-right'				=> __( 'Bottom Right', 'pdf-print' ),
+				'top-bottom-left'			=> __( 'Top & Bottom Left', 'pdf-print' ),
+				'top-bottom-right'			=> __( 'Top & Bottom Right', 'pdf-print' )
 			);
 
 			$this->button_image = array(
@@ -81,7 +81,7 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 			);
 
 			$this->margin_positions = array(
-				'top'		=> __( 'Top', 'pdf-print' ),
+				'top'			=> __( 'Top', 'pdf-print' ),
 				'bottom'	=> __( 'Bottom', 'pdf-print' ),
 				'left'		=> __( 'Left', 'pdf-print' ),
 				'right'		=> __( 'Right', 'pdf-print' )
@@ -93,6 +93,8 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 			);
 
 			$this->page_sizes = pdfprnt_get_pdf_page_sizes();
+
+			$this->editable_roles = $wp_roles->roles;
 
 			if ( $this->is_multisite ) {
 				switch_to_blog( 1 );
@@ -273,6 +275,16 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 				}
 			}
 
+			/* Buttons open */
+			$this->options['file_action'] = ( isset( $_POST['pdfprnt_file_action'] ) ) ? $_POST['pdfprnt_file_action'] : 'open';
+
+			/* All select */
+			$this->options['enabled_roles'] = array();
+			foreach ( $this->editable_roles as $role => $fields ) {
+				$this->options['enabled_roles'][ $role ] = isset( $_POST['pdfprnt_' . $role ] ) ? 1 : 0;
+			}
+			$this->options['enabled_roles']['unauthorized'] = isset( $_POST['pdfprnt_unauthorized'] ) ? 1 : 0;
+
 			update_option( 'pdfprnt_options', $this->options );
 			$message = __( 'Settings saved.', 'pdf-print' );
 
@@ -356,7 +368,7 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 					<th><?php _e( 'Print Preview Window', 'pdf-print' ); ?></th>
 					<td>
 						<label>
-							<input type="checkbox" name="pdfprnt_show_print_window" value="1" <?php checked( 1, $this->options['show_print_window'] ); ?> />
+							<input type="checkbox" name="pdfprnt_show_print_window" value="1" <?php checked( $this->options['show_print_window'] ); ?> />
 							<span class="bws_info"><?php _e( 'Enable to display print preview window with advanced settings.', 'pdf-print' ); ?></span>
 						</label>
 					</td>
@@ -368,9 +380,44 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 					<th><?php _e( 'Print Shortcodes', 'pdf-print' ); ?></th>
 					<td>
 						<label>
-							<input type="checkbox" name="pdfprnt_do_shorcodes" value="1" <?php checked( 1, $this->options['do_shorcodes'] ); ?> />
+							<input type="checkbox" name="pdfprnt_do_shorcodes" value="1" <?php checked( $this->options['do_shorcodes'] ); ?> />
 							<span class="bws_info"><?php _e( 'Enable to print shortcodes with data generated by other plugins (recommended).', 'pdf-print' ); ?></span>
 						</label>
+					</td>
+				</tr>
+				<tr>
+					<th><?php _e( 'Download or Open', 'pdf-print' ); ?></th>
+					<td>
+						<fieldset>
+							<label>
+								<input type="radio" name="pdfprnt_file_action" value="download" <?php checked( $this->options['file_action'], 'download' ); ?> /><?php _e( 'Download PDF', 'pdf-print' ); ?>
+							</label><br />
+							<label>
+								<input type="radio" name="pdfprnt_file_action" value="open" <?php checked( $this->options['file_action'], 'open' ); ?> /><?php _e( 'Open PDF', 'pdf-print' ); ?>
+							</label><br />
+						</fieldset>
+					</td>
+				</tr>
+				<tr>
+					<th><?php _e( 'Enable Buttons for', 'pdf-print' ); ?></th>
+					<td>
+						<fieldset>
+							<label class=hide-if-no-js>
+								<input type="checkbox" class="pdfprnt_select_all" /><strong><?php _e( 'All', 'pdf-print' ); ?></strong>
+							</label><br />
+							<?php foreach ( $this->editable_roles as $role => $fields ) {
+									printf(
+										'<label><input type="checkbox" name="%1$s" class="pdfprnt_role" value="%2$s" %3$s /> %4$s</label><br/>',
+										'pdfprnt_' . $role,
+										$role,
+										checked( ! empty( $this->options['enabled_roles'][ $role ] ), true, false ),
+										translate_user_role( $fields['name'] )
+									);
+								} ?>
+							<label>
+								<input type="checkbox" name="pdfprnt_unauthorized" class="pdfprnt_role" value="1" <?php checked( ! empty( $this->options['enabled_roles']['unauthorized'] ) ); ?> /><?php _e( 'Unauthorized', 'pdf-print' ); ?>
+							</label>
+						</fieldset>
 					</td>
 				</tr>
 			</table>

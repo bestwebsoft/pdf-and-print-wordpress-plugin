@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdf-print\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-12-04 15:16+0200\n"
+"POT-Creation-Date: 2018-02-08 14:04+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: BestWebSoft team <wp@bestwebsoft.com>\n"
 "Language-Team: bestwebsoft.com <plugin@bestwebsoft.com>\n"
@@ -18,8 +18,8 @@ msgstr ""
 "%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: includes/class-pdfprnt-settings.php:26 pdf-print.php:40 pdf-print.php:675
-#: pdf-print.php:691
+#: includes/class-pdfprnt-settings.php:26 pdf-print.php:40 pdf-print.php:709
+#: pdf-print.php:725
 msgid "Settings"
 msgstr "Налаштування"
 
@@ -47,11 +47,11 @@ msgstr "Користувацький код"
 msgid "License Key"
 msgstr "Ліцензійний ключ"
 
-#: includes/class-pdfprnt-settings.php:53 pdf-print.php:350
+#: includes/class-pdfprnt-settings.php:53 pdf-print.php:371
 msgid "PDF"
 msgstr "PDF"
 
-#: includes/class-pdfprnt-settings.php:54 pdf-print.php:355
+#: includes/class-pdfprnt-settings.php:54 pdf-print.php:376
 msgid "Print"
 msgstr "Print"
 
@@ -116,11 +116,11 @@ msgstr "Праворуч"
 msgid "Current theme"
 msgstr "Поточна тема"
 
-#: includes/class-pdfprnt-settings.php:115
+#: includes/class-pdfprnt-settings.php:117
 msgid "Please enable JavaScript in your browser."
 msgstr "Будь ласка, увімкніть JavaScript у вашому браузері."
 
-#: includes/class-pdfprnt-settings.php:117
+#: includes/class-pdfprnt-settings.php:119
 #, php-format
 msgid ""
 "Pdf&Print plugin requires PHP %s or higher. Please contact your hosting "
@@ -129,11 +129,11 @@ msgstr ""
 "PDF & Print вимагає PHP версії %s, або вище. Будь ласка, зв'яжіться з вашим "
 "хостинг провайдером щоб оновити версію PHP."
 
-#: includes/class-pdfprnt-settings.php:128
+#: includes/class-pdfprnt-settings.php:130
 msgid "Warning: Not enough permissions for the folder"
 msgstr "Увага: у вас немає необхідних прав до цього розділу"
 
-#: includes/class-pdfprnt-settings.php:129
+#: includes/class-pdfprnt-settings.php:131
 #, php-format
 msgid ""
 "Please check and change permissions for your plugins folder (for folders - "
@@ -142,57 +142,57 @@ msgstr ""
 "Будь-ласка, перевірте права на вашу папку із плагінами  ( для папок - 755, "
 "для файлів - 644 ). Більше детальну інформацію дивіться %s та %s."
 
-#: includes/class-pdfprnt-settings.php:130
+#: includes/class-pdfprnt-settings.php:132
 msgid "Changing File Permissions"
 msgstr "Зміна прав на файли"
 
-#: includes/class-pdfprnt-settings.php:131
-#: includes/class-pdfprnt-settings.php:155
-#: includes/class-pdfprnt-settings.php:167
-#: includes/class-pdfprnt-settings.php:463 pdf-print.php:693 pdf-print.php:720
+#: includes/class-pdfprnt-settings.php:133
+#: includes/class-pdfprnt-settings.php:157
+#: includes/class-pdfprnt-settings.php:169
+#: includes/class-pdfprnt-settings.php:522 pdf-print.php:727 pdf-print.php:754
 msgid "FAQ"
 msgstr "FAQ"
 
-#: includes/class-pdfprnt-settings.php:141
+#: includes/class-pdfprnt-settings.php:143
 #, php-format
 msgid "The folder %s was removed."
 msgstr "Папка %s була видалена."
 
-#: includes/class-pdfprnt-settings.php:148
+#: includes/class-pdfprnt-settings.php:150
 #, php-format
 msgid "Some fonts were removed from %s folder."
 msgstr "Деякі шрифти з папки %s були видалені."
 
-#: includes/class-pdfprnt-settings.php:154 pdf-print.php:719
+#: includes/class-pdfprnt-settings.php:156 pdf-print.php:753
 #, php-format
 msgid "It is necessary to reload fonts. For more info, please see %s."
 msgstr ""
 "Необхідно перезавантажити шрифти. Більш детальну інформацію дивіться %s."
 
-#: includes/class-pdfprnt-settings.php:166
+#: includes/class-pdfprnt-settings.php:168
 #, php-format
 msgid "It is necessary to reload fonts. For more info, please see %s"
 msgstr ""
 "Необхідно перезавантажити шрифти. Більш детальну інформацію дивіться %s"
 
-#: includes/class-pdfprnt-settings.php:270
+#: includes/class-pdfprnt-settings.php:272
 msgid "You have entered too much text in the \"edit styles\" field."
 msgstr "Ви ввели забагато тексту в поле редагування стилів."
 
-#: includes/class-pdfprnt-settings.php:277
+#: includes/class-pdfprnt-settings.php:289
 msgid "Settings saved."
 msgstr "Налаштування збережені."
 
-#: includes/class-pdfprnt-settings.php:283 pdf-print.php:39 pdf-print.php:40
-#: pdf-print.php:247
+#: includes/class-pdfprnt-settings.php:300 pdf-print.php:39 pdf-print.php:40
+#: pdf-print.php:268
 msgid "PDF & Print Settings"
 msgstr "Налаштування PDF & Print"
 
-#: includes/class-pdfprnt-settings.php:288
+#: includes/class-pdfprnt-settings.php:305
 msgid "Add Button to"
 msgstr "Додати кнопки в"
 
-#: includes/class-pdfprnt-settings.php:304
+#: includes/class-pdfprnt-settings.php:321
 msgid ""
 "Follow the instruction in order to add PDF & Print button to custom post or "
 "page template."
@@ -200,45 +200,45 @@ msgstr ""
 "Дотримуйтесь інструкцій, щоб додати кнопки PDF & Print до користувацького "
 "записа  або шаблона."
 
-#: includes/class-pdfprnt-settings.php:304
+#: includes/class-pdfprnt-settings.php:321
 msgid "Learn More"
 msgstr "Дізнатись більше"
 
-#: includes/class-pdfprnt-settings.php:308
+#: includes/class-pdfprnt-settings.php:325
 msgid "Buttons Position"
 msgstr "Позиція кнопок"
 
-#: includes/class-pdfprnt-settings.php:316
+#: includes/class-pdfprnt-settings.php:333
 msgid "Select buttons position in the content (default is Top Right)."
 msgstr "Виберіть позицію кнопок в контенті (за замовчуванням зверху праворуч)."
 
-#: includes/class-pdfprnt-settings.php:320
+#: includes/class-pdfprnt-settings.php:337
 msgid "Button Image"
 msgstr "Зображення кнопок"
 
-#: includes/class-pdfprnt-settings.php:332
+#: includes/class-pdfprnt-settings.php:349
 msgid "Default Image"
 msgstr "Зображення за замовчуванням"
 
-#: includes/class-pdfprnt-settings.php:343
+#: includes/class-pdfprnt-settings.php:360
 msgid "Button Title"
 msgstr "Заголовки кнопок"
 
-#: includes/class-pdfprnt-settings.php:356
+#: includes/class-pdfprnt-settings.php:373
 msgid "Print Preview Window"
-msgstr "Попередній перегляд кнопки Print"
+msgstr "Вікно попереднього перегляду друку"
 
-#: includes/class-pdfprnt-settings.php:360
+#: includes/class-pdfprnt-settings.php:377
 msgid "Enable to display print preview window with advanced settings."
 msgstr ""
 "Увімкніть для відображення вікна попереднього перегляду друку з розширеним "
 "налаштуванням."
 
-#: includes/class-pdfprnt-settings.php:368
+#: includes/class-pdfprnt-settings.php:385
 msgid "Print Shortcodes"
 msgstr "Обробка шорткодів"
 
-#: includes/class-pdfprnt-settings.php:372
+#: includes/class-pdfprnt-settings.php:389
 msgid ""
 "Enable to print shortcodes with data generated by other plugins "
 "(recommended)."
@@ -246,56 +246,80 @@ msgstr ""
 "Увімкніть для виведення даних, доданих за допомогою шорткодів інших плагінів "
 "(рекомендується)."
 
-#: includes/class-pdfprnt-settings.php:382
+#: includes/class-pdfprnt-settings.php:396
+msgid "Download or Open"
+msgstr "Завантажити або відкрити"
+
+#: includes/class-pdfprnt-settings.php:400
+msgid "Download PDF"
+msgstr "Завантажити PDF"
+
+#: includes/class-pdfprnt-settings.php:403
+msgid "Open PDF"
+msgstr "Відкрити PDF"
+
+#: includes/class-pdfprnt-settings.php:411
+msgid "Enable Buttons for"
+msgstr "Включити кнопки для"
+
+#: includes/class-pdfprnt-settings.php:415 includes/pro_banners.php:258
+msgid "All"
+msgstr "Всіх"
+
+#: includes/class-pdfprnt-settings.php:427
+msgid "Unauthorized"
+msgstr "Неавторизований"
+
+#: includes/class-pdfprnt-settings.php:441
 msgid "Document Output Settings"
 msgstr "Налаштування виводу документа"
 
-#: includes/class-pdfprnt-settings.php:388
+#: includes/class-pdfprnt-settings.php:447
 msgid "PDF Page Size"
 msgstr "Розмір PDF сторінки"
 
-#: includes/class-pdfprnt-settings.php:402
+#: includes/class-pdfprnt-settings.php:461
 msgid "Margins"
 msgstr "Відступи"
 
-#: includes/class-pdfprnt-settings.php:409
+#: includes/class-pdfprnt-settings.php:468
 msgid "px"
 msgstr "пікс"
 
-#: includes/class-pdfprnt-settings.php:418
+#: includes/class-pdfprnt-settings.php:477
 msgid "Additional Elements"
 msgstr "Додаткові елементи"
 
-#: includes/class-pdfprnt-settings.php:421 includes/pro_banners.php:287
-#: includes/pro_banners.php:377 pdf-print.php:1377
+#: includes/class-pdfprnt-settings.php:480 includes/pro_banners.php:287
+#: includes/pro_banners.php:377 pdf-print.php:1421
 msgid "Title"
 msgstr "Заголовок"
 
-#: includes/class-pdfprnt-settings.php:422
+#: includes/class-pdfprnt-settings.php:481
 msgid "Featured image"
 msgstr "Зображення запису"
 
-#: includes/class-pdfprnt-settings.php:427
+#: includes/class-pdfprnt-settings.php:486
 msgid "Featured Image Size"
 msgstr "Розмір зображення запису"
 
-#: includes/class-pdfprnt-settings.php:445
+#: includes/class-pdfprnt-settings.php:504
 msgid "Additional Fonts"
 msgstr "Додаткові шрифти"
 
-#: includes/class-pdfprnt-settings.php:452
+#: includes/class-pdfprnt-settings.php:511
 msgid "Reload Fonts"
 msgstr "Перезавантажити шрифти"
 
-#: includes/class-pdfprnt-settings.php:454
+#: includes/class-pdfprnt-settings.php:513
 msgid "Load Fonts"
 msgstr "Завантажити шрифти"
 
-#: includes/class-pdfprnt-settings.php:460
+#: includes/class-pdfprnt-settings.php:519
 msgid "Additional fonts were loaded successfully"
 msgstr "Додаткові шрифти були успішно завантажені"
 
-#: includes/class-pdfprnt-settings.php:463
+#: includes/class-pdfprnt-settings.php:522
 msgid ""
 "If you have some problems with your internet connection, please, try to load "
 "additional fonts manually. For more info, please see"
@@ -303,15 +327,15 @@ msgstr ""
 "Якщо Ви маєте деякі проблеми із інтернет-з’єднанням, будь-ласка, спробуйте "
 "завантажити шрифти вручну. Більш детальну інформацію дивіться"
 
-#: includes/class-pdfprnt-settings.php:465
+#: includes/class-pdfprnt-settings.php:524
 msgid "Load additional fonts required for PDF file(-s)."
 msgstr "Завантажити необхідні додаткові шрифти для PDF файлу(-ів)."
 
-#: includes/class-pdfprnt-settings.php:469
+#: includes/class-pdfprnt-settings.php:528
 msgid "WARNING"
 msgstr "Увага"
 
-#: includes/class-pdfprnt-settings.php:469
+#: includes/class-pdfprnt-settings.php:528
 msgid ""
 "ZipArchive Class is not installed on your server. It is impossible to load "
 "additional fonts."
@@ -319,27 +343,27 @@ msgstr ""
 "Клас ZipArchive не встановлено на ваш сервер. Неможливо завантажити "
 "додаткові шрифти."
 
-#: includes/class-pdfprnt-settings.php:474
+#: includes/class-pdfprnt-settings.php:533
 msgid "Default CSS"
 msgstr "CSS за замовчуванням"
 
-#: includes/class-pdfprnt-settings.php:485
+#: includes/class-pdfprnt-settings.php:544
 msgid "Custom CSS"
 msgstr "Користувацький CSS"
 
-#: includes/class-pdfprnt-settings.php:490
+#: includes/class-pdfprnt-settings.php:549
 msgid "Enable to add custom CSS code to documents."
 msgstr "Увімкніть щоб додати користувацький CSS код  до документів."
 
-#: includes/class-pdfprnt-settings.php:502
+#: includes/class-pdfprnt-settings.php:561
 msgid "Display Settings"
 msgstr "Налаштування відображення"
 
-#: includes/class-pdfprnt-settings.php:510
+#: includes/class-pdfprnt-settings.php:569
 msgid "Custom Fields Settings"
 msgstr "Налаштування користувацьких полей"
 
-#: includes/class-pdfprnt-settings.php:522 includes/pro_banners.php:21
+#: includes/class-pdfprnt-settings.php:581 includes/pro_banners.php:21
 msgid "Close"
 msgstr "Закрити"
 
@@ -347,7 +371,7 @@ msgstr "Закрити"
 msgid "This options is available in Pro version of the plugin"
 msgstr "Цей функціонал доступний в Pro версії плагіна"
 
-#: includes/pro_banners.php:27 pdf-print.php:48 pdf-print.php:293
+#: includes/pro_banners.php:27 pdf-print.php:48 pdf-print.php:314
 msgid "Upgrade to Pro"
 msgstr "Оновити до Pro"
 
@@ -540,10 +564,6 @@ msgstr "Сторінки"
 msgid "Products"
 msgstr "Products"
 
-#: includes/pro_banners.php:258
-msgid "All"
-msgstr "Всі"
-
 #: includes/pro_banners.php:259 includes/pro_banners.php:270
 #: includes/pro_banners.php:308 includes/pro_banners.php:331
 #: includes/pro_banners.php:354 includes/pro_banners.php:396
@@ -664,83 +684,104 @@ msgstr "відразу"
 msgid "Save Changes"
 msgstr "Зберегти зміни"
 
-#: pdf-print.php:42 pdf-print.php:267
+#: pdf-print.php:42 pdf-print.php:288
 msgid "Headers & Footers"
 msgstr "Колонтитули"
 
-#: pdf-print.php:263 pdf-print.php:274
+#: pdf-print.php:284 pdf-print.php:295
 msgid "Add New"
 msgstr "Додати нові"
 
-#: pdf-print.php:264
+#: pdf-print.php:285
 msgid "Header & Footer Template"
 msgstr "Шаблон колонтитулів"
 
-#: pdf-print.php:346
+#: pdf-print.php:367
 msgid "Add PDF & Print Buttons to your page or post"
 msgstr "Додайте кнопки PDF і Print до вашої сторінки чи запису"
 
-#: pdf-print.php:404 pdf-print.php:1329
+#: pdf-print.php:426 pdf-print.php:1373
 msgid "Print Content"
 msgstr "Друкувати контент"
 
-#: pdf-print.php:404 pdf-print.php:1318
+#: pdf-print.php:426 pdf-print.php:1362
 msgid "View PDF"
 msgstr "Перегляд у PDF"
 
-#: pdf-print.php:694
+#: pdf-print.php:728
 msgid "Support"
 msgstr "Підтримка"
 
-#: pdf-print.php:716
+#: pdf-print.php:750
 msgid "Loading of fonts. It might take a several minutes."
 msgstr "Завантаження шрифтів. Це може зайняти декілька хвилин."
 
-#: pdf-print.php:773
+#: pdf-print.php:807
 #, php-format
 msgid "Search Results for: %s"
 msgstr "Результати пошуку для: %s"
 
-#: pdf-print.php:1116
+#: pdf-print.php:1160
 msgid "Check your internet connection"
 msgstr "Перевірте Ваше інтернет-з’єднання"
 
-#: pdf-print.php:1121
+#: pdf-print.php:1165
 msgid "Cannot load files in to \"uploads\" folder. Check your permissions"
 msgstr "Неможливо завантажити файли до папки \"uploads\". Перевірте Ваші права"
 
-#: pdf-print.php:1151 pdf-print.php:1212
+#: pdf-print.php:1195 pdf-print.php:1256
 msgid "Additional fonts were loaded successfully."
 msgstr "Додаткові шрифти були успішно завантажені."
 
-#: pdf-print.php:1154
+#: pdf-print.php:1198
 msgid "Some errors occurred during loading files."
 msgstr "Під час завантаження файлів виникли деякі помилки."
 
-#: pdf-print.php:1157
+#: pdf-print.php:1201
 msgid "Can not extract files from zip-archive."
 msgstr "Неможливо витягти файли із zip-архіву."
 
-#: pdf-print.php:1161
+#: pdf-print.php:1205
 #, php-format
 msgid "Cannot create %s folder. Check your permissions."
 msgstr "Неможливо створити папку %s. Перевірте ваші права."
 
-#: pdf-print.php:1286
+#: pdf-print.php:1330
 msgid "PDF & Print Buttons"
 msgstr "Кнопки PDF & Print"
 
-#: pdf-print.php:1286
+#: pdf-print.php:1330
 msgid "Show PDF & Print Buttons on your site"
 msgstr "Додайте кнопки PDF і Print до вашого сайту"
 
-#: pdf-print.php:1382
+#: pdf-print.php:1426
 msgid "Display PDF Button"
 msgstr "Відображати кнопку PDF"
 
-#: pdf-print.php:1386
+#: pdf-print.php:1430
 msgid "Display Print Button"
 msgstr "Відображати кнопку Print"
+
+#~ msgid "Enable buttons for"
+#~ msgstr "Включити кнопки для"
+
+#~ msgid "Show PDF for"
+#~ msgstr "Показати PDF для"
+
+#~ msgid "Download or open"
+#~ msgstr "Завантажити або відкрити"
+
+#~ msgid "Download file"
+#~ msgstr "Завантажити файл"
+
+#~ msgid "Open file"
+#~ msgstr "Відкрити файл"
+
+#~ msgid "Download end open"
+#~ msgstr "Завантажити або відкрити"
+
+#~ msgid "Hide PDF for"
+#~ msgstr "Сховати PDF для"
 
 #~ msgid "Data Before Content:"
 #~ msgstr "Дані перед контентом:"
