@@ -4,7 +4,7 @@ Donate link: https://bestwebsoft.com/donate/
 Tags: generate pdf, add pdf button, add print button, pdf plugin, pdf pages, print pages, generate pdf content, generate post pdf, pdf print, pdf print plugin, pdf custom post type, pdf content
 Requires at least: 3.9
 Tested up to: 4.9.4
-Stable tag: 2.0.0
+Stable tag: 2.0.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -291,6 +291,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 
 == Changelog ==
 
+= V2.0.1 - 20.03.2018 =
+* Pro : Ability to set custom fields for single posts has been added.
+
 = V2.0.0 - 16.02.2018 =
 * Bugfix : The bug with pdf file generation has been fixed.
 
@@ -456,6 +459,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 * NEW : Added the ability to output PDF and Print buttons on the type of page.
 
 == Upgrade Notice ==
+
+= V2.0.1 =
+* New features added.
 
 = V2.0.0 =
 * Bugs fixed.
