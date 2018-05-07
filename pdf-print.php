@@ -6,7 +6,7 @@ Description: Generate PDF files and print WordPress posts/pages. Customize docum
 Author: BestWebSoft
 Text Domain: pdf-print
 Domain Path: /languages
-Version: 2.0.1
+Version: 2.0.2
 Author URI: https://bestwebsoft.com/
 License: GPLv2 or later
 */
@@ -228,6 +228,7 @@ if ( ! function_exists( 'pdfprnt_get_options_default' ) ) {
 			'use_custom_css'				=> 0,
 			'custom_css_code'				=> '',
 			'do_shorcodes'					=> 1,
+			'disable_links'					=> 1,
 			'show_print_window'				=> 0,
 			'additional_fonts'				=> 0,
 			'show_title'					=> 1,
@@ -284,7 +285,7 @@ if ( ! function_exists( 'pdfprnt_settings_page' ) ) {
  */
 if ( ! function_exists( 'pdfprnt_templates' ) ) {
 	function pdfprnt_templates() {
-		global $wp_version, $pdfprnt_plugin_info, $pdfprnt_options;
+		global $wp_version, $pdfprnt_plugin_info, $pdfprnt_options, $pdfprnt_links;
 		require_once( dirname( __FILE__ ) . '/includes/pro_banners.php' );
 
 		$tab_action = ( isset( $_GET['pdfprnt_tab_action'] ) && $_GET['pdfprnt_tab_action'] == 'new' );
@@ -889,7 +890,7 @@ if ( ! function_exists( 'pdfprnt_additional_styles' ) ) {
  */
 if ( ! function_exists( 'pdfprnt_print' ) ) {
 	function pdfprnt_print( $query ) {
-		global $pdfprnt_options, $posts, $post, $pdfprnt_is_old_php;
+		global $pdfprnt_options, $posts, $post, $pdfprnt_is_old_php, $pdfprnt_links;
 		$print = get_query_var( 'print' );
 
 		if ( $pdfprnt_is_old_php || empty( $print ) || ! pdfprnt_is_user_role_enabled() ) {
@@ -1005,6 +1006,8 @@ if ( ! function_exists( 'pdfprnt_print' ) ) {
 				$html .= '</div>';
 				$titles = array_unique( $titles );
 				$authors = array_unique( $authors );
+
+				$pdfprnt_links = $pdfprnt_options['disable_links'];
 
 				/* generate PDF-document */
 				include ( 'mpdf/mpdf.php' );
@@ -1152,7 +1155,7 @@ if ( ! function_exists( 'pdfprnt_download_zip' ) ) {
 			$fp = fopen( $zip_file, 'w+' );
 			$curl = curl_init();
 			$curl_parametres = array(
-				CURLOPT_URL			=> 'http://www.mpdfonline.com/repos/MPDF_6_0.zip',
+				CURLOPT_URL			=> 'https://bestwebsoft.com/wp-content/plugins/paid-products/plugins/fontdownloads/?action=loading_fonts',
 				CURLOPT_FILE		=> $fp,
 				CURLOPT_USERAGENT	=> ( isset( $_SERVER['HTTP_USER_AGENT'] ) ? $_SERVER['HTTP_USER_AGENT'] : "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:18.0) Gecko/20100101 Firefox/18.0" )
 			);
@@ -1192,7 +1195,7 @@ if ( ! function_exists( 'pdfprnt_copy_fonts' ) ) {
 			/* open zip-archive */
 			if ( true === $zip->open( $zip_file ) ) {
 				/* extract folder with fonts */
-				$errors = $zip->extractSubdirTo( $destination, "mpdf60/ttfonts" );
+				$errors = $zip->extractSubdirTo( $destination, "mpdf-master/ttfonts" );
 				$zip->close();
 				if ( empty( $errors ) ) {
 					$result['done'] = __( 'Additional fonts were loaded successfully.', 'pdf-print' );
@@ -1250,7 +1253,7 @@ if ( ! function_exists( 'pdfprnt_load_fonts' ) ) {
 			} else {
 				$upload_dir = wp_upload_dir();
 			}
-			$zip_file = $upload_dir['basedir'] . '/MPDF_6_0.zip';
+			$zip_file = $upload_dir['basedir'] . '/mpdf-master.zip';
 			$destination = $upload_dir['basedir'] . '/pdf-print-fonts';
 			if ( file_exists( $destination ) ) { /* if folder with fonts already exists */
 				if ( is_multisite() ) {
@@ -1468,11 +1471,14 @@ if ( ! function_exists( 'pdfprnt_uninstall' ) ) {
 				foreach ( $blogids as $blog_id ) {
 					switch_to_blog( $blog_id );
 					delete_option( 'pdfprnt_options' );
+					delete_option( 'widget_pdfprint_buttons' );
 				}
 				switch_to_blog( $old_blog );
 				delete_site_option( 'pdfprnt_options' );
+				delete_option( 'widget_pdfprnt_buttons' );
 			} else {
 				delete_option( 'pdfprnt_options' );
+				delete_option( 'widget_pdfprnt_buttons' );
 			}
 		}
 

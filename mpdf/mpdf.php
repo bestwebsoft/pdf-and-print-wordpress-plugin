@@ -9457,7 +9457,7 @@ class mPDF
 		$interval = 3600;
 		if ($handle = @opendir(preg_replace('/\/$/', '', _MPDF_TEMP_PATH))) { // mPDF 5.7.3
 			while (false !== ($file = readdir($handle))) {
-				if (($file != "..") && ($file != ".") && !is_dir($file) && ((filemtime(_MPDF_TEMP_PATH . $file) + $interval) < time()) && (substr($file, 0, 1) !== '.') && ($file != 'dummy.txt')) { // mPDF 5.7.3
+				if (($file != "..") && ($file != ".") && !is_dir(_MPDF_TEMP_PATH . $file) && ((filemtime(_MPDF_TEMP_PATH . $file) + $interval) < time()) && (substr($file, 0, 1) !== '.') && ($file != 'dummy.txt')) { // mPDF 5.7.3
 					unlink(_MPDF_TEMP_PATH . $file);
 				}
 			}
@@ -9903,13 +9903,14 @@ class mPDF
 				$hPt = $this->pageDim[$n]['h'] * _MPDFK;
 
 				//Links
+				global $pdfprnt_links;
 				if (isset($this->PageLinks[$n])) {
 					foreach ($this->PageLinks[$n] as $key => $pl) {
 						$this->_newobj();
 						$annot = '';
 						$rect = sprintf('%.3F %.3F %.3F %.3F', $pl[0], $pl[1], $pl[0] + $pl[2], $pl[1] - $pl[3]);
 						$annot .= '<</Type /Annot /Subtype /Link /Rect [' . $rect . ']';
-						$annot .= ' /Contents ' . $this->_UTF16BEtextstring($pl[4]);
+						$annot .= ( empty( $pdfprnt_links ) ) ? ' /Contents ' . $this->_UTF16BEtextstring($pl[4]) : '';
 						$annot .= ' /NM ' . $this->_textstring(sprintf('%04u-%04u', $n, $key));
 						$annot .= ' /M ' . $this->_textstring('D:' . date('YmdHis'));
 						$annot .= ' /Border [0 0 0]';
@@ -15905,8 +15906,7 @@ class mPDF
 			if ($sub < 1) {
 				$this->ReadCharset($html);
 			}
-			$iconv_is_disabled = apply_filters( 'bws_pdfprnt_disable_iconv', false ) || ( ! function_exists( 'iconv' ) ) ;
-			if ( ! $iconv_is_disabled && $this->charset_in && $sub != 4) {
+			if ($this->charset_in && $sub != 4) {
 				$success = iconv($this->charset_in, 'UTF-8//TRANSLIT', $html);
 				if ($success) {
 					$html = $success;
@@ -29393,8 +29393,7 @@ class mPDF
 		if (!$this->is_utf8($html)) {
 			echo "<p><b>HTML contains invalid UTF-8 character(s)</b></p>";
 			while (mb_convert_encoding(mb_convert_encoding($html, "UTF-32", "UTF-8"), "UTF-8", "UTF-32") != $html) {
-				$iconv_is_disabled = apply_filters( 'bws_pdfprnt_disable_iconv', false ) || ( ! function_exists( 'iconv' ) ) ;
-				$a = ( $iconv_is_disabled ) ? $html : iconv('UTF-8', 'UTF-8', $html);
+				$a = iconv('UTF-8', 'UTF-8', $html);
 				echo ($a);
 				$pos = $start = strlen($a);
 				$err = '';

@@ -274,6 +274,12 @@ $this->fontdata = array(
 	"unbatang" => array(/* Korean */
 		'R' => "UnBatang_0613.ttf",
 	),
+	"'Open Sans'" => array(
+		'R'  => "OpenSans-Regular.ttf",
+		'B'  => "OpenSans-Semibold.ttf",
+		'I'  => "OpenSans-LightItalic.ttf",
+		'BI' => "OpenSans-Semibolditalic.ttf"
+	),
 );
 
 
@@ -298,7 +304,7 @@ $this->sans_fonts = array('dejavusanscondensed', 'sans', 'sans-serif', 'cursive'
 	'arial', 'helvetica', 'verdana', 'geneva', 'lucida', 'arialnarrow', 'arialblack', 'arialunicodems',
 	'franklin', 'franklingothicbook', 'tahoma', 'garuda', 'calibri', 'trebuchet', 'lucidagrande', 'microsoftsansserif',
 	'trebuchetms', 'lucidasansunicode', 'franklingothicmedium', 'albertusmedium', 'xbriyaz', 'albasuper', 'quillscript',
-	'humanist777', 'humanist777black', 'humanist777light', 'futura', 'hobo', 'segoeprint'
+	'humanist777', 'humanist777black', 'humanist777light', 'futura', 'hobo', 'segoeprint', 'opensans'
 );
 
 $this->serif_fonts = array('dejavuserifcondensed', 'serif', 'dejavuserif', 'freeserif', 'liberationserif',

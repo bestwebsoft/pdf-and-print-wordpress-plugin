@@ -28,8 +28,7 @@ $mpdf=new mPDF('s');
 $mpdf->useSubstitutions = true;
 if ($checkdir) {
 	$ttfdir = $checkdir;
-}
-else {
+} else {
 	$ttfdir = _MPDF_TTFONTPATH;
 }
 

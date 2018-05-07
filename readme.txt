@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://bestwebsoft.com/donate/
 Tags: generate pdf, add pdf button, add print button, pdf plugin, pdf pages, print pages, generate pdf content, generate post pdf, pdf print, pdf print plugin, pdf custom post type, pdf content
 Requires at least: 3.9
-Tested up to: 4.9.4
-Stable tag: 2.0.1
+Tested up to: 4.9.5
+Stable tag: 2.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -264,8 +264,8 @@ Please follow the next steps:
 
 or
 
-1. Download MPDF library by link http://www.mpdfonline.com/repos/MPDF_6_0.zip
-2. Using FTP, load the file MPDF_6_0.zip to the folder "{your_site_home_folder}/wp-content/uploads"
+1. Download MPDF library by link https://github.com/lynxbee/mpdf
+2. Using FTP, load the file mpdf-master.zip to the folder "{your_site_home_folder}/wp-content/uploads"
 3. Go to the plugin settings page
 4. Switch to the "Output" tab
 5. Find "Additional Fonts" option and click "Load Fonts" button
@@ -290,6 +290,11 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 7. Settings page (Output tab) for the PDF&Print in admin panel.
 
 == Changelog ==
+
+= V2.0.2 - 07.05.2018 =
+* Bugfix: The bug with fonts loading has been fixed.
+* Update : All functionality has been updated for WordPress 4.9.5.
+
 
 = V2.0.1 - 20.03.2018 =
 * Pro : Ability to set custom fields for single posts has been added.
@@ -459,6 +464,10 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 * NEW : Added the ability to output PDF and Print buttons on the type of page.
 
 == Upgrade Notice ==
+
+= V2.0.2 =
+* Bugs fixed.
+* The compatibility with new WordPress version updated.
 
 = V2.0.1 =
 * New features added.
