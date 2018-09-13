@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://bestwebsoft.com/donate/
 Tags: generate pdf, add pdf button, add print button, pdf plugin, pdf pages, print pages, generate pdf content, generate post pdf, pdf print, pdf print plugin, pdf custom post type, pdf content
 Requires at least: 3.9
-Tested up to: 4.9.5
-Stable tag: 2.0.2
+Tested up to: 4.9.8
+Stable tag: 2.0.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -66,6 +66,7 @@ http://www.youtube.com/watch?v=EM6AEkD9M_s
 > All features from Free version included plus:
 >
 > * Add text or image watermark
+> * Prevent copying of PDF file content [NEW]
 > * Customize watermark opacity
 > * Create custom document header and footer templates with:
 > 	* Images
@@ -291,6 +292,10 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 
 == Changelog ==
 
+= v2.0.3 - 13.09.2018 =
+* Pro : Ability to disable content from coping has been added.
+* Bugfix : Multiple Cross-Site Scripting (XSS) vulnerability was fixed.
+
 = V2.0.2 - 07.05.2018 =
 * Bugfix: The bug with fonts loading has been fixed.
 * Update : All functionality has been updated for WordPress 4.9.5.
@@ -464,6 +469,10 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 * NEW : Added the ability to output PDF and Print buttons on the type of page.
 
 == Upgrade Notice ==
+
+= V2.0.3 =
+* New features added.
+* Bugs fixed.
 
 = V2.0.2 =
 * Bugs fixed.

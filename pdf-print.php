@@ -6,12 +6,12 @@ Description: Generate PDF files and print WordPress posts/pages. Customize docum
 Author: BestWebSoft
 Text Domain: pdf-print
 Domain Path: /languages
-Version: 2.0.2
+Version: 2.0.3
 Author URI: https://bestwebsoft.com/
 License: GPLv2 or later
 */
 
-/* © Copyright 2017 BestWebSoft ( https://support.bestwebsoft.com )
+/* © Copyright 2018 BestWebSoft ( https://support.bestwebsoft.com )
 
 	This program is free software; you can redistribute it and/or modify
 	it under the terms of the GNU General Public License, version 2, as
@@ -428,7 +428,7 @@ if ( ! function_exists( 'pdfprnt_get_button' ) ) {
 		}
 		$button = ( 'print' == $button ) ? 'print' : 'pdf';
 
-		if ( $pdfprnt_options['button_image'][ $button ]['type'] == 'default' && ! empty( $pdfprnt_options['button_image'][ $button ]['image_src'] ) ) {
+		if ( 'default' == $pdfprnt_options['button_image'][ $button ]['type'] && ! empty( $pdfprnt_options['button_image'][ $button ]['image_src'] ) ) {
 			$image = sprintf( '<img src="%s" alt="image_%s" title="%s" />',
 				esc_attr( $pdfprnt_options['button_image'][ $button ]['image_src'] ),
 				$button,
@@ -439,6 +439,7 @@ if ( ! function_exists( 'pdfprnt_get_button' ) ) {
 		}
 
 		$custom_query_arg = ( ! empty( $custom_query_arg ) ) ? $custom_query_arg : $button;
+		$url = esc_url( $url );
 		$url = add_query_arg( 'print' , $custom_query_arg , $url );
 
 		$title = ( ! empty( $pdfprnt_options['button_title'][ $button ] ) ) ?
@@ -488,7 +489,7 @@ if ( ! function_exists( 'pdfprnt_content' ) ) {
 
 		if ( $show_button_pdf || $show_button_print ) {
 
-			$str = '<div class="pdfprnt-buttons pdfprnt-buttons-' .$post->post_type . ' pdfprnt-' . $pdfprnt_options['buttons_position'] . '">';
+			$str = '<div class="pdfprnt-buttons pdfprnt-buttons-' . $post->post_type . ' pdfprnt-' . $pdfprnt_options['buttons_position'] . '">';
 			if ( is_home() ) {
 				$permalink = get_permalink( $post );
 			} else {
@@ -638,6 +639,7 @@ if ( ! function_exists( 'pdfprnt_show_buttons_for_custom_post_type' ) ) {
 			return;
 		}
 		$current_url = set_url_scheme( ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'] );
+		$current_url = esc_url( $current_url );
 		$is_return = true;
 
 		if ( empty( $user_query ) ) { /* set necessary values of parameters for pdf/print buttons */
@@ -1339,6 +1341,7 @@ if ( ! class_exists( 'Pdfprnt_Buttons_Widget' ) ) {
 		function widget( $args, $instance ) {
 			global $pdfprnt_options, $pdfprnt_is_search_archive, $pdfprnt_is_custom_post_type;
 			$url = ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
+			$url = esc_url( $url );
 			$buttons = '';
 
 			foreach ( array( 'pdf', 'print' ) as $button ) {

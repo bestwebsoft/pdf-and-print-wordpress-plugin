@@ -57,7 +57,7 @@ if ( ! function_exists( 'pdfprnt_button_image_block' ) ) {
  */
 if ( ! function_exists( 'pdfprnt_noindex_block' ) ) {
 	function pdfprnt_noindex_block() { ?>
-		<table class="form-table pdfprnt-table-settings pdfprnt-table-search-engine">
+		<table class="form-table pdfprnt-table-settings pdfprnt-table-search-engine">           
 			<tr>
 				<th><?php _e( 'Search Engine Visibility', 'pdf-print' ); ?></th>
 				<td>
@@ -162,6 +162,15 @@ if ( ! function_exists( 'pdfprnt_woocommerce_watermark_block' ) ) {
 					</fieldset>
 				</td>
 			</tr>
+			 <tr>
+                <th><?php _e( 'Prevent Copying', 'pdf-print' ); ?></th>
+                <td>
+                    <label>
+                        <input type="checkbox" disabled="disabled" />
+                        <span class="bws_info"><?php _e( 'Enable to prevent PDF files from being copied.', 'pdf-print' ); ?></span>
+                    </label>
+                </td>
+            </tr>
 		</table>
 	<?php }
 }
