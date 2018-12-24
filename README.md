@@ -66,7 +66,7 @@
 <p>All features from Free version included plus:</p>
 <ul>
 <li>Add text or image watermark</li>
-<li>Prevent copying of PDF file content [NEW]</li>
+<li>Prevent copying of PDF file content</li>
 <li>Customize watermark opacity</li>
 <li>Create custom document header and footer templates with:
 <ul>
