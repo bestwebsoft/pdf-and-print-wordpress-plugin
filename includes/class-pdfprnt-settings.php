@@ -49,6 +49,7 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 
 			add_action( get_parent_class( $this ) . '_display_custom_messages', array( $this, 'display_custom_messages' ) );
 			add_action( get_parent_class( $this ) . '_display_metabox', array( $this, 'display_metabox' ) );
+			add_action( get_parent_class( $this ) . '_additional_misc_options', array( $this, 'upgrade_mpdf' ) );
 
 			$this->buttons = array(
 				'pdf'		=> __( 'PDF', 'pdf-print' ),
@@ -122,7 +123,11 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 
 			/* Check fonts folder rights */
 			$plugin_dir = realpath( dirname( __FILE__ ) . '/..' );
-			$ttfontdata = $plugin_dir . '/mpdf/ttfontdata';
+			$ttfontdata = $plugin_dir . '/vendor/mpdf/mpdf/tmp';
+			$is_installed = file_exists( $ttfontdata );
+			if ( ! $is_installed ) {
+				$ttfontdata = $plugin_dir . '/mpdf/ttfontdata';
+			}
 			if ( ! is_writable( $ttfontdata ) ) {
 				if ( ! @chmod( $ttfontdata, 0755 ) ) { ?>
 					<div class="error below-h2">
@@ -139,13 +144,16 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 			}
 
 			$fonts_path = $this->upload_dir['basedir'] .'/pdf-print-fonts';
+			if ( file_exists( $fonts_path ) ) {
+				$files = scandir( $fonts_path );
+			}
 
 			if ( ! is_dir( $fonts_path ) && $this->options['additional_fonts'] != 0 ) { /* if "pdf-print-fonts" folder was removed somehow */
 				$error = sprintf( __( 'The folder %s was removed.', 'pdf-print' ), '"uploads/pdf-print-fonts"' );
 				$this->need_fonts_reload = true;
 			} elseif (
 				is_dir( $fonts_path ) &&
-				$this->options['additional_fonts'] != count( scandir( $fonts_path ) ) &&
+				$this->options['additional_fonts'] != count( $files ) &&
 				0 < $this->options['additional_fonts']
 			) { /* if some fonts was removed somehow from "pdf-print-fonts" folder */
 				$error = sprintf( __( 'Some fonts were removed from %s folder.', 'pdf-print' ), '"uploads/pdf-print-fonts"' );
@@ -174,6 +182,20 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 				if ( isset( $result['done'] ) ) {
 					$message .= '&nbsp;' . $result['done'];
 				}
+			}
+			if ( isset( $_POST['pdfprnt_upgrade_library'] ) ) {
+				/* upgrade mPDF library if javascript is disabled */
+				$result = pdfprnt_upgrade_library();
+				if ( isset( $result['error'] ) ) {
+					$error .= '&nbsp;' . $result['error'];
+				}
+				if ( isset( $result['done'] ) ) {
+					$message .= '&nbsp;' . $result['done'];
+				}
+			}
+			$new_library_path = $plugin_dir . '/vendor/';
+			if ( ! file_exists( $new_library_path ) ) {
+				$message .= '&nbsp;' . __( 'The new version of the mPDF library which compatible with PHP V7.x.x is available now! Go to the Misc tab and upgrade the mPDF library.', 'pdf-print' );
 			} ?>
 			<div class="updated below-h2" <?php if ( empty( $message ) || "" != $error ) echo "style=\"display:none\""; ?>><p><strong><?php echo $message; ?></strong></p></div>
 			<div class="error below-h2" <?php if ( "" == $error ) echo "style=\"display:none\""; ?>><p><strong><?php echo $error; ?></strong></p></div>
@@ -187,7 +209,7 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 		 */
 		public function save_options() {
 
-			if ( isset( $_POST['pdfprnt_load_fonts'] ) ) {
+			if ( isset( $_POST['pdfprnt_load_fonts'] ) || isset( $_POST['pdfprnt_upgrade_library'] ) ) {
 				return;
 			}
 
@@ -615,6 +637,38 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 					</div>
 					<?php $this->bws_pro_block_links(); ?>
 				</div>
+			<?php }
+		}
+
+		/**
+		 * Custom functions for "Upgrade the mPDF"
+		 * @access public
+		 */
+		public function upgrade_mpdf() {
+			/* Disable block if mPDF 7 already installed */
+			$path = dirname( __FILE__ );
+			$path = plugin_dir_path( $path ) . 'vendor';
+			$is_installed = file_exists( $path );
+			if ( ! $is_installed ) { ?>
+                <table class="form-table">
+                    <tbody>
+                    <tr>
+                        <th scope="row"><?php _e( 'Upgrade the mPDF library', 'pdf-print' ) ?></th>
+                        <td>
+							<?php $is_class_exists = class_exists( 'ZipArchive' );
+							if ( $is_class_exists ) {
+								$upgrade = __( 'Upgrade', 'pdf-print' ); ?>
+                                <input name="pdfprnt_upgrade_library" type="submit" class="button" value="<?php echo $upgrade ?>">&nbsp;<span id="pdfprnt_library_loader" class="pdfprnt_loader"><img src="<?php echo plugins_url( '../images/ajax-loader.gif', __FILE__ ); ?>" alt="loader" /></span><br />
+                                <input type="hidden" name="pdfprnt_action" value="pdfprnt_upgrade_library" />
+                                <input type="hidden" name="pdfprnt_ajax_nonce" value="<?php echo wp_create_nonce( 'pdfprnt_ajax_nonce' ); ?>" />
+                                <div class="bws_info"><?php _e( 'This will upgrade the mPDF library to version 7.1.5.', 'pdf-print' ); ?></div>
+							<?php } else { ?>
+                                <span style="color: red;"><strong><?php _e( 'WARNING', 'pdf-print' ); ?>:&nbsp;</strong><?php _e( 'ZipArchive сlass is not installed on your server. It is impossible to upgrade the mPDF library.', 'pdf-print' ); ?></span>
+							<?php } ?>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
 			<?php }
 		}
 	}

@@ -4,7 +4,7 @@ Donate link: https://bestwebsoft.com/donate/
 Tags: generate pdf, add pdf button, add print button, pdf plugin, pdf pages, print pages, generate pdf content, generate post pdf, pdf print, pdf print plugin, pdf custom post type, pdf content
 Requires at least: 3.9
 Tested up to: 5.0.2
-Stable tag: 2.0.4
+Stable tag: 2.1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -292,10 +292,13 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 
 == Changelog ==
 
+= V2.1.4 - 08.01.2019 =
+* Update : The mPDF library has been updated to version 7.1.5.
+
 = V2.0.4 - 24.12.2018 =
 * Update : All functionality was updated for WordPress 5.0.2.
 
-= v2.0.3 - 13.09.2018 =
+= V2.0.3 - 13.09.2018 =
 * Pro : Ability to disable content from coping has been added.
 * Bugfix : Multiple Cross-Site Scripting (XSS) vulnerability was fixed.
 
@@ -473,7 +476,10 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 
 == Upgrade Notice ==
 
-= V2.0.4 = 
+= V2.1.4 =
+* The compatibility with 7.1.5 mPDF library version updated.
+
+= V2.0.4 =
 * The compatibility with new WordPress version updated.
 
 = V2.0.3 =

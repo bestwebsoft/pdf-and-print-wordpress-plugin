@@ -6,12 +6,12 @@ Description: Generate PDF files and print WordPress posts/pages. Customize docum
 Author: BestWebSoft
 Text Domain: pdf-print
 Domain Path: /languages
-Version: 2.0.4
+Version: 2.1.4
 Author URI: https://bestwebsoft.com/
 License: GPLv2 or later
 */
 
-/* © Copyright 2018 BestWebSoft ( https://support.bestwebsoft.com )
+/* © Copyright 2019 BestWebSoft ( https://support.bestwebsoft.com )
 
 	This program is free software; you can redistribute it and/or modify
 	it under the terms of the GNU General Public License, version 2, as
@@ -288,7 +288,7 @@ if ( ! function_exists( 'pdfprnt_templates' ) ) {
 		global $wp_version, $pdfprnt_plugin_info, $pdfprnt_options, $pdfprnt_links;
 		require_once( dirname( __FILE__ ) . '/includes/pro_banners.php' );
 
-		$tab_action = ( isset( $_GET['pdfprnt_tab_action'] ) && $_GET['pdfprnt_tab_action'] == 'new' );
+		$tab_action = ( isset( $_GET['pdfprnt_tab_action'] ) && 'new' == $_GET['pdfprnt_tab_action'] );
 		if ( $tab_action ) {
 			$page_title = __( 'Add New', 'pdf-print' );
 			$page_name = __( 'Header & Footer Template', 'pdf-print' );
@@ -752,13 +752,14 @@ if ( ! function_exists ( 'pdfprnt_admin_head' ) ) {
 		if ( is_admin() ) {
 			wp_enqueue_style( 'pdfprnt_general', plugins_url( 'css/style-general.css', __FILE__ ), false, $pdfprnt_plugin_info['Version'] );
 
-			if ( isset( $_GET['page'] ) && $_GET['page'] == "pdf-print.php" ) {
+			if ( isset( $_GET['page'] ) && "pdf-print.php" == $_GET['page'] ) {
 				wp_enqueue_style( 'pdfprnt_stylesheet', plugins_url( 'css/style.css', __FILE__ ), false, $pdfprnt_plugin_info['Version'] );
 				bws_enqueue_settings_scripts();
 				bws_plugins_include_codemirror();
 				wp_enqueue_script( 'pdfprnt_script', plugins_url( 'js/script.js', __FILE__ ), array( 'jquery', 'jquery-ui-accordion', 'jquery-ui-slider' ), $pdfprnt_plugin_info['Version'] );
 				wp_localize_script( 'pdfprnt_script', 'pdfprnt_var', array(
 						'loading_fonts'	=> __( 'Loading of fonts. It might take a several minutes.', 'pdf-print' ),
+						'loading_mpdf' => __( 'Loading of mPDF library. It might take a several minutes.', 'pdf-print' ),
 						'ajax_nonce'	=> wp_create_nonce( 'pdfprnt_ajax_nonce' ),
 						'need_reload'	=> '&nbsp;' . sprintf(
 							__( 'It is necessary to reload fonts. For more info, please see %s.', 'pdf-print' ),
@@ -767,7 +768,7 @@ if ( ! function_exists ( 'pdfprnt_admin_head' ) ) {
 					)
 				);
 			}
-			if ( isset( $_GET['page'] ) && $_GET['page'] == "pdf-print-templates.php" ) {
+			if ( isset( $_GET['page'] ) && "pdf-print-templates.php" == $_GET['page'] ) {
 				wp_enqueue_style( 'pdfprnt_stylesheet', plugins_url( 'css/templates.css', __FILE__ ), false, $pdfprnt_plugin_info['Version'] );
 			}
 		} else {
@@ -1012,8 +1013,36 @@ if ( ! function_exists( 'pdfprnt_print' ) ) {
 				$pdfprnt_links = $pdfprnt_options['disable_links'];
 
 				/* generate PDF-document */
-				include ( 'mpdf/mpdf.php' );
-				$mpdf = new mPDF( '+aCJK', $pdfprnt_options['pdf_page_size'], 0, $default_font, $pdfprnt_options['pdf_margins']['left'], $pdfprnt_options['pdf_margins']['right'], $pdfprnt_options['pdf_margins']['top'], $pdfprnt_options['pdf_margins']['bottom'] );
+				$path = plugin_dir_path( __FILE__ ) . 'vendor';
+				$is_installed = file_exists( $path );
+                if ( $is_installed ) {
+	                /* Implement mPDF v7.1.5 */
+	                include ( 'vendor/autoload.php' );
+	                $mpdf_config = array(
+		                'mode' => '+aCJK',
+		                'format' => $pdfprnt_options['pdf_page_size'],
+		                'default_font_size' => 0,
+		                'default_font' => $default_font,
+		                'margin_left' => $pdfprnt_options['pdf_margins']['left'],
+		                'margin_right' => $pdfprnt_options['pdf_margins']['right'],
+		                'margin_top' => $pdfprnt_options['pdf_margins']['top'],
+		                'margin_bottom' => $pdfprnt_options['pdf_margins']['bottom'],
+	                );
+	                $mpdf = new \Mpdf\Mpdf( $mpdf_config );
+
+                } else {
+	                include ( 'mpdf/mpdf.php' );
+	                $mpdf = new mPDF(
+	                        '+aCJK',
+                            $pdfprnt_options['pdf_page_size'],
+                            0,
+                            $default_font,
+                            $pdfprnt_options['pdf_margins']['left'],
+                            $pdfprnt_options['pdf_margins']['right'],
+                            $pdfprnt_options['pdf_margins']['top'],
+                            $pdfprnt_options['pdf_margins']['bottom']
+                    );
+                }
 				$mpdf->allow_charset_conversion = true;
 				$mpdf->charset_in = get_bloginfo( 'charset' );
 				if ( 0 != $pdfprnt_options['additional_fonts'] ) {
@@ -1149,7 +1178,7 @@ if ( class_exists( 'ZipArchive' ) && ! class_exists( 'Pdfprnt_ZipArchive' ) ) {
  * Download Zip
 */
 if ( ! function_exists( 'pdfprnt_download_zip' ) ) {
-	function pdfprnt_download_zip( $zip_file, $upload_dir ) {
+	function pdfprnt_download_zip( $zip_file, $upload_dir, $url ) {
 		/* check permissions */
 		if ( is_writable( $upload_dir ) ) {
 			/* load ZIP-archive */
@@ -1157,7 +1186,7 @@ if ( ! function_exists( 'pdfprnt_download_zip' ) ) {
 			$fp = fopen( $zip_file, 'w+' );
 			$curl = curl_init();
 			$curl_parametres = array(
-				CURLOPT_URL			=> 'https://bestwebsoft.com/wp-content/plugins/paid-products/plugins/fontdownloads/?action=loading_fonts',
+				CURLOPT_URL			=> $url,
 				CURLOPT_FILE		=> $fp,
 				CURLOPT_USERAGENT	=> ( isset( $_SERVER['HTTP_USER_AGENT'] ) ? $_SERVER['HTTP_USER_AGENT'] : "Mozilla/5.0 (Windows NT 6.1; WOW64; rv:18.0) Gecko/20100101 Firefox/18.0" )
 			);
@@ -1177,7 +1206,7 @@ if ( ! function_exists( 'pdfprnt_download_zip' ) ) {
 }
 
 /**
- * Copy neccesary fonts to mpdf/ttfonts
+ * Extract additional fonts to uploads/pdf-print-fonts
  * @param     string   $zip_file     path to zip archive
  */
 if ( ! function_exists( 'pdfprnt_copy_fonts' ) ) {
@@ -1212,8 +1241,54 @@ if ( ! function_exists( 'pdfprnt_copy_fonts' ) ) {
 		} else {
 			$result['error'] = sprintf( __( 'Cannot create %s folder. Check your permissions.', 'pdf-print' ), '"uploads/pdf-print-fonts"' );
 		}
-		$value = isset( $result['error'] ) ? -1 : count( scandir( $destination ) );
-		pdfprnt_update_option( $value, true );
+		$files = scandir( $destination );
+		$value = isset( $result['error'] ) ? -1 : count( $files );
+		$opt = 'additional_fonts';
+		pdfprnt_update_option( $opt, $value, true );
+		return $result;
+	}
+}
+
+/**
+ * Extract mPDF library ( verson 7.1.5 ) from zip-archive
+ * @param     string    $zip_file          path to zip-archive
+ * @param     string    $upload_dir        path to "Upload" folder
+ * @param     boolean   $is_network_admin
+ * @return    string    $result            result message
+ */
+if ( ! function_exists( 'pdfprnt_extract_mpdf_library' ) ) {
+	function pdfprnt_extract_mpdf_library( $zip_file, $upload_dir ) {
+		global $wpdb;
+
+		$result = array();
+		/* check permissions */
+		if ( is_writable( $upload_dir ) ) {
+			$zip = new Pdfprnt_ZipArchive();
+			/* open zip-archive */
+			if ( true === $zip->open( $zip_file ) ) {
+				/* extract folder with fonts */
+				$errors = $zip->extractSubdirTo( $upload_dir, "mpdf7" );
+				$zip->close();
+				if ( empty( $errors ) ) {
+					$value = '7.1.5';
+					$result['done'] = __( 'The mPDF library V7.1.5 has been loaded successfully.', 'pdf-print' );
+					unlink( $zip_file );
+				} else {
+					$result['error'] = __( 'Some errors occurred during loading files.', 'pdf-print' );
+				}
+			} else {
+				$result['error'] = __( 'Can not extract files from zip-archive.', 'pdf-print' );
+				unlink( $zip_file );
+			}
+		} else {
+			$result['error'] = sprintf( __( 'Cannot extract files into %s folder. Check your permissions.', 'pdf-print' ), $upload_dir );
+		}
+		if ( ! isset( $value ) ) {
+			$value = '6.1';
+		}
+
+		$opt = 'mpdf_library_version';
+		pdfprnt_update_option( $opt, $value, true );
 		return $result;
 	}
 }
@@ -1223,9 +1298,12 @@ if ( ! function_exists( 'pdfprnt_copy_fonts' ) ) {
  * copy fonts to folder 'pdf-print-fons'
  */
 if ( ! function_exists( 'pdfprnt_load_and_copy' ) ) {
-	function pdfprnt_load_and_copy( $zip_file, $upload_dir ) {
-		$result = file_exists( $zip_file ) ? array( 'done' => 'ok' ) : pdfprnt_download_zip( $zip_file, $upload_dir );
-		if ( isset( $result['done'] ) ) {
+	function pdfprnt_load_and_copy( $zip_file, $upload_dir, $url ) {
+		$result = file_exists( $zip_file ) ? array( 'done' => 'ok' ) : pdfprnt_download_zip( $zip_file, $upload_dir, $url );
+
+		if ( plugin_dir_path(__FILE__) == $upload_dir && isset( $result['done'] ) ) {
+			$result = pdfprnt_extract_mpdf_library( $zip_file, $upload_dir );
+		} elseif ( isset( $result['done'] ) ) {
 			$result = pdfprnt_copy_fonts( $zip_file, $upload_dir );
 		}
 		return $result;
@@ -1244,6 +1322,8 @@ if ( ! function_exists( 'pdfprnt_load_fonts' ) ) {
 		$ajax_request = isset( $_REQUEST['action'] ) && 'pdfprnt_load_fonts' == $_REQUEST['action'] ? true : false;
 		$php_request = isset( $_REQUEST['pdfprnt_action'] ) && 'pdfprnt_load_fonts' == $_REQUEST['pdfprnt_action'] ? true : false;
 		$verified = isset( $_REQUEST['pdfprnt_ajax_nonce'] ) && wp_verify_nonce( $_REQUEST['pdfprnt_ajax_nonce'], 'pdfprnt_ajax_nonce' ) ? true : false;
+		/* Sourse of the fonts */
+		$url = "https://bestwebsoft.com/wp-content/plugins/paid-products/plugins/fontdownloads/?action=loading_fonts";
 		if ( ( $ajax_request || $php_request ) && $verified ) {
 			$result = array();
 			$flag = false;
@@ -1260,18 +1340,20 @@ if ( ! function_exists( 'pdfprnt_load_fonts' ) ) {
 			if ( file_exists( $destination ) ) { /* if folder with fonts already exists */
 				if ( is_multisite() ) {
 					$network_options = get_site_option( 'pdfprnt_options' ); /* get network options */
-					if ( $network_options['additional_fonts'] == count( scandir( $destination ) ) ) { /* if all fonts was loaded successfully */
+					$files = scandir( $destination );
+					if ( $network_options['additional_fonts'] == count( $files ) ) { /* if all fonts was loaded successfully */
 						$result['done'] = __( 'Additional fonts were loaded successfully.', 'pdf-print' );
-						pdfprnt_update_option( $network_options['additional_fonts'] );
+						$opt = 'additional_fonts';
+						pdfprnt_update_option( $opt, $network_options['additional_fonts'], true );
 					} else { /* if something wrong */
-						$result = pdfprnt_load_and_copy( $zip_file, $upload_dir['basedir'] ); /* load fonts */
+						$result = pdfprnt_load_and_copy( $zip_file, $upload_dir['basedir'], $url ); /* load fonts */
 					}
 				} else {
-					$result = pdfprnt_load_and_copy( $zip_file, $upload_dir['basedir'] ); /* load fonts */
+					$result = pdfprnt_load_and_copy( $zip_file, $upload_dir['basedir'], $url ); /* load fonts */
 				}
 			} else {
 				mkdir( $destination, 0755, true );
-				$result = pdfprnt_load_and_copy( $zip_file, $upload_dir['basedir'] );
+				$result = pdfprnt_load_and_copy( $zip_file, $upload_dir['basedir'], $url );
 			}
 			if ( $ajax_request ) {
 				echo json_encode( $result );
@@ -1285,17 +1367,74 @@ if ( ! function_exists( 'pdfprnt_load_fonts' ) ) {
 	}
 }
 
+/**
+ * Function to upgrade the MPDF library from version 6.1 to verson 7.1.5
+ * @param     boolean   $is_network_admin
+ * @return    string    $result            result message
+ */
+if ( ! function_exists( 'pdfprnt_upgrade_library' ) ) {
+	function pdfprnt_upgrade_library() {
+		global $pdfprnt_options, $wpdb;
+
+		$ajax_request = isset( $_REQUEST['action'] ) && 'pdfprnt_upgrade_library' == $_REQUEST['action'] ? true : false;
+
+		$php_request = isset( $_REQUEST['pdfprnt_action'] ) && 'pdfprnt_upgrade_library' == $_REQUEST['pdfprnt_action'] ? true : false;
+		$verified = isset( $_REQUEST['pdfprnt_ajax_nonce'] ) && wp_verify_nonce( $_REQUEST['pdfprnt_ajax_nonce'], 'pdfprnt_ajax_nonce' ) ? true : false;
+		$old_dir = plugin_dir_path(__FILE__) . 'mpdf';
+		if ( ( $ajax_request || $php_request ) && true === $verified ) {
+			$result = array();
+			/* get path to directory for ZIP-archive uploading */
+			if ( is_multisite() ) {
+				switch_to_blog( 1 );
+				$upload_dir = plugin_dir_path(__FILE__);
+				restore_current_blog();
+			} else {
+				$upload_dir = plugin_dir_path(__FILE__);
+			}
+			$zip_file = $upload_dir . 'mpdf7.zip';
+			/* Sourse of the MPDF library */
+			$url = "https://bestwebsoft.com/wp-content/plugins/paid-products/plugins/pdf-print-mpdf7/?action=loading_library";
+			$new_dir = plugin_dir_path(__FILE__) . 'vendor';
+
+			if ( ! file_exists( $new_dir ) ) {
+				$result = pdfprnt_load_and_copy( $zip_file, $upload_dir, $url ); /* load library */
+			}
+			if ( true === $ajax_request ) {
+				echo json_encode( $result );
+			} else {
+				pdfprnt_delete_old_library( $old_dir );
+				return $result;
+			}
+		}
+		if ( true === $ajax_request ) {
+			pdfprnt_delete_old_library( $old_dir );
+			die();
+		}
+	}
+}
+
+if ( ! function_exists( 'pdfprnt_delete_old_library' ) ) {
+	function pdfprnt_delete_old_library( $dir ) {
+		$files = scandir( $dir );
+		$files = array_diff( $files, array( '.','..' ) );
+		foreach ( $files as $file ) {
+			( is_dir ("$dir/$file" ) ) ? pdfprnt_delete_old_library( "$dir/$file" ) : unlink( "$dir/$file" );
+		}
+		return rmdir( $dir );
+	}
+}
+
 if ( ! function_exists( 'pdfprnt_update_option' ) ) {
-	function pdfprnt_update_option( $value, $update_network = false ) {
+	function pdfprnt_update_option( $opt, $value, $update_network = false ) {
 		global $pdfprnt_options;
 		if ( empty( $pdfprnt_options ) ) {
 			$pdfprnt_options = get_option( 'pdfprnt_options' );
 		}
-		$pdfprnt_options['additional_fonts'] = $value;
+		$pdfprnt_options[ $opt ] = $value;
 		update_option( 'pdfprnt_options', $pdfprnt_options );
 		if ( $update_network ) {
 			$network_options = get_site_option( 'pdfprnt_options' );
-			$network_options['additional_fonts'] = $value;
+			$network_options[ $opt ] = $value;
 			update_site_option( 'pdfprnt_options', $network_options );
 		}
 	}
@@ -1518,6 +1657,8 @@ add_filter( 'plugin_row_meta', 'pdfprnt_links', 10, 2 );
 add_filter( 'the_content', 'pdfprnt_content' );
 /* load additional fonts */
 add_action( 'wp_ajax_pdfprnt_load_fonts', 'pdfprnt_load_fonts' );
+/* load mPDF library */
+add_action( 'wp_ajax_pdfprnt_upgrade_library', 'pdfprnt_upgrade_library' );
 /* Adding banner */
 add_action( 'admin_notices', 'pdfprnt_plugin_banner' );
 

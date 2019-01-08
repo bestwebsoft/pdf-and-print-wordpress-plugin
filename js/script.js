@@ -90,6 +90,40 @@
 			return false;
 		} );
 
+		/* Ajax request for upgrading of mPDF library */
+		var button = $( 'input[name="pdfprnt_upgrade_library"]' );
+		button.click( function() {
+			button.attr( 'disabled', true );
+			$.ajax( {
+				url: ajaxurl,
+				type: "POST",
+				data: { action: 'pdfprnt_upgrade_library', pdfprnt_ajax_nonce: pdfprnt_var['ajax_nonce'], is_network_admin: $( 'body' ).hasClass( 'network-admin' ) },
+				beforeSend: function() {
+					$( '#pdfprnt_library_loader' ).css( 'display', 'inline-block' );
+					$( '.updated, .error' ).hide();
+					$( '<div class="updated fade"><p><strong>' + pdfprnt_var['loading_mpdf'] + '</strong></p></div>' ).insertAfter( ".pdfprnt-title" );
+				},
+				success: function( result ) {
+					$( '#pdfprnt_library_loader, .updated, .error' ).hide();
+					try {
+						var message = $.parseJSON( result );
+					} catch ( e ) {
+						$( '<div class="error"><p><strong>' + result + '</strong></p></div>' ).insertAfter( ".pdfprnt-title" );
+						input.attr( 'disabled', false );
+						return false;
+					}
+					if ( message['done'] ) {
+						$( '<div class="updated fade"><p><strong>' + message['done'] + '</strong></p></div>' ).insertAfter( ".pdfprnt-title" );
+					}
+					if ( message['error'] ) {
+						$( '<div class="error"><p><strong>' + message['error'] + '</strong></p></div>' ).insertAfter( ".pdfprnt-title" );
+						button.attr( 'disabled', false );
+					}
+				}
+			} );
+			return false;
+		} );
+
 		if ( $( 'input[name="pdfprnt_use_custom_css"]' ).length ) {
 			var textarea = $( '#pdfprnt_custom_css_code_wrap' ),
 				add_editor = false;
