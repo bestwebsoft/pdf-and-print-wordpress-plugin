@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdf-print-pro\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-04 10:17+0200\n"
-"PO-Revision-Date: 2019-01-04 10:20+0200\n"
+"POT-Creation-Date: 2019-02-06 12:40+0200\n"
+"PO-Revision-Date: 2019-02-06 12:43+0200\n"
 "Last-Translator: BestWebSoft team <wp@bestwebsoft.com>\n"
 "Language-Team: bestwebsoft <plugin@bestwebsoft.com>\n"
 "Language: ru_RU\n"
@@ -13,7 +13,7 @@ msgstr ""
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 2.0.6\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: includes/class-pdfprnt-settings.php:26 pdf-print.php:40 pdf-print.php:720
@@ -90,7 +90,7 @@ msgid "None"
 msgstr "Не использовать"
 
 #: includes/class-pdfprnt-settings.php:82
-#: includes/class-pdfprnt-settings.php:93 includes/pro_banners.php:217
+#: includes/class-pdfprnt-settings.php:93 includes/pro_banners.php:226
 msgid "Default"
 msgstr "По умолчанию"
 
@@ -118,9 +118,8 @@ msgstr "Текущая тема"
 msgid "Please enable JavaScript in your browser."
 msgstr "Пожалуйста, включите JavaScript в вашем браузере."
 
-# Pdf&Print => PDF & Print
 #: includes/class-pdfprnt-settings.php:121
-#, fuzzy, php-format
+#, php-format
 msgid ""
 "Pdf&Print plugin requires PHP %s or higher. Please contact your hosting "
 "provider to upgrade PHP version."
@@ -128,13 +127,7 @@ msgstr ""
 "Для плагина Pdf&Print требуется PHP версии %s или выше. Пожалуйста, "
 "свяжитесь с вашим хостинг-провайдером, чтобы обновить версию PHP."
 
-# англ вариант предлагаю переделать на
-# - You do not have sufficient permissions to the specified folder
-# --
-# рус
-# - Внимание: недостаточно прав использовать выбранную папку
 #: includes/class-pdfprnt-settings.php:136
-#, fuzzy
 msgid "Warning: Not enough permissions for the folder"
 msgstr "Внимание: не хватает прав на папку"
 
@@ -283,7 +276,7 @@ msgstr "Открыть PDF"
 msgid "Enable Buttons for"
 msgstr "Включить кнопки для"
 
-#: includes/class-pdfprnt-settings.php:440 includes/pro_banners.php:267
+#: includes/class-pdfprnt-settings.php:440 includes/pro_banners.php:276
 msgid "All"
 msgstr "Всех"
 
@@ -311,8 +304,8 @@ msgstr "пикс"
 msgid "Additional Elements"
 msgstr "Дополнительные элементы"
 
-#: includes/class-pdfprnt-settings.php:502 includes/pro_banners.php:296
-#: includes/pro_banners.php:386 pdf-print.php:1569
+#: includes/class-pdfprnt-settings.php:502 includes/pro_banners.php:305
+#: includes/pro_banners.php:395 pdf-print.php:1569
 msgid "Title"
 msgstr "Название"
 
@@ -550,7 +543,15 @@ msgstr " Защита от копирования"
 msgid "Enable to prevent PDF files from being copied."
 msgstr "Включите, чтобы запретить пользователю копировать содержимое PDF файла"
 
-#: includes/pro_banners.php:180
+#: includes/pro_banners.php:175
+msgid "Show Advanced Custom Fields"
+msgstr "Показывать Advanced Custom Fields"
+
+#: includes/pro_banners.php:179
+msgid "Enable to show all Advanced Custom Fields."
+msgstr "Включите, что бы отображать все Advanced Custom Fields."
+
+#: includes/pro_banners.php:189
 msgid ""
 "Please choose the necessary post types (or single pages) where PDF & Print "
 "buttons will be displayed"
@@ -558,38 +559,38 @@ msgstr ""
 "Пожалуйста, выберите необходимые типы записей (или отдельные страницы), где "
 "будут отображены кнопки PDF & Print"
 
-#: includes/pro_banners.php:184
+#: includes/pro_banners.php:193
 msgid "Show URL"
 msgstr "Отображать URL"
 
-#: includes/pro_banners.php:194
+#: includes/pro_banners.php:203
 msgid "Available Registered Post Types:"
 msgstr "Доступные зарегистрированные типы записей:"
 
-#: includes/pro_banners.php:197
+#: includes/pro_banners.php:206
 msgid ""
 "Add custom fields and custom data before/after PDF & Print document's content"
 msgstr ""
 "Добавить пользовательские поля и пользовательские данные перед/после "
 "контента документа"
 
-#: includes/pro_banners.php:200
+#: includes/pro_banners.php:209
 msgid "Posts"
 msgstr "Записи"
 
-#: includes/pro_banners.php:204
+#: includes/pro_banners.php:213
 msgid "Data Before Content"
 msgstr "Данные перед контентом"
 
-#: includes/pro_banners.php:208
+#: includes/pro_banners.php:217
 msgid "Data After Content"
 msgstr "Данные после контента"
 
-#: includes/pro_banners.php:213
+#: includes/pro_banners.php:222
 msgid "Custom Fields Displaying"
 msgstr "Отображение пользовательских полей"
 
-#: includes/pro_banners.php:219
+#: includes/pro_banners.php:228
 msgid ""
 "custom fields are shown by default; you can hide them using \"Do not show "
 "PDF & Print Custom fields\" option"
@@ -597,11 +598,11 @@ msgstr ""
 "пользовательские поля отображаются по умолчанию; Вы можете скрыть их, "
 "используя опцию \"Не показывать пользовательские поля PDF & Print\""
 
-#: includes/pro_banners.php:224
+#: includes/pro_banners.php:233
 msgid "Force Hide"
 msgstr "Принудительно скрыть"
 
-#: includes/pro_banners.php:226
+#: includes/pro_banners.php:235
 msgid ""
 "custom fields are hidden regardless the \"Do not show PDF & Print Custom "
 "fields\" option"
@@ -609,11 +610,11 @@ msgstr ""
 "пользовательские поля скрыты независимо от того, отменена опция \"Не "
 "показывать пользовательские поля PDF & Print\" или нет"
 
-#: includes/pro_banners.php:231
+#: includes/pro_banners.php:240
 msgid "Force Show"
 msgstr "Принудительно отобразить"
 
-#: includes/pro_banners.php:233
+#: includes/pro_banners.php:242
 msgid ""
 "custom fields are shown regardless the \"Do not show PDF & Print Custom "
 "fields\" option"
@@ -621,16 +622,16 @@ msgstr ""
 "пользовательские поля отображаются независимо от того, отменена опция \"Не "
 "показывать пользовательские поля PDF & Print\" или нет"
 
-#: includes/pro_banners.php:240
+#: includes/pro_banners.php:249
 msgid "Clear all \"Do not show PDF & Print Custom fields\" options"
 msgstr ""
 "Очистить значения опций \"Не показывать пользовательские поля PDF & Print\""
 
-#: includes/pro_banners.php:243
+#: includes/pro_banners.php:252
 msgid "Clear Options"
 msgstr "Очистить"
 
-#: includes/pro_banners.php:245
+#: includes/pro_banners.php:254
 msgid ""
 "This will clear all \"Do not show PDF & Print Custom Fields\" options for "
 "all Posts."
@@ -638,87 +639,87 @@ msgstr ""
 "Эта опция очистит все опции «Не показывать пользовательские поля PDF & "
 "Print» для всех Записей."
 
-#: includes/pro_banners.php:251
+#: includes/pro_banners.php:260
 msgid "Pages"
 msgstr "Страницы"
 
-#: includes/pro_banners.php:252
+#: includes/pro_banners.php:261
 msgid "Products"
 msgstr "Продукты"
 
-#: includes/pro_banners.php:268 includes/pro_banners.php:279
-#: includes/pro_banners.php:317 includes/pro_banners.php:340
-#: includes/pro_banners.php:363 includes/pro_banners.php:405
+#: includes/pro_banners.php:277 includes/pro_banners.php:288
+#: includes/pro_banners.php:326 includes/pro_banners.php:349
+#: includes/pro_banners.php:372 includes/pro_banners.php:414
 msgid "Trash"
 msgstr "Корзина"
 
-#: includes/pro_banners.php:271
+#: includes/pro_banners.php:280
 msgid "search"
 msgstr "поиск"
 
-#: includes/pro_banners.php:278 includes/pro_banners.php:404
+#: includes/pro_banners.php:287 includes/pro_banners.php:413
 msgid "Bulk Actions"
 msgstr "Массовые действия"
 
-#: includes/pro_banners.php:284 includes/pro_banners.php:410
+#: includes/pro_banners.php:293 includes/pro_banners.php:419
 msgid "items"
 msgstr "элементы"
 
-#: includes/pro_banners.php:292
+#: includes/pro_banners.php:301
 msgid "Select All"
 msgstr "Выбрать Всё"
 
-#: includes/pro_banners.php:302 includes/pro_banners.php:330
-#: includes/pro_banners.php:353 includes/pro_banners.php:376
-#: includes/pro_banners.php:394
+#: includes/pro_banners.php:311 includes/pro_banners.php:339
+#: includes/pro_banners.php:362 includes/pro_banners.php:385
+#: includes/pro_banners.php:403
 msgid "Date Added"
 msgstr "Дата создания"
 
-#: includes/pro_banners.php:316 includes/pro_banners.php:339
-#: includes/pro_banners.php:362
+#: includes/pro_banners.php:325 includes/pro_banners.php:348
+#: includes/pro_banners.php:371
 msgid "Edit"
 msgstr "Редактировать"
 
-#: includes/pro_banners.php:430
+#: includes/pro_banners.php:439
 msgid "Enter Title"
 msgstr "Новый заголовок"
 
-#: includes/pro_banners.php:434
+#: includes/pro_banners.php:443
 msgid "Header"
 msgstr "Верхний колонтитул"
 
-#: includes/pro_banners.php:457 includes/pro_banners.php:507
+#: includes/pro_banners.php:466 includes/pro_banners.php:516
 msgid "Available shortcodes"
 msgstr "Доступные шорткоды"
 
-#: includes/pro_banners.php:459 includes/pro_banners.php:509
+#: includes/pro_banners.php:468 includes/pro_banners.php:518
 msgid "Current page number (for PDF only)"
 msgstr "Номер текущей страницы (только для PDF)"
 
-#: includes/pro_banners.php:462 includes/pro_banners.php:512
+#: includes/pro_banners.php:471 includes/pro_banners.php:521
 msgid "Number of all pages in the document (for PDF only)"
 msgstr "Количество всех страниц в документе (только для PDF)"
 
-#: includes/pro_banners.php:465 includes/pro_banners.php:515
+#: includes/pro_banners.php:474 includes/pro_banners.php:524
 msgid "Link to the page where the document was generated"
 msgstr "Ссылка на страницу, где был создан документ"
 
-#: includes/pro_banners.php:468 includes/pro_banners.php:518
+#: includes/pro_banners.php:477 includes/pro_banners.php:527
 msgid "Current date"
 msgstr "Текущая дата"
 
-#: includes/pro_banners.php:471 includes/pro_banners.php:521
+#: includes/pro_banners.php:480 includes/pro_banners.php:530
 msgid "The date when the post was created"
 msgstr "Дата создания записи"
 
-#: includes/pro_banners.php:471 includes/pro_banners.php:521
+#: includes/pro_banners.php:480 includes/pro_banners.php:530
 msgid ""
 "this shortcode will be replaced to the current date on search or archive "
 "pages"
 msgstr ""
 "на страницах поиска или архивов этот шорткод будет заменен на текущую дату"
 
-#: includes/pro_banners.php:474 includes/pro_banners.php:524
+#: includes/pro_banners.php:483 includes/pro_banners.php:533
 msgid ""
 "You can specify your own DateTime format for {DATE} and {POSTDATE} "
 "shortcodes. For example"
@@ -726,43 +727,43 @@ msgstr ""
 "Вы можете указать собственный формат даты для шорткодов {DATE} или "
 "{POSTDATE}. Например"
 
-#: includes/pro_banners.php:476 includes/pro_banners.php:526
+#: includes/pro_banners.php:485 includes/pro_banners.php:535
 msgid "or"
 msgstr "или"
 
-#: includes/pro_banners.php:477 includes/pro_banners.php:527
+#: includes/pro_banners.php:486 includes/pro_banners.php:536
 msgid "Read more about date and time formatting"
 msgstr "Подробнее о форматировании даты и времени"
 
-#: includes/pro_banners.php:479 includes/pro_banners.php:529
+#: includes/pro_banners.php:488 includes/pro_banners.php:538
 msgid "Author of the post"
 msgstr "Автор записи"
 
-#: includes/pro_banners.php:479 includes/pro_banners.php:529
+#: includes/pro_banners.php:488 includes/pro_banners.php:538
 msgid "for single posts or pages only"
 msgstr "только для записей и страниц"
 
-#: includes/pro_banners.php:484
+#: includes/pro_banners.php:493
 msgid "Footer"
 msgstr "Нижний колонтитул"
 
-#: includes/pro_banners.php:539 includes/pro_banners.php:550
+#: includes/pro_banners.php:548 includes/pro_banners.php:559
 msgid "Publish"
 msgstr "Опубликовать"
 
-#: includes/pro_banners.php:546
+#: includes/pro_banners.php:555
 msgid "Status"
 msgstr "Статус"
 
-#: includes/pro_banners.php:546
+#: includes/pro_banners.php:555
 msgid "New"
 msgstr "Новый"
 
-#: includes/pro_banners.php:550
+#: includes/pro_banners.php:559
 msgid "immediately"
 msgstr "сразу"
 
-#: includes/pro_banners.php:558
+#: includes/pro_banners.php:567
 msgid "Save Changes"
 msgstr "Сохранить изменения"
 
@@ -1185,9 +1186,6 @@ msgstr "Отображать кнопку Print"
 
 #~ msgid "PDF & Print Pro Settings"
 #~ msgstr "Настройки PDF & Print Pro"
-
-#~ msgid "Add Custom Fields"
-#~ msgstr "Добавить пользовательские поля "
 
 #~ msgid "Insert"
 #~ msgstr "Добавить"

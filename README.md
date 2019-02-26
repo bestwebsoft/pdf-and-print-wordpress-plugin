@@ -67,6 +67,7 @@
 <ul>
 <li>Add text or image watermark</li>
 <li>Prevent copying of PDF file content</li>
+<li>Show Advanced Custom Fields [NEW]</li>
 <li>Customize watermark opacity</li>
 <li>Create custom document header and footer templates with:
 <ul>
@@ -114,6 +115,7 @@
 <ul>
 <li><a href="https://docs.google.com/document/d/1-hvn6WRvWnOqj5v5pLUk7Awyu87lq5B_dO-Tv-MC9JQ/" rel="nofollow">[Doc] Installation</a></li>
 <li><a href="https://docs.google.com/document/d/1EUdBVvnm7IHZ6y0DNyldZypUQKpB8UVPToSc_LdOYQI/" rel="nofollow">[Doc] Purchase</a></li>
+<li><a href="https://docs.google.com/document/d/1B9ntY5f6E8WoKY3AfuRA2Shk6z2gYPTzwZ8PnLKURoY/" rel="nofollow">[Doc] How to Use</a></li>
 <li><a href="https://www.youtube.com/watch?v=K6aT6Ew9J0g" rel="nofollow">[Video] Purchase, Installation, Configuration Tutorial</a></li>
 <li><a href="http://www.youtube.com/watch?v=E3w9ID3p2-A" rel="nofollow">[Video] Installation Instruction</a></li>
 </ul>

@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://bestwebsoft.com/donate/
 Tags: generate pdf, add pdf button, add print button, pdf plugin, pdf pages, print pages, generate pdf content, generate post pdf, pdf print, pdf print plugin, pdf custom post type, pdf content
 Requires at least: 3.9
-Tested up to: 5.0.2
-Stable tag: 2.1.4
+Tested up to: 5.0.3
+Stable tag: 2.1.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -67,6 +67,7 @@ http://www.youtube.com/watch?v=EM6AEkD9M_s
 >
 > * Add text or image watermark
 > * Prevent copying of PDF file content
+> * Show Advanced Custom Fields [NEW]
 > * Customize watermark opacity
 > * Create custom document header and footer templates with:
 > 	* Images
@@ -103,6 +104,7 @@ If you have a feature suggestion or idea you'd like to see in the plugin, we'd l
 
 * [[Doc] Installation](https://docs.google.com/document/d/1-hvn6WRvWnOqj5v5pLUk7Awyu87lq5B_dO-Tv-MC9JQ/)
 * [[Doc] Purchase](https://docs.google.com/document/d/1EUdBVvnm7IHZ6y0DNyldZypUQKpB8UVPToSc_LdOYQI/)
+* [[Doc] How to Use](https://docs.google.com/document/d/1B9ntY5f6E8WoKY3AfuRA2Shk6z2gYPTzwZ8PnLKURoY/)
 * [[Video] Purchase, Installation, Configuration Tutorial](https://www.youtube.com/watch?v=K6aT6Ew9J0g)
 * [[Video] Installation Instruction](http://www.youtube.com/watch?v=E3w9ID3p2-A)
 
@@ -292,6 +294,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 
 == Changelog ==
 
+= V2.1.5 - 26.02.2019 =
+* Pro : Compatibility with Advanced Custom Fields has been added.
+
 = V2.1.4 - 08.01.2019 =
 * Update : The mPDF library has been updated to version 7.1.5.
 
@@ -476,6 +481,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 
 == Upgrade Notice ==
 
+= V2.1.5 =
+* New features added.
+
 = V2.1.4 =
 * The compatibility with 7.1.5 mPDF library version updated.
 
@@ -604,9 +612,10 @@ Added functionality for use with custom post type.
 = V1.2 =
 Added functionality for use with Portfolio plugin for all page.
 
-
 = V1.1 =
 Added functionality for use with Portfolio plugin for post.
 
 = V1.0 =
 Added the ability to output PDF and Print buttons on the type of page.
+
+

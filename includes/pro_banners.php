@@ -171,6 +171,15 @@ if ( ! function_exists( 'pdfprnt_woocommerce_watermark_block' ) ) {
                     </label>
                 </td>
             </tr>
+            <tr>
+                <th><?php _e( 'Show Advanced Custom Fields', 'pdf-print' ); ?></th>
+                <td>
+                    <label>
+                        <input type="checkbox" disabled="disabled" />
+                        <span class="bws_info"><?php _e( 'Enable to show all Advanced Custom Fields.', 'pdf-print' ); ?></span>
+                    </label>
+                </td>
+            </tr>
 		</table>
 	<?php }
 }
