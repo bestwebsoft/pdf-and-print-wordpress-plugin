@@ -67,7 +67,6 @@
 <ul>
 <li>Add text or image watermark</li>
 <li>Prevent copying of PDF file content</li>
-<li>Show Advanced Custom Fields [NEW]</li>
 <li>Customize watermark opacity</li>
 <li>Create custom document header and footer templates with:
 <ul>
@@ -81,6 +80,7 @@
 <li>Post author (for single posts or pages only)</li>
 </ul>
 </li>
+<li>Compatibility with Advanced Custom Fields</li>
 <li>Set custom top and bottom margins for running title</li>
 <li>Add and manage:
 <ul>

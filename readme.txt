@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://bestwebsoft.com/donate/
 Tags: generate pdf, add pdf button, add print button, pdf plugin, pdf pages, print pages, generate pdf content, generate post pdf, pdf print, pdf print plugin, pdf custom post type, pdf content
 Requires at least: 3.9
-Tested up to: 5.0.3
-Stable tag: 2.1.5
+Tested up to: 5.1.1
+Stable tag: 2.1.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -67,7 +67,6 @@ http://www.youtube.com/watch?v=EM6AEkD9M_s
 >
 > * Add text or image watermark
 > * Prevent copying of PDF file content
-> * Show Advanced Custom Fields [NEW]
 > * Customize watermark opacity
 > * Create custom document header and footer templates with:
 > 	* Images
@@ -78,6 +77,7 @@ http://www.youtube.com/watch?v=EM6AEkD9M_s
 > 	* Current page number (for PDF only)
 > 	* Total pages count in document (for PDF only)
 > 	* Post author (for single posts or pages only)
+> * Compatibility with Advanced Custom Fields
 > * Set custom top and bottom margins for running title
 > * Add and manage:
 > 	* Custom fields
@@ -294,6 +294,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 
 == Changelog ==
 
+= V2.1.6 - 03.04.2019 =
+* Bugfix : Warnings and errors in the debug mode has been fixed.
+
 = V2.1.5 - 26.02.2019 =
 * Pro : Compatibility with Advanced Custom Fields has been added.
 
@@ -480,6 +483,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 * NEW : Added the ability to output PDF and Print buttons on the type of page.
 
 == Upgrade Notice ==
+
+= V2.1.6 =
+* Bugs fixed.
 
 = V2.1.5 =
 * New features added.
