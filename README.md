@@ -55,6 +55,7 @@
 </ul>
 </li>
 <li>Customize document styles</li>
+<li>Create PDF that fully copies the page [ NEW ]</li>
 <li>Add custom code via plugin settings page</li>
 <li>Compatible with latest WordPress version</li>
 <li>Incredibly simple settings for fast setup without modifying code</li>

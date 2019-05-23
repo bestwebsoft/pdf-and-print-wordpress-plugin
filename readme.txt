@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://bestwebsoft.com/donate/
 Tags: generate pdf, add pdf button, add print button, pdf plugin, pdf pages, print pages, generate pdf content, generate post pdf, pdf print, pdf print plugin, pdf custom post type, pdf content
 Requires at least: 3.9
-Tested up to: 5.1.1
-Stable tag: 2.1.6
+Tested up to: 5.2.1
+Stable tag: 2.1.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -55,6 +55,7 @@ http://www.youtube.com/watch?v=EM6AEkD9M_s
 	* Top
 	* Bottom
 * Customize document styles
+* Create PDF that fully copies the page [ NEW ]
 * Add custom code via plugin settings page
 * Compatible with latest WordPress version
 * Incredibly simple settings for fast setup without modifying code
@@ -294,6 +295,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 
 == Changelog ==
 
+= V2.1.7 - 23.05.2019 =
+* NEW : Ability to create PDF document that mirrors what is shown on screen has been added.
+
 = V2.1.6 - 03.04.2019 =
 * Bugfix : Warnings and errors in the debug mode has been fixed.
 
@@ -483,6 +487,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 * NEW : Added the ability to output PDF and Print buttons on the type of page.
 
 == Upgrade Notice ==
+
+= V2.1.7 =
+* New features added.
 
 = V2.1.6 =
 * Bugs fixed.

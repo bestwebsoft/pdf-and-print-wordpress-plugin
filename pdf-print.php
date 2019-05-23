@@ -6,7 +6,7 @@ Description: Generate PDF files and print WordPress posts/pages. Customize docum
 Author: BestWebSoft
 Text Domain: pdf-print
 Domain Path: /languages
-Version: 2.1.6
+Version: 2.1.7
 Author URI: https://bestwebsoft.com/
 License: GPLv2 or later
 */
@@ -249,6 +249,7 @@ if ( ! function_exists( 'pdfprnt_get_options_default' ) ) {
 													'print'	=> ''
 												),
 			'pdf_page_size'					=> 'A4',
+            'image_to_pdf'                  => 0,
 			'pdf_margins'					=> array(
 													'left'		=> 15,
 													'right'		=> 15,
@@ -441,6 +442,7 @@ if ( ! function_exists( 'pdfprnt_get_button' ) ) {
 		$custom_query_arg = ( ! empty( $custom_query_arg ) ) ? $custom_query_arg : $button;
 		$url = esc_url( $url );
 		$url = add_query_arg( 'print' , $custom_query_arg , $url );
+        $target='_blank';
 
 		$title = ( ! empty( $pdfprnt_options['button_title'][ $button ] ) ) ?
 			sprintf(
@@ -450,13 +452,18 @@ if ( ! function_exists( 'pdfprnt_get_button' ) ) {
 			)
 		:
 			'';
-		$link = sprintf(
-			'<a href="%s" class="pdfprnt-button pdfprnt-button-%s" target="_blank">%s%s</a>',
-			$url,
-			$button,
-			$image,
-			$title
-		);
+        if ($pdfprnt_options['image_to_pdf'] && $custom_query_arg == 'pdf') {
+            $url="javascript: imageToPdf()";
+            $target='_self';
+        }
+        $link = sprintf(
+            '<a href="%s" class="pdfprnt-button pdfprnt-button-%s" target="%s">%s%s</a>',
+            $url,
+            $button,
+            $target,
+            $image,
+            $title
+        );
 		return $link;
 	}
 }
@@ -480,7 +487,7 @@ if ( ! function_exists( 'pdfprnt_content' ) ) {
 	function pdfprnt_content( $content ) {
 		global $pdfprnt_options, $post, $pdfprnt_is_old_php;
 
-		if ( $pdfprnt_is_old_php || is_admin() || is_feed() || is_search() || is_archive() || is_category() || is_tax() || is_tag() || is_author() || ! pdfprnt_is_user_role_enabled() ) {
+		if ( $pdfprnt_is_old_php || is_admin() || is_feed() || is_search() || is_archive() || is_category() || is_tax() || is_tag() || is_author() || ! pdfprnt_is_user_role_enabled() || post_password_required( $post->ID ) ) {
 			return $content;
 		}
 
@@ -747,7 +754,7 @@ if ( ! function_exists( 'pdfprnt_links' ) ) {
  */
 if ( ! function_exists ( 'pdfprnt_admin_head' ) ) {
 	function pdfprnt_admin_head() {
-		global $pdfprnt_plugin_info;
+		global $pdfprnt_plugin_info, $pdfprnt_options, $post;
 
 		if ( is_admin() ) {
 			wp_enqueue_style( 'pdfprnt_general', plugins_url( 'css/style-general.css', __FILE__ ), false, $pdfprnt_plugin_info['Version'] );
@@ -773,6 +780,21 @@ if ( ! function_exists ( 'pdfprnt_admin_head' ) ) {
 			}
 		} else {
 			wp_enqueue_style( 'pdfprnt_frontend', plugins_url( 'css/frontend.css', __FILE__ ), false, $pdfprnt_plugin_info['Version'] );
+
+            /* Sending data for front js */
+            $file_name =  $post->post_title;
+            wp_enqueue_script('html2canvas.min.js', plugins_url('js/html2canvas.min.js', __FILE__));
+            wp_enqueue_script('jspdf.min.js', plugins_url('js/jspdf.min.js', __FILE__));
+            wp_enqueue_script( 'pdfprnt_front_script', plugins_url( 'js/front-script.js', __FILE__ ), array( 'html2canvas.min.js', 'jspdf.min.js') );
+            wp_localize_script( 'pdfprnt_front_script', 'pdfprnt_file_settings', array(
+                    'margin_left'   => $pdfprnt_options['pdf_margins']['left'],
+                    'margin_right'  => $pdfprnt_options['pdf_margins']['right'],
+                    'margin_top'    => $pdfprnt_options['pdf_margins']['top'],
+                    'margin_bottom' => $pdfprnt_options['pdf_margins']['bottom'],
+                    'page_size'     => $pdfprnt_options['pdf_page_size'],
+                    'file_action'   => $pdfprnt_options['file_action'],
+                    'file_name'     => $file_name )
+            );
 		}
 	}
 }
@@ -991,9 +1013,9 @@ if ( ! function_exists( 'pdfprnt_print' ) ) {
 					}
 
 					$post_content = apply_filters( 'bwsplgns_get_pdf_print_content', $p->post_content, $p );
+                    $shortcodes = implode( '|', apply_filters( 'bwsplgns_pdf_print_remove_shortcodes', array( 'vc_', 'az_' , 'multilanguage_switcher') ) );
+                    $post_content = preg_replace( "/\[\/?({$shortcodes})[^\]]*?\]/", '', $post_content );
 					$post_content = apply_filters( 'the_content', $post_content );
-					$shortcodes = implode( '|', apply_filters( 'bwsplgns_pdf_print_remove_shortcodes', array( 'vc_', 'az_' ) ) );
-					$post_content = preg_replace( "/\[\/?({$shortcodes})[^\]]*?\]/", '', $post_content );
 
 					$html .=
 						'<div class="post">' .
@@ -1083,9 +1105,9 @@ if ( ! function_exists( 'pdfprnt_print' ) ) {
 					}
 
 					$post_content = apply_filters( 'bwsplgns_get_pdf_print_content', $p->post_content, $p );
+                    $shortcodes = implode( '|', apply_filters( 'bwsplgns_pdf_print_remove_shortcodes', array( 'vc_', 'az_', 'multilanguage_switcher') ) );
+                    $post_content = preg_replace( "/\[\/?({$shortcodes})[^\]]*?\]/", '', $post_content );
 					$post_content = apply_filters( 'the_content', $post_content );
-					$shortcodes = implode( '|', apply_filters( 'bwsplgns_pdf_print_remove_shortcodes', array( 'vc_', 'az_' ) ) );
-					$post_content = preg_replace( "/\[\/?({$shortcodes})[^\]]*?\]/", '', $post_content );
 
 					ob_start(); ?>
 						<div class="post">

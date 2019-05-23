@@ -226,9 +226,10 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 				}
 
 				/* Button Image */
+                $this->options['button_image'][ $button ]['image_src']= plugins_url( "images/{$button}.png" , dirname(__FILE__ ) );
+
 				if ( isset( $_POST['pdfprnt_button_image'][ $button ] ) ) {
 					$new_button_image = $_POST['pdfprnt_button_image'][ $button ];
-
 					$this->options['button_image'][ $button ]['type'] =
 						( array_key_exists( $new_button_image, $this->button_image ) )
 					?
@@ -259,6 +260,9 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 
 			/* Print Preview Window */
 			$this->options['show_print_window'] = ( isset( $_POST['pdfprnt_show_print_window'] ) ) ? 1 : 0;
+
+            /* Creating pdf with  image of screen */
+            $this->options['image_to_pdf'] = ( isset( $_POST['pdfprnt_image_to_pdf'] ) ) ? 1 : 0;
 
 			/* Shortcode Settings */
 			$this->options['do_shorcodes'] = isset( $_POST['pdfprnt_do_shorcodes'] ) ? 1 : 0;
@@ -465,6 +469,15 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 			<hr>
 			<?php $this->pro_block( 'filename_orientation_block', $this->post_types ); ?>
 			<table class="form-table pdfprnt-table-settings">
+                <tr>
+                    <th><?php _e( 'Full Page PDF', 'pdf-print' ); ?></th>
+                    <td>
+                        <label>
+                            <input<?php echo $this->change_permission_attr; ?> type="checkbox" name="pdfprnt_image_to_pdf" value="1" <?php checked( 1, $this->options['image_to_pdf'] ); ?> />
+                            <span class="bws_info"><?php _e( 'Enable to create PDF layout to mirror what is shown on screen, including fonts (work only with javascript).', 'pdf-print' ); ?></span>
+                        </label>
+                    </td>
+                </tr>
 				<tr>
 					<th><?php _e( 'PDF Page Size', 'pdf-print' ); ?></th>
 					<td>
