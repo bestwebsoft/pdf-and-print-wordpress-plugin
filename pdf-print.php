@@ -6,7 +6,7 @@ Description: Generate PDF files and print WordPress posts/pages. Customize docum
 Author: BestWebSoft
 Text Domain: pdf-print
 Domain Path: /languages
-Version: 2.1.7
+Version: 2.1.8
 Author URI: https://bestwebsoft.com/
 License: GPLv2 or later
 */
@@ -220,7 +220,7 @@ if ( ! function_exists( 'pdfprnt_get_options_default' ) ) {
 		$options_default = array(
 			'plugin_option_version'			=> $pdfprnt_plugin_info["Version"],
 			'button_post_types'				=> array(
-												'pdf'		=> $default_post_types,
+												'pdf'	=> $default_post_types,
 												'print'	=> $default_post_types
 											),
 			'buttons_position'				=> 'top-right',
@@ -487,7 +487,7 @@ if ( ! function_exists( 'pdfprnt_content' ) ) {
 	function pdfprnt_content( $content ) {
 		global $pdfprnt_options, $post, $pdfprnt_is_old_php;
 
-		if ( $pdfprnt_is_old_php || is_admin() || is_feed() || is_search() || is_archive() || is_category() || is_tax() || is_tag() || is_author() || ! pdfprnt_is_user_role_enabled() || post_password_required( $post->ID ) ) {
+		if ( $pdfprnt_is_old_php || is_admin() || is_feed() || is_search() || is_category() || is_tax() || is_tag() || is_author() || ! pdfprnt_is_user_role_enabled() || post_password_required( $post->ID ) ) {
 			return $content;
 		}
 
@@ -783,9 +783,9 @@ if ( ! function_exists ( 'pdfprnt_admin_head' ) ) {
 
             /* Sending data for front js */
             $file_name =  $post->post_title;
-            wp_enqueue_script('html2canvas.min.js', plugins_url('js/html2canvas.min.js', __FILE__));
-            wp_enqueue_script('jspdf.min.js', plugins_url('js/jspdf.min.js', __FILE__));
-            wp_enqueue_script( 'pdfprnt_front_script', plugins_url( 'js/front-script.js', __FILE__ ), array( 'html2canvas.min.js', 'jspdf.min.js') );
+            wp_enqueue_script('html2canvas.js', plugins_url('js/html2canvas.js', __FILE__));
+            wp_enqueue_script('jspdf.js', plugins_url('js/jspdf.js', __FILE__));
+            wp_enqueue_script( 'pdfprnt_front_script', plugins_url( 'js/front-script.js', __FILE__ ), array( 'html2canvas.js', 'jspdf.js') );
             wp_localize_script( 'pdfprnt_front_script', 'pdfprnt_file_settings', array(
                     'margin_left'   => $pdfprnt_options['pdf_margins']['left'],
                     'margin_right'  => $pdfprnt_options['pdf_margins']['right'],
