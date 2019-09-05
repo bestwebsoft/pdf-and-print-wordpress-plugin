@@ -2,9 +2,9 @@
 Contributors: bestwebsoft
 Donate link: https://bestwebsoft.com/donate/
 Tags: generate pdf, add pdf button, add print button, pdf plugin, pdf pages, print pages, generate pdf content, generate post pdf, pdf print, pdf print plugin, pdf custom post type, pdf content
-Requires at least: 3.9
+Requires at least: 4.0
 Tested up to: 5.2.2
-Stable tag: 2.1.8
+Stable tag: 2.1.9
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -295,6 +295,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 
 == Changelog ==
 
+= V2.1.9 - 04.09.2019 =
+* Update: The deactivation feedback has been changed. Misleading buttons have been removed.
+
 = V2.1.8 - 02.07.2019 =
 * Bugfix : Bug related with "Search Engine Visibility" option has been fixed.
 * Bugfix : Bug with displaying buttons on archive page has been fixed.
@@ -491,6 +494,9 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 * NEW : Added the ability to output PDF and Print buttons on the type of page.
 
 == Upgrade Notice ==
+
+= V2.1.9 =
+* Usability improved
 
 = V2.1.8 =
 * Bugs fixed.
