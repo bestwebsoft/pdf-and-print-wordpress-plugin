@@ -83,14 +83,10 @@ $bws_plugins = array(
 		'name'			=> 'Custom Admin Page',
 		'description'	=> __( 'Add unlimited custom pages to WordPress admin dashboard.', 'bestwebsoft' ),
 		'link'			=> 'https://bestwebsoft.com/products/wordpress/plugins/custom-admin-page/?k=9ac03f16c25e845e8e055a221c3e1467&pn=' . $bws_plugin_info["id"] . '&v=' . $bws_plugin_info["version"] . '&wp_v=' . $wp_version,
-		'settings'		=> 'admin.php?page=custom-admin-page.php'
-	),
-	'custom-fields-search/custom-fields-search.php' => array(
-		'category'		=> array( 'navigation' ),
-		'name'			=> 'Custom Fields Search',
-		'description'	=> __( 'Add custom fields to WordPress website search results.', 'bestwebsoft' ),
-		'link'			=> 'https://bestwebsoft.com/products/wordpress/plugins/custom-fields-search/?k=f3f8285bb069250c42c6ffac95ed3284&pn=' . $bws_plugin_info["id"] . '&v=' . $bws_plugin_info["version"] . '&wp_v=' . $wp_version,
-		'settings'		=> 'admin.php?page=custom_fields_search.php'
+		'settings'		=> 'admin.php?page=custom-admin-page.php',
+		'pro_version'	=> 'custom-admin-page-pro/custom-admin-page-pro.php',
+		'purchase' 		=> 'https://bestwebsoft.com/products/wordpress/plugins/custom-admin-page/buy/?k=b986f456dba092b537f1a7755a363be9&pn=' . $bws_plugin_info["id"] . '&v=' . $bws_plugin_info["version"] . '&wp_v=' . $wp_version,
+		'pro_settings' 	=> 'admin.php?page=custom-admin-page.php'
 	),
 	'custom-search-plugin/custom-search-plugin.php' => array(
 		'category'		=> array( 'navigation' ),
@@ -118,7 +114,7 @@ $bws_plugins = array(
 	),
 	'facebook-button-plugin/facebook-button-plugin.php' => array(
 		'category'		=> array( 'smm' ),
-		'name'			=> 'Facebook Button',
+		'name'			=> 'BestWebSoft Like & Share',
 		'description'	=> __( 'Add Facebook Follow, Like, and Share buttons to WordPress posts, pages, and widgets.', 'bestwebsoft' ),
 		'link'			=> 'https://bestwebsoft.com/products/wordpress/plugins/facebook-like-button/?k=05ec4f12327f55848335802581467d55&pn=' . $bws_plugin_info["id"] . '&v=' . $bws_plugin_info["version"] . '&wp_v=' . $wp_version,
 		'settings'		=> 'admin.php?page=facebook-button-plugin.php',
@@ -305,7 +301,10 @@ $bws_plugins = array(
 		'name'			=> 'Post to CSV',
 		'description'	=> __( 'Export WordPress posts to CSV file format easily. Configure data order.', 'bestwebsoft' ),
 		'link'			=> 'https://bestwebsoft.com/products/wordpress/plugins/post-to-csv/?k=653aa55518ae17409293a7a894268b8f&pn=' . $bws_plugin_info["id"] . '&v=' . $bws_plugin_info["version"] . '&wp_v=' . $wp_version,
-		'settings'		=> 'admin.php?page=post-to-csv.php'
+		'settings'		=> 'admin.php?page=post-to-csv.php',
+		'pro_version'	=> 'post-to-csv-pro/post-to-csv-pro.php',
+		'purchase' 		=> 'https://bestwebsoft.com/products/wordpress/plugins/post-to-csv/buy/?k=b6521601d1579ed9c556ba98234f2d8f&pn=' . $bws_plugin_info["id"] . '&v=' . $bws_plugin_info["version"] . '&wp_v=' . $wp_version,
+		'pro_settings' 	=> 'admin.php?page=post-to-csv-pro.php'
 	),
 	'profile-extra-fields/profile-extra-fields.php' => array(
 		'category'		=> array( 'admin-tools' ),

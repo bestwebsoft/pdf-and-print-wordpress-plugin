@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://bestwebsoft.com/donate/
 Tags: generate pdf, add pdf button, add print button, pdf plugin, pdf pages, print pages, generate pdf content, generate post pdf, pdf print, pdf print plugin, pdf custom post type, pdf content
 Requires at least: 4.0
-Tested up to: 5.2.2
-Stable tag: 2.1.9
+Tested up to: 5.2.4
+Stable tag: 2.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -295,6 +295,10 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 
 == Changelog ==
 
+= V2.2.0 - 15.10.2019 =
+* Bugfix : The bug with mPDF library update to version 7.1.5 has been fixed.
+* Update : BWS menu has been updated.
+
 = V2.1.9 - 04.09.2019 =
 * Update: The deactivation feedback has been changed. Misleading buttons have been removed.
 
@@ -324,7 +328,6 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 = V2.0.2 - 07.05.2018 =
 * Bugfix: The bug with fonts loading has been fixed.
 * Update : All functionality has been updated for WordPress 4.9.5.
-
 
 = V2.0.1 - 20.03.2018 =
 * Pro : Ability to set custom fields for single posts has been added.
@@ -494,6 +497,10 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 * NEW : Added the ability to output PDF and Print buttons on the type of page.
 
 == Upgrade Notice ==
+
+= V2.2.0 =
+* Functionality improved.
+* Bugs fixed.
 
 = V2.1.9 =
 * Usability improved

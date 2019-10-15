@@ -6,7 +6,7 @@ Description: Generate PDF files and print WordPress posts/pages. Customize docum
 Author: BestWebSoft
 Text Domain: pdf-print
 Domain Path: /languages
-Version: 2.1.9
+Version: 2.2.0
 Author URI: https://bestwebsoft.com/
 License: GPLv2 or later
 */
@@ -778,7 +778,7 @@ if ( ! function_exists ( 'pdfprnt_admin_head' ) ) {
 			if ( isset( $_GET['page'] ) && "pdf-print-templates.php" == $_GET['page'] ) {
 				wp_enqueue_style( 'pdfprnt_stylesheet', plugins_url( 'css/templates.css', __FILE__ ), false, $pdfprnt_plugin_info['Version'] );
 			}
-		} else {
+		} elseif ( isset( $post->post_title ) ) {
 			wp_enqueue_style( 'pdfprnt_frontend', plugins_url( 'css/frontend.css', __FILE__ ), false, $pdfprnt_plugin_info['Version'] );
 
             /* Sending data for front js */
@@ -1039,7 +1039,7 @@ if ( ! function_exists( 'pdfprnt_print' ) ) {
 				$is_installed = file_exists( $path );
                 if ( $is_installed ) {
 	                /* Implement mPDF v7.1.5 */
-	                include ( 'vendor/autoload.php' );
+	                include ( __DIR__ . '/vendor/autoload.php' );
 	                $mpdf_config = array(
 		                'mode' => '+aCJK',
 		                'format' => $pdfprnt_options['pdf_page_size'],
@@ -1403,8 +1403,8 @@ if ( ! function_exists( 'pdfprnt_upgrade_library' ) ) {
 		$php_request = isset( $_REQUEST['pdfprnt_action'] ) && 'pdfprnt_upgrade_library' == $_REQUEST['pdfprnt_action'] ? true : false;
 		$verified = isset( $_REQUEST['pdfprnt_ajax_nonce'] ) && wp_verify_nonce( $_REQUEST['pdfprnt_ajax_nonce'], 'pdfprnt_ajax_nonce' ) ? true : false;
 		$old_dir = plugin_dir_path(__FILE__) . 'mpdf';
+		$result = array();
 		if ( ( $ajax_request || $php_request ) && true === $verified ) {
-			$result = array();
 			/* get path to directory for ZIP-archive uploading */
 			if ( is_multisite() ) {
 				switch_to_blog( 1 );
@@ -1421,16 +1421,15 @@ if ( ! function_exists( 'pdfprnt_upgrade_library' ) ) {
 			if ( ! file_exists( $new_dir ) ) {
 				$result = pdfprnt_load_and_copy( $zip_file, $upload_dir, $url ); /* load library */
 			}
-			if ( true === $ajax_request ) {
-				echo json_encode( $result );
-			} else {
+			if ( ! isset( $result['error'] ) ) {
 				pdfprnt_delete_old_library( $old_dir );
-				return $result;
 			}
 		}
 		if ( true === $ajax_request ) {
-			pdfprnt_delete_old_library( $old_dir );
-			die();
+			echo json_encode( $result );
+			wp_die();
+		} else {
+			return $result;
 		}
 	}
 }

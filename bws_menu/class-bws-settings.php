@@ -757,7 +757,7 @@ if ( ! class_exists( 'Bws_Settings_Tabs' ) ) {
 						if( ! empty( $single_license['pro_basename'] ) ) {
 							$license_key = ! empty( $bstwbsftwppdtplgns_options[ $single_license['pro_basename'] ] ) ? $bstwbsftwppdtplgns_options[ $single_license['pro_basename'] ] : '';
 						}
-						$current_plugin_link = ( ! empty( $this->link_key ) && ! empty( $this->link_pn ) ? esc_url( 'https://bestwebsoft.com/products/wordpress/plugins/' . $single_license['slug'] . '/' . '?k=' . $this->link_key . '&pn=' . $this->link_pn . '&v=' . $this->plugins_info["Version"] . '&wp_v=' . $wp_version ) : esc_url( 'https://bestwebsoft.com/products/wordpress/plugins/' . $single_license['slug'] . '/' ) );
+						$current_plugin_link = ( ! empty( $this->link_key ) && ! empty( $this->link_pn ) ? esc_url( 'https://bestwebsoft.com/products/wordpress/plugins/' . $this->wp_slug . '/' . '?k=' . $this->link_key . '&pn=' . $this->link_pn . '&v=' . $this->plugins_info["Version"] . '&wp_v=' . $wp_version ) : esc_url( 'https://bestwebsoft.com/products/wordpress/plugins/' . $this->wp_slug . '/' ) );
 						?>
                         <table class="form-table">
                             <tr>
@@ -846,7 +846,7 @@ if ( ! class_exists( 'Bws_Settings_Tabs' ) ) {
 									'body'       => array( 'plugins' => serialize( $to_send ) ),
 									'user-agent' => 'WordPress/' . $wp_version . '; ' . get_bloginfo( 'url' )
 								);
-								$raw_response = wp_remote_post( 'http://bestwebsoft.com/wp-content/plugins/paid-products/plugins/update-check/1.0/', $options );
+								$raw_response = wp_remote_post( 'http://bestwebsoft.com/wp-content/plugins/paid-products/plugins/pro-license-check/1.0/', $options );
 
 								if ( is_wp_error( $raw_response ) || 200 != wp_remote_retrieve_response_code( $raw_response ) ) {
 									$error = __( 'Something went wrong. Please try again later. If the error appears again, please contact us', 'bestwebsoft' ) . ': <a href=https://support.bestwebsoft.com>BestWebSoft</a>. ' . __( 'We are sorry for inconvenience.', 'bestwebsoft' );
@@ -955,7 +955,7 @@ if ( ! class_exists( 'Bws_Settings_Tabs' ) ) {
 										'body'       => array( 'plugins' => serialize( $to_send ) ),
 										'user-agent' => 'WordPress/' . $wp_version . '; ' . get_bloginfo( 'url' )
 									);
-									$raw_response = wp_remote_post( 'http://bestwebsoft.com/wp-content/plugins/paid-products/plugins/update-check/1.0/', $options );
+									$raw_response = wp_remote_post( 'http://bestwebsoft.com/wp-content/plugins/paid-products/plugins/pro-license-check/1.0/', $options );
 
 									if ( is_wp_error( $raw_response ) || 200 != wp_remote_retrieve_response_code( $raw_response ) ) {
 										$error = __( "Something went wrong. Please try again later. If the error appears again, please contact us", 'bestwebsoft' ) . ': <a href="https://support.bestwebsoft.com">BestWebSoft</a>. ' . __( "We are sorry for inconvenience.", 'bestwebsoft' );
@@ -991,19 +991,18 @@ if ( ! class_exists( 'Bws_Settings_Tabs' ) ) {
 												if ( ! function_exists( 'curl_init' ) ) {
 													$received_content = file_get_contents( $url );
 												} else {
-													$ch = curl_init();
-													curl_setopt( $ch, CURLOPT_URL, $url );
-													curl_setopt( $ch, CURLOPT_RETURNTRANSFER, true );
-													$received_content = curl_exec( $ch );
-													curl_close( $ch );
+													$args = array(
+													        'method' 	  => 'POST',
+													        'timeout'     => 100
+                                                    );
+													$received_content = wp_remote_post( $url, $args );
 												}
-
-												if ( ! $received_content ) {
+												if ( ! $received_content['body'] ) {
 													$error = __( "Failed to download the zip archive. Please, upload the plugin manually.", 'bestwebsoft' );
 												} else {
 													if ( is_writable( $this->upload_dir["path"] ) ) {
 														$file_put_contents = $this->upload_dir["path"] . "/" . $zip_name[0] . ".zip";
-														if ( file_put_contents( $file_put_contents, $received_content ) ) {
+														if ( file_put_contents( $file_put_contents, $received_content['body'] ) ) {
 															@chmod( $file_put_contents, octdec( 755 ) );
 															if ( class_exists( 'ZipArchive' ) ) {
 																$zip = new ZipArchive();

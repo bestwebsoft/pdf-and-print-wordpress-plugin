@@ -204,14 +204,19 @@ function pdfprnt_add_labels() {
  * Initialize CSS highlighter
  */
 function pdfprnt_add_editor() {
-	var editor = CodeMirror.fromTextArea(
-		document.getElementById( "pdfprnt_custom_css_code" ), {
-			mode:            "css",
-			theme:           "default",
-			styleActiveLine: true,
-			matchBrackets:   true,
-			lineNumbers:     true
-		}
-	);
+	if ( 'function' == typeof wp.CodeMirror || 'function' == typeof CodeMirror ) {
+        var CodeMirrorFunc = (
+            typeof wp.CodeMirror != 'undefined'
+        ) ? wp.CodeMirror : CodeMirror;
+        var editor = CodeMirrorFunc.fromTextArea(
+            document.getElementById( "pdfprnt_custom_css_code" ), {
+                mode: "css",
+                theme: "default",
+                styleActiveLine: true,
+                matchBrackets: true,
+                lineNumbers: true
+            }
+        );
+    }
 }
 
