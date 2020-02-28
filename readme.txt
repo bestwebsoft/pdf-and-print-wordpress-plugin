@@ -2,9 +2,9 @@
 Contributors: bestwebsoft
 Donate link: https://bestwebsoft.com/donate/
 Tags: generate pdf, add pdf button, add print button, pdf plugin, pdf pages, print pages, generate pdf content, generate post pdf, pdf print, pdf print plugin, pdf custom post type, pdf content
-Requires at least: 4.0
-Tested up to: 5.2.4
-Stable tag: 2.2.0
+Requires at least: 4.5
+Tested up to: 5.3.2
+Stable tag: 2.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -105,7 +105,7 @@ If you have a feature suggestion or idea you'd like to see in the plugin, we'd l
 
 * [[Doc] Installation](https://docs.google.com/document/d/1-hvn6WRvWnOqj5v5pLUk7Awyu87lq5B_dO-Tv-MC9JQ/)
 * [[Doc] Purchase](https://docs.google.com/document/d/1EUdBVvnm7IHZ6y0DNyldZypUQKpB8UVPToSc_LdOYQI/)
-* [[Doc] How to Use](https://docs.google.com/document/d/1B9ntY5f6E8WoKY3AfuRA2Shk6z2gYPTzwZ8PnLKURoY/)
+* [[Doc] User Guide](https://docs.google.com/document/d/1B9ntY5f6E8WoKY3AfuRA2Shk6z2gYPTzwZ8PnLKURoY/)
 * [[Video] Purchase, Installation, Configuration Tutorial](https://www.youtube.com/watch?v=K6aT6Ew9J0g)
 * [[Video] Installation Instruction](http://www.youtube.com/watch?v=E3w9ID3p2-A)
 
@@ -294,6 +294,10 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 7. Settings page (Output tab) for the PDF&Print in admin panel.
 
 == Changelog ==
+
+= V2.2.1 - 27.02.2020 =
+* Update : All functionality was updated for WordPress 5.3.2.
+* Update : BWS menu has been updated.
 
 = V2.2.0 - 15.10.2019 =
 * Bugfix : The bug with mPDF library update to version 7.1.5 has been fixed.
@@ -497,6 +501,11 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 * NEW : Added the ability to output PDF and Print buttons on the type of page.
 
 == Upgrade Notice ==
+
+= V2.2.1 =
+* Usability improved.
+* Functionality improved.
+* Bugs fixed.
 
 = V2.2.0 =
 * Functionality improved.
