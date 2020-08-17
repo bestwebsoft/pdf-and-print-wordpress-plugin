@@ -1,8 +1,11 @@
-
+var beforeImageToPdf, afterImageToPdf;
 /* Image of page to PDF */
 function imageToPdf() {
     window.scrollTo(0, 0);
-    html2canvas( document.querySelector('body') ).then( canvas => {
+    if( 'undefined' != typeof beforeImageToPdf ) {
+        beforeImageToPdf();
+    }
+    html2canvas( document.querySelector('body' ) ).then( canvas => {
        var fileSettings = {
             'pageSize'     : pdfprnt_file_settings.page_size.toLowerCase(),
             'marginLeft'   : Number( pdfprnt_file_settings.margin_left ),
@@ -54,7 +57,16 @@ function imageToPdf() {
             });
             window.open( pdf.output( 'bloburl' ) );
         } else {
+            if( 'undefined' != typeof beforeImageToPdf ) {
+                beforeImageToPdf();
+            }
+            if( 'undefined' != typeof afterImageToPdf ) {
+                afterImageToPdf();
+            }
             pdf.save( fileSettings['fileName'] );
         }
     });
+    if( 'undefined' != typeof afterImageToPdf ) {
+        afterImageToPdf();
+    }
 }

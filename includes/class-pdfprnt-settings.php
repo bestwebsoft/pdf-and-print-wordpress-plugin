@@ -7,7 +7,7 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 	class Pdfprnt_Settings_Tabs extends Bws_Settings_Tabs {
 		public $post_types, $button_positions, $button_image, $margin_positions, $default_css_types, $upload_dir, $page_sizes, $editable_roles;
 		public $need_fonts_reload = false;
-		private $wp_sizes;
+		private $wp_sizes, $buttons;
 
 		/**
 		 * Constructor.
@@ -40,8 +40,6 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 				'is_network_options'		=> is_network_admin(),
 				'tabs'						=> $tabs,
 				'wp_slug'					=> 'pdf-print',
-				'pro_page'					=> 'admin.php?page=pdf-print-pro.php',
-				'bws_license_plugin'		=> 'pdf-print-pro/pdf-print-pro.php',
 				'link_key'					=> 'd9da7c9c2046bed8dfa38d005d4bffdb',
 				'link_pn'					=> '101'
 			) );

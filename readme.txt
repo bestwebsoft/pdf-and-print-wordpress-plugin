@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://bestwebsoft.com/donate/
 Tags: generate pdf, add pdf button, add print button, pdf plugin, pdf pages, print pages, generate pdf content, generate post pdf, pdf print, pdf print plugin, pdf custom post type, pdf content
 Requires at least: 4.5
-Tested up to: 5.3.2
-Stable tag: 2.2.1
+Tested up to: 5.5
+Stable tag: 2.2.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -181,37 +181,59 @@ Go to the Settings page and unmark checkbox 'Print Shortcodes'.
 
 = How can I change the content pdf/print document? =
 
-- in order to change main content of pdf/print document you can use following filter:
+You can use following filters if "Full Page PDF" option is disabled:
+
+- in order to change main content of pdf/print document
 
 `add_filter( 'bwsplgns_get_pdf_print_content', {your_function} );`
+
+- in order to change top running title
+
+`add_filter( 'bwsplgns_top_running_title', {your_function} );`
+
+- in order to change bottom running title
+
+`add_filter( 'bwsplgns_bottom_running_title', {your_function} );`
 
 - in order to change the title of pdf/print document
 
 `add_filter( 'bwsplgns_get_pdf_print_title', {your_function}, 10, 2 );`
 
-For example, add the following code to the 'functions.php' file of your theme:
+For example, go to the plugin settings page -> "Custom Code" tab, mark "Activate custom PHP code." checkbox in the "PHP" section and add the following code:
 
 `add_filter(
-	'bwsplgns_get_pdf_print_content',
-	function( $content ) {
-		$my_content   = '<p>Lorem ipsum dolor sit amet</p>';
-		$more_content = '<p>Donec fringilla libero ac sapien</p>';
+    'bwsplgns_get_pdf_print_content',
+    function( $content ) {
+        $my_content   = '<p>Lorem ipsum dolor sit amet</p>';
+        $more_content = '<p>Donec fringilla libero ac sapien</p>';
 
-		/* if you want add some data before to the main content */
-		return $my_content . $content;
+        /* if you want add some data before to the main content */
+        return $my_content . $content;
 
-		/* if you want add some data after the main content */
-		return $content . $my_content;
+        /* if you want add some data after the main content */
+        return $content . $my_content;
 
-		/* if you want add some data both sides the main content */
-		return $my_content . $content . $more_content;
+        /* if you want add some data both sides the main content */
+        return $my_content . $content . $more_content;
 
-		/* if you want add some data instead of the main content */
-		return $my_content;
-	}
+        /* if you want add some data instead of the main content */
+        return $my_content;
+    }
 );`
 
 For more information about WordPress filters see [here](https://codex.wordpress.org/Function_Reference/add_filter).
+
+If "Full Page PDF" option is enabled please use `beforeImageToPdf()` and `afterImageToPdf()` JavaScript functions for changing PDF document.
+For example, go to the plugin settings page -> "Custom Code" tab, mark "Activate custom JavaScript code." checkbox in the "JavaScript" section and add the following code:
+
+`function beforeImageToPdf() {
+    document.getElementById("site-header").style.display = "none";
+}
+function afterImageToPdf() {
+    document.getElementById("site-header").style.display = "block";
+}`
+
+Replace "site-header" on the id of the element you need to hide.
 
 = How can I add different styles to PDF and Print pages? =
 
@@ -283,6 +305,22 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 3. the version of your WordPress installation
 4. copy and paste into the message your system status report. Please read more here: [Instruction on System Status](https://docs.google.com/document/d/1Wi2X8RdRGXk9kMszQy1xItJrpN0ncXgioH935MaBKtc/)
 
+= Can I remove content added by shortcodes? =
+
+To remove the shortcode, please use 'bwsplgns_pdf_print_remove_shortcodes' hook:
+
+1. Go to the plugin settings page;
+2. Open "Custom Code" tab, mark "Activate custom PHP code." checkbox in the "PHP" section;
+3. Add the following code (as example):
+
+`function pdf_print_remove_shortcodes( $shortcodes_array ) {
+    $shortcodes_array[] = 'bestwebsoft_contact_form';
+    return $shortcodes_array;
+}
+add_filter( 'bwsplgns_pdf_print_remove_shortcodes', 'pdf_print_remove_shortcodes' );`
+
+Replace `bestwebsoft_contact_form` with your shortcode.
+
 == Screenshots ==
 
 1. Displaying PDF&Print buttons in the post on your WordPress website.
@@ -294,6 +332,14 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 7. Settings page (Output tab) for the PDF&Print in admin panel.
 
 == Changelog ==
+
+= V2.2.2 - 17.08.2020 =
+* NEW : Ability to change PDF & Print document's content when "Full Page PDF" option is enabled.
+* Update : All functionality was updated for WordPress 5.5.
+* Update : BWS Panel section was updated.
+* Bugfix : The bug with hiding PDF & Print buttons for all users has been fixed.
+* Pro : Ability to add the title of a post to Headers & Footers.
+* Pro : Ability to place Custom Fields Data before page/post title.
 
 = V2.2.1 - 27.02.2020 =
 * Update : All functionality was updated for WordPress 5.3.2.
@@ -501,6 +547,11 @@ Please make sure that the problem hasn't been discussed yet on our forum (<https
 * NEW : Added the ability to output PDF and Print buttons on the type of page.
 
 == Upgrade Notice ==
+
+= V2.2.2 =
+* Usability improved.
+* Functionality improved.
+* Bugs fixed.
 
 = V2.2.1 =
 * Usability improved.

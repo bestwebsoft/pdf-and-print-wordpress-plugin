@@ -220,7 +220,12 @@ if ( ! function_exists( 'pdfprnt_custom_fields_block' ) ) {
 					<div>
 						<div class="pdfprnt-before-after-title">
 								<?php _e( 'Data Before Content', 'pdf-print' );?>
-							</div>
+                        </div>
+                        <div class="pdfprnt-content-before-title">
+                            <label><input type="checkbox" disabled="disabled"/> <?php _e( 'Enable to show data before page title', 'pdf-print' ); ?></label>.
+                            <br />
+                            <br />
+                        </div>
 						<img class="pdfprnt_banner_accordion" src="<?php echo plugins_url( "images/pro_screen_2.png", dirname( __FILE__ ) ); ?>">
 						<div class="pdfprnt-before-after-title">
 								<?php _e( 'Data After Content', 'pdf-print' );?>
@@ -479,6 +484,9 @@ if ( ! function_exists( 'pdfprnt_headers_footers_editor_block' ) ) {
 								<span>
 									<strong>{PAGENO}</strong> - <?php _e( 'Current page number (for PDF only)', 'pdf-print' ); ?>.
 								</span><br />
+                                <span>
+									<strong>{TITLE}</strong> - <?php _e( 'Title of the post (for single posts or pages only)', 'pdf-print' ); ?>.
+								</span><br />
 								<span>
 									<strong>{PAGETOTAL}</strong> - <?php _e( 'Number of all pages in the document (for PDF only)', 'pdf-print' ); ?>.
 								</span><br />
@@ -489,7 +497,7 @@ if ( ! function_exists( 'pdfprnt_headers_footers_editor_block' ) ) {
 									<strong>{DATE}</strong> - <?php _e( 'Current date', 'pdf-print' ); ?>.
 								</span><br />
 								<span>
-									<strong>{POSTDATE}</strong> - <?php _e( 'The date when the post was created', 'pdf-print' ); ?>&nbsp;(&nbsp;<?php _e( 'this shortcode will be replaced to the current date on search or archive pages', 'pdf-print' ); ?>&nbsp;).
+									<strong>{POSTDATE}</strong> - <?php _e( 'The date when the post was created', 'pdf-print' ); ?>&nbsp;(<?php _e( 'this shortcode will be replaced to the current date on search or archive pages', 'pdf-print' ); ?>).
 								</span>
 								<span>
 									<?php _e( 'You can specify your own DateTime format for {DATE} and {POSTDATE} shortcodes. For example', 'pdf-print' ); ?>:
@@ -497,7 +505,7 @@ if ( ! function_exists( 'pdfprnt_headers_footers_editor_block' ) ) {
 								<code>{DATE l, F j, Y g:i a}</code>&nbsp;<?php _e( 'or', 'pdf-print' ); ?>&nbsp;<code>{POSTDATE l, F j, Y g:i a}</code>
 								<a target="_blank" href="https://codex.wordpress.org/Formatting_Date_and_Time"><?php _e( 'Learn More', 'pdf-print' ); ?></a><br />
 								<span>
-									<strong>{POSTAUTHOR}</strong> - <?php echo __( 'Author of the post', 'pdf-print' ) . '&nbsp;(&nbsp;' . __( 'for single posts or pages only', 'pdf-print' ); ?>&nbsp;).
+									<strong>{POSTAUTHOR}</strong> - <?php echo __( 'Author of the post', 'pdf-print' ) . '&nbsp;(' . __( 'for single posts or pages only', 'pdf-print' ); ?>).
 								</span>
 							</div><!-- .pdfprnt-template-editor-shortcodes -->
 						</div>
@@ -529,6 +537,9 @@ if ( ! function_exists( 'pdfprnt_headers_footers_editor_block' ) ) {
 								<span>
 									<strong>{PAGENO}</strong> - <?php _e( 'Current page number (for PDF only)', 'pdf-print' ); ?>.
 								</span><br />
+                                <span>
+									<strong>{TITLE}</strong> - <?php _e( 'Title of the post (for single posts or pages only)', 'pdf-print' ); ?>.
+								</span><br />
 								<span>
 									<strong>{PAGETOTAL}</strong> - <?php _e( 'Number of all pages in the document (for PDF only)', 'pdf-print' ); ?>.
 								</span><br />
@@ -539,7 +550,7 @@ if ( ! function_exists( 'pdfprnt_headers_footers_editor_block' ) ) {
 									<strong>{DATE}</strong> - <?php _e( 'Current date', 'pdf-print' ); ?>.
 								</span><br />
 								<span>
-									<strong>{POSTDATE}</strong> - <?php _e( 'The date when the post was created', 'pdf-print' ); ?>&nbsp;(&nbsp;<?php _e( 'this shortcode will be replaced to the current date on search or archive pages', 'pdf-print' ); ?>&nbsp;).
+									<strong>{POSTDATE}</strong> - <?php _e( 'The date when the post was created', 'pdf-print' ); ?>&nbsp;(<?php _e( 'this shortcode will be replaced to the current date on search or archive pages', 'pdf-print' ); ?>).
 								</span>
 								<span>
 									<?php _e( 'You can specify your own DateTime format for {DATE} and {POSTDATE} shortcodes. For example', 'pdf-print' ); ?>:
@@ -547,7 +558,7 @@ if ( ! function_exists( 'pdfprnt_headers_footers_editor_block' ) ) {
 								<code>{DATE l, F j, Y g:i a}</code>&nbsp;<?php _e( 'or', 'pdf-print' ); ?>&nbsp;<code>{POSTDATE l, F j, Y g:i a}</code>
 								<a target="_blank" href="https://codex.wordpress.org/Formatting_Date_and_Time"><?php _e( 'Learn More', 'pdf-print' ); ?></a><br />
 								<span>
-									<strong>{POSTAUTHOR}</strong> - <?php echo __( 'Author of the post', 'pdf-print' ) . '&nbsp;(&nbsp;' . __( 'for single posts or pages only', 'pdf-print' ); ?>&nbsp;).
+									<strong>{POSTAUTHOR}</strong> - <?php echo __( 'Author of the post', 'pdf-print' ) . '&nbsp;(' . __( 'for single posts or pages only', 'pdf-print' ); ?>).
 								</span>
 							</div><!-- .pdfprnt-template-editor-shortcodes -->
 						</div>

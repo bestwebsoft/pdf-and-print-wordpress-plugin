@@ -214,7 +214,8 @@ function pdfprnt_add_editor() {
                 theme: "default",
                 styleActiveLine: true,
                 matchBrackets: true,
-                lineNumbers: true
+                lineNumbers: true,
+				lineWrapping: true
             }
         );
     }
