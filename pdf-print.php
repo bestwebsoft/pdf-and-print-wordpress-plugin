@@ -6,7 +6,7 @@ Description: Generate PDF files and print WordPress posts/pages. Customize docum
 Author: BestWebSoft
 Text Domain: pdf-print
 Domain Path: /languages
-Version: 2.2.2
+Version: 2.2.3
 Author URI: https://bestwebsoft.com/
 License: GPLv2 or later
 */
@@ -192,18 +192,7 @@ if ( ! function_exists( 'pdfprnt_settings' ) ) {
 
 			$pdfprnt_options['plugin_option_version'] = $pdfprnt_plugin_info["Version"];
 			$pdfprnt_options['hide_premium_options'] = array();
-
-			/**
-			 * @deprecated 2.2.1
-			 * @todo Remove after 20.08.2020
-			 */
-			if ( version_compare( $pdfprnt_plugin_info["Version"], '2.2.1' ) <= 0 ) {
-				$pdfprnt_options['use_default_css'] = 'theme' === $pdfprnt_options['use_default_css'] || 1 === $pdfprnt_options['use_default_css'] ? 1 : 0;
-			}
-			/* end todo */
-
 			update_option( 'pdfprnt_options', $pdfprnt_options );
-
 			pdfprnt_plugin_activate();
 		}
 	}
@@ -243,7 +232,8 @@ if ( ! function_exists( 'pdfprnt_get_options_default' ) ) {
 			'use_custom_css'				=> 0,
 			'custom_css_code'				=> '',
 			'do_shorcodes'					=> 1,
-			'disable_links'					=> 1,
+			'disable_links'					=> 0,
+			'remove_links'					=> 0,
 			'show_print_window'				=> 0,
 			'additional_fonts'				=> 0,
 			'show_title'					=> 1,
@@ -395,6 +385,15 @@ if ( ! function_exists( 'pdfprnt_shortcode' ) ) {
 			);
 		}
 		return $buttons;
+	}
+}
+
+if ( ! function_exists( 'pdfprnt_shortcode_pagebreak' ) ) {
+	function pdfprnt_shortcode_pagebreak() {
+		if ( isset( $_GET['print'] ) && 'pdf' == $_GET['print'] ) {
+		    return '<div style="page-break-after:always"></div>';
+		}
+		return '';
 	}
 }
 
@@ -1046,6 +1045,13 @@ if ( ! function_exists( 'pdfprnt_print' ) ) {
 						foreach ( array_unique( $matches[0] ) as $value )
 							$p->post_content = str_replace( $value, "", $p->post_content );
 					}
+                    if ( 1 == $pdfprnt_options['remove_links'] ) {
+                        $p->post_content = preg_replace('~<a\b[^>]*+>|</a\b[^>]*+>~','$2', $p->post_content);
+                        $p->post_content = preg_replace('@((https?://)?([-\w]+\.[-\w\.]+)+\w(:\d+)?(/([-\w/_\.]*(\?\S+)?)?)*)@', '', $p->post_content);
+                    }
+                    if ( 1 == $pdfprnt_options['disable_links'] ) {
+                        $html .= '<style> a {text-decoration: none; color:#000000 !important; } </style>';
+                    }
 
 					$post_content = apply_filters( 'bwsplgns_get_pdf_print_content', $p->post_content, $p );
                     $shortcodes = implode( '|', apply_filters( 'bwsplgns_pdf_print_remove_shortcodes', array( 'vc_', 'az_' , 'multilanguage_switcher') ) );
@@ -1138,6 +1144,13 @@ if ( ! function_exists( 'pdfprnt_print' ) ) {
 						foreach ( array_unique( $matches[0] ) as $value )
 							$p->post_content = str_replace( $value, "", $p->post_content );
 					}
+                    if ( 1 == $pdfprnt_options['remove_links'] ) {
+                        $p->post_content = preg_replace('~<a\b[^>]*+>|</a\b[^>]*+>~','$2', $p->post_content);
+                        $p->post_content = preg_replace('@((https?://)?([-\w]+\.[-\w\.]+)+\w(:\d+)?(/([-\w/_\.]*(\?\S+)?)?)*)@', '', $p->post_content);
+                    }
+                    if ( 1 == $pdfprnt_options['disable_links'] ) {
+                        $html .= '<style> a {text-decoration: none; color:#000000 !important; } </style>';
+                    }
 
 					$post_content = apply_filters( 'bwsplgns_get_pdf_print_content', $p->post_content, $p );
                     $shortcodes = implode( '|', apply_filters( 'bwsplgns_pdf_print_remove_shortcodes', array( 'vc_', 'az_', 'multilanguage_switcher') ) );
@@ -1697,6 +1710,7 @@ add_action( 'admin_menu', 'pdfprnt_add_admin_menu' );
 add_filter( 'query_vars', 'print_vars_callback' );
 
 add_shortcode( 'bws_pdfprint', 'pdfprnt_shortcode' );
+add_shortcode( 'bws_pdfprint_pagebreak', 'pdfprnt_shortcode_pagebreak' );
 /* custom filter for bws button in tinyMCE */
 add_filter( 'bws_shortcode_button_content', 'pdfprnt_shortcode_button_content' );
 

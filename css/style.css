@@ -26,7 +26,9 @@
 .pdfprnt-col-2 {
 	width: 50%;
 }
-
+.pdfprnt_small_text {
+	margin-top: 5px !important;
+}
 /* Settings tab */
 .pdfprnt-button-image-default-pdf,
 .pdfprnt-button-image-default-print {

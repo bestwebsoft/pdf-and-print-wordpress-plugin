@@ -1,10 +1,10 @@
-﻿=== PDF & Print by BestWebSoft ===
+=== PDF & Print by BestWebSoft ===
 Contributors: bestwebsoft
 Donate link: https://bestwebsoft.com/donate/
 Tags: generate pdf, add pdf button, add print button, pdf plugin, pdf pages, print pages, generate pdf content, generate post pdf, pdf print, pdf print plugin, pdf custom post type, pdf content
 Requires at least: 4.5
-Tested up to: 5.5
-Stable tag: 2.2.2
+Tested up to: 5.5.1
+Stable tag: 2.2.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -333,6 +333,12 @@ Replace `bestwebsoft_contact_form` with your shortcode.
 
 == Changelog ==
 
+= V2.2.3 - 30.09.2020 =
+* NEW : Shortcode to force a page break.
+* NEW : Ability to generate a PDF without links (ability to remove links from document).
+* Update : BWS Panel section was updated.
+* Update : All functionality was updated for WordPress 5.5.1.
+
 = V2.2.2 - 17.08.2020 =
 * NEW : Ability to change PDF & Print document's content when "Full Page PDF" option is enabled.
 * Update : All functionality was updated for WordPress 5.5.
@@ -547,6 +553,10 @@ Replace `bestwebsoft_contact_form` with your shortcode.
 * NEW : Added the ability to output PDF and Print buttons on the type of page.
 
 == Upgrade Notice ==
+
+= V2.2.3 =
+* Usability improved.
+* Functionality improved.
 
 = V2.2.2 =
 * Usability improved.

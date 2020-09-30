@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pdf-print\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-08-11 15:18+0300\n"
-"PO-Revision-Date: 2020-08-11 15:19+0300\n"
+"POT-Creation-Date: 2020-09-23 14:47+0300\n"
+"PO-Revision-Date: 2020-09-23 14:52+0300\n"
 "Last-Translator: BestWebSoft team <wp@bestwebsoft.com>\n"
 "Language-Team: bestwebsoft <plugin@bestwebsoft.com>\n"
 "Language: ru_RU\n"
@@ -13,12 +13,12 @@ msgstr ""
 "X-Poedit-KeywordsList: __;_e\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SourceCharset: UTF-8\n"
-"X-Generator: Poedit 2.4.1\n"
+"X-Generator: Poedit 2.3\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: bws_menu\n"
 
-#: includes/class-pdfprnt-settings.php:25 pdf-print.php:40 pdf-print.php:762
-#: pdf-print.php:778
+#: includes/class-pdfprnt-settings.php:25 pdf-print.php:40 pdf-print.php:761
+#: pdf-print.php:777
 msgid "Settings"
 msgstr "Настройки"
 
@@ -46,11 +46,11 @@ msgstr "Пользовательский код"
 msgid "License Key"
 msgstr "Лицензионный ключ"
 
-#: includes/class-pdfprnt-settings.php:52 pdf-print.php:412
+#: includes/class-pdfprnt-settings.php:52 pdf-print.php:411
 msgid "PDF"
 msgstr "PDF"
 
-#: includes/class-pdfprnt-settings.php:53 pdf-print.php:417
+#: includes/class-pdfprnt-settings.php:53 pdf-print.php:416
 msgid "Print"
 msgstr "Print"
 
@@ -143,7 +143,7 @@ msgstr "Изменение прав для файлов"
 #: includes/class-pdfprnt-settings.php:133
 #: includes/class-pdfprnt-settings.php:160
 #: includes/class-pdfprnt-settings.php:172
-#: includes/class-pdfprnt-settings.php:531 pdf-print.php:780 pdf-print.php:808
+#: includes/class-pdfprnt-settings.php:540 pdf-print.php:779 pdf-print.php:807
 msgid "FAQ"
 msgstr "FAQ"
 
@@ -157,7 +157,7 @@ msgstr "Папка %s была удалена."
 msgid "Some fonts were removed from %s folder."
 msgstr "Некоторые шрифты из папки %s были удалены."
 
-#: includes/class-pdfprnt-settings.php:159 pdf-print.php:807
+#: includes/class-pdfprnt-settings.php:159 pdf-print.php:806
 #, php-format
 msgid "It is necessary to reload fonts. For more info, please see %s."
 msgstr ""
@@ -186,7 +186,7 @@ msgid "Settings saved."
 msgstr "Настройки сохранены."
 
 #: includes/class-pdfprnt-settings.php:299 pdf-print.php:39 pdf-print.php:40
-#: pdf-print.php:295
+#: pdf-print.php:285
 msgid "PDF & Print Settings"
 msgstr "Настройки PDF & Print"
 
@@ -250,46 +250,54 @@ msgstr ""
 "(рекомендуется)."
 
 #: includes/class-pdfprnt-settings.php:393
+msgid "Remove Links"
+msgstr "Удалить ссылки"
+
+#: includes/class-pdfprnt-settings.php:397
+msgid "Enable to remove links from PDF and Print document."
+msgstr "Включите, чтобы удалить ссылки из PDF и Print документ."
+
+#: includes/class-pdfprnt-settings.php:402
 msgid "Link Annotations"
 msgstr "Маркировка ссылки"
 
-#: includes/class-pdfprnt-settings.php:397
+#: includes/class-pdfprnt-settings.php:406
 msgid "Enable to remove hover link styles in PDF document."
 msgstr "Включите, чтобы убрать стили ссылки при наведении в PDF документе."
 
-#: includes/class-pdfprnt-settings.php:402
+#: includes/class-pdfprnt-settings.php:411
 msgid "Default PDF Button Action"
 msgstr "Действие PDF кнопки"
 
-#: includes/class-pdfprnt-settings.php:406 pdf-print.php:469
+#: includes/class-pdfprnt-settings.php:415 pdf-print.php:468
 msgid "Download PDF"
 msgstr "Скачать PDF"
 
-#: includes/class-pdfprnt-settings.php:409
+#: includes/class-pdfprnt-settings.php:418
 msgid "Open PDF"
 msgstr "Открыть PDF"
 
-#: includes/class-pdfprnt-settings.php:415
+#: includes/class-pdfprnt-settings.php:424
 msgid "Enable Buttons for"
 msgstr "Включить кнопки для"
 
-#: includes/class-pdfprnt-settings.php:419 includes/pro_banners.php:293
+#: includes/class-pdfprnt-settings.php:428 includes/pro_banners.php:293
 msgid "All"
 msgstr "Всех"
 
-#: includes/class-pdfprnt-settings.php:431
+#: includes/class-pdfprnt-settings.php:440
 msgid "Unauthorized"
 msgstr "Неавторизованный"
 
-#: includes/class-pdfprnt-settings.php:441
+#: includes/class-pdfprnt-settings.php:450
 msgid "Document Output Settings"
 msgstr "Настройки вывода документа"
 
-#: includes/class-pdfprnt-settings.php:447
+#: includes/class-pdfprnt-settings.php:456
 msgid "Full Page PDF"
 msgstr "PDF всей страницы"
 
-#: includes/class-pdfprnt-settings.php:451
+#: includes/class-pdfprnt-settings.php:460
 msgid ""
 "Enable to create PDF layout to mirror what is shown on screen, including "
 "fonts (work only with javascript)."
@@ -297,52 +305,52 @@ msgstr ""
 "Включите, чтобы создать PDF, который отображает всю информацию на странице, "
 "включая шрифты (работает только с JavaScript)."
 
-#: includes/class-pdfprnt-settings.php:456
+#: includes/class-pdfprnt-settings.php:465
 msgid "PDF Page Size"
 msgstr "Размер PDF страницы"
 
-#: includes/class-pdfprnt-settings.php:470
+#: includes/class-pdfprnt-settings.php:479
 msgid "Margins"
 msgstr "Отступы"
 
-#: includes/class-pdfprnt-settings.php:477
+#: includes/class-pdfprnt-settings.php:486
 msgid "px"
 msgstr "пикс"
 
-#: includes/class-pdfprnt-settings.php:486
+#: includes/class-pdfprnt-settings.php:495
 msgid "Additional Elements"
 msgstr "Дополнительные элементы"
 
-#: includes/class-pdfprnt-settings.php:489 includes/pro_banners.php:322
-#: includes/pro_banners.php:412 pdf-print.php:1619
+#: includes/class-pdfprnt-settings.php:498 includes/pro_banners.php:322
+#: includes/pro_banners.php:412 pdf-print.php:1624
 msgid "Title"
 msgstr "Название"
 
-#: includes/class-pdfprnt-settings.php:490
+#: includes/class-pdfprnt-settings.php:499
 msgid "Featured image"
 msgstr "Изображение записи"
 
-#: includes/class-pdfprnt-settings.php:495
+#: includes/class-pdfprnt-settings.php:504
 msgid "Featured Image Size"
 msgstr "Размер изображения записи"
 
-#: includes/class-pdfprnt-settings.php:513
+#: includes/class-pdfprnt-settings.php:522
 msgid "Additional Fonts"
 msgstr "Дополнительные шрифты"
 
-#: includes/class-pdfprnt-settings.php:520
+#: includes/class-pdfprnt-settings.php:529
 msgid "Reload Fonts"
 msgstr "Перезагрузить шрифты"
 
-#: includes/class-pdfprnt-settings.php:522
+#: includes/class-pdfprnt-settings.php:531
 msgid "Load Fonts"
 msgstr "Загрузить шрифты"
 
-#: includes/class-pdfprnt-settings.php:528
+#: includes/class-pdfprnt-settings.php:537
 msgid "Additional fonts were loaded successfully"
 msgstr "Дополнительные шрифты были успешно загружены"
 
-#: includes/class-pdfprnt-settings.php:531
+#: includes/class-pdfprnt-settings.php:540
 msgid ""
 "If you have some problems with your internet connection, please, try to load "
 "additional fonts manually. For more info, please see"
@@ -350,16 +358,16 @@ msgstr ""
 "Если у Вас проблемы с интернет соединением, пожалуйста, попробуйте загрузить "
 "шрифты вручную. Более подробную информацию смотрите"
 
-#: includes/class-pdfprnt-settings.php:533
+#: includes/class-pdfprnt-settings.php:542
 msgid "Load additional fonts required for PDF file(-s)."
 msgstr "Загрузить необходимые дополнительные шрифты для PDF файла(-ов)."
 
-#: includes/class-pdfprnt-settings.php:537
-#: includes/class-pdfprnt-settings.php:653
+#: includes/class-pdfprnt-settings.php:546
+#: includes/class-pdfprnt-settings.php:666
 msgid "WARNING"
 msgstr "Внимание"
 
-#: includes/class-pdfprnt-settings.php:537
+#: includes/class-pdfprnt-settings.php:546
 msgid ""
 "ZipArchive Class is not installed on your server. It is impossible to load "
 "additional fonts."
@@ -367,80 +375,84 @@ msgstr ""
 "Класс ZipArchive не установнен на вашем сервере. Невозможно загрузить "
 "дополнительные шрифты."
 
-#: includes/class-pdfprnt-settings.php:542
+#: includes/class-pdfprnt-settings.php:551
 msgid "Default CSS"
 msgstr "CSS по умолчанию"
 
-#: includes/class-pdfprnt-settings.php:547
+#: includes/class-pdfprnt-settings.php:556
 msgid "Enable to apply CSS from the current theme. Disable to use default CSS."
 msgstr ""
 "Включите, чтобы применить CSS из текущей темы. Отключить, чтобы использовать "
 "CSS по умолчанию."
 
-#: includes/class-pdfprnt-settings.php:553
+#: includes/class-pdfprnt-settings.php:562
 msgid "Custom CSS"
 msgstr "Пользовательский CSS"
 
-#: includes/class-pdfprnt-settings.php:558
+#: includes/class-pdfprnt-settings.php:567
 msgid "Enable to add custom CSS code to documents."
 msgstr "Включите, чтобы добавить пользовательский CSS код в документы."
 
-#: includes/class-pdfprnt-settings.php:570
+#: includes/class-pdfprnt-settings.php:579
 msgid "Display Settings"
 msgstr "Настройки отображения"
 
-#: includes/class-pdfprnt-settings.php:578
+#: includes/class-pdfprnt-settings.php:587
 msgid "Custom Fields Settings"
 msgstr "Настройки пользовательских полей"
 
-#: includes/class-pdfprnt-settings.php:593
+#: includes/class-pdfprnt-settings.php:602
 msgid "PDF & Print Shortcode"
 msgstr "Шорткод кнопок PDF & Print"
 
-#: includes/class-pdfprnt-settings.php:596
+#: includes/class-pdfprnt-settings.php:605
 msgid "Add PDF & Print buttons to a widget."
 msgstr "Добавить кнопки PDF & Print в виджет."
 
-#: includes/class-pdfprnt-settings.php:596
+#: includes/class-pdfprnt-settings.php:605
 msgid "Navigate to Widgets"
 msgstr "Перейти к Виджетам"
 
-#: includes/class-pdfprnt-settings.php:599
+#: includes/class-pdfprnt-settings.php:608
 msgid "Add PDF button to your posts or pages using the following shortcode:"
 msgstr ""
 "Добавляйте кнопки PDF на ваши записи, страницы, пользовательские типы "
 "записей или виджеты с помощью данного шорткода:"
 
-#: includes/class-pdfprnt-settings.php:603
+#: includes/class-pdfprnt-settings.php:612
 msgid "Add Print button to your posts or pages using the following shortcode:"
 msgstr ""
 "Добавляйте кнопки Print на ваши записи, страницы, пользовательские типы "
 "записей или виджеты с помощью данного шорткода:"
 
-#: includes/class-pdfprnt-settings.php:607
+#: includes/class-pdfprnt-settings.php:616
 msgid ""
 "Add PDF & Print buttons to your posts or pages using the following shortcode:"
 msgstr ""
 "Добавляйте кнопки PDF & Print к своим сообщениям или страницам, используя "
 "следующий шорткод:"
 
-#: includes/class-pdfprnt-settings.php:619 includes/pro_banners.php:21
+#: includes/class-pdfprnt-settings.php:620
+msgid "Create a page break in PDF document:"
+msgstr "Создайте разрыв страницы в PDF-документе:"
+
+#: includes/class-pdfprnt-settings.php:632 includes/pro_banners.php:21
 msgid "Close"
 msgstr "Закрыть"
 
-#: includes/class-pdfprnt-settings.php:643
+#: includes/class-pdfprnt-settings.php:656
 msgid "Upgrade the mPDF library"
 msgstr "Обновите библиотеку mPDF"
 
-#: includes/class-pdfprnt-settings.php:647
+#: includes/class-pdfprnt-settings.php:660
 msgid "Upgrade"
 msgstr "Обновить"
 
-#: includes/class-pdfprnt-settings.php:651
+#: includes/class-pdfprnt-settings.php:664
 msgid "This will upgrade the mPDF library to version 7.1.5 (recommended)."
 msgstr "Это обновит mPDF библиотеку до версии 7.1.5 (рекомендованно)."
 
-#: includes/class-pdfprnt-settings.php:653
+#: includes/class-pdfprnt-settings.php:666
 msgid ""
 "ZipArchive сlass is not installed on your server. It is impossible to "
 "upgrade the mPDF library."
@@ -452,7 +464,7 @@ msgstr ""
 msgid "This options is available in Pro version of the plugin"
 msgstr "Эти опции доступны в Pro версии плагина"
 
-#: includes/pro_banners.php:27 pdf-print.php:46 pdf-print.php:354
+#: includes/pro_banners.php:27 pdf-print.php:46 pdf-print.php:344
 msgid "Upgrade to Pro"
 msgstr "Обновить до Pro"
 
@@ -789,105 +801,114 @@ msgstr "сразу"
 msgid "Save Changes"
 msgstr "Сохранить изменения"
 
-#: pdf-print.php:41 pdf-print.php:318
+#: pdf-print.php:41 pdf-print.php:308
 msgid "Headers & Footers"
 msgstr "Колонтитулы"
 
-#: pdf-print.php:314 pdf-print.php:325
+#: pdf-print.php:304 pdf-print.php:315
 msgid "Add New"
 msgstr "Добавить новые"
 
-#: pdf-print.php:315
+#: pdf-print.php:305
 msgid "Header & Footer Template"
 msgstr "Шаблон колонтитулов"
 
-#: pdf-print.php:333
+#: pdf-print.php:323
 msgid "This tab contains Pro options only."
 msgstr "Эта вкладка содержит только Pro опции."
 
-#: pdf-print.php:335
+#: pdf-print.php:325
 #, php-format
 msgid "%sChange the settings%s to view the Pro options."
 msgstr "%sИзмените настройки%s, чтобы просмотреть Pro опции."
 
-#: pdf-print.php:408
+#: pdf-print.php:407
 msgid "Add PDF & Print Buttons to your page or post"
 msgstr "Добавьте кнопки PDF & Print на Вашу страницу или к записи"
 
-#: pdf-print.php:469 pdf-print.php:1571
+#: pdf-print.php:468 pdf-print.php:1576
 msgid "Print Content"
 msgstr "Печать контента"
 
-#: pdf-print.php:469 pdf-print.php:1560
+#: pdf-print.php:468 pdf-print.php:1565
 msgid "View PDF"
 msgstr "Просмотр в PDF"
 
-#: pdf-print.php:781
+#: pdf-print.php:780
 msgid "Support"
 msgstr "Поддержка"
 
-#: pdf-print.php:803
+#: pdf-print.php:802
 msgid "Loading of fonts. It might take a several minutes."
 msgstr "Загрузка шрифтов. Это может занять несколько минут."
 
-#: pdf-print.php:804
+#: pdf-print.php:803
 msgid "Loading the mPDF library. It will take few minutes."
 msgstr "Загрузка библиотеки mPDF. Это займет несколько минут."
 
-#: pdf-print.php:876
+#: pdf-print.php:875
 #, php-format
 msgid "Search Results for: %s"
 msgstr "Результаты поиска для: %s"
 
-#: pdf-print.php:1254
+#: pdf-print.php:1259
 msgid "Check your internet connection"
 msgstr "Проверьте Ваше интернет-соединение"
 
-#: pdf-print.php:1259
+#: pdf-print.php:1264
 msgid "Cannot load files in to \"uploads\" folder. Check your permissions"
 msgstr "Невозможно загрузить файлы в папку \"uploads\". Проверьте свои права"
 
-#: pdf-print.php:1289 pdf-print.php:1402
+#: pdf-print.php:1294 pdf-print.php:1407
 msgid "Additional fonts were loaded successfully."
 msgstr "Дополнительные шрифты были успешно загружены."
 
-#: pdf-print.php:1292 pdf-print.php:1334
+#: pdf-print.php:1297 pdf-print.php:1339
 msgid "Some errors occurred during loading files."
 msgstr "Во время загрузки файлов возникли некоторые проблемы."
 
-#: pdf-print.php:1295 pdf-print.php:1337
+#: pdf-print.php:1300 pdf-print.php:1342
 msgid "Can not extract files from zip-archive."
 msgstr "Невозможно извлечь файлы из zip-архива."
 
-#: pdf-print.php:1299
+#: pdf-print.php:1304
 #, php-format
 msgid "Cannot create %s folder. Check your permissions."
 msgstr "Невозможно создать папку %s. Проверьте свои права."
 
-#: pdf-print.php:1331
+#: pdf-print.php:1336
 msgid "The mPDF library V7.1.5 has been loaded successfully."
 msgstr "Версия 7.1.5 mPDF библиотеки была успешно загружена."
 
-#: pdf-print.php:1341
+#: pdf-print.php:1346
 #, php-format
 msgid "Cannot extract files into %s folder. Check your permissions."
 msgstr "Невозможно извлеч файлы в папку  %s. Проверьте права доступа."
 
-#: pdf-print.php:1527
+#: pdf-print.php:1532
 msgid "PDF & Print Buttons"
 msgstr "Кнопки PDF & Print"
 
-#: pdf-print.php:1527
+#: pdf-print.php:1532
 msgid "Show PDF & Print Buttons on your site"
 msgstr "Добавьте кнопки PDF & Print на ваш сайт"
 
-#: pdf-print.php:1624
+#: pdf-print.php:1629
 msgid "Display PDF Button"
 msgstr "Отображать кнопку PDF"
 
-#: pdf-print.php:1628
+#: pdf-print.php:1633
 msgid "Display Print Button"
 msgstr "Отображать кнопку Print"
+
+#~ msgid "Custom Link View"
+#~ msgstr "Просмотр пользовательских ссылок"
+
+#~ msgid "Page Break Shortcode"
+#~ msgstr "Шорткод разрыва страницы"
+
+#~ msgid "Break text and wrap to a new page:"
+#~ msgstr "Разорвать текст и перейти на новую страницу:"
 
 #~ msgid "Current theme"
 #~ msgstr "Текущая тема"

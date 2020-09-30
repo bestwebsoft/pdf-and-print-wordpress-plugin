@@ -246,7 +246,7 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 			$this->options['do_shorcodes'] = isset( $_POST['pdfprnt_do_shorcodes'] ) ? 1 : 0;
 
 			$this->options['disable_links'] = isset( $_POST['pdfprnt_disable_links'] ) ? 1 : 0;
-
+			$this->options['remove_links'] = isset( $_POST['pdfprnt_remove_links'] ) ? 1 : 0;
 			/* PDF Page Size */
 			$this->options['pdf_page_size'] = ( isset( $_POST['pdfprnt_pdf_page_size'] ) && in_array( $_POST['pdfprnt_pdf_page_size'], $this->page_sizes ) ) ? $_POST['pdfprnt_pdf_page_size'] : $this->options['pdf_page_size'];
 
@@ -389,7 +389,16 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 						</label>
 					</td>
 				</tr>
-				<tr>
+                <tr>
+                    <th><?php _e( 'Remove Links', 'pdf-print' ); ?></th>
+                    <td>
+                        <label>
+                            <input type="checkbox" class="bws_option_affect" data-affect-hide="#pdfprnt-disable-links" name="pdfprnt_remove_links" value="1" <?php checked( $this->options['remove_links'] ); ?> />
+                            <span class="bws_info"><?php _e( 'Enable to remove links from PDF and Print document.', 'pdf-print' ); ?></span>
+                        </label>
+                    </td>
+                </tr>
+				<tr id="pdfprnt-disable-links">
 					<th><?php _e( 'Link Annotations', 'pdf-print' ); ?></th>
 					<td>
 						<label>
@@ -474,7 +483,7 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 								<?php foreach ( $margin_position_group as $margin_position ) { ?>
 									<div class="pdfprnt-col">
 										<p><strong><?php echo $this->margin_positions[ $margin_position ]; ?></strong></p>
-										<input type="number" class="small-text" name="pdfprnt_pdf_margins[<?php echo $margin_position; ?>]" min="0" max="297" step="1" value="<?php echo $this->options['pdf_margins'][ $margin_position ]; ?>" /> <?php _e( 'px', 'pdf-print' ); ?>&emsp;
+										<input type="number" class="pdfprnt_small_text" name="pdfprnt_pdf_margins[<?php echo $margin_position; ?>]" min="0" max="297" step="1" value="<?php echo $this->options['pdf_margins'][ $margin_position ]; ?>" /> <?php _e( 'px', 'pdf-print' ); ?>&emsp;
 									</div>
 								<?php } ?>
 								<div class="clear"></div><br>
@@ -607,6 +616,10 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 					<?php _e( "Add PDF & Print buttons to your posts or pages using the following shortcode:", 'pdf-print' ); ?>
 					<?php bws_shortcode_output( "[bws_pdfprint display='pdf,print']" ); ?>
 				</div>
+                <div class="inside">
+                    <?php _e( "Create a page break in PDF document:", 'pdf-print' ); ?>
+                    <?php bws_shortcode_output( '[bws_pdfprint_pagebreak]' ); ?>
+                </div>
 			</div>
 		<?php }
 
