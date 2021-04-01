@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://bestwebsoft.com/donate/
 Tags: generate pdf, add pdf button, add print button, pdf plugin, pdf pages, print pages, generate pdf content, generate post pdf, pdf print, pdf print plugin, pdf custom post type, pdf content
 Requires at least: 4.5
-Tested up to: 5.5.1
-Stable tag: 2.2.3
+Tested up to: 5.7
+Stable tag: 2.2.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -18,7 +18,7 @@ Generate documents with custom styles and useful data for archiving, sharing, or
 
 [View Demo](https://bestwebsoft.com/demo-for-pdf-print/?ref=readme)
 
-http://www.youtube.com/watch?v=EM6AEkD9M_s
+https://www.youtube.com/watch?v=hJdWI8xkAI0
 
 = Free Features =
 
@@ -103,9 +103,9 @@ If you have a feature suggestion or idea you'd like to see in the plugin, we'd l
 
 = Documentation & Videos =
 
+* [[Doc] User Guide](https://docs.google.com/document/d/1B9ntY5f6E8WoKY3AfuRA2Shk6z2gYPTzwZ8PnLKURoY/)
 * [[Doc] Installation](https://docs.google.com/document/d/1-hvn6WRvWnOqj5v5pLUk7Awyu87lq5B_dO-Tv-MC9JQ/)
 * [[Doc] Purchase](https://docs.google.com/document/d/1EUdBVvnm7IHZ6y0DNyldZypUQKpB8UVPToSc_LdOYQI/)
-* [[Doc] User Guide](https://docs.google.com/document/d/1B9ntY5f6E8WoKY3AfuRA2Shk6z2gYPTzwZ8PnLKURoY/)
 * [[Video] Purchase, Installation, Configuration Tutorial](https://www.youtube.com/watch?v=K6aT6Ew9J0g)
 * [[Video] Installation Instruction](http://www.youtube.com/watch?v=E3w9ID3p2-A)
 
@@ -333,6 +333,19 @@ Replace `bestwebsoft_contact_form` with your shortcode.
 
 == Changelog ==
 
+= V2.2.4 - 31.03.2021 =
+* Bugfix : The bug with incorrect definition of post types on the search page has been fixed.
+* Bugfix : The bug with generating pdf file in Gutenberg editor has been fixed.
+* Bugfix : The bug with generating pdf file with the Default CSS option enabled has been fixed.
+* Bugfix : The bug with PDF button for widget has been fixed.
+* Bugfix : The bug with pdf file generation when the "Full Page PDF" option is enabled has been fixed.
+* NEW : Ability to add PDF & Print buttons to the home page is enabled.
+* NEW : An ability to show/hide author and date for post in the pdf/print document was added.
+* Update : BWS Panel section was updated.
+* Update : All functionality was updated for WordPress 5.7.
+* Pro : The bug with Compatibility with Advanced Custom Fields has been fixed.
+* Pro : Ability to add headers and footers to the contents of a PDF & Print document when the "Full Page PDF" option is enabled.
+
 = V2.2.3 - 30.09.2020 =
 * NEW : Shortcode to force a page break.
 * NEW : Ability to generate a PDF without links (ability to remove links from document).
@@ -553,6 +566,11 @@ Replace `bestwebsoft_contact_form` with your shortcode.
 * NEW : Added the ability to output PDF and Print buttons on the type of page.
 
 == Upgrade Notice ==
+
+= V2.2.4 =
+* Usability improved.
+* Functionality improved.
+* Bugs fixed.
 
 = V2.2.3 =
 * Usability improved.

@@ -1,12 +1,12 @@
 /*!
- * html2canvas 1.0.0-rc.3 <https://html2canvas.hertzen.com>
- * Copyright (c) 2019 Niklas von Hertzen <https://hertzen.com>
+ * html2canvas 1.0.0-rc.7 <https://html2canvas.hertzen.com>
+ * Copyright (c) 2020 Niklas von Hertzen <https://hertzen.com>
  * Released under MIT License
  */
 (function (global, factory) {
     typeof exports === 'object' && typeof module !== 'undefined' ? module.exports = factory() :
-    typeof define === 'function' && define.amd ? define(factory) :
-    (global = global || self, global.html2canvas = factory());
+        typeof define === 'function' && define.amd ? define(factory) :
+            (global = global || self, global.html2canvas = factory());
 }(this, function () { 'use strict';
 
     /*! *****************************************************************************
@@ -188,8 +188,8 @@
             }
         }
         var buffer = typeof ArrayBuffer !== 'undefined' &&
-            typeof Uint8Array !== 'undefined' &&
-            typeof Uint8Array.prototype.slice !== 'undefined'
+        typeof Uint8Array !== 'undefined' &&
+        typeof Uint8Array.prototype.slice !== 'undefined'
             ? new ArrayBuffer(bufferLength)
             : new Array(bufferLength);
         var bytes = Array.isArray(buffer) ? buffer : new Uint8Array(buffer);
@@ -648,9 +648,9 @@
         }
         // LB25 Do not break between the following pairs of classes relevant to numbers:
         if (
-        // (PR | PO) × ( OP | HY )? NU
-        ([PR, PO].indexOf(current) !== -1 &&
-            (next === NU || ([OP, HY].indexOf(next) !== -1 && classTypes[afterIndex + 1] === NU))) ||
+            // (PR | PO) × ( OP | HY )? NU
+            ([PR, PO].indexOf(current) !== -1 &&
+                (next === NU || ([OP, HY].indexOf(next) !== -1 && classTypes[afterIndex + 1] === NU))) ||
             // ( OP | HY ) × NU
             ([OP, HY].indexOf(current) !== -1 && next === NU) ||
             // NU ×	(NU | SY | IS)
@@ -777,8 +777,8 @@
                 }
                 var lineBreak = BREAK_NOT_ALLOWED;
                 while (nextIndex < length &&
-                    (lineBreak = _lineBreakAtIndex(codePoints, classTypes, indicies, ++nextIndex, forbiddenBreakpoints)) ===
-                        BREAK_NOT_ALLOWED) { }
+                (lineBreak = _lineBreakAtIndex(codePoints, classTypes, indicies, ++nextIndex, forbiddenBreakpoints)) ===
+                BREAK_NOT_ALLOWED) { }
                 if (lineBreak !== BREAK_NOT_ALLOWED || nextIndex === length) {
                     var value = new Break(codePoints, lineBreak, lastEnd, nextIndex);
                     lastEnd = nextIndex;
@@ -2280,23 +2280,23 @@
         ctx.fillRect(0, 0, size, size);
         return loadSerializedSVG(svg)
             .then(function (img) {
-            ctx.drawImage(img, 0, 0);
-            var data = ctx.getImageData(0, 0, size, size).data;
-            ctx.fillStyle = 'red';
-            ctx.fillRect(0, 0, size, size);
-            var node = document.createElement('div');
-            node.style.backgroundImage = "url(" + greenImageSrc + ")";
-            node.style.height = size + "px";
-            // Firefox 55 does not render inline <img /> tags
-            return isGreenPixel(data)
-                ? loadSerializedSVG(createForeignObjectSVG(size, size, 0, 0, node))
-                : Promise.reject(false);
-        })
+                ctx.drawImage(img, 0, 0);
+                var data = ctx.getImageData(0, 0, size, size).data;
+                ctx.fillStyle = 'red';
+                ctx.fillRect(0, 0, size, size);
+                var node = document.createElement('div');
+                node.style.backgroundImage = "url(" + greenImageSrc + ")";
+                node.style.height = size + "px";
+                // Firefox 55 does not render inline <img /> tags
+                return isGreenPixel(data)
+                    ? loadSerializedSVG(createForeignObjectSVG(size, size, 0, 0, node))
+                    : Promise.reject(false);
+            })
             .then(function (img) {
-            ctx.drawImage(img, 0, 0);
-            // Edge does not render background-images
-            return isGreenPixel(ctx.getImageData(0, 0, size, size).data);
-        })
+                ctx.drawImage(img, 0, 0);
+                // Edge does not render background-images
+                return isGreenPixel(ctx.getImageData(0, 0, size, size).data);
+            })
             .catch(function () { return false; });
     };
     var createForeignObjectSVG = function (width, height, x, y, node) {
@@ -2358,8 +2358,10 @@
     };
 
     var Logger = /** @class */ (function () {
-        function Logger(id) {
+        function Logger(_a) {
+            var id = _a.id, enabled = _a.enabled;
             this.id = id;
+            this.enabled = enabled;
             this.start = Date.now();
         }
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -2368,20 +2370,22 @@
             for (var _i = 0; _i < arguments.length; _i++) {
                 args[_i] = arguments[_i];
             }
-            // eslint-disable-next-line no-console
-            if (typeof window !== 'undefined' && window.console && typeof console.debug === 'function') {
+            if (this.enabled) {
                 // eslint-disable-next-line no-console
-                console.debug.apply(console, [this.id, this.getTime() + "ms"].concat(args));
-            }
-            else {
-                this.info.apply(this, args);
+                if (typeof window !== 'undefined' && window.console && typeof console.debug === 'function') {
+                    // eslint-disable-next-line no-console
+                    console.debug.apply(console, [this.id, this.getTime() + "ms"].concat(args));
+                }
+                else {
+                    this.info.apply(this, args);
+                }
             }
         };
         Logger.prototype.getTime = function () {
             return Date.now() - this.start;
         };
-        Logger.create = function (id) {
-            Logger.instances[id] = new Logger(id);
+        Logger.create = function (options) {
+            Logger.instances[options.id] = new Logger(options);
         };
         Logger.destroy = function (id) {
             delete Logger.instances[id];
@@ -2399,10 +2403,12 @@
             for (var _i = 0; _i < arguments.length; _i++) {
                 args[_i] = arguments[_i];
             }
-            // eslint-disable-next-line no-console
-            if (typeof window !== 'undefined' && window.console && typeof console.info === 'function') {
+            if (this.enabled) {
                 // eslint-disable-next-line no-console
-                console.info.apply(console, [this.id, this.getTime() + "ms"].concat(args));
+                if (typeof window !== 'undefined' && window.console && typeof console.info === 'function') {
+                    // eslint-disable-next-line no-console
+                    console.info.apply(console, [this.id, this.getTime() + "ms"].concat(args));
+                }
             }
         };
         // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -2411,13 +2417,15 @@
             for (var _i = 0; _i < arguments.length; _i++) {
                 args[_i] = arguments[_i];
             }
-            // eslint-disable-next-line no-console
-            if (typeof window !== 'undefined' && window.console && typeof console.error === 'function') {
+            if (this.enabled) {
                 // eslint-disable-next-line no-console
-                console.error.apply(console, [this.id, this.getTime() + "ms"].concat(args));
-            }
-            else {
-                this.info.apply(this, args);
+                if (typeof window !== 'undefined' && window.console && typeof console.error === 'function') {
+                    // eslint-disable-next-line no-console
+                    console.error.apply(console, [this.id, this.getTime() + "ms"].concat(args));
+                }
+                else {
+                    this.info.apply(this, args);
+                }
             }
         };
         Logger.instances = {};
@@ -2521,22 +2529,22 @@
                         case 2:
                             Logger.getInstance(this.id).debug("Added image " + key.substring(0, 256));
                             return [4 /*yield*/, new Promise(function (resolve, reject) {
-                                    var img = new Image();
-                                    img.onload = function () { return resolve(img); };
-                                    img.onerror = reject;
-                                    //ios safari 10.3 taints canvas with data urls unless crossOrigin is set to anonymous
-                                    if (isInlineBase64Image(src) || useCORS) {
-                                        img.crossOrigin = 'anonymous';
-                                    }
-                                    img.src = src;
-                                    if (img.complete === true) {
-                                        // Inline XML images may fail to parse, throwing an Error later on
-                                        setTimeout(function () { return resolve(img); }, 500);
-                                    }
-                                    if (_this._options.imageTimeout > 0) {
-                                        setTimeout(function () { return reject("Timed out (" + _this._options.imageTimeout + "ms) loading image"); }, _this._options.imageTimeout);
-                                    }
-                                })];
+                                var img = new Image();
+                                img.onload = function () { return resolve(img); };
+                                img.onerror = reject;
+                                //ios safari 10.3 taints canvas with data urls unless crossOrigin is set to anonymous
+                                if (isInlineBase64Image(src) || useCORS) {
+                                    img.crossOrigin = 'anonymous';
+                                }
+                                img.src = src;
+                                if (img.complete === true) {
+                                    // Inline XML images may fail to parse, throwing an Error later on
+                                    setTimeout(function () { return resolve(img); }, 500);
+                                }
+                                if (_this._options.imageTimeout > 0) {
+                                    setTimeout(function () { return reject("Timed out (" + _this._options.imageTimeout + "ms) loading image"); }, _this._options.imageTimeout);
+                                }
+                            })];
                         case 3: return [2 /*return*/, _a.sent()];
                     }
                 });
@@ -2931,11 +2939,11 @@
         parse: function (tokens) {
             return parseFunctionArgs(tokens)
                 .map(function (values) {
-                return values
-                    .filter(isIdentToken)
-                    .map(function (token) { return token.value; })
-                    .join(' ');
-            })
+                    return values
+                        .filter(isIdentToken)
+                        .map(function (token) { return token.value; })
+                        .join(' ');
+                })
                 .map(parseBackgroundRepeat);
         }
     };
@@ -3075,6 +3083,7 @@
             case '-webkit-flex':
                 return 128 /* FLEX */;
             case 'grid':
+            case '-ms-grid':
                 return 256 /* GRID */;
             case 'ruby':
                 return 512 /* RUBY */;
@@ -3759,18 +3768,18 @@
             return tokens
                 .filter(isIdentToken)
                 .map(function (token) {
-                switch (token.value) {
-                    case 'underline':
-                        return 1 /* UNDERLINE */;
-                    case 'overline':
-                        return 2 /* OVERLINE */;
-                    case 'line-through':
-                        return 3 /* LINE_THROUGH */;
-                    case 'none':
-                        return 4 /* BLINK */;
-                }
-                return 0 /* NONE */;
-            })
+                    switch (token.value) {
+                        case 'underline':
+                            return 1 /* UNDERLINE */;
+                        case 'overline':
+                            return 2 /* OVERLINE */;
+                        case 'line-through':
+                            return 3 /* LINE_THROUGH */;
+                        case 'none':
+                            return 4 /* BLINK */;
+                    }
+                    return 0 /* NONE */;
+                })
                 .filter(function (line) { return line !== 0 /* NONE */; });
         }
     };
@@ -3781,11 +3790,28 @@
         prefix: false,
         type: PropertyDescriptorParsingType.LIST,
         parse: function (tokens) {
-            return tokens.filter(isStringToken$1).map(function (token) { return token.value; });
+            var accumulator = [];
+            var results = [];
+            tokens.forEach(function (token) {
+                switch (token.type) {
+                    case TokenType.IDENT_TOKEN:
+                    case TokenType.STRING_TOKEN:
+                        accumulator.push(token.value);
+                        break;
+                    case TokenType.NUMBER_TOKEN:
+                        accumulator.push(token.number.toString());
+                        break;
+                    case TokenType.COMMA_TOKEN:
+                        results.push(accumulator.join(' '));
+                        accumulator.length = 0;
+                        break;
+                }
+            });
+            if (accumulator.length) {
+                results.push(accumulator.join(' '));
+            }
+            return results.map(function (result) { return (result.indexOf(' ') === -1 ? result : "'" + result + "'"); });
         }
-    };
-    var isStringToken$1 = function (token) {
-        return token.type === TokenType.STRING_TOKEN || token.type === TokenType.IDENT_TOKEN;
     };
 
     var fontSize = {
@@ -4515,7 +4541,10 @@
     var isTextNode = function (node) { return node.nodeType === Node.TEXT_NODE; };
     var isElementNode = function (node) { return node.nodeType === Node.ELEMENT_NODE; };
     var isHTMLElementNode = function (node) {
-        return typeof node.style !== 'undefined';
+        return isElementNode(node) && typeof node.style !== 'undefined' && !isSVGElementNode(node);
+    };
+    var isSVGElementNode = function (element) {
+        return typeof element.className === 'object';
     };
     var isLIElement = function (node) { return node.tagName === 'LI'; };
     var isOLElement = function (node) { return node.tagName === 'OL'; };
@@ -4554,23 +4583,27 @@
             var _this = this;
             var counterIncrement = style.counterIncrement;
             var counterReset = style.counterReset;
+            var canReset = true;
             if (counterIncrement !== null) {
                 counterIncrement.forEach(function (entry) {
                     var counter = _this.counters[entry.counter];
-                    if (counter) {
+                    if (counter && entry.increment !== 0) {
+                        canReset = false;
                         counter[Math.max(0, counter.length - 1)] += entry.increment;
                     }
                 });
             }
             var counterNames = [];
-            counterReset.forEach(function (entry) {
-                var counter = _this.counters[entry.counter];
-                counterNames.push(entry.counter);
-                if (!counter) {
-                    counter = _this.counters[entry.counter] = [];
-                }
-                counter.push(entry.reset);
-            });
+            if (canReset) {
+                counterReset.forEach(function (entry) {
+                    var counter = _this.counters[entry.counter];
+                    counterNames.push(entry.counter);
+                    if (!counter) {
+                        counter = _this.counters[entry.counter] = [];
+                    }
+                    counter.push(entry.reset);
+                });
+            }
             return counterNames;
         };
         return CounterState;
@@ -4844,8 +4877,8 @@
         var codePointRangeLength = codePointRangeEnd - codePointRangeStart + 1;
         return ((value < 0 ? '-' : '') +
             (createCounterStyleWithSymbolResolver(Math.abs(value), codePointRangeLength, isNumeric, function (codePoint) {
-                return fromCodePoint(Math.floor(codePoint % codePointRangeLength) + codePointRangeStart);
-            }) +
+                    return fromCodePoint(Math.floor(codePoint % codePointRangeLength) + codePointRangeStart);
+                }) +
                 suffix));
     };
     var createCounterStyleFromSymbols = function (value, symbols, suffix) {
@@ -5021,28 +5054,40 @@
             /* Chrome doesn't detect relative background-images assigned in inline <style> sheets when fetched through getComputedStyle
              if window url is about:blank, we can assign the url to current by writing onto the document
              */
-            var iframeLoad = iframeLoader(iframe).then(function () {
-                _this.scrolledElements.forEach(restoreNodeScroll);
-                if (cloneWindow) {
-                    cloneWindow.scrollTo(windowSize.left, windowSize.top);
-                    if (/(iPad|iPhone|iPod)/g.test(navigator.userAgent) &&
-                        (cloneWindow.scrollY !== windowSize.top || cloneWindow.scrollX !== windowSize.left)) {
-                        documentClone.documentElement.style.top = -windowSize.top + 'px';
-                        documentClone.documentElement.style.left = -windowSize.left + 'px';
-                        documentClone.documentElement.style.position = 'absolute';
+            var iframeLoad = iframeLoader(iframe).then(function () { return __awaiter(_this, void 0, void 0, function () {
+                var onclone;
+                return __generator(this, function (_a) {
+                    switch (_a.label) {
+                        case 0:
+                            this.scrolledElements.forEach(restoreNodeScroll);
+                            if (cloneWindow) {
+                                cloneWindow.scrollTo(windowSize.left, windowSize.top);
+                                if (/(iPad|iPhone|iPod)/g.test(navigator.userAgent) &&
+                                    (cloneWindow.scrollY !== windowSize.top || cloneWindow.scrollX !== windowSize.left)) {
+                                    documentClone.documentElement.style.top = -windowSize.top + 'px';
+                                    documentClone.documentElement.style.left = -windowSize.left + 'px';
+                                    documentClone.documentElement.style.position = 'absolute';
+                                }
+                            }
+                            onclone = this.options.onclone;
+                            if (typeof this.clonedReferenceElement === 'undefined') {
+                                return [2 /*return*/, Promise.reject("Error finding the " + this.referenceElement.nodeName + " in the cloned document")];
+                            }
+                            if (!(documentClone.fonts && documentClone.fonts.ready)) return [3 /*break*/, 2];
+                            return [4 /*yield*/, documentClone.fonts.ready];
+                        case 1:
+                            _a.sent();
+                            _a.label = 2;
+                        case 2:
+                            if (typeof onclone === 'function') {
+                                return [2 /*return*/, Promise.resolve()
+                                    .then(function () { return onclone(documentClone); })
+                                    .then(function () { return iframe; })];
+                            }
+                            return [2 /*return*/, iframe];
                     }
-                }
-                var onclone = _this.options.onclone;
-                if (typeof _this.clonedReferenceElement === 'undefined') {
-                    return Promise.reject("Error finding the " + _this.referenceElement.nodeName + " in the cloned document");
-                }
-                if (typeof onclone === 'function') {
-                    return Promise.resolve()
-                        .then(function () { return onclone(documentClone); })
-                        .then(function () { return iframe; });
-                }
-                return iframe;
-            });
+                });
+            }); });
             documentClone.open();
             documentClone.write(serializeDoctype(document.doctype) + "<html></html>");
             // Chrome scrolls the parent document for some reason after the write to the cloned window???
@@ -5063,7 +5108,13 @@
             if (isStyleElement(node)) {
                 return this.createStyleClone(node);
             }
-            return node.cloneNode(false);
+            var clone = node.cloneNode(false);
+            // @ts-ignore
+            if (isImageElement(clone) && clone.loading === 'lazy') {
+                // @ts-ignore
+                clone.loading = 'eager';
+            }
+            return clone;
         };
         DocumentCloner.prototype.createStyleClone = function (node) {
             try {
@@ -5188,19 +5239,19 @@
                 return node.cloneNode(false);
             }
             var window = node.ownerDocument.defaultView;
-            if (isHTMLElementNode(node) && window) {
+            if (window && isElementNode(node) && (isHTMLElementNode(node) || isSVGElementNode(node))) {
                 var clone = this.createElementClone(node);
                 var style = window.getComputedStyle(node);
                 var styleBefore = window.getComputedStyle(node, ':before');
                 var styleAfter = window.getComputedStyle(node, ':after');
-                if (this.referenceElement === node) {
+                if (this.referenceElement === node && isHTMLElementNode(clone)) {
                     this.clonedReferenceElement = clone;
                 }
                 if (isBodyElement(clone)) {
                     createPseudoHideStyles(clone);
                 }
                 var counters = this.counters.parse(new CSSParsedCounterDeclaration(style));
-                var before_1 = this.resolvePseudoContent(node, clone, styleBefore, PseudoElementType.BEFORE);
+                var before = this.resolvePseudoContent(node, clone, styleBefore, PseudoElementType.BEFORE);
                 for (var child = node.firstChild; child; child = child.nextSibling) {
                     if (!isElementNode(child) ||
                         (!isScriptElement(child) &&
@@ -5211,15 +5262,15 @@
                         }
                     }
                 }
-                if (before_1) {
-                    clone.insertBefore(before_1, clone.firstChild);
+                if (before) {
+                    clone.insertBefore(before, clone.firstChild);
                 }
-                var after_1 = this.resolvePseudoContent(node, clone, styleAfter, PseudoElementType.AFTER);
-                if (after_1) {
-                    clone.appendChild(after_1);
+                var after = this.resolvePseudoContent(node, clone, styleAfter, PseudoElementType.AFTER);
+                if (after) {
+                    clone.appendChild(after);
                 }
                 this.counters.pop(counters);
-                if (style && this.options.copyStyles && !isIFrameElement(node)) {
+                if (style && (this.options.copyStyles || isSVGElementNode(node)) && !isIFrameElement(node)) {
                     copyCSSStyles(style, clone);
                 }
                 //this.inlineAllImages(clone);
@@ -5299,16 +5350,29 @@
                             anonymousReplacedElement.appendChild(document.createTextNode(getQuote(declaration.quotes, --_this.quoteDepth, false)));
                             break;
                         default:
-                        //    console.log('ident', token, declaration);
+                            // safari doesn't parse string tokens correctly because of lack of quotes
+                            anonymousReplacedElement.appendChild(document.createTextNode(token.value));
                     }
                 }
             });
             anonymousReplacedElement.className = PSEUDO_HIDE_ELEMENT_CLASS_BEFORE + " " + PSEUDO_HIDE_ELEMENT_CLASS_AFTER;
-            clone.className +=
-                pseudoElt === PseudoElementType.BEFORE
-                    ? " " + PSEUDO_HIDE_ELEMENT_CLASS_BEFORE
-                    : " " + PSEUDO_HIDE_ELEMENT_CLASS_AFTER;
+            var newClassName = pseudoElt === PseudoElementType.BEFORE
+                ? " " + PSEUDO_HIDE_ELEMENT_CLASS_BEFORE
+                : " " + PSEUDO_HIDE_ELEMENT_CLASS_AFTER;
+            if (isSVGElementNode(clone)) {
+                clone.className.baseValue += newClassName;
+            }
+            else {
+                clone.className += newClassName;
+            }
             return anonymousReplacedElement;
+        };
+        DocumentCloner.destroy = function (container) {
+            if (container.parentNode) {
+                container.parentNode.removeChild(container);
+                return true;
+            }
+            return false;
         };
         return DocumentCloner;
     }());
@@ -5614,10 +5678,10 @@
     var TransformEffect = /** @class */ (function () {
         function TransformEffect(offsetX, offsetY, matrix) {
             this.type = 0 /* TRANSFORM */;
+            this.target = 2 /* BACKGROUND_BORDERS */ | 4 /* CONTENT */;
             this.offsetX = offsetX;
             this.offsetY = offsetY;
             this.matrix = matrix;
-            this.target = 2 /* BACKGROUND_BORDERS */ | 4 /* CONTENT */;
         }
         return TransformEffect;
     }());
@@ -5629,10 +5693,19 @@
         }
         return ClipEffect;
     }());
+    var OpacityEffect = /** @class */ (function () {
+        function OpacityEffect(opacity) {
+            this.type = 2 /* OPACITY */;
+            this.target = 2 /* BACKGROUND_BORDERS */ | 4 /* CONTENT */;
+            this.opacity = opacity;
+        }
+        return OpacityEffect;
+    }());
     var isTransformEffect = function (effect) {
         return effect.type === 0 /* TRANSFORM */;
     };
     var isClipEffect = function (effect) { return effect.type === 1 /* CLIP */; };
+    var isOpacityEffect = function (effect) { return effect.type === 2 /* OPACITY */; };
 
     var StackingContext = /** @class */ (function () {
         function StackingContext(container) {
@@ -5652,6 +5725,9 @@
             this.container = element;
             this.effects = parentStack.slice(0);
             this.curves = new BoundCurves(element);
+            if (element.styles.opacity < 1) {
+                this.effects.push(new OpacityEffect(element.styles.opacity));
+            }
             if (element.styles.transform !== null) {
                 var offsetX = element.bounds.left + element.styles.transformOrigin[0].number;
                 var offsetY = element.bounds.top + element.styles.transformOrigin[1].number;
@@ -5702,6 +5778,9 @@
                         parentStack.negativeZIndex.some(function (current, i) {
                             if (order_1 > current.element.container.styles.zIndex.order) {
                                 index_1 = i;
+                                return false;
+                            }
+                            else if (index_1 > 0) {
                                 return true;
                             }
                             return false;
@@ -5711,8 +5790,11 @@
                     else if (order_1 > 0) {
                         var index_2 = 0;
                         parentStack.positiveZIndex.some(function (current, i) {
-                            if (order_1 > current.element.container.styles.zIndex.order) {
+                            if (order_1 >= current.element.container.styles.zIndex.order) {
                                 index_2 = i + 1;
+                                return false;
+                            }
+                            else if (index_2 > 0) {
                                 return true;
                             }
                             return false;
@@ -6054,10 +6136,12 @@
             this.canvas = options.canvas ? options.canvas : document.createElement('canvas');
             this.ctx = this.canvas.getContext('2d');
             this.options = options;
-            this.canvas.width = Math.floor(options.width * options.scale);
-            this.canvas.height = Math.floor(options.height * options.scale);
-            this.canvas.style.width = options.width + "px";
-            this.canvas.style.height = options.height + "px";
+            if (!options.canvas) {
+                this.canvas.width = Math.floor(options.width * options.scale);
+                this.canvas.height = Math.floor(options.height * options.scale);
+                this.canvas.style.width = options.width + "px";
+                this.canvas.style.height = options.height + "px";
+            }
             this.fontMetrics = new FontMetrics(document);
             this.ctx.scale(this.options.scale, this.options.scale);
             this.ctx.translate(-options.x + options.scrollX, -options.y + options.scrollY);
@@ -6074,6 +6158,9 @@
         };
         CanvasRenderer.prototype.applyEffect = function (effect) {
             this.ctx.save();
+            if (isOpacityEffect(effect)) {
+                this.ctx.globalAlpha = effect.opacity;
+            }
             if (isTransformEffect(effect)) {
                 this.ctx.translate(effect.offsetX, effect.offsetY);
                 this.ctx.transform(effect.matrix[0], effect.matrix[1], effect.matrix[2], effect.matrix[3], effect.matrix[4], effect.matrix[5]);
@@ -6097,7 +6184,6 @@
                         case 0:
                             styles = stack.element.container.styles;
                             if (!styles.isVisible()) return [3 /*break*/, 2];
-                            this.ctx.globalAlpha = styles.opacity;
                             return [4 /*yield*/, this.renderStackContent(stack)];
                         case 1:
                             _a.sent();
@@ -6168,12 +6254,12 @@
                                 .slice(0)
                                 .reverse()
                                 .forEach(function (textShadow) {
-                                _this.ctx.shadowColor = asString(textShadow.color);
-                                _this.ctx.shadowOffsetX = textShadow.offsetX.number * _this.options.scale;
-                                _this.ctx.shadowOffsetY = textShadow.offsetY.number * _this.options.scale;
-                                _this.ctx.shadowBlur = textShadow.blur.number;
-                                _this.ctx.fillText(text.text, text.bounds.left, text.bounds.top + text.bounds.height);
-                            });
+                                    _this.ctx.shadowColor = asString(textShadow.color);
+                                    _this.ctx.shadowOffsetX = textShadow.offsetX.number * _this.options.scale;
+                                    _this.ctx.shadowOffsetY = textShadow.offsetY.number * _this.options.scale;
+                                    _this.ctx.shadowBlur = textShadow.blur.number;
+                                    _this.ctx.fillText(text.text, text.bounds.left, text.bounds.top + text.bounds.height);
+                                });
                             _this.ctx.shadowColor = '';
                             _this.ctx.shadowOffsetX = 0;
                             _this.ctx.shadowOffsetY = 0;
@@ -6394,10 +6480,10 @@
                 var _i, _a, child, _b, _c, child, _d, _e, child, _f, _g, child, _h, _j, child, _k, _l, child, _m, _o, child;
                 return __generator(this, function (_p) {
                     switch (_p.label) {
-                        case 0: 
-                        // https://www.w3.org/TR/css-position-3/#painting-order
-                        // 1. the background and borders of the element forming the stacking context.
-                        return [4 /*yield*/, this.renderNodeBackgroundAndBorders(stack.element)];
+                        case 0:
+                            // https://www.w3.org/TR/css-position-3/#painting-order
+                            // 1. the background and borders of the element forming the stacking context.
+                            return [4 /*yield*/, this.renderNodeBackgroundAndBorders(stack.element)];
                         case 1:
                             // https://www.w3.org/TR/css-position-3/#painting-order
                             // 1. the background and borders of the element forming the stacking context.
@@ -6414,9 +6500,9 @@
                         case 4:
                             _i++;
                             return [3 /*break*/, 2];
-                        case 5: 
-                        // 3. For all its in-flow, non-positioned, block-level descendants in tree order:
-                        return [4 /*yield*/, this.renderNodeContent(stack.element)];
+                        case 5:
+                            // 3. For all its in-flow, non-positioned, block-level descendants in tree order:
+                            return [4 /*yield*/, this.renderNodeContent(stack.element)];
                         case 6:
                             // 3. For all its in-flow, non-positioned, block-level descendants in tree order:
                             _p.sent();
@@ -6601,8 +6687,10 @@
                                                 });
                                                 ctx.fillStyle = gradient_1;
                                                 ctx.fillRect(0, 0, width, height);
-                                                pattern = this_1.ctx.createPattern(canvas, 'repeat');
-                                                this_1.renderRepeat(path, pattern, x, y);
+                                                if (width > 0 && height > 0) {
+                                                    pattern = this_1.ctx.createPattern(canvas, 'repeat');
+                                                    this_1.renderRepeat(path, pattern, x, y);
+                                                }
                                             }
                                             else if (isRadialGradient(backgroundImage)) {
                                                 _d = calculateBackgroundRendering(container, index, [
@@ -6706,45 +6794,48 @@
                                 .slice(0)
                                 .reverse()
                                 .forEach(function (shadow) {
-                                _this.ctx.save();
-                                var borderBoxArea = calculateBorderBoxPath(paint.curves);
-                                var maskOffset = shadow.inset ? 0 : MASK_OFFSET;
-                                var shadowPaintingArea = transformPath(borderBoxArea, -maskOffset + (shadow.inset ? 1 : -1) * shadow.spread.number, (shadow.inset ? 1 : -1) * shadow.spread.number, shadow.spread.number * (shadow.inset ? -2 : 2), shadow.spread.number * (shadow.inset ? -2 : 2));
-                                if (shadow.inset) {
-                                    _this.path(borderBoxArea);
-                                    _this.ctx.clip();
-                                    _this.mask(shadowPaintingArea);
-                                }
-                                else {
-                                    _this.mask(borderBoxArea);
-                                    _this.ctx.clip();
-                                    _this.path(shadowPaintingArea);
-                                }
-                                _this.ctx.shadowOffsetX = shadow.offsetX.number + maskOffset;
-                                _this.ctx.shadowOffsetY = shadow.offsetY.number;
-                                _this.ctx.shadowColor = asString(shadow.color);
-                                _this.ctx.shadowBlur = shadow.blur.number;
-                                _this.ctx.fillStyle = shadow.inset ? asString(shadow.color) : 'rgba(0,0,0,1)';
-                                _this.ctx.fill();
-                                _this.ctx.restore();
-                            });
+                                    _this.ctx.save();
+                                    var borderBoxArea = calculateBorderBoxPath(paint.curves);
+                                    var maskOffset = shadow.inset ? 0 : MASK_OFFSET;
+                                    var shadowPaintingArea = transformPath(borderBoxArea, -maskOffset + (shadow.inset ? 1 : -1) * shadow.spread.number, (shadow.inset ? 1 : -1) * shadow.spread.number, shadow.spread.number * (shadow.inset ? -2 : 2), shadow.spread.number * (shadow.inset ? -2 : 2));
+                                    if (shadow.inset) {
+                                        _this.path(borderBoxArea);
+                                        _this.ctx.clip();
+                                        _this.mask(shadowPaintingArea);
+                                    }
+                                    else {
+                                        _this.mask(borderBoxArea);
+                                        _this.ctx.clip();
+                                        _this.path(shadowPaintingArea);
+                                    }
+                                    _this.ctx.shadowOffsetX = shadow.offsetX.number + maskOffset;
+                                    _this.ctx.shadowOffsetY = shadow.offsetY.number;
+                                    _this.ctx.shadowColor = asString(shadow.color);
+                                    _this.ctx.shadowBlur = shadow.blur.number;
+                                    _this.ctx.fillStyle = shadow.inset ? asString(shadow.color) : 'rgba(0,0,0,1)';
+                                    _this.ctx.fill();
+                                    _this.ctx.restore();
+                                });
                             _a.label = 2;
                         case 2:
                             side = 0;
                             _i = 0, borders_1 = borders;
                             _a.label = 3;
                         case 3:
-                            if (!(_i < borders_1.length)) return [3 /*break*/, 6];
+                            if (!(_i < borders_1.length)) return [3 /*break*/, 7];
                             border = borders_1[_i];
                             if (!(border.style !== BORDER_STYLE.NONE && !isTransparent(border.color))) return [3 /*break*/, 5];
-                            return [4 /*yield*/, this.renderBorder(border.color, side++, paint.curves)];
+                            return [4 /*yield*/, this.renderBorder(border.color, side, paint.curves)];
                         case 4:
                             _a.sent();
                             _a.label = 5;
                         case 5:
+                            side++;
+                            _a.label = 6;
+                        case 6:
                             _i++;
                             return [3 /*break*/, 3];
-                        case 6: return [2 /*return*/];
+                        case 7: return [2 /*return*/];
                     }
                 });
             });
@@ -6858,7 +6949,9 @@
         if (options === void 0) { options = {}; }
         return renderElement(element, options);
     };
-    CacheStorage.setContext(window);
+    if (typeof window !== 'undefined') {
+        CacheStorage.setContext(window);
+    }
     var renderElement = function (element, opts) { return __awaiter(_this, void 0, void 0, function () {
         var ownerDocument, defaultView, instanceName, _a, width, height, left, top, defaultResourceOptions, resourceOptions, defaultOptions, options, windowBounds, documentCloner, clonedElement, container, documentBackgroundColor, bodyBackgroundColor, bgColor, defaultBackgroundColor, backgroundColor, renderOptions, canvas, renderer, root, renderer;
         return __generator(this, function (_b) {
@@ -6900,7 +6993,7 @@
                     };
                     options = __assign({}, defaultOptions, resourceOptions, opts);
                     windowBounds = new Bounds(options.scrollX, options.scrollY, options.windowWidth, options.windowHeight);
-                    Logger.create(instanceName);
+                    Logger.create({ id: instanceName, enabled: options.logging });
                     Logger.getInstance(instanceName).debug("Starting document clone");
                     documentCloner = new DocumentCloner(element, {
                         id: instanceName,
@@ -6923,7 +7016,7 @@
                         ? parseColor$1(getComputedStyle(ownerDocument.body).backgroundColor)
                         : COLORS.TRANSPARENT;
                     bgColor = opts.backgroundColor;
-                    defaultBackgroundColor = typeof bgColor === 'string' ? parseColor$1(bgColor) : 0xffffffff;
+                    defaultBackgroundColor = typeof bgColor === 'string' ? parseColor$1(bgColor) : bgColor === null ? COLORS.TRANSPARENT : 0xffffffff;
                     backgroundColor = element === ownerDocument.documentElement
                         ? isTransparent(documentBackgroundColor)
                             ? isTransparent(bodyBackgroundColor)
@@ -6934,6 +7027,7 @@
                     renderOptions = {
                         id: instanceName,
                         cache: options.cache,
+                        canvas: options.canvas,
                         backgroundColor: backgroundColor,
                         scale: options.scale,
                         x: options.x,
@@ -6969,7 +7063,7 @@
                     _b.label = 5;
                 case 5:
                     if (options.removeContainer === true) {
-                        if (!cleanContainer(container)) {
+                        if (!DocumentCloner.destroy(container)) {
                             Logger.getInstance(instanceName).error("Cannot detach cloned iframe as it is not in the DOM anymore");
                         }
                     }
@@ -6980,13 +7074,6 @@
             }
         });
     }); };
-    var cleanContainer = function (container) {
-        if (container.parentNode) {
-            container.parentNode.removeChild(container);
-            return true;
-        }
-        return false;
-    };
 
     return html2canvas;
 
