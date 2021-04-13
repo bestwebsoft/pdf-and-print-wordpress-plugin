@@ -6,7 +6,6 @@ function imageToPdf() {
 
         var deferreds = [];
         var fileSettings = {
-            'orientation': pdfprnt_file_settings.orientation,
             'pageSize': pdfprnt_file_settings.page_size.toLowerCase(),
             'marginLeft': Number( pdfprnt_file_settings.margin_left ),
             'marginRight': Number( pdfprnt_file_settings.margin_right ),
@@ -16,7 +15,7 @@ function imageToPdf() {
             'fileName': pdfprnt_file_settings.file_name
         };
 
-        var pdf = new jsPDF( fileSettings['orientation'], 'px', fileSettings['pageSize'] );
+        var pdf = new jsPDF( 'portrait', 'px', fileSettings['pageSize'] );
         var width = pdf.internal.pageSize.getWidth();
         var height = pdf.internal.pageSize.getHeight();
         // add to page Header and Footer
@@ -33,7 +32,7 @@ function imageToPdf() {
             beforeImageToPdf();
         }
         /* hide default wp panel */
-        document.getElementById("wpadminbar").style.display = "none";
+        document.getElementById("wpadminbar") ? document.getElementById("wpadminbar").style.display = "none" : '';
 
         var deferred = $.Deferred();
         deferreds.push( deferred.promise() );
@@ -45,7 +44,7 @@ function imageToPdf() {
                 var contentWidth = canvas.width;
                 var contentHeight = canvas.height;
                 var headerSize = fileSettings['marginTop'] + fileSettings['marginBottom'];
-                var imgHeaderSize = (contentWidth / width * headerSize);
+                var imgHeaderSize = ( contentWidth / width * headerSize );
                 // The height of the canvas which one pdf page can show;
                 var pageHeight = contentWidth / width * height;
 
@@ -62,13 +61,13 @@ function imageToPdf() {
 
                     var canvasNew = document.createElement('canvas');
                     canvasNew.width = contentWidth;
-                    var theColorBody = $('body').css("background-color");
+                    //var theColorBody = $('body').css("background-color");
                     var row = 0;
                     for ( var i = 0; i < countPages - 1; i++ ) {
                         canvasNew.height = pageHeight - imgHeaderSize;
                         var context = canvasNew.getContext('2d');
-                        context.drawImage( canvas, 0, i * -pageHeight + row);
-                        imgHeight = (width / contentWidth * pageHeight - headerSize );
+                        context.drawImage( canvas, 0, i * -pageHeight + row );
+                        imgHeight = ( width / contentWidth * pageHeight - headerSize );
                         let n = 0;
                         // var imgData = context.getImageData( fileSettings['marginLeft'], 0, contentWidth - fileSettings['marginRight'] - fileSettings['marginLeft'], pageHeight );
                         // let n = 1;
@@ -113,7 +112,7 @@ function imageToPdf() {
                     canvasNew.height = leftHeight + row;
                     context.drawImage( canvas, 0, i * -pageHeight + row );
                     imgHeightLast = width / contentWidth * canvasNew.height;
-                    addImageCustom( canvasNew, imgWidth, imgHeightLast);
+                    addImageCustom( canvasNew, imgWidth, imgHeightLast );
 
                 }
                 deferred.resolve();
@@ -124,16 +123,16 @@ function imageToPdf() {
             afterImageToPdf();
         }
         /* show default wp panel */
-        document.getElementById("wpadminbar").style.display = "block";
+        document.getElementById("wpadminbar") ? document.getElementById("wpadminbar").style.display = "block" : '';
 
         // executes after adding all images
-        $.when.apply($, deferreds).then( function() {
+        $.when.apply( $, deferreds ).then( function() {
             if ( 'open' == fileSettings['fileAction'] ) {
                 pdf.setProperties({
                     title: fileSettings['fileName']
                 });
                 //pdf.autoPrint();
-                window.open(pdf.output('bloburl'));
+                window.open( pdf.output('bloburl') );
                 /*  IFRAME
                 var string = pdf.output('datauristring');
                 var iframe = "<head><style>*{margin: 0; padding: 0;}</style><title>" + fileSettings['fileName'] + "</title></head>" +

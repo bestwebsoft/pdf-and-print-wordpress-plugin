@@ -24,11 +24,17 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 			$tabs = array(
 				'settings'				=> array( 'label' => __( 'Settings', 'pdf-print' ) ),
 				'output'				=> array( 'label' => __( 'Output', 'pdf-print' ) ),
+                /*pls   */
 				'display'				=> array( 'label' => __( 'Display', 'pdf-print' ), 'is_pro' => 1 ),
+                /*  pls*/
 				'misc'					=> array( 'label' => __( 'Misc', 'pdf-print' ) ),
+                /*pls   */
 				'custom_fields'			=> array( 'label' => __( 'Custom Fields', 'pdf-print' ) , 'is_pro' => 1 ),
+                /*  pls*/
 				'custom_code'			=> array( 'label' => __( 'Custom Code', 'pdf-print' ) ),
+                /*pls   */
 				'license'				=> array( 'label' => __( 'License Key', 'pdf-print' ) ),
+                /*  pls*/
 			);
 
 			parent::__construct( array(
@@ -353,7 +359,9 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 							</div>
 						<?php } ?>
 						<div class="clear"></div>
+                        <!-- pls -->
 						<?php $this->pro_block( 'button_image_block', $this->buttons ); ?>
+                        <!-- end pls -->
 					</td>
 				</tr>
 			</table>
@@ -381,7 +389,9 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 					</td>
 				</tr>
 			</table>
+            <!-- pls -->
 			<?php $this->pro_block( 'noindex_block' ); ?>
+            <!-- end pls -->
 			<table class="form-table pdfprnt-table-settings">
 				<tr>
 					<th><?php _e( 'Default PDF Button Action', 'pdf-print' ); ?></th>
@@ -426,7 +436,9 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 			<h3 class="bws_tab_label"><?php _e( 'Document Output Settings', 'pdf-print' ); ?></h3>
 			<?php $this->help_phrase(); ?>
 			<hr>
+            <!-- pls -->
 			<?php $this->pro_block( 'filename_orientation_block', $this->post_types ); ?>
+            <!-- end pls -->
 			<table class="form-table pdfprnt-table-settings">
                 <tr>
                     <th><?php _e( 'Full Page Capture to PDF', 'pdf-print' ); ?></th>
@@ -527,7 +539,9 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 					</td>
 				</tr>
 			</table>
+            <!-- pls -->
 			<?php $this->pro_block( 'woocommerce_watermark_block' ); ?>
+            <!-- end pls -->
 			<table class="form-table pdfprnt-table-settings">
 				<tr id="pdfprnt_additional_fonts_wrap">
 					<th><?php _e( 'Additional Fonts', 'pdf-print' ); ?></th>
@@ -585,11 +599,12 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 				</tr>
 			</table>
 		<?php }
-
+        /*pls   */
 		public function tab_display() { ?>
 			<h3 class="bws_tab_label"><?php _e( 'Display Settings', 'pdf-print' ); ?></h3>
 			<?php $this->help_phrase(); ?>
 			<hr>
+
 			<?php $this->pro_block( 'fancytree_block' );
 		}
 
@@ -600,7 +615,7 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 			<hr>
 			<?php $this->pro_block( 'custom_fields_block' );
 		}
-
+        /*  pls*/
 		/**
 		 * Display custom metabox
 		 * @access public
