@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://bestwebsoft.com/donate/
 Tags: generate pdf, add pdf button, add print button, pdf plugin, pdf pages, print pages, generate pdf content, generate post pdf, pdf print, pdf print plugin, pdf custom post type, pdf content
 Requires at least: 4.5
-Tested up to: 5.7
-Stable tag: 2.2.5
+Tested up to: 5.7.2
+Stable tag: 2.2.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -333,6 +333,11 @@ Replace `bestwebsoft_contact_form` with your shortcode.
 
 == Changelog ==
 
+= V2.2.6 - 14.05.2021 =
+* Bugfix : The compatibility with Divi builder was improved.
+* Update : The mPDF library has been updated to version 8.0.8.
+* Pro : The bug with Print button has been fixed.
+
 = V2.2.5 - 13.04.2021 =
 * Bugfix : JS errors were fixed.
 * Update : Functionality of plugin's scripts adding has been changed so that they will be added only on pages where the PDF & Print buttons will be displayed.
@@ -570,6 +575,9 @@ Replace `bestwebsoft_contact_form` with your shortcode.
 * NEW : Added the ability to output PDF and Print buttons on the type of page.
 
 == Upgrade Notice ==
+
+= V2.2.6 =
+* Bugs fixed.
 
 = V2.2.5 =
 * Functionality improved.
