@@ -55,7 +55,6 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 			add_action( get_parent_class( $this ) . '_display_custom_messages', array( $this, 'display_custom_messages' ) );
 			add_action( get_parent_class( $this ) . '_display_metabox', array( $this, 'display_metabox' ) );
 			add_action( get_parent_class( $this ) . '_additional_misc_options', array( $this, 'upgrade_mpdf' ) );
-            add_action( get_parent_class( $this ) . '_additional_misc_options', array( $this, 'additional_misc_options' ) );
 
 			$this->buttons = array(
 				'pdf'		=> esc_html__( 'PDF', 'pdf-print' ),
@@ -126,8 +125,9 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 			<?php }
 
 			/* Check fonts folder rights */
+            $upload_dir = wp_upload_dir();
 			$plugin_dir = realpath( dirname( __FILE__ ) . '/..' );
-			$ttfontdata = $plugin_dir . '/vendor/mpdf/mpdf/tmp';
+			$ttfontdata = $upload_dir['basedir'] . '/vendor/mpdf/mpdf/tmp';
 			$is_installed = file_exists( $ttfontdata );
 			if ( ! $is_installed ) {
 				$ttfontdata = $plugin_dir . '/mpdf/ttfontdata';
@@ -197,7 +197,8 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 					$message .= '&nbsp;' . $result['done'];
 				}
 			}
-			$new_library_path = $plugin_dir . '/vendor/';
+            $upload_dir = wp_upload_dir();
+			$new_library_path = $upload_dir['basedir'] . '/vendor/';
 			if ( ! file_exists( $new_library_path ) ) {
 				$message .= '&nbsp;' . esc_html__( 'The new version of the mPDF library which compatible with PHP V7.x.x is available now! Go to the Misc tab and upgrade the mPDF library.', 'pdf-print' );
 			} ?>
@@ -672,10 +673,6 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 			<?php }
 		}
 
-        public function additional_misc_options() {
-            do_action( 'pdfprnt_settings_page_misc_action', $this->options );
-        }
-
 		/**
 		 * Custom functions for "Upgrade the mPDF"
 		 * @access public
@@ -683,7 +680,8 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 		public function upgrade_mpdf() {
 			/* Disable block if mPDF 7 already installed */
 			$path = dirname( __FILE__ );
-			$path = plugin_dir_path( $path ) . 'vendor';
+            $upload_dir = wp_upload_dir();
+			$path = $upload_dir['basedir'] . '/vendor';
 			$is_installed = file_exists( $path );
             if ( ! $is_installed || ! isset( $this->options['mpdf_library_version'] ) || $this->options['mpdf_library_version'] != $this->default_options['mpdf_library_version'] ) { ?>
                 <table class="form-table">

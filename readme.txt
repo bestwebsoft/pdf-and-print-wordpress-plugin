@@ -4,7 +4,7 @@ Donate link: https://bestwebsoft.com/donate/
 Tags: generate pdf, add pdf button, add print button, pdf plugin, pdf pages, print pages, generate pdf content, generate post pdf, pdf print, pdf print plugin, pdf custom post type, pdf content
 Requires at least: 4.5
 Tested up to: 5.7.2
-Stable tag: 2.2.6
+Stable tag: 2.2.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -333,6 +333,12 @@ Replace `bestwebsoft_contact_form` with your shortcode.
 
 == Changelog ==
 
+= V2.2.7 - 11.06.2021 =
+* Pro : The bug with field type Group with Advanced Custom Fields has been fixed.
+* Pro : The bug with a large number of pages in the site tree was fixed.
+* Bugfix : The bug with mPDF library update to version 8.0.8. has been fixed.
+* Update : All functionality was updated for WordPress 5.7.2.
+
 = V2.2.6 - 14.05.2021 =
 * Bugfix : The compatibility with Divi builder was improved.
 * Update : The mPDF library has been updated to version 8.0.8.
@@ -575,6 +581,9 @@ Replace `bestwebsoft_contact_form` with your shortcode.
 * NEW : Added the ability to output PDF and Print buttons on the type of page.
 
 == Upgrade Notice ==
+
+= V2.2.7 =
+* Bugs fixed.
 
 = V2.2.6 =
 * Bugs fixed.

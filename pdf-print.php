@@ -6,7 +6,7 @@ Description: Generate PDF files and print WordPress posts/pages. Customize docum
 Author: BestWebSoft
 Text Domain: pdf-print
 Domain Path: /languages
-Version: 2.2.6
+Version: 2.2.7
 Author URI: https://bestwebsoft.com/
 License: GPLv2 or later
 */
@@ -800,7 +800,7 @@ if ( ! function_exists( 'pdfprnt_action_links' ) ) {
 		return $links;
 	}
 }
-
+/*pls   */
 /**
  * Add links
  */
@@ -817,7 +817,7 @@ if ( ! function_exists( 'pdfprnt_links' ) ) {
 		return $links;
 	}
 }
-
+/*  pls*/
 /**
  * Add stylesheets
  */
@@ -1149,11 +1149,11 @@ if ( ! function_exists( 'pdfprnt_print' ) ) {
 				$pdfprnt_links = $pdfprnt_options['disable_links'];
 
 				/* generate PDF-document */
-				$path = plugin_dir_path( __FILE__ ) . 'vendor';
+				$path = $upload_dir['basedir'] . '/vendor';
 				$is_installed = file_exists( $path );
                 if ( $is_installed ) {
 	                /* Implement mPDF v7.1.5 */
-	                include ( __DIR__ . '/vendor/autoload.php' );
+	                include ( $upload_dir['basedir'] . '/vendor/autoload.php' );
 	                $mpdf_config = array(
 		                'mode' => '+aCJK',
 		                'format' => $pdfprnt_options['pdf_page_size'],
@@ -1466,8 +1466,8 @@ if ( ! function_exists( 'pdfprnt_extract_mpdf_library' ) ) {
 if ( ! function_exists( 'pdfprnt_load_and_copy' ) ) {
 	function pdfprnt_load_and_copy( $zip_file, $upload_dir, $url ) {
 		$result = file_exists( $zip_file ) ? array( 'done' => 'ok' ) : pdfprnt_download_zip( $zip_file, $upload_dir, $url );
-
-		if ( plugin_dir_path(__FILE__) == $upload_dir && isset( $result['done'] ) ) {
+        $dir = wp_upload_dir();
+		if ( $dir['basedir'] == $upload_dir && isset( $result['done'] ) ) {
 			$result = pdfprnt_extract_mpdf_library( $zip_file, $upload_dir );
 		} elseif ( isset( $result['done'] ) ) {
 			$result = pdfprnt_copy_fonts( $zip_file, $upload_dir );
@@ -1552,18 +1552,19 @@ if ( ! function_exists( 'pdfprnt_upgrade_library' ) ) {
 			/* get path to directory for ZIP-archive uploading */
 			if ( is_multisite() ) {
 				switch_to_blog( 1 );
-				$upload_dir = plugin_dir_path(__FILE__);
+                $upload_dir = wp_upload_dir();
 				restore_current_blog();
 			} else {
-				$upload_dir = plugin_dir_path(__FILE__);
+                $upload_dir = wp_upload_dir();
 			}
-			$zip_file = $upload_dir . 'mpdf.zip';
+			$zip_file = $upload_dir['basedir'] . '/mpdf.zip';
+
 			/* Sourse of the MPDF library */
             		$url = "https://bestwebsoft.com/wp-content/plugins/paid-products/plugins/pdf-print-mpdf/?action=loading_library";
-			$new_dir = plugin_dir_path(__FILE__) . 'vendor';
+			$new_dir = $upload_dir['basedir'] . '/vendor';
 
 			if ( ! file_exists( $new_dir ) ) {
-				$result = pdfprnt_load_and_copy( $zip_file, $upload_dir, $url ); /* load library */
+				$result = pdfprnt_load_and_copy( $zip_file, $upload_dir['basedir'], $url ); /* load library */
 			}
 			if ( ! isset( $result['error'] ) ) {
 				pdfprnt_delete_old_library( $old_dir );
@@ -1822,7 +1823,9 @@ add_filter( 'bws_shortcode_button_content', 'pdfprnt_shortcode_button_content' )
 
 /* Additional links on the plugin page */
 add_filter( 'plugin_action_links', 'pdfprnt_action_links', 10, 2 );
+/*pls   */
 add_filter( 'plugin_row_meta', 'pdfprnt_links', 10, 2 );
+/*  pls*/
 /* Adding buttons plugin to content */
 add_filter( 'the_content', 'pdfprnt_content' );
 /* load additional fonts */
