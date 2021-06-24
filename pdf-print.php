@@ -1639,10 +1639,19 @@ if ( ! class_exists( 'Pdfprnt_Buttons_Widget' ) ) {
 
 		function widget( $args, $instance ) {
 			global $pdfprnt_options, $pdfprnt_is_search_archive, $pdfprnt_is_custom_post_type;
-			$url = ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $_SERVER['REQUEST_URI'];
-			$url = esc_url( $url );
-			$buttons = '';
-            $target='_blank';
+
+			// Security check.
+			// Parsing url to extrapolate query parameter and sanitize them before printing them below.
+			$parse_request = wp_parse_url( $_SERVER['REQUEST_URI'] );
+			$path          = ( is_array( $parse_request ) && array_key_exists( 'path', $parse_request ) )
+				? $parse_request['path']
+				: '';
+			$query         = ( is_array( $parse_request ) && array_key_exists( 'query', $parse_request ) )
+				? '?' . rawurlencode( $parse_request['query'] )
+				: '';
+			$url           = esc_url( ( is_ssl() ? 'https://' : 'http://' ) . $_SERVER['HTTP_HOST'] . $path . $query );
+			$buttons       = '';
+			$target        = '_blank';
 
 			foreach ( array( 'pdf', 'print' ) as $button ) {
 				$instance[ $button . '_button_show' ] = ! empty( $instance[ $button . '_button_show' ] ) ? 1 : 0;
