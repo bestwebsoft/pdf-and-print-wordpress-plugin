@@ -48,8 +48,10 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
                 /*pls */
 				'wp_slug'					=> 'pdf-print',
                 'link_key' 			 => 'd9da7c9c2046bed8dfa38d005d4bffdb',
-				'link_pn' 			 => '101'
-                /*  pls*/
+				'link_pn' 			 => '101',                
+                'doc_link'			=> 'https://bestwebsoft.com/documentation/pdf-print/pdf-print-user-guide/',
+                'doc_video_link'     => 'https://www.youtube.com/watch?v=Pec-6dDiou0'
+/*  pls*/
 			) );
 
 			add_action( get_parent_class( $this ) . '_display_custom_messages', array( $this, 'display_custom_messages' ) );

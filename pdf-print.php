@@ -6,7 +6,7 @@ Description: Generate PDF files and print WordPress posts/pages. Customize docum
 Author: BestWebSoft
 Text Domain: pdf-print
 Domain Path: /languages
-Version: 2.2.7
+Version: 2.2.8
 Author URI: https://bestwebsoft.com/
 License: GPLv2 or later
 */
@@ -955,7 +955,7 @@ if ( ! function_exists( 'pdfprnt_generate_template' ) ) {
 				if ( 0 == $pdfprnt_options['additional_fonts'] ) {
 					$content = pdfprnt_preg_replace( array( "font-family", "font:" ), $content );
 				}
-                if ( has_blocks( $content ) ) {
+                if ( function_exists( 'has_blocks' ) && has_blocks( $content ) ) {
                     $content = preg_replace( '/\s?<!--.*-->\s?/', "", $content );
                     $content = preg_replace('~<p></p>~', '', $content);
                 }
