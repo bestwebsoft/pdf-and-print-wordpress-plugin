@@ -83,6 +83,33 @@ if ( ! function_exists( 'pdfprnt_filename_orientation_block' ) ) {
 					<fieldset>
 						<label><input disabled="disabled" type="radio" checked="checked" /> <?php esc_html_e( 'Post/page slug', 'pdf-print' ); ?></label><br>
 						<label><input disabled="disabled" type="radio" /> <?php esc_html_e( 'Custom', 'pdf-print' ); ?></label>
+                        <div id="pdfprnt-file-name-wrap">
+                            <input disabled="disabled" class="widefat" id="pdfprnt-file-name" type="text" name="pdfprnt_file_name" value="" maxlength="195" placeholder="{Publish_month} {Publish_date}, {Publish_year} - {Post_title} - {Site_title}" />
+                            <div class="bws_info"><?php _e( 'File name cannot contain more than 195 symbols. The file name can include Latin letters, numbers and symbols.', 'pdf-print' ); ?></div>
+                            <div class="bws_info">
+                                <span><?php _e( 'Available shortcodes', 'pdf-print' ); ?>:</span><br />
+                                <span>
+											<strong>{Publish_full_date}</strong> - <?php _e( 'The full date when the post was created', 'pdf-print' ); ?>.
+										</span><br />
+                                <span>
+											<strong>{Post_title}</strong> - <?php _e( 'Title of the post.', 'pdf-print' ); ?>
+										</span><br />
+                                <span>
+											<strong>{Site_title}</strong> - <?php _e( 'Title of the site.', 'pdf-print' ); ?>
+										</span><br />
+                                <span>
+											<strong>{Author_display_name}</strong> - <?php _e( 'Author of the post.', 'pdf-print' ); ?>
+										</span><br />
+                                <span>
+											<strong>{Publish_year}</strong> - <?php _e( 'The year when the post was created.', 'pdf-print' ); ?>
+										</span><br />
+                                <span>
+											<strong>{Publish_month}</strong> - <?php _e( 'The month when the post was created.', 'pdf-print' ); ?>
+										</span><br />
+                                <span>
+											<strong>{Publish_date}</strong> - <?php _e( 'The day when the post was created.', 'pdf-print' ) ?>
+										</span><br />
+                            </div>
 					</fieldset>
 				</td>
 			</tr>
@@ -129,6 +156,15 @@ if ( ! function_exists( 'pdfprnt_filename_orientation_block' ) ) {
 if ( ! function_exists( 'pdfprnt_woocommerce_watermark_block' ) ) {
 	function pdfprnt_woocommerce_watermark_block() { ?>
 		<table class="form-table pdfprnt-table-settings">
+            <tr id="pdfprnt_remove_written" valign="top">
+                <th><?php _e( '"Written by" Text', 'pdf-print' ); ?></th>
+                <td>
+                    <label>
+                        <input type="checkbox" name="pdfprnt_remove_written" value="1" disabled="disabled" />
+                        <span class="bws_info"><?php _e( 'Enable to add "Written by" text before an author\'s name.', 'pdf-print' ); ?></span>
+                    </label>
+                </td>
+            </tr>
 			<tr>
 				<th><?php esc_html_e( 'WooCommerce Product Details', 'pdf-print' ); ?></th>
 				<td>

@@ -104,6 +104,7 @@
 </li>
 <li>Set custom images for buttons</li>
 <li>Disable PDF &amp; Print buttons for certain pages and/or post types</li>
+<li>Disable PDF &amp; Print buttons for certain users and/or roles types [NEW]</li>
 <li>Change default PDF file name</li>
 <li>Prevent search engines from indexing links in documents</li>
 <li>Configure all subsites on the network</li>
@@ -114,16 +115,17 @@
 <p>If you have a feature suggestion or idea you&#8217;d like to see in the plugin, we&#8217;d love to hear about it! <a href="https://support.bestwebsoft.com/hc/en-us/requests/new" rel="nofollow ugc">Suggest a Feature</a></p>
 <h4>Documentation &amp; Videos</h4>
 <ul>
+<li><a href="https://bestwebsoft.com/documentation/pdf-print/pdf-print-user-guide/" rel="nofollow ugc">[Doc] User Guide</a></li>
 <li><a href="https://bestwebsoft.com/documentation/how-to-install-a-wordpress-product/how-to-install-a-wordpress-plugin/" rel="nofollow ugc">[Doc] Installation</a></li>
 <li><a href="https://bestwebsoft.com/documentation/how-to-purchase-a-wordpress-plugin/how-to-purchase-wordpress-plugin-from-bestwebsoft/" rel="nofollow ugc">[Doc] Purchase</a></li>
-<li><a href="https://bestwebsoft.com/documentation/pdf-print/pdf-print-user-guide/" rel="nofollow ugc">[Doc] User Guide</a></li>
+<li><a href="https://www.youtube.com/watch?v=Pec-6dDiou0" rel="nofollow ugc">[Video] User Guide</a></li>
 <li><a href="https://www.youtube.com/watch?v=K6aT6Ew9J0g" rel="nofollow ugc">[Video] Purchase, Installation, Configuration Tutorial</a></li>
 <li><a href="https://www.youtube.com/watch?v=E3w9ID3p2-A" rel="nofollow ugc">[Video] Installation Instruction</a></li>
 </ul>
 <h4>Help &amp; Support</h4>
 <p>Visit our Help Center if you have any questions, our friendly Support Team is happy to help &#8211; <a href="https://support.bestwebsoft.com/" rel="nofollow ugc">https://support.bestwebsoft.com/</a></p>
 <h4>Affiliate Program</h4>
-<p>Earn 20% commission by selling the premium WordPress plugins and themes by BestWebSoft — <a href="https://bestwebsoft.com/affiliate/" rel="nofollow">https://bestwebsoft.com/affiliate/</a></p>
+<p>Earn 20% commission by selling the premium WordPress plugins and themes by BestWebSoft — <a href="https://bestwebsoft.com/affiliate/?utm_source=plugin&amp;utm_medium=readme&amp;utm_campaign=affiliate_program" rel="nofollow ugc">https://bestwebsoft.com/affiliate/</a></p>
 <h4>Translation</h4>
 <ul>
 <li>Russian (ru_RU)</li>

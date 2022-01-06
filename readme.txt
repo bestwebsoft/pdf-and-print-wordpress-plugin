@@ -1,10 +1,10 @@
-=== PDF & Print by BestWebSoft ===
+=== PDF & Print by BestWebSoft - WordPress Posts and Pages PDF Generator Plugin ===
 Contributors: bestwebsoft
 Donate link: https://bestwebsoft.com/donate/
 Tags: generate pdf, add pdf button, add print button, pdf plugin, pdf pages, print pages, generate pdf content, generate post pdf, pdf print, pdf print plugin, pdf custom post type, pdf content
 Requires at least: 4.5
-Tested up to: 5.7.2
-Stable tag: 2.2.8
+Tested up to: 5.8.2
+Stable tag: 2.3.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -92,6 +92,7 @@ https://www.youtube.com/watch?v=hJdWI8xkAI0
 > 	* Landscape
 > * Set custom images for buttons
 > * Disable PDF & Print buttons for certain pages and/or post types
+> * Disable PDF & Print buttons for certain users and/or roles types [NEW]
 > * Change default PDF file name
 > * Prevent search engines from indexing links in documents
 > * Configure all subsites on the network
@@ -108,11 +109,15 @@ If you have a feature suggestion or idea you'd like to see in the plugin, we'd l
 * [[Doc] Purchase](https://bestwebsoft.com/documentation/how-to-purchase-a-wordpress-plugin/how-to-purchase-wordpress-plugin-from-bestwebsoft/)
 * [[Video] User Guide](https://www.youtube.com/watch?v=Pec-6dDiou0)
 * [[Video] Purchase, Installation, Configuration Tutorial](https://www.youtube.com/watch?v=K6aT6Ew9J0g)
-* [[Video] Installation Instruction](http://www.youtube.com/watch?v=E3w9ID3p2-A)
+* [[Video] Installation Instruction](https://www.youtube.com/watch?v=E3w9ID3p2-A)
 
 = Help & Support =
 
 Visit our Help Center if you have any questions, our friendly Support Team is happy to help - <https://support.bestwebsoft.com/>
+
+= Affiliate Program =
+
+Earn 20% commission by selling the premium WordPress plugins and themes by BestWebSoft — [https://bestwebsoft.com/affiliate/](https://bestwebsoft.com/affiliate/?utm_source=plugin&utm_medium=readme&utm_campaign=affiliate_program)
 
 = Translation =
 
@@ -134,7 +139,7 @@ Some of these translations are not complete. We are constantly adding new featur
 
 View a [Step-by-step Instruction on PDF & Print Installation](https://bestwebsoft.com/documentation/how-to-install-a-wordpress-product/how-to-install-a-wordpress-plugin/)
 
-http://www.youtube.com/watch?v=E3w9ID3p2-A
+https://www.youtube.com/watch?v=E3w9ID3p2-A
 
 == Frequently Asked Questions ==
 
@@ -333,6 +338,19 @@ Replace `bestwebsoft_contact_form` with your shortcode.
 7. Settings page (Output tab) for the PDF&Print in admin panel.
 
 == Changelog ==
+
+= V2.3.0 - 24.12.2021 =
+* Pro : Ability to exclude specific users and roles
+* Bugfix : The issue with excerpt display has been fixed.
+* Update : All functionality was updated for WordPress 5.8.2.
+* Update : BWS Panel section was updated.
+
+= V2.2.9 - 23.08.2021 =
+* Update : All functionality was updated for WordPress 5.8.
+* Bugfix: The bug with mPDF library loading has been fixed.
+* Pro : Ability to add shortcodes to the PDF file name.
+* Pro : Ability to remove "written by" in the author output.
+* Pro : Added drag and drop function to change the order of the additional elements.
 
 = V2.2.8 - 06.07.2021 =
 * Bugfix : The issue with generate templates has been fixed.
@@ -587,6 +605,17 @@ Replace `bestwebsoft_contact_form` with your shortcode.
 * NEW : Added the ability to output PDF and Print buttons on the type of page.
 
 == Upgrade Notice ==
+
+= V2.3.0 =
+* New features added.
+* The compatibility with new WordPress version updated.
+* Functionality improved.
+* Bugs fixed.
+
+= V2.2.9 =
+* New features added.
+* The compatibility with new WordPress version updated.
+* Bugs fixed.
 
 = V2.2.8 =
 * Bugs fixed.
