@@ -673,10 +673,10 @@ class PDFBarcode
 		$code_ext = '';
 		$clen = strlen($code);
 		for ($i = 0; $i < $clen; ++$i) {
-			if (ord($code{$i}) > 127) {
+			if (ord($code[$i]) > 127) {
 				return false;
 			}
-			$code_ext .= $encode[$code{$i}];
+			$code_ext .= $encode[$code[$i]];
 		}
 		// checksum
 		$code_ext .= $this->checksum_code93($code_ext);
@@ -686,7 +686,7 @@ class PDFBarcode
 		$k = 0;
 		$clen = strlen($code);
 		for ($i = 0; $i < $clen; ++$i) {
-			$char = ord($code{$i});
+			$char = ord($code[$i]);
 			if (!isset($chr[$char])) {
 				// invalid character
 				return false;
@@ -697,7 +697,7 @@ class PDFBarcode
 				} else {
 					$t = false; // space
 				}
-				$w = $chr[$char]{$j};
+				$w = $chr[$char][$j];
 				$bararray['bcode'][$k] = array('t' => $t, 'w' => $w, 'h' => 1, 'p' => 0);
 				$bararray['maxw'] += $w;
 				++$k;
@@ -727,7 +727,7 @@ class PDFBarcode
 		$p = 1;
 		$check = 0;
 		for ($i = ($len - 1); $i >= 0; --$i) {
-			$k = array_keys($chars, $code{$i});
+			$k = array_keys($chars, $code[$i]);
 			$check += ($k[0] * $p);
 			++$p;
 			if ($p > 20) {
@@ -741,7 +741,7 @@ class PDFBarcode
 		$p = 1;
 		$check = 0;
 		for ($i = $len; $i >= 0; --$i) {
-			$k = array_keys($chars, $code{$i});
+			$k = array_keys($chars, $code[$i]);
 			$check += ($k[0] * $p);
 			++$p;
 			if ($p > 15) {
@@ -1120,7 +1120,7 @@ class PDFBarcode
 					$new_code = '';
 					$hclen = (strlen($code) / 2);
 					for ($i = 0; $i < $hclen; ++$i) {
-						$new_code .= chr(intval($code{(2 * $i)} . $code{(2 * $i + 1)}));
+						$new_code .= chr(intval($code[(2 * $i)] . $code[(2 * $i + 1)]));
 					}
 					$code = $new_code;
 					break;
@@ -1344,7 +1344,7 @@ class PDFBarcode
 		$seq = '101'; // left guard bar
 		if ($upce) {
 			$bararray = array('code' => $upce_code, 'maxw' => 0, 'maxh' => 1, 'bcode' => array());
-			$p = $upce_parities[$code{1}][$r];
+			$p = $upce_parities[$code[1]][$r];
 			for ($i = 0; $i < 6; ++$i) {
 				$seq .= $codes[$p[$i]][$upce_code[$i]];
 			}
@@ -1357,7 +1357,7 @@ class PDFBarcode
 					$seq .= $codes['A'][$code[(int) $i]];
 				}
 			} else {
-				$p = $parities[$code{0}];
+				$p = $parities[$code[0]];
 				for ($i = 1; $i < $half_len; ++$i) {
 					$seq .= $codes[$p[$i - 1]][$code[(int) $i]];
 				}
@@ -1401,7 +1401,7 @@ class PDFBarcode
 		if ($len == 2) {
 			$r = $code % 4;
 		} elseif ($len == 5) {
-			$r = (3 * ($code{0} + $code{2} + $code{4})) + (9 * ($code{1} + $code{3}));
+			$r = (3 * ($code[0] + $code[2] + $code[4])) + (9 * ($code[1] + $code[3]));
 			$r %= 10;
 		} else {
 			return false;
@@ -1452,7 +1452,7 @@ class PDFBarcode
 		);
 		$p = $parities[$len][$r];
 		$seq = '1011'; // left guard bar
-		$seq .= $codes[$p[0]][$code{0}];
+		$seq .= $codes[$p[0]][$code[0]];
 		for ($i = 1; $i < $len; ++$i) {
 			$seq .= '01'; // separator
 			$seq .= $codes[$p[$i]][$code[$i]];
@@ -1894,9 +1894,9 @@ class PDFBarcode
 				}
 		}
 		$binary_code = bcmul($binary_code, 10);
-		$binary_code = bcadd($binary_code, $tracking_number{0});
+		$binary_code = bcadd($binary_code, $tracking_number[0]);
 		$binary_code = bcmul($binary_code, 5);
-		$binary_code = bcadd($binary_code, $tracking_number{1});
+		$binary_code = bcadd($binary_code, $tracking_number[1]);
 		$binary_code .= substr($tracking_number, 2, 18);
 		// convert to hexadecimal
 		$binary_code = $this->dec_to_hex($binary_code);

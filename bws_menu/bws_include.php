@@ -1,7 +1,7 @@
 <?php
-/*
-* Get latest version
-*/
+/**
+ * Get latest version
+ */
 
 if ( ! function_exists( 'bws_include_init' ) ) {
 	function bws_include_init( $base, $bws_menu_source = 'plugins' ) {
@@ -13,7 +13,7 @@ if ( ! function_exists( 'bws_include_init' ) ) {
 		$wp_content_dir = defined( 'WP_CONTENT_DIR' ) ? WP_CONTENT_DIR : ABSPATH . 'wp-content';
 		$wp_plugins_dir = defined( 'WP_PLUGIN_DIR' ) ? WP_PLUGIN_DIR : $wp_content_dir . '/plugins';
 
-		if ( $bws_menu_source == 'plugins' ) {
+		if ( 'plugins' === $bws_menu_source ) {
 			$bws_menu_dir                               = $wp_plugins_dir . '/' . dirname( $base ) . '/bws_menu/bws_menu.php';
 			$bstwbsftwppdtplgns_active_plugins[ $base ] = get_plugin_data( $wp_plugins_dir . '/' . $base );
 		} else {
@@ -50,7 +50,7 @@ if ( ! function_exists( 'bws_include_init' ) ) {
 			require_once dirname( __FILE__ ) . '/bws_menu.php';
 			require_once dirname( __FILE__ ) . '/bws_functions.php';
 			require_once dirname( __FILE__ ) . '/class-bws-settings.php';
-		} elseif ( ! $is_pro_bws_menu && ( ! isset( $bstwbsftwppdtplgns_options['bws_menu']['version'][ $base ] ) || $bstwbsftwppdtplgns_options['bws_menu']['version'][ $base ] != $bws_menu_version ) ) {
+		} elseif ( ! $is_pro_bws_menu && ( ! isset( $bstwbsftwppdtplgns_options['bws_menu']['version'][ $base ] ) || $bstwbsftwppdtplgns_options['bws_menu']['version'][ $base ] !== $bws_menu_version ) ) {
 			$bstwbsftwppdtplgns_options['bws_menu']['version'][ $base ] = $bws_menu_version;
 			if ( function_exists( 'is_multisite' ) && is_multisite() ) {
 				update_site_option( 'bstwbsftwppdtplgns_options', $bstwbsftwppdtplgns_options );
@@ -60,7 +60,7 @@ if ( ! function_exists( 'bws_include_init' ) ) {
 			require_once dirname( __FILE__ ) . '/bws_menu.php';
 			require_once dirname( __FILE__ ) . '/bws_functions.php';
 			require_once dirname( __FILE__ ) . '/class-bws-settings.php';
-		} elseif ( $is_pro_bws_menu && ( ! isset( $bstwbsftwppdtplgns_options['bws_menu']['version_pro'][ $base ] ) || $bstwbsftwppdtplgns_options['bws_menu']['version_pro'][ $base ] != $bws_menu_version ) ) {
+		} elseif ( $is_pro_bws_menu && ( ! isset( $bstwbsftwppdtplgns_options['bws_menu']['version_pro'][ $base ] ) || $bstwbsftwppdtplgns_options['bws_menu']['version_pro'][ $base ] !== $bws_menu_version ) ) {
 			$bstwbsftwppdtplgns_options['bws_menu']['version_pro'][ $base ] = $bws_menu_version;
 
 			if ( isset( $bstwbsftwppdtplgns_options['bws_menu']['version'][ $base ] ) ) {
@@ -83,10 +83,10 @@ if ( ! function_exists( 'bws_include_init' ) ) {
 			if ( ! empty( $bstwbsftwppdtplgns_options['bws_menu']['version_pro'] ) ) {
 				foreach ( $bstwbsftwppdtplgns_options['bws_menu']['version_pro'] as $key => $value ) {
 					if ( array_key_exists( $key, $all_plugins ) || array_key_exists( $key, $all_themes ) ) {
-						if ( $bws_menu_version < $value && ( is_plugin_active( $key ) || preg_match( '|' . $key . '$|', get_template_directory() ) ) ) {
+						if ( $bws_menu_version <= $value && ( is_plugin_active( $key ) || preg_match( '|' . $key . '$|', get_template_directory() ) ) ) {
 							if ( ! isset( $product_with_newer_menu ) ) {
 								$product_with_newer_menu = $key;
-							} elseif ( $bstwbsftwppdtplgns_options['bws_menu']['version_pro'][ $product_with_newer_menu ] < $bstwbsftwppdtplgns_options['bws_menu']['version_pro'][ $key ] ) {
+							} elseif ( $bstwbsftwppdtplgns_options['bws_menu']['version_pro'][ $product_with_newer_menu ] <= $bstwbsftwppdtplgns_options['bws_menu']['version_pro'][ $key ] ) {
 								$product_with_newer_menu = $key;
 							}
 						}
@@ -107,10 +107,10 @@ if ( ! function_exists( 'bws_include_init' ) ) {
 				} else {
 					foreach ( $bstwbsftwppdtplgns_options['bws_menu']['version'] as $key => $value ) {
 						if ( array_key_exists( $key, $all_plugins ) || array_key_exists( $key, $all_themes ) ) {
-							if ( $bws_menu_version < $value && ( is_plugin_active( $key ) || preg_match( '|' . $key . '$|', get_template_directory() ) ) ) {
+							if ( $bws_menu_version <= $value && ( is_plugin_active( $key ) || preg_match( '|' . $key . '$|', get_template_directory() ) ) ) {
 								if ( ! isset( $product_with_newer_menu ) ) {
 									$product_with_newer_menu = $key;
-								} elseif ( $bstwbsftwppdtplgns_options['bws_menu']['version'][ $product_with_newer_menu ] < $bstwbsftwppdtplgns_options['bws_menu']['version'][ $key ] ) {
+								} elseif ( $bstwbsftwppdtplgns_options['bws_menu']['version'][ $product_with_newer_menu ] <= $bstwbsftwppdtplgns_options['bws_menu']['version'][ $key ] ) {
 									$product_with_newer_menu = $key;
 								}
 							}

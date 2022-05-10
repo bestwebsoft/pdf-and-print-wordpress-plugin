@@ -2,6 +2,7 @@
 /**
  * BestWebSoft product list
  */
+
 global $bws_plugin_info, $wp_version;
 
 $bws_plugins_category = array(

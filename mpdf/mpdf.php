@@ -2144,7 +2144,7 @@ class mPDF
 
 	/* -- BACKGROUNDS -- */
 
-	function _resizeBackgroundImage($imw, $imh, $cw, $ch, $resize = 0, $repx, $repy, $pba = array(), $size = array())
+	function _resizeBackgroundImage($imw, $imh, $cw, $ch, $resize, $repx, $repy, $pba = array(), $size = array())
 	{
 		// pba is background positioning area (from CSS background-origin) may not always be set [x,y,w,h]
 		// size is from CSS3 background-size - takes precendence over old resize
@@ -2346,10 +2346,10 @@ class mPDF
 
 		if ($this->bodyBackgroundColor) {
 			$s .= 'q ' . $this->SetFColor($this->bodyBackgroundColor, true) . "\n";
-			if ($this->bodyBackgroundColor{0} == 5) { // RGBa
-				$s .= $this->SetAlpha(ord($this->bodyBackgroundColor{4}) / 100, 'Normal', true, 'F') . "\n";
-			} elseif ($this->bodyBackgroundColor{0} == 6) { // CMYKa
-				$s .= $this->SetAlpha(ord($this->bodyBackgroundColor{5}) / 100, 'Normal', true, 'F') . "\n";
+			if ($this->bodyBackgroundColor[0] == 5) { // RGBa
+				$s .= $this->SetAlpha(ord($this->bodyBackgroundColor[4]) / 100, 'Normal', true, 'F') . "\n";
+			} elseif ($this->bodyBackgroundColor[0] == 6) { // CMYKa
+				$s .= $this->SetAlpha(ord($this->bodyBackgroundColor[5]) / 100, 'Normal', true, 'F') . "\n";
 			}
 			$s .= sprintf('%.3F %.3F %.3F %.3F re f Q', ($clx * _MPDFK), ($cly * _MPDFK), $clw * _MPDFK, $clh * _MPDFK) . "\n";
 		}
@@ -2426,10 +2426,10 @@ class mPDF
 						$s .= $pb['clippath'] . "\n";
 					}
 					$s .= 'q ' . $this->SetFColor($pb['col'], true) . "\n";
-					if ($pb['col']{0} == 5) { // RGBa
-						$s .= $this->SetAlpha(ord($pb['col']{4}) / 100, 'Normal', true, 'F') . "\n";
-					} elseif ($pb['col']{0} == 6) { // CMYKa
-						$s .= $this->SetAlpha(ord($pb['col']{5}) / 100, 'Normal', true, 'F') . "\n";
+					if ($pb['col'][0] == 5) { // RGBa
+						$s .= $this->SetAlpha(ord($pb['col'][4]) / 100, 'Normal', true, 'F') . "\n";
+					} elseif ($pb['col'][0] == 6) { // CMYKa
+						$s .= $this->SetAlpha(ord($pb['col'][5]) / 100, 'Normal', true, 'F') . "\n";
 					}
 					$s .= sprintf('%.3F %.3F %.3F %.3F re f Q', $pb['x'] * _MPDFK, ($this->h - $pb['y']) * _MPDFK, $pb['w'] * _MPDFK, -$pb['h'] * _MPDFK) . "\n";
 					if (isset($pb['clippath']) && $pb['clippath']) {
@@ -2626,10 +2626,10 @@ class mPDF
 			foreach ($pbs AS $pb) {
 				if ((!isset($pb['gradient']) || !$pb['gradient']) && (!isset($pb['image_id']) || !$pb['image_id'])) {
 					$s .= 'q ' . $this->SetFColor($pb['col'], true) . "\n";
-					if ($pb['col']{0} == 5) { // RGBa
-						$s .= $this->SetAlpha(ord($pb['col']{4}) / 100, 'Normal', true, 'F') . "\n";
-					} elseif ($pb['col']{0} == 6) { // CMYKa
-						$s .= $this->SetAlpha(ord($pb['col']{5}) / 100, 'Normal', true, 'F') . "\n";
+					if ($pb['col'][0] == 5) { // RGBa
+						$s .= $this->SetAlpha(ord($pb['col'][4]) / 100, 'Normal', true, 'F') . "\n";
+					} elseif ($pb['col'][0] == 6) { // CMYKa
+						$s .= $this->SetAlpha(ord($pb['col'][5]) / 100, 'Normal', true, 'F') . "\n";
 					}
 					$s .= sprintf('%.3F %.3F %.3F %.3F re %s Q', $pb['x'] * _MPDFK, ($this->h - $pb['y']) * _MPDFK, $pb['w'] * _MPDFK, -$pb['h'] * _MPDFK, 'f') . "\n";
 				}
@@ -3331,14 +3331,14 @@ class mPDF
 		if (!$col) {
 			return '';
 		} // mPDF 6
-		if ($col{0} == 3 || $col{0} == 5) { // RGB / RGBa
-			$out = sprintf('%.3F %.3F %.3F rg', ord($col{1}) / 255, ord($col{2}) / 255, ord($col{3}) / 255);
-		} elseif ($col{0} == 1) { // GRAYSCALE
-			$out = sprintf('%.3F g', ord($col{1}) / 255);
-		} elseif ($col{0} == 2) { // SPOT COLOR
-			$out = sprintf('/CS%d cs %.3F scn', ord($col{1}), ord($col{2}) / 100);
-		} elseif ($col{0} == 4 || $col{0} == 6) { // CMYK / CMYKa
-			$out = sprintf('%.3F %.3F %.3F %.3F k', ord($col{1}) / 100, ord($col{2}) / 100, ord($col{3}) / 100, ord($col{4}) / 100);
+		if ($col[0] == 3 || $col[0] == 5) { // RGB / RGBa
+			$out = sprintf('%.3F %.3F %.3F rg', ord($col[1]) / 255, ord($col[2]) / 255, ord($col[3]) / 255);
+		} elseif ($col[0] == 1) { // GRAYSCALE
+			$out = sprintf('%.3F g', ord($col[1]) / 255);
+		} elseif ($col[0] == 2) { // SPOT COLOR
+			$out = sprintf('/CS%d cs %.3F scn', ord($col[1]), ord($col[2]) / 100);
+		} elseif ($col[0] == 4 || $col[0] == 6) { // CMYK / CMYKa
+			$out = sprintf('%.3F %.3F %.3F %.3F k', ord($col[1]) / 100, ord($col[2]) / 100, ord($col[3]) / 100, ord($col[4]) / 100);
 		}
 		if ($type == 'Draw') {
 			$out = strtoupper($out);
@@ -4688,7 +4688,7 @@ class mPDF
 			for ($c = 0; $c < count($cOTLdata); $c++) {
 				for ($i = 0; $i < strlen($cOTLdata[$c]['group']); $i++) {
 
-					if ($cOTLdata[$c]['group']{$i} == 'S') {
+					if ($cOTLdata[$c]['group'][$i] == 'S') {
 						// Save from last word
 						if ($max_kashida_in_word) {
 							$k_ctr++;
@@ -5350,12 +5350,12 @@ class mPDF
 				foreach ($this->textshadow AS $ts) {
 					$s .= ' q ';
 					$s .= $this->SetTColor($ts['col'], true) . "\n";
-					if ($ts['col']{0} == 5 && ord($ts['col']{4}) < 100) { // RGBa
-						$s .= $this->SetAlpha(ord($ts['col']{4}) / 100, 'Normal', true, 'F') . "\n";
-					} elseif ($ts['col']{0} == 6 && ord($ts['col']{5}) < 100) { // CMYKa
-						$s .= $this->SetAlpha(ord($ts['col']{5}) / 100, 'Normal', true, 'F') . "\n";
-					} elseif ($ts['col']{0} == 1 && $ts['col']{2} == 1 && ord($ts['col']{3}) < 100) { // Gray
-						$s .= $this->SetAlpha(ord($ts['col']{3}) / 100, 'Normal', true, 'F') . "\n";
+					if ($ts['col'][0] == 5 && ord($ts['col'][4]) < 100) { // RGBa
+						$s .= $this->SetAlpha(ord($ts['col'][4]) / 100, 'Normal', true, 'F') . "\n";
+					} elseif ($ts['col'][0] == 6 && ord($ts['col'][5]) < 100) { // CMYKa
+						$s .= $this->SetAlpha(ord($ts['col'][5]) / 100, 'Normal', true, 'F') . "\n";
+					} elseif ($ts['col'][0] == 1 && $ts['col'][2] == 1 && ord($ts['col'][3]) < 100) { // Gray
+						$s .= $this->SetAlpha(ord($ts['col'][3]) / 100, 'Normal', true, 'F') . "\n";
 					}
 					$s .= sprintf(' 1 0 0 1 %.4F %.4F cm', $ts['x'] * _MPDFK, -$ts['y'] * _MPDFK) . "\n";
 					$s .= $sub;
@@ -5635,7 +5635,7 @@ class mPDF
 
 				// Get YPlacement from next Base character
 				$nextbase = $i + 1;
-				while ($OTLdata['group']{$nextbase} != 'C') {
+				while ($OTLdata['group'][$nextbase] != 'C') {
 					$nextbase++;
 				}
 				if (isset($GPOSinfo[$nextbase]) && isset($GPOSinfo[$nextbase]['YPlacement']) && $GPOSinfo[$nextbase]['YPlacement']) {
@@ -10014,12 +10014,12 @@ class mPDF
 						$annotcolor = ' /C [';
 						if (isset($pl['opt']['c']) AND $pl['opt']['c']) {
 							$col = $pl['opt']['c'];
-							if ($col{0} == 3 || $col{0} == 5) {
-								$annotcolor .= sprintf("%.3F %.3F %.3F", ord($col{1}) / 255, ord($col{2}) / 255, ord($col{3}) / 255);
-							} elseif ($col{0} == 1) {
-								$annotcolor .= sprintf("%.3F", ord($col{1}) / 255);
-							} elseif ($col{0} == 4 || $col{0} == 6) {
-								$annotcolor .= sprintf("%.3F %.3F %.3F %.3F", ord($col{1}) / 100, ord($col{2}) / 100, ord($col{3}) / 100, ord($col{4}) / 100);
+							if ($col[0] == 3 || $col[0] == 5) {
+								$annotcolor .= sprintf("%.3F %.3F %.3F", ord($col[1]) / 255, ord($col[2]) / 255, ord($col[3]) / 255);
+							} elseif ($col[0] == 1) {
+								$annotcolor .= sprintf("%.3F", ord($col[1]) / 255);
+							} elseif ($col[0] == 4 || $col[0] == 6) {
+								$annotcolor .= sprintf("%.3F %.3F %.3F %.3F", ord($col[1]) / 100, ord($col[2]) / 100, ord($col[3]) / 100, ord($col[4]) / 100);
 							} else {
 								$annotcolor .= '1 1 0';
 							}
@@ -11760,7 +11760,7 @@ class mPDF
 		// firsttime i.e. whether to add to this->images - use false when calling iteratively
 		// Image Data passed directly as var:varname
 		if (preg_match('/var:\s*(.*)/', $file, $v)) {
-			$data = $this->{$v[1]};
+			$data = $this->$v[1];
 			$file = md5($data);
 		}
 		if (preg_match('/data:image\/(gif|jpeg|png);base64,(.*)/', $file, $v)) {
@@ -12151,7 +12151,7 @@ class mPDF
 										if ($colorindex >= $n) {
 											$alpha = 255;
 										} else {
-											$alpha = ord($transparency{$colorindex});
+											$alpha = ord($transparency[$colorindex]);
 										} // 0-255
 										if ($alpha > 0) {
 											imagesetpixel($imgalpha, $xpx, $ypx, $alpha);
@@ -12698,7 +12698,7 @@ class mPDF
 								if ($colorindex >= $n) {
 									$alpha = 255;
 								} else {
-									$alpha = ord($transparency{$colorindex});
+									$alpha = ord($transparency[$colorindex]);
 								} // 0-255
 								$mimgdata .= chr($alpha);
 							}
@@ -13286,7 +13286,7 @@ class mPDF
 		}
 	}
 
-	function CircularText($x, $y, $r, $text, $align = 'top', $fontfamily = '', $fontsize = 0, $fontstyle = '', $kerning = 120, $fontwidth = 100, $divider)
+	function CircularText($x, $y, $r, $text, $align = 'top', $fontfamily = '', $fontsize = 0, $fontstyle = '', $kerning = 120, $fontwidth = 100, $divider = '')
 	{
 		if (!class_exists('directw', false)) {
 			include(_MPDF_PATH . 'classes/directw.php');
@@ -14442,7 +14442,7 @@ class mPDF
 
 	/* -- TABLES -- */
 
-	function TableHeaderFooter($content = '', $tablestartpage = '', $tablestartcolumn = '', $horf = 'H', $level, $firstSpread = true, $finalSpread = true)
+	function TableHeaderFooter($content = '', $tablestartpage = '', $tablestartcolumn = '', $horf = 'H', $level = 0, $firstSpread = true, $finalSpread = true)
 	{
 		if (($horf == 'H' || $horf == 'F') && !empty($content)) { // mPDF 5.7.2
 			$table = &$this->table[1][1];
@@ -16629,7 +16629,7 @@ class mPDF
 
 	/* -- CSS-POSITION -- */
 
-	function WriteFixedPosHTML($html = '', $x, $y, $w, $h, $overflow = 'visible', $bounding = array())
+	function WriteFixedPosHTML($html, $x, $y, $w, $h, $overflow = 'visible', $bounding = array())
 	{
 		// $overflow can be 'hidden', 'visible' or 'auto' - 'auto' causes autofit to size
 		// Annotations disabled - enabled in mPDF 5.0
@@ -17615,7 +17615,7 @@ class mPDF
 
 	/* -- CSS-PAGE -- */
 
-	function SetPagedMediaCSS($name = '', $first, $oddEven)
+	function SetPagedMediaCSS($name, $first, $oddEven)
 	{
 		if ($oddEven == 'E') {
 			if ($this->directionality == 'rtl') {
@@ -19920,23 +19920,23 @@ class mPDF
 		if (isset($this->blk[$blvl]['box_shadow']) && $this->blk[$blvl]['box_shadow'] && $h > 0) {
 			foreach ($this->blk[$blvl]['box_shadow'] AS $sh) {
 				// Colors
-				if ($sh['col']{0} == 1) {
+				if ($sh['col'][0] == 1) {
 					$colspace = 'Gray';
-					if ($sh['col']{2} == 1) {
+					if ($sh['col'][2] == 1) {
 						$col1 = '1' . $sh['col'][1] . '1' . $sh['col'][3];
 					} else {
 						$col1 = '1' . $sh['col'][1] . '1' . chr(100);
 					}
 					$col2 = '1' . $sh['col'][1] . '1' . chr(0);
-				} elseif ($sh['col']{0} == 4) { // CMYK
+				} elseif ($sh['col'][0] == 4) { // CMYK
 					$colspace = 'CMYK';
 					$col1 = '6' . $sh['col'][1] . $sh['col'][2] . $sh['col'][3] . $sh['col'][4] . chr(100);
 					$col2 = '6' . $sh['col'][1] . $sh['col'][2] . $sh['col'][3] . $sh['col'][4] . chr(0);
-				} elseif ($sh['col']{0} == 5) { // RGBa
+				} elseif ($sh['col'][0] == 5) { // RGBa
 					$colspace = 'RGB';
 					$col1 = '5' . $sh['col'][1] . $sh['col'][2] . $sh['col'][3] . $sh['col'][4];
 					$col2 = '5' . $sh['col'][1] . $sh['col'][2] . $sh['col'][3] . chr(0);
-				} elseif ($sh['col']{0} == 6) { // CMYKa
+				} elseif ($sh['col'][0] == 6) { // CMYKa
 					$colspace = 'CMYK';
 					$col1 = '6' . $sh['col'][1] . $sh['col'][2] . $sh['col'][3] . $sh['col'][4] . $sh['col'][5];
 					$col2 = '6' . $sh['col'][1] . $sh['col'][2] . $sh['col'][3] . $sh['col'][4] . chr(0);
@@ -19965,12 +19965,12 @@ class mPDF
 				// Set path for INNER shadow
 				$shadow .= ' q 0 w ';
 				$shadow .= $this->SetFColor($col1, true) . "\n";
-				if ($col1{0} == 5 && ord($col1{4}) < 100) { // RGBa
-					$shadow .= $this->SetAlpha(ord($col1{4}) / 100, 'Normal', true, 'F') . "\n";
-				} elseif ($col1{0} == 6 && ord($col1{5}) < 100) { // CMYKa
-					$shadow .= $this->SetAlpha(ord($col1{5}) / 100, 'Normal', true, 'F') . "\n";
-				} elseif ($col1{0} == 1 && $col1{2} == 1 && ord($col1{3}) < 100) { // Gray
-					$shadow .= $this->SetAlpha(ord($col1{3}) / 100, 'Normal', true, 'F') . "\n";
+				if ($col1[0] == 5 && ord($col1[4]) < 100) { // RGBa
+					$shadow .= $this->SetAlpha(ord($col1[4]) / 100, 'Normal', true, 'F') . "\n";
+				} elseif ($col1[0] == 6 && ord($col1[5]) < 100) { // CMYKa
+					$shadow .= $this->SetAlpha(ord($col1[5]) / 100, 'Normal', true, 'F') . "\n";
+				} elseif ($col1[0] == 1 && $col1[2] == 1 && ord($col1[3]) < 100) { // Gray
+					$shadow .= $this->SetAlpha(ord($col1[3]) / 100, 'Normal', true, 'F') . "\n";
 				}
 
 				// Blur edges
@@ -23299,8 +23299,8 @@ class mPDF
 					// Precedence to darker colours at joins
 					$coldom = 0;
 					if (isset($details[$side]['c']) && is_array($details[$side]['c'])) {
-						if ($details[$side]['c']{0} == 3) {  // RGB
-							$coldom = 10 - (((ord($details[$side]['c']{1}) * 1.00) + (ord($details[$side]['c']{2}) * 1.00) + (ord($details[$side]['c']{3}) * 1.00)) / 76.5);
+						if ($details[$side]['c'][0] == 3) {  // RGB
+							$coldom = 10 - (((ord($details[$side]['c'][1]) * 1.00) + (ord($details[$side]['c'][2]) * 1.00) + (ord($details[$side]['c'][3]) * 1.00)) / 76.5);
 						}
 					} // 10 black - 0 white
 					if ($coldom) {
@@ -23793,15 +23793,15 @@ class mPDF
 		if (is_array($c)) {
 			throw new MpdfException('Color error in _lightencolor');
 		}
-		if ($c{0} == 3 || $c{0} == 5) {  // RGB
-			list($h, $s, $l) = $this->rgb2hsl(ord($c{1}) / 255, ord($c{2}) / 255, ord($c{3}) / 255);
+		if ($c[0] == 3 || $c[0] == 5) {  // RGB
+			list($h, $s, $l) = $this->rgb2hsl(ord($c[1]) / 255, ord($c[2]) / 255, ord($c[3]) / 255);
 			$l += ((1 - $l) * 0.8);
 			list($r, $g, $b) = $this->hsl2rgb($h, $s, $l);
 			$ret = array(3, $r, $g, $b);
-		} elseif ($c{0} == 4 || $c{0} == 6) {  // CMYK
-			$ret = array(4, max(0, (ord($c{1}) - 20)), max(0, (ord($c{2}) - 20)), max(0, (ord($c{3}) - 20)), max(0, (ord($c{4}) - 20)));
-		} elseif ($c{0} == 1) { // Grayscale
-			$ret = array(1, min(255, (ord($c{1}) + 32)));
+		} elseif ($c[0] == 4 || $c[0] == 6) {  // CMYK
+			$ret = array(4, max(0, (ord($c[1]) - 20)), max(0, (ord($c[2]) - 20)), max(0, (ord($c[3]) - 20)), max(0, (ord($c[4]) - 20)));
+		} elseif ($c[0] == 1) { // Grayscale
+			$ret = array(1, min(255, (ord($c[1]) + 32)));
 		}
 		$c = array_pad($ret, 6, 0);
 		$cstr = pack("a1ccccc", $c[0], ($c[1] & 0xFF), ($c[2] & 0xFF), ($c[3] & 0xFF), ($c[4] & 0xFF), ($c[5] & 0xFF));
@@ -23813,16 +23813,16 @@ class mPDF
 		if (is_array($c)) {
 			throw new MpdfException('Color error in _darkenColor');
 		}
-		if ($c{0} == 3 || $c{0} == 5) {  // RGB
-			list($h, $s, $l) = $this->rgb2hsl(ord($c{1}) / 255, ord($c{2}) / 255, ord($c{3}) / 255);
+		if ($c[0] == 3 || $c[0] == 5) {  // RGB
+			list($h, $s, $l) = $this->rgb2hsl(ord($c[1]) / 255, ord($c[2]) / 255, ord($c[3]) / 255);
 			$s *= 0.25;
 			$l *= 0.75;
 			list($r, $g, $b) = $this->hsl2rgb($h, $s, $l);
 			$ret = array(3, $r, $g, $b);
-		} elseif ($c{0} == 4 || $c{0} == 6) {  // CMYK
-			$ret = array(4, min(100, (ord($c{1}) + 20)), min(100, (ord($c{2}) + 20)), min(100, (ord($c{3}) + 20)), min(100, (ord($c{4}) + 20)));
-		} elseif ($c{0} == 1) { // Grayscale
-			$ret = array(1, max(0, (ord($c{1}) - 32)));
+		} elseif ($c[0] == 4 || $c[0] == 6) {  // CMYK
+			$ret = array(4, min(100, (ord($c[1]) + 20)), min(100, (ord($c[2]) + 20)), min(100, (ord($c[3]) + 20)), min(100, (ord($c[4]) + 20)));
+		} elseif ($c[0] == 1) { // Grayscale
+			$ret = array(1, max(0, (ord($c[1]) - 32)));
 		}
 		$c = array_pad($ret, 6, 0);
 		$cstr = pack("a1ccccc", $c[0], ($c[1] & 0xFF), ($c[2] & 0xFF), ($c[3] & 0xFF), ($c[4] & 0xFF), ($c[5] & 0xFF));
@@ -26606,7 +26606,7 @@ class mPDF
 			for ($i = 1; $i <= 19; ++$i) {
 				$key = '';
 				for ($j = 0; $j < $len; ++$j) {
-					$key .= chr(ord($owner_RC4_key{$j}) ^ $i);
+					$key .= chr(ord($owner_RC4_key[$j]) ^ $i);
 				}
 				$enc = $this->_RC4($key, $enc);
 			}
@@ -26624,7 +26624,7 @@ class mPDF
 			for ($i = 1; $i <= 19; ++$i) {
 				$key = '';
 				for ($j = 0; $j < $len; ++$j) {
-					$key .= chr(ord($this->encryption_key{$j}) ^ $i);
+					$key .= chr(ord($this->encryption_key[$j]) ^ $i);
 				}
 				$enc = $this->_RC4($key, $enc);
 			}
@@ -26644,7 +26644,7 @@ class mPDF
 		$chars = 'ABCDEF1234567890';
 		$id = '';
 		for ($i = 0; $i < 32; $i++) {
-			$id .= $chars{rand(0, 15)};
+			$id .= $chars[rand(0, 15)];
 		}
 		$this->uniqid = md5($id);
 		// Compute O value
@@ -26681,7 +26681,7 @@ class mPDF
 			++$len;
 		}
 		for ($i = 0; $i < $len; $i += 2) {
-			$s .= chr(hexdec($hs{$i} . $hs{($i + 1)}));
+			$s .= chr(hexdec($hs[$i] . $hs[($i + 1)]));
 		}
 		return $s;
 	}
@@ -30537,18 +30537,18 @@ class mPDF
 	function _colAtoString($cor)
 	{
 		$s = '';
-		if ($cor{0} == 1)
-			$s = 'rgb(' . ord($cor{1}) . ',' . ord($cor{1}) . ',' . ord($cor{1}) . ')';
-		elseif ($cor{0} == 2)
-			$s = 'spot(' . ord($cor{1}) . ',' . ord($cor{2}) . ')';  // SPOT COLOR
-		elseif ($cor{0} == 3)
-			$s = 'rgb(' . ord($cor{1}) . ',' . ord($cor{2}) . ',' . ord($cor{3}) . ')';
-		elseif ($cor{0} == 4)
-			$s = 'cmyk(' . ord($cor{1}) . ',' . ord($cor{2}) . ',' . ord($cor{3}) . ',' . ord($cor{4}) . ')';
-		elseif ($cor{0} == 5)
-			$s = 'rgba(' . ord($cor{1}) . ',' . ord($cor{2}) . ',' . ord($cor{3}) . ',' . sprintf('%0.2F', ord($cor{4}) / 100) . ')';
-		elseif ($cor{0} == 6)
-			$s = 'cmyka(' . ord($cor{1}) . ',' . ord($cor{2}) . ',' . ord($cor{3}) . ',' . ord($cor{4}) . ',' . sprintf('%0.2F', ord($cor{5}) / 100) . ')';
+		if ($cor[0] == 1)
+			$s = 'rgb(' . ord($cor[1]) . ',' . ord($cor[1]) . ',' . ord($cor[1]) . ')';
+		elseif ($cor[0] == 2)
+			$s = 'spot(' . ord($cor[1]) . ',' . ord($cor[2]) . ')';  // SPOT COLOR
+		elseif ($cor[0] == 3)
+			$s = 'rgb(' . ord($cor[1]) . ',' . ord($cor[2]) . ',' . ord($cor[3]) . ')';
+		elseif ($cor[0] == 4)
+			$s = 'cmyk(' . ord($cor[1]) . ',' . ord($cor[2]) . ',' . ord($cor[3]) . ',' . ord($cor[4]) . ')';
+		elseif ($cor[0] == 5)
+			$s = 'rgba(' . ord($cor[1]) . ',' . ord($cor[2]) . ',' . ord($cor[3]) . ',' . sprintf('%0.2F', ord($cor[4]) / 100) . ')';
+		elseif ($cor[0] == 6)
+			$s = 'cmyka(' . ord($cor[1]) . ',' . ord($cor[2]) . ',' . ord($cor[3]) . ',' . ord($cor[4]) . ',' . sprintf('%0.2F', ord($cor[5]) / 100) . ')';
 		return $s;
 	}
 
@@ -31111,7 +31111,7 @@ class mPDF
 					$this->_don_obj_stack[$cpfn][$value[1]] = array($this->n, $value);
 				}
 				$objid = $this->_don_obj_stack[$cpfn][$value[1]][0];
-				$this->_out("{$objid} 0 R"); //{$value[2]}
+				$this->_out($objid . ' 0 R'); //{$value[2]}
 			break;
 
 			case pdf_parser::TYPE_STRING :

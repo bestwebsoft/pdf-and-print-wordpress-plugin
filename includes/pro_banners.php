@@ -1,21 +1,23 @@
 <?php
 /**
  * Banners on plugin settings page
+ *
  * @package PDF & Print by BestWebSoft
  * @since 1.8.5
  */
 
 /**
  * Wrapper. Show ads for PRO on plugin settings page
- * @param     string     $func        function to call
- * @param     boolean    $show_cross  when it is 'false' ad will be displayed regardless of if other blocks are closed
- * @return    void
+ *
+ * @param    string  $func      function to call
+ * @param    boolean    $show_cross  when it is 'false' ad will be displayed regardless of if other blocks are closed
+ * @return  void
  */
 if ( ! function_exists( 'pdfprnt_pro_block' ) ) {
 	function pdfprnt_pro_block( $func, $show_cross = true ) {
 		global $pdfprnt_plugin_info, $wp_version, $pdfprnt_options;
 		if ( ! bws_hide_premium_options_check( $pdfprnt_options ) || ! $show_cross ) { ?>
-			<div class="bws_pro_version_bloc pdfprnt_pro_block <?php echo $func;?>" title="<?php esc_html_e( 'This options is available in Pro version of the plugin', 'pdf-print' ); ?>">
+			<div class="bws_pro_version_bloc pdfprnt_pro_block <?php echo esc_attr( $func ); ?>" title="<?php esc_html_e( 'This options is available in Pro version of the plugin', 'pdf-print' ); ?>">
 				<div class="bws_pro_version_table_bloc">
 					<?php if ( $show_cross ) { ?>
 						<button type="submit" name="bws_hide_premium_options" class="notice-dismiss bws_hide_premium_options" title="<?php esc_html_e( 'Close', 'pdf-print' ); ?>"></button>
@@ -24,20 +26,23 @@ if ( ! function_exists( 'pdfprnt_pro_block' ) ) {
 					<?php call_user_func( $func ); ?>
 				</div>
 				<div class="bws_pro_version_tooltip">
-					<a class="bws_button" href="https://bestwebsoft.com/products/wordpress/plugins/pdf-print/?k=d9da7c9c2046bed8dfa38d005d4bffdb&pn=101&v=<?php echo $pdfprnt_plugin_info["Version"]; ?>&wp_v=<?php echo $wp_version; ?>" target="_blank" title="PDF & Print Pro Plugin"><?php esc_html_e( 'Upgrade to Pro', 'pdf-print' ); ?></a>
+					<a class="bws_button" href="https://bestwebsoft.com/products/wordpress/plugins/pdf-print/?k=d9da7c9c2046bed8dfa38d005d4bffdb&pn=101&v=<?php echo esc_attr( $pdfprnt_plugin_info['Version'] ); ?>&wp_v=<?php echo esc_attr( $wp_version ); ?>" target="_blank" title="PDF & Print Pro Plugin"><?php esc_html_e( 'Upgrade to Pro', 'pdf-print' ); ?></a>
 				</div>
 			</div>
-		<?php }
+			<?php
+		}
 	}
 }
 
 /**
  * The content of ad block on the "Settings" tab
- * @param     void
- * @return    void
+ *
+ * @param    void
+ * @return  void
  */
 if ( ! function_exists( 'pdfprnt_button_image_block' ) ) {
-	function pdfprnt_button_image_block( $buttons ) { ?>
+	function pdfprnt_button_image_block( $buttons ) {
+		?>
 		<fieldset>
 			<?php foreach ( $buttons as $button ) { ?>
 				<div class="pdfprnt-col pdfprnt-col-2">
@@ -47,17 +52,20 @@ if ( ! function_exists( 'pdfprnt_button_image_block' ) ) {
 			<?php } ?>
 			<div class="clear"></div>
 		</fieldset>
-	<?php }
+		<?php
+	}
 }
 
 /**
  * The content of ad block on the "Settings" tab
- * @param     void
- * @return    void
+ *
+ * @param    void
+ * @return  void
  */
 if ( ! function_exists( 'pdfprnt_noindex_block' ) ) {
-	function pdfprnt_noindex_block() { ?>
-		<table class="form-table pdfprnt-table-settings pdfprnt-table-search-engine">           
+	function pdfprnt_noindex_block() {
+		?>
+		<table class="form-table pdfprnt-table-settings pdfprnt-table-search-engine">		   
 			<tr>
 				<th><?php esc_html_e( 'Search Engine Visibility', 'pdf-print' ); ?></th>
 				<td>
@@ -66,16 +74,19 @@ if ( ! function_exists( 'pdfprnt_noindex_block' ) ) {
 				</td>
 			</tr>
 		</table>
-	<?php }
+		<?php
+	}
 }
 
 /**
  * The content of ad block on the "Output" tab
- * @param     void
- * @return    void
+ *
+ * @param    void
+ * @return  void
  */
 if ( ! function_exists( 'pdfprnt_filename_orientation_block' ) ) {
-	function pdfprnt_filename_orientation_block( $orientation_post_types = false ) { ?>
+	function pdfprnt_filename_orientation_block( $orientation_post_types = false ) {
+		?>
 		<table class="form-table pdfprnt-table-settings">
 			<tr>
 				<th><?php esc_html_e( 'Default PDF File Name', 'pdf-print' ); ?></th>
@@ -83,33 +94,33 @@ if ( ! function_exists( 'pdfprnt_filename_orientation_block' ) ) {
 					<fieldset>
 						<label><input disabled="disabled" type="radio" checked="checked" /> <?php esc_html_e( 'Post/page slug', 'pdf-print' ); ?></label><br>
 						<label><input disabled="disabled" type="radio" /> <?php esc_html_e( 'Custom', 'pdf-print' ); ?></label>
-                        <div id="pdfprnt-file-name-wrap">
-                            <input disabled="disabled" class="widefat" id="pdfprnt-file-name" type="text" name="pdfprnt_file_name" value="" maxlength="195" placeholder="{Publish_month} {Publish_date}, {Publish_year} - {Post_title} - {Site_title}" />
-                            <div class="bws_info"><?php _e( 'File name cannot contain more than 195 symbols. The file name can include Latin letters, numbers and symbols.', 'pdf-print' ); ?></div>
-                            <div class="bws_info">
-                                <span><?php _e( 'Available shortcodes', 'pdf-print' ); ?>:</span><br />
-                                <span>
-											<strong>{Publish_full_date}</strong> - <?php _e( 'The full date when the post was created', 'pdf-print' ); ?>.
-										</span><br />
-                                <span>
-											<strong>{Post_title}</strong> - <?php _e( 'Title of the post.', 'pdf-print' ); ?>
-										</span><br />
-                                <span>
-											<strong>{Site_title}</strong> - <?php _e( 'Title of the site.', 'pdf-print' ); ?>
-										</span><br />
-                                <span>
-											<strong>{Author_display_name}</strong> - <?php _e( 'Author of the post.', 'pdf-print' ); ?>
-										</span><br />
-                                <span>
-											<strong>{Publish_year}</strong> - <?php _e( 'The year when the post was created.', 'pdf-print' ); ?>
-										</span><br />
-                                <span>
-											<strong>{Publish_month}</strong> - <?php _e( 'The month when the post was created.', 'pdf-print' ); ?>
-										</span><br />
-                                <span>
-											<strong>{Publish_date}</strong> - <?php _e( 'The day when the post was created.', 'pdf-print' ) ?>
-										</span><br />
-                            </div>
+						<div id="pdfprnt-file-name-wrap">
+							<input disabled="disabled" class="widefat" id="pdfprnt-file-name" type="text" name="pdfprnt_file_name" value="" maxlength="195" placeholder="{Publish_month} {Publish_date}, {Publish_year} - {Post_title} - {Site_title}" />
+							<div class="bws_info"><?php esc_html_e( 'File name cannot contain more than 195 symbols. The file name can include Latin letters, numbers and symbols.', 'pdf-print' ); ?></div>
+							<div class="bws_info">
+								<span><?php esc_html_e( 'Available shortcodes', 'pdf-print' ); ?>:</span><br />
+								<span>
+									<strong>{Publish_full_date}</strong> - <?php esc_html_e( 'The full date when the post was created', 'pdf-print' ); ?>.
+								</span><br />
+								<span>
+									<strong>{Post_title}</strong> - <?php esc_html_e( 'Title of the post.', 'pdf-print' ); ?>
+								</span><br />
+								<span>
+									<strong>{Site_title}</strong> - <?php esc_html_e( 'Title of the site.', 'pdf-print' ); ?>
+								</span><br />
+								<span>
+									<strong>{Author_display_name}</strong> - <?php esc_html_e( 'Author of the post.', 'pdf-print' ); ?>
+								</span><br />
+								<span>
+									<strong>{Publish_year}</strong> - <?php esc_html_e( 'The year when the post was created.', 'pdf-print' ); ?>
+								</span><br />
+								<span>
+									<strong>{Publish_month}</strong> - <?php esc_html_e( 'The month when the post was created.', 'pdf-print' ); ?>
+								</span><br />
+								<span>
+									<strong>{Publish_date}</strong> - <?php esc_html_e( 'The day when the post was created.', 'pdf-print' ); ?>
+								</span><br />
+							</div>
 					</fieldset>
 				</td>
 			</tr>
@@ -117,26 +128,37 @@ if ( ! function_exists( 'pdfprnt_filename_orientation_block' ) ) {
 				<th><?php esc_html_e( 'Layout', 'pdf-print' ); ?></th>
 				<td>
 					<?php if ( $orientation_post_types ) { ?>
-                        <div class="pdfprnt-col">
-                            <p><br /></p>
-                            <br />
-                            <fieldset>
-								<?php foreach ( $orientation_post_types as $value ) {
-									echo '<label>' . $value->label . '</label><br />';
-								} ?>
-                            </fieldset>
-                        </div>
-						<?php foreach ( array( 'portrait' => esc_html__( 'Portrait', 'pdf-print' ), 'landscape' => esc_html__( 'Landscape', 'pdf-print' ) ) as $orientation => $orientation_name ) { ?>
+						<div class="pdfprnt-col">
+							<p><br /></p>
+							<br />
+							<fieldset>
+								<?php
+								foreach ( $orientation_post_types as $value ) {
+									echo '<label>' . esc_attr( $value->label ) . '</label><br />';
+								}
+								?>
+							</fieldset>
+						</div>
+						<?php
+						foreach ( array(
+							'portrait'  => esc_html__( 'Portrait', 'pdf-print' ),
+							'landscape' => esc_html__( 'Landscape', 'pdf-print' ),
+						) as $orientation => $orientation_name ) {
+							?>
 							<div class="pdfprnt-col pdfprnt-col-center">
-								<p><strong><?php echo $orientation_name; ?></strong></p>
+								<p><strong><?php echo esc_attr( $orientation_name ); ?></strong></p>
 								<br>
 								<fieldset>
-									<?php foreach ( $orientation_post_types as $key => $value ) {
-										if ( 'attachment' != $key ) { ?>
+									<?php
+									foreach ( $orientation_post_types as $key => $value ) {
+										if ( 'attachment' !== $key ) {
+											?>
 											<label><input disabled="disabled" type="radio" <?php checked( 'portrait', $orientation ); ?> /></label>
 											<br>
-										<?php }
-									} ?>
+											<?php
+										}
+									}
+									?>
 								</fieldset>
 							</div>
 						<?php } ?>
@@ -145,26 +167,29 @@ if ( ! function_exists( 'pdfprnt_filename_orientation_block' ) ) {
 				</td>
 			</tr>
 		</table>
-	<?php }
+		<?php
+	}
 }
 
 /**
  * The content of ad block on the "Output" tab
- * @param     void
- * @return    void
+ *
+ * @param    void
+ * @return  void
  */
 if ( ! function_exists( 'pdfprnt_woocommerce_watermark_block' ) ) {
-	function pdfprnt_woocommerce_watermark_block() { ?>
+	function pdfprnt_woocommerce_watermark_block() {
+		?>
 		<table class="form-table pdfprnt-table-settings">
-            <tr id="pdfprnt_remove_written" valign="top">
-                <th><?php _e( '"Written by" Text', 'pdf-print' ); ?></th>
-                <td>
-                    <label>
-                        <input type="checkbox" name="pdfprnt_remove_written" value="1" disabled="disabled" />
-                        <span class="bws_info"><?php _e( 'Enable to add "Written by" text before an author\'s name.', 'pdf-print' ); ?></span>
-                    </label>
-                </td>
-            </tr>
+			<tr id="pdfprnt_remove_written" valign="top">
+				<th><?php esc_html_e( '"Written by" Text', 'pdf-print' ); ?></th>
+				<td>
+					<label>
+						<input type="checkbox" name="pdfprnt_remove_written" value="1" disabled="disabled" />
+						<span class="bws_info"><?php esc_html_e( 'Enable to add "Written by" text before an author\'s name.', 'pdf-print' ); ?></span>
+					</label>
+				</td>
+			</tr>
 			<tr>
 				<th><?php esc_html_e( 'WooCommerce Product Details', 'pdf-print' ); ?></th>
 				<td>
@@ -207,124 +232,131 @@ if ( ! function_exists( 'pdfprnt_woocommerce_watermark_block' ) ) {
 					</fieldset>
 				</td>
 			</tr>
-			 <tr>
-                <th><?php esc_html_e( 'Prevent Copying', 'pdf-print' ); ?></th>
-                <td>
-                    <label>
-                        <input type="checkbox" disabled="disabled" />
-                        <span class="bws_info"><?php esc_html_e( 'Enable to prevent PDF files from being copied.', 'pdf-print' ); ?></span>
-                    </label>
-                </td>
-            </tr>
-            <tr>
-                <th><?php esc_html_e( 'Show Advanced Custom Fields', 'pdf-print' ); ?></th>
-                <td>
-                    <label>
-                        <input type="checkbox" disabled="disabled" />
-                        <span class="bws_info"><?php esc_html_e( 'Enable to show all Advanced Custom Fields.', 'pdf-print' ); ?></span>
-                    </label>
-                </td>
-            </tr>
+			<tr>
+				<th><?php esc_html_e( 'Prevent Copying', 'pdf-print' ); ?></th>
+				<td>
+					<label>
+						<input type="checkbox" disabled="disabled" />
+						<span class="bws_info"><?php esc_html_e( 'Enable to prevent PDF files from being copied.', 'pdf-print' ); ?></span>
+					</label>
+				</td>
+			</tr>
+			<tr>
+				<th><?php esc_html_e( 'Show Advanced Custom Fields', 'pdf-print' ); ?></th>
+				<td>
+					<label>
+						<input type="checkbox" disabled="disabled" />
+						<span class="bws_info"><?php esc_html_e( 'Enable to show all Advanced Custom Fields.', 'pdf-print' ); ?></span>
+					</label>
+				</td>
+			</tr>
 		</table>
-	<?php }
+		<?php
+	}
 }
 
 if ( ! function_exists( 'pdfprnt_fancytree_block' ) ) {
-	function pdfprnt_fancytree_block() { ?>
+	function pdfprnt_fancytree_block() {
+		?>
 		<p><?php esc_html_e( 'Choose the necessary post types (or single pages) where PDF & Print buttons will be displayed', 'pdf-print' ); ?>:</p>
 		<p class="bws_jstree_url_wrap">
 			<label>
 				<input disabled="disabled" type="checkbox" checked="checked" />
-				<?php esc_html_e( "Show URL", 'pdf-print' ); ?>
+				<?php esc_html_e( 'Show URL', 'pdf-print' ); ?>
 			</label>
 		</p>
-		<img src="<?php echo plugins_url( "images/pro_screen_1.png", dirname( __FILE__ ) ); ?>">
-	<?php }
+		<img src="<?php echo esc_url( plugins_url( 'images/pro_screen_1.png', dirname( __FILE__ ) ) ); ?>">
+		<?php
+	}
 }
 
 if ( ! function_exists( 'pdfprnt_custom_fields_block' ) ) {
-	function pdfprnt_custom_fields_block() { ?>
+	function pdfprnt_custom_fields_block() {
+		?>
 		<div class="pdfprnt-custom-fields-tab-title">
-				<?php esc_html_e( 'Available Registered Post Types:', 'pdf-print' );?>
+				<?php esc_html_e( 'Available Registered Post Types:', 'pdf-print' ); ?>
 			</div>
 			<div class="pdfprnt-custom-fields-tab-desc">
-				<?php esc_html_e( "Add custom fields and custom data before/after PDF & Print document's content", 'pdf-print' );?>
+				<?php esc_html_e( "Add custom fields and custom data before/after PDF & Print document's content", 'pdf-print' ); ?>
 			</div>
 			<div class="pdfprnt-custom-accordion">
-				<h3><?php esc_html_e( 'Posts', 'pdf-print' );?></h3>
+				<h3><?php esc_html_e( 'Posts', 'pdf-print' ); ?></h3>
 				<div>
 					<div>
 						<div class="pdfprnt-before-after-title">
-								<?php esc_html_e( 'Data Before Content', 'pdf-print' );?>
-                        </div>
-                        <div class="pdfprnt-content-before-title">
-                            <label><input type="checkbox" disabled="disabled"/> <?php esc_html_e( 'Enable to show data before page title', 'pdf-print' ); ?></label>.
-                            <br />
-                            <br />
-                        </div>
-						<img class="pdfprnt_banner_accordion" src="<?php echo plugins_url( "images/pro_screen_2.png", dirname( __FILE__ ) ); ?>">
+								<?php esc_html_e( 'Data Before Content', 'pdf-print' ); ?>
+						</div>
+						<div class="pdfprnt-content-before-title">
+							<label><input type="checkbox" disabled="disabled"/> <?php esc_html_e( 'Enable to show data before page title', 'pdf-print' ); ?></label>.
+							<br />
+							<br />
+						</div>
+						<img class="pdfprnt_banner_accordion" src="<?php echo esc_url( plugins_url( 'images/pro_screen_2.png', dirname( __FILE__ ) ) ); ?>">
 						<div class="pdfprnt-before-after-title">
-								<?php esc_html_e( 'Data After Content', 'pdf-print' );?>
+								<?php esc_html_e( 'Data After Content', 'pdf-print' ); ?>
 							</div>
-						<img class="pdfprnt_banner_accordion" src="<?php echo plugins_url( "images/pro_screen_2.png", dirname( __FILE__ ) ); ?>">
+						<img class="pdfprnt_banner_accordion" src="<?php echo esc_url( plugins_url( 'images/pro_screen_2.png', dirname( __FILE__ ) ) ); ?>">
 						<table class="form-table">
 							<tr>
-								<th scope="row"><?php esc_html_e( 'Custom Fields Displaying', 'pdf-print' ) ?></th>
+								<th scope="row"><?php esc_html_e( 'Custom Fields Displaying', 'pdf-print' ); ?></th>
 								<td>
 									<fieldset>
 										<label>
 											<input disabled="disabled" type="radio" >&nbsp;<?php esc_html_e( 'Default', 'pdf-print' ); ?>
-                                            <br />
-                                            <span class="pdfprnt-custom-fields-commentary">
-                                                <?php esc_html_e( 'Custom fields are shown by default. You can hide them using "Do not show PDF & Print Custom fields" option.', 'pdf-print' ); ?>
-                                            </span>
+											<br />
+											<span class="pdfprnt-custom-fields-commentary">
+												<?php esc_html_e( 'Custom fields are shown by default. You can hide them using "Do not show PDF & Print Custom fields" option.', 'pdf-print' ); ?>
+											</span>
 										</label>
 										<br>
 										<label>
 											<input disabled="disabled" type="radio">&nbsp;<?php esc_html_e( 'Force Hide', 'pdf-print' ); ?>
-                                            <br />
-                                            <span class="pdfprnt-custom-fields-commentary">
-                                                <?php esc_html_e( 'Custom fields are hidden even if the "Show PDF & Print Custom Fields" option is enabled.', 'pdf-print' ); ?>
-                                            </span>
+											<br />
+											<span class="pdfprnt-custom-fields-commentary">
+												<?php esc_html_e( 'Custom fields are hidden even if the "Show PDF & Print Custom Fields" option is enabled.', 'pdf-print' ); ?>
+											</span>
 										</label>
 										<br>
 										<label>
 											<input disabled="disabled" type="radio" >&nbsp;<?php esc_html_e( 'Force Show', 'pdf-print' ); ?>
-                                            <br />
-                                            <span class="pdfprnt-custom-fields-commentary">
-                                                <?php esc_html_e( 'Custom fields are visible even if the "Show PDF & Print Custom Fields" option is disabled.', 'pdf-print' ); ?>
-                                            </span>
+											<br />
+											<span class="pdfprnt-custom-fields-commentary">
+												<?php esc_html_e( 'Custom fields are visible even if the "Show PDF & Print Custom Fields" option is disabled.', 'pdf-print' ); ?>
+											</span>
 										</label>
 									</fieldset>
 								</td>
 							</tr>
 							<tr>
-								<th scope="row"><?php esc_html_e( 'Disable the "Show PDF & Print Custom Fields" option', 'pdf-print' );?></th>
+								<th scope="row"><?php esc_html_e( 'Disable the "Show PDF & Print Custom Fields" option', 'pdf-print' ); ?></th>
 								<td>
 									<button name="pdfprnt_clean_custom_fields_for_all" class="button">
 										<?php esc_html_e( 'Disable Now', 'pdf-print' ); ?>
 									</button>
-									<div class="bws_info"><?php esc_html_e( 'Disable the "Show PDF & Print Custom Fields" option for all Posts.' , 'pdf-print' );?></div>
+									<div class="bws_info"><?php esc_html_e( 'Disable the "Show PDF & Print Custom Fields" option for all Posts.', 'pdf-print' ); ?></div>
 								</td>
 							</tr>
 						</table>
 					</div>
 				</div>
-				<h3><?php esc_html_e( 'Pages', 'pdf-print' );?></h3>
-				<h3><?php esc_html_e( 'Products', 'pdf-print' );?></h3>
+				<h3><?php esc_html_e( 'Pages', 'pdf-print' ); ?></h3>
+				<h3><?php esc_html_e( 'Products', 'pdf-print' ); ?></h3>
 			</div>
-	<?php }
+		<?php
+	}
 }
 
 /**
  * The content of ad block on the Headers & Footers page
- * @param     void
- * @return    void
+ *
+ * @param    void
+ * @return  void
  */
 if ( ! function_exists( 'pdfprnt_headers_footers_list_block' ) ) {
 	function pdfprnt_headers_footers_list_block( $date_format ) {
 		global $wp_version;
-		$old_wp_version = ( version_compare( $wp_version, '4.3', '<' ) ); ?>
+		$old_wp_version = ( version_compare( $wp_version, '4.3', '<' ) );
+		?>
 		<ul class="subsubsub">
 			<li class="all"><a class="current" href="#"><?php esc_html_e( 'All', 'pdf-print' ); ?><span class="count"> ( 3 )</span></a> |</li>
 			<li class="trash"><a href="#"><?php esc_html_e( 'Trash', 'pdf-print' ); ?><span class="count"> ( 0 )</span></a></li>
@@ -347,13 +379,18 @@ if ( ! function_exists( 'pdfprnt_headers_footers_list_block' ) ) {
 			</div>
 			<br class="clear">
 		</div>
-		<table class="wp-list-table widefat fixed striped headersfooters<?php if ( $old_wp_version ) echo ' pdfprnt_old_wp'; ?>">
+		<table class="wp-list-table widefat fixed striped headersfooters
+		<?php
+		if ( $old_wp_version ) {
+			echo ' pdfprnt_old_wp';}
+		?>
+		">
 			<thead>
 				<tr>
 					<?php printf( '<%s id="cb" class="manage-column column-cb check-column">', ( $old_wp_version ? 'th' : 'td' ) ); ?>
 						<label class="screen-reader-text" for="cb-select-all-1"><?php esc_html_e( 'Select All', 'pdf-print' ); ?></label>
 						<input disabled="disabled" id="cb-select-all-1" type="checkbox" />
-					<?php printf( '</%s>', ( $old_wp_version ? 'th': 'td' ) ); ?>
+					<?php printf( '</%s>', ( $old_wp_version ? 'th' : 'td' ) ); ?>
 					<th scope="col" id="title" class="manage-column column-title column-primary sortable desc">
 						<a href="#"><span><?php esc_html_e( 'Title', 'pdf-print' ); ?></span><span class="sorting-indicator"></span></a>
 					</th>
@@ -389,7 +426,7 @@ if ( ! function_exists( 'pdfprnt_headers_footers_list_block' ) ) {
 					<td class="print column-print" data-colname="Print">
 						<input disabled="disabled" type="radio" />
 					</td>
-					<td class="date column-date" data-colname="<?php esc_html_e( 'Date Added', 'pdf-print' ); ?>"><?php echo date_i18n( $date_format, strtotime( 'May 3, 2017' ) ); ?></td>
+					<td class="date column-date" data-colname="<?php esc_html_e( 'Date Added', 'pdf-print' ); ?>"><?php echo esc_html( date_i18n( $date_format, strtotime( 'May 3, 2017' ) ) ); ?></td>
 				</tr>
 				<tr>
 					<th scope="row" class="check-column">
@@ -412,7 +449,7 @@ if ( ! function_exists( 'pdfprnt_headers_footers_list_block' ) ) {
 					<td class="print column-print" data-colname="Print">
 						<input disabled="disabled" type="radio" />
 					</td>
-					<td class="date column-date" data-colname="<?php esc_html_e( 'Date Added', 'pdf-print' ); ?>"><?php echo date_i18n( $date_format, strtotime( 'April 25, 2017' ) ); ?></td>
+					<td class="date column-date" data-colname="<?php esc_html_e( 'Date Added', 'pdf-print' ); ?>"><?php echo esc_html( date_i18n( $date_format, strtotime( 'April 25, 2017' ) ) ); ?></td>
 				</tr>
 				<tr>
 					<th scope="row" class="check-column">
@@ -435,14 +472,14 @@ if ( ! function_exists( 'pdfprnt_headers_footers_list_block' ) ) {
 					<td class="print column-print" data-colname="Print">
 						<input disabled="disabled" type="radio" />
 					</td>
-					<td class="date column-date" data-colname="<?php esc_html_e( 'Date Added', 'pdf-print' ); ?>"><?php echo date_i18n( $date_format, strtotime( 'April 25, 2017' ) ); ?></td>
+					<td class="date column-date" data-colname="<?php esc_html_e( 'Date Added', 'pdf-print' ); ?>"><?php echo esc_html( date_i18n( $date_format, strtotime( 'April 25, 2017' ) ) ); ?></td>
 				</tr>
 			</tbody>
 			<tfoot>
 				<tr>
 					<?php printf( '<%s class="manage-column column-cb check-column">', ( $old_wp_version ? 'th' : 'td' ) ); ?>
 						<input disabled="disabled" id="cb-select-all-2" type="checkbox" />
-					<?php printf( '</%s>', ( $old_wp_version ? 'th': 'td' ) ); ?>
+					<?php printf( '</%s>', ( $old_wp_version ? 'th' : 'td' ) ); ?>
 					<th scope="col" class="manage-column column-title column-primary sortable desc">
 						<a href="#">
 							<span><?php esc_html_e( 'Title', 'pdf-print' ); ?></span>
@@ -473,16 +510,19 @@ if ( ! function_exists( 'pdfprnt_headers_footers_list_block' ) ) {
 			</div>
 			<br class="clear">
 		</div>
-	<?php }
+		<?php
+	}
 }
 
 /**
  * The content of ad block on the Headers & Footers page
- * @param     void
- * @return    void
+ *
+ * @param    void
+ * @return  void
  */
 if ( ! function_exists( 'pdfprnt_headers_footers_editor_block' ) ) {
-	function pdfprnt_headers_footers_editor_block() { ?>
+	function pdfprnt_headers_footers_editor_block() {
+		?>
 		<div id="poststuff">
 			<div id="post-body" class="metabox-holder columns-2">
 				<div id="post-body-content" style="position: relative;">
@@ -496,31 +536,33 @@ if ( ! function_exists( 'pdfprnt_headers_footers_editor_block' ) ) {
 							<h3 class="pdfprnt-template-editor-title"><span><?php esc_html_e( 'Header', 'pdf-print' ); ?></span></h3>
 							<div class="clear"></div>
 							<div class="postarea wp-editor-expand">
-								<?php if ( function_exists( 'wp_editor' ) ) {
+								<?php
+								if ( function_exists( 'wp_editor' ) ) {
 									$settings = array(
-											'wpautop'		=> 1,
-											'media_buttons'	=> 1,
-											'textarea_name'	=> 'pdfprnt_top',
-											'textarea_rows'	=> 5,
-											'tabindex'		=> null,
-											'editor_css'	=> '<style>.mce-content-body { width: 100%; max-width: 100%; background: red;}</style>',
-											'editor_class'	=> 'pdfprnt_top',
-											'teeny'			=> 0,
-											'dfw'			=> 0,
-											'tinymce'		=> 1,
-											'quicktags'		=> 1
-										);
+										'wpautop'       => 1,
+										'media_buttons' => 1,
+										'textarea_name' => 'pdfprnt_top',
+										'textarea_rows' => 5,
+										'tabindex'      => null,
+										'editor_css'    => '<style>.mce-content-body { width: 100%; max-width: 100%; background: red;}</style>',
+										'editor_class'  => 'pdfprnt_top',
+										'teeny'         => 0,
+										'dfw'           => 0,
+										'tinymce'       => 1,
+										'quicktags'     => 1,
+									);
 									wp_editor( '', 'pdfprnt_top', $settings );
-								} else { ?>
+								} else {
+									?>
 									<textarea disabled="disabled" class="pdfprnt_top_area" rows="5" autocomplete="off" cols="40" name="pdfprnt_top" id="pdfprnt_top"></textarea>
-								<?php }?>
+								<?php } ?>
 							</div>
 							<div class="pdfprnt-template-editor-shortcodes">
 								<span><?php esc_html_e( 'Available shortcodes', 'pdf-print' ); ?>:</span><br />
 								<span>
 									<strong>{PAGENO}</strong> - <?php esc_html_e( 'Current page number (for PDF only)', 'pdf-print' ); ?>.
 								</span><br />
-                                <span>
+								<span>
 									<strong>{TITLE}</strong> - <?php esc_html_e( 'Title of the post (for single posts or pages only)', 'pdf-print' ); ?>.
 								</span><br />
 								<span>
@@ -549,22 +591,24 @@ if ( ! function_exists( 'pdfprnt_headers_footers_editor_block' ) ) {
 							<h3 class="pdfprnt-template-editor-title"><span><?php esc_html_e( 'Footer', 'pdf-print' ); ?></span></h3>
 							<div class="clear"></div>
 							<div class="postarea wp-editor-expand">
-								<?php if ( function_exists( 'wp_editor' ) ) {
+								<?php
+								if ( function_exists( 'wp_editor' ) ) {
 									$settings = array(
-										'wpautop'		=> 1,
-										'media_buttons'	=> 1,
-										'textarea_name'	=> 'pdfprnt_bottom',
-										'textarea_rows'	=> 5,
-										'tabindex'		=> null,
-										'editor_css'	=> '',
-										'editor_class'	=> 'pdfprnt_bottom',
-										'teeny'			=> 0,
-										'dfw'			=> 0,
-										'tinymce'		=> 1,
-										'quicktags'		=> 1
+										'wpautop'       => 1,
+										'media_buttons' => 1,
+										'textarea_name' => 'pdfprnt_bottom',
+										'textarea_rows' => 5,
+										'tabindex'      => null,
+										'editor_css'    => '',
+										'editor_class'  => 'pdfprnt_bottom',
+										'teeny'         => 0,
+										'dfw'           => 0,
+										'tinymce'       => 1,
+										'quicktags'     => 1,
 									);
 									wp_editor( '', 'pdfprnt_bottom', $settings );
-								} else { ?>
+								} else {
+									?>
 									<textarea disabled="disabled" class="pdfprnt_bottom_area" rows="5" autocomplete="off" cols="40" name="pdfprnt_bottom" id="pdfprnt_bottom"></textarea>
 								<?php } ?>
 							</div>
@@ -573,7 +617,7 @@ if ( ! function_exists( 'pdfprnt_headers_footers_editor_block' ) ) {
 								<span>
 									<strong>{PAGENO}</strong> - <?php esc_html_e( 'Current page number (for PDF only)', 'pdf-print' ); ?>.
 								</span><br />
-                                <span>
+								<span>
 									<strong>{TITLE}</strong> - <?php esc_html_e( 'Title of the post (for single posts or pages only)', 'pdf-print' ); ?>.
 								</span><br />
 								<span>
@@ -615,7 +659,7 @@ if ( ! function_exists( 'pdfprnt_headers_footers_editor_block' ) ) {
 											</div>
 											<div class="misc-pub-section curtime misc-pub-curtime">
 												<span id="timestamp">
-													<?php printf( ' %s <b>%s</b>',esc_html__( 'Publish', 'pdf-print' ), esc_html__( 'immediately', 'pdf-print' ) ); ?>
+													<?php printf( ' %s <b>%s</b>', esc_html__( 'Publish', 'pdf-print' ), esc_html__( 'immediately', 'pdf-print' ) ); ?>
 												</span>
 											</div>
 										</div>
@@ -635,5 +679,6 @@ if ( ! function_exists( 'pdfprnt_headers_footers_editor_block' ) ) {
 				<div class="clear"></div>
 			</div>
 		</div>
-	<?php }
+		<?php
+	}
 }

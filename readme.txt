@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://bestwebsoft.com/donate/
 Tags: generate pdf, add pdf button, add print button, pdf plugin, pdf pages, print pages, generate pdf content, generate post pdf, pdf print, pdf print plugin, pdf custom post type, pdf content
 Requires at least: 4.5
-Tested up to: 5.8.2
-Stable tag: 2.3.0
+Tested up to: 5.9
+Stable tag: 2.3.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -56,7 +56,6 @@ https://www.youtube.com/watch?v=hJdWI8xkAI0
 	* Bottom
 * Customize document styles
 * Create PDF that fully copies the page
-* Add custom code via plugin settings page
 * Compatible with latest WordPress version
 * Incredibly simple settings for fast setup without modifying code
 * Detailed step-by-step documentation and videos
@@ -95,6 +94,7 @@ https://www.youtube.com/watch?v=hJdWI8xkAI0
 > * Disable PDF & Print buttons for certain users and/or roles types [NEW]
 > * Change default PDF file name
 > * Prevent search engines from indexing links in documents
+> * Add custom code via plugin settings page
 > * Configure all subsites on the network
 > * Get answer to your support question within one business day ([Support Policy](https://bestwebsoft.com/support-policy/))
 >
@@ -338,6 +338,18 @@ Replace `bestwebsoft_contact_form` with your shortcode.
 7. Settings page (Output tab) for the PDF&Print in admin panel.
 
 == Changelog ==
+
+= V2.3.1 - 27.04.2022 =
+* Update : BWS Panel section update.
+* Bugfix : Remove "Written by" from Author has been fixed.
+* Pro : PHP 8 Multisite issue has been fixed.
+* Pro : Some issues with Advanced Custom Fields has been fixed.
+* Bugfix : Sup tags styles for PDF fix.
+* Bugfix : Default PDF File Name option fix.
+* Bugfix : Fixes for Twenty Twenty-Two theme.
+* Bugfix : Issue with updating MPDF library has been fixed.
+* Update : All functionality was updated for WordPress 5.9.
+
 
 = V2.3.0 - 24.12.2021 =
 * Pro : Ability to exclude specific users and roles
@@ -605,6 +617,9 @@ Replace `bestwebsoft_contact_form` with your shortcode.
 * NEW : Added the ability to output PDF and Print buttons on the type of page.
 
 == Upgrade Notice ==
+
+= V2.3.1 =
+* Bugs fixed.
 
 = V2.3.0 =
 * New features added.

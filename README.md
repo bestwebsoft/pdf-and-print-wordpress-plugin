@@ -56,7 +56,6 @@
 </li>
 <li>Customize document styles</li>
 <li>Create PDF that fully copies the page</li>
-<li>Add custom code via plugin settings page</li>
 <li>Compatible with latest WordPress version</li>
 <li>Incredibly simple settings for fast setup without modifying code</li>
 <li>Detailed step-by-step documentation and videos</li>
@@ -107,6 +106,7 @@
 <li>Disable PDF &amp; Print buttons for certain users and/or roles types [NEW]</li>
 <li>Change default PDF file name</li>
 <li>Prevent search engines from indexing links in documents</li>
+<li>Add custom code via plugin settings page</li>
 <li>Configure all subsites on the network</li>
 <li>Get answer to your support question within one business day (<a href="https://bestwebsoft.com/support-policy/" rel="nofollow ugc">Support Policy</a>)</li>
 </ul>
