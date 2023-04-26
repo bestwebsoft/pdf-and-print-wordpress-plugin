@@ -2,9 +2,9 @@
 Contributors: bestwebsoft
 Donate link: https://bestwebsoft.com/donate/
 Tags: generate pdf, add pdf button, add print button, pdf plugin, pdf pages, print pages, generate pdf content, generate post pdf, pdf print, pdf print plugin, pdf custom post type, pdf content
-Requires at least: 4.5
-Tested up to: 5.9
-Stable tag: 2.3.1
+Requires at least: 5.6
+Tested up to: 6.2
+Stable tag: 2.3.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -339,6 +339,12 @@ Replace `bestwebsoft_contact_form` with your shortcode.
 
 == Changelog ==
 
+= V2.3.2 - 25.04.2023 =
+* Update : BWS Panel section update.
+* Bugfix : Added buttons for Twenty Twenty-Three theme.
+* Update : All functionality was updated for WordPress 6.2.
+* Bugfix : Fixes Custom PDF File Name.
+
 = V2.3.1 - 27.04.2022 =
 * Update : BWS Panel section update.
 * Bugfix : Remove "Written by" from Author has been fixed.
@@ -349,7 +355,6 @@ Replace `bestwebsoft_contact_form` with your shortcode.
 * Bugfix : Fixes for Twenty Twenty-Two theme.
 * Bugfix : Issue with updating MPDF library has been fixed.
 * Update : All functionality was updated for WordPress 5.9.
-
 
 = V2.3.0 - 24.12.2021 =
 * Pro : Ability to exclude specific users and roles
@@ -617,6 +622,11 @@ Replace `bestwebsoft_contact_form` with your shortcode.
 * NEW : Added the ability to output PDF and Print buttons on the type of page.
 
 == Upgrade Notice ==
+
+= V2.3.2 =
+* The compatibility with new WordPress version updated.
+* Functionality improved.
+* Bugs fixed.
 
 = V2.3.1 =
 * Bugs fixed.

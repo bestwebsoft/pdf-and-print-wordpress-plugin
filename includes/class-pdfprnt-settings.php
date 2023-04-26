@@ -127,7 +127,7 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 		 */
 		public function display_custom_messages( $save_results ) {
 			global $pdfprnt_is_old_php;
-			$message = $error = ''; ?>
+			$message = $error = $warning = ''; ?>
 			<noscript><div class="error below-h2"><p><strong><?php esc_html_e( 'Please enable JavaScript in your browser.', 'pdf-print' ); ?></strong></p></div></noscript>
 			<?php if ( $pdfprnt_is_old_php ) { ?>
 				<div class="error below-h2"><p><strong><?php printf( esc_html__( 'Pdf&Print plugin requires PHP %s or higher. Please contact your hosting provider to upgrade PHP version.', 'pdf-print' ), '5.4.0' ); ?></strong></p></div>
@@ -222,7 +222,7 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 			}
 			$new_library_path = $upload_dir['basedir'] . '/vendor/';
 			if ( ! file_exists( $new_library_path ) ) {
-				$message .= '&nbsp;' . __( 'The new version of the mPDF library which compatible with PHP V7.x.x is available now! Go to the Misc tab and upgrade the mPDF library.', 'pdf-print' );
+				$warning .= __( 'The new version of the mPDF library which compatible with PHP V7.x.x is available now! Go to the Misc tab and upgrade the mPDF library if you run into errors or want to use the latest version.', 'pdf-print' );
 			}
 			?>
 			<div class="updated below-h2" 
@@ -231,6 +231,9 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 				echo 'style="display:none"';}
 			?>
 			><p><strong><?php echo esc_html( $message ); ?></strong></p></div>
+			<?php if ( ! empty( $warning ) ) { ?>
+				<div class="notice notice-warning below-h2"><p><strong><?php echo esc_html( $warning ); ?></strong></p></div>
+			<?php } ?>
 			<div class="error below-h2" 
 			<?php
 			if ( '' === $error ) {
@@ -319,7 +322,7 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 			$this->options['use_custom_css']  = ( isset( $_POST['pdfprnt_use_custom_css'] ) ) ? 1 : 0;
 
 			if ( isset( $_POST['pdfprnt_custom_css_code'] ) ) {
-				$custom_css_code = sanitize_text_field( trim( wp_strip_all_tags( wp_unslash( $_POST['pdfprnt_custom_css_code'] ) ) ) );
+				$custom_css_code = wp_kses_post( wp_strip_all_tags( wp_unslash( $_POST['pdfprnt_custom_css_code'] ) ) );
 				if ( 10000 < strlen( $custom_css_code ) ) {
 					$error = __( 'You have entered too much text in the "edit styles" field.', 'pdf-print' );
 				} else {

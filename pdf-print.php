@@ -6,7 +6,7 @@ Description: Generate PDF files and print WordPress posts/pages. Customize docum
 Author: BestWebSoft
 Text Domain: pdf-print
 Domain Path: /languages
-Version: 2.3.1
+Version: 2.3.2
 Author URI: https://bestwebsoft.com/
 License: GPLv2 or later
  */
@@ -738,7 +738,7 @@ if ( ! function_exists( 'pdfprnt_return_buttons_search_archive' ) ) {
  */
 if ( ! function_exists( 'pdfprnt_auto_show_buttons_search_archive' ) ) {
 	function pdfprnt_auto_show_buttons_search_archive() {
-		global $pdfprnt_options, $pdfprnt_is_old_php;
+		global $pdfprnt_options, $pdfprnt_is_old_php, $pdfprnt_plugin_info;
 		$check_page = false;
 		if ( $pdfprnt_is_old_php || apply_filters( 'pdfprnt_prevent_display_buttons', $check_page ) ) {
 			return;
@@ -752,7 +752,7 @@ if ( ! function_exists( 'pdfprnt_auto_show_buttons_search_archive' ) ) {
 			global $pdfprnt_show_archive_start, $pdfprnt_show_archive_end;
 			$pdfprnt_show_archive_start = $pdfprnt_show_archive_end = 0;
 			$css = wp_remote_get( get_bloginfo( 'stylesheet_url' ) );
-			if ( is_array( $css ) && ! empty( $css['body'] ) && ! empty( mb_stristr($css['body'], 'Twenty Twenty-Two', true ) ) ) {
+			if ( is_array( $css ) && ! empty( $css['body'] ) && ( ! empty( mb_stristr( $css['body'], 'Twenty Twenty-Two', true ) ) || ! empty( mb_stristr( $css['body'], 'Twenty Twenty-Three', true ) ) ) ) {
 				$out1 = pdfprnt_return_buttons_search_archive();
 				if( ! empty( $out1 ) ) {
 					wp_enqueue_script( 'pdfprnt_custom_script', plugins_url('js/custom_script.js', __FILE__), array( 'jquery' ), $pdfprnt_plugin_info['Version'], true );
@@ -1244,6 +1244,7 @@ if ( ! function_exists( 'pdfprnt_print' ) ) {
 					$shortcodes   = implode( '|', apply_filters( 'bwsplgns_pdf_print_remove_shortcodes', array( 'vc_', 'az_', 'multilanguage_switcher' ) ) );
 					$post_content = preg_replace( "/\[\/?({$shortcodes})[^\]]*?\]/", '', $post_content );
 					$post_content = apply_filters( 'the_content', $post_content );
+					$post_content = apply_filters( 'bwsplgns_pdf_customize_content', $post_content );
 					$separator    = '';
 					if ( ! empty( $author ) && ! empty( $date ) ) {
 						$separator = ' | ';
@@ -1276,11 +1277,13 @@ if ( ! function_exists( 'pdfprnt_print' ) ) {
 				$pdfprnt_links = $pdfprnt_options['disable_links'];
 
 				/* generate PDF-document */
-				$path         = $upload_dir['basedir'] . '/vendor';
-				$is_installed = file_exists( $path );
+				$path         = $upload_dir['basedir'] . '/vendor/mpdf';
+				$is_installed = file_exists( $path ) ;
 				if ( $is_installed ) {
 					/* Implement mPDF v7.1.5 */
-					include $upload_dir['basedir'] . '/vendor/autoload.php';
+					if ( ! class_exists( '\Mpdf\Mpdf' ) ) {
+						include $upload_dir['basedir'] . '/vendor/autoload.php';
+					}
 					$mpdf_config = array(
 						'mode'              => '+aCJK',
 						'format'            => $pdfprnt_options['pdf_page_size'],
@@ -1294,7 +1297,7 @@ if ( ! function_exists( 'pdfprnt_print' ) ) {
 					$mpdf        = new \Mpdf\Mpdf( $mpdf_config );
 
 				} else {
-					include 'mpdf/mpdf.php';
+					include dirname( __FILE__ ) . '/mpdf/mpdf.php';
 					$mpdf = new mPDF(
 						'+aCJK',
 						$pdfprnt_options['pdf_page_size'],

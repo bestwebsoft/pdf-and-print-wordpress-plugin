@@ -1,0 +1,3070 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PDF & Print by BestWebSoft\n"
+"PO-Revision-Date: 2023-04-11 17:33+0300\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: it_IT\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 2.2\n"
+"X-Poedit-Basepath: ..\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Poedit-Flags-xgettext: --add-comments=translators:\n"
+"X-Poedit-WPHeader: pdf-print.php\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+"X-Poedit-KeywordsList: __;_e;_n:1,2;_x:1,2c;_ex:1,2c;_nx:4c,1,2;esc_attr__;"
+"esc_attr_e;esc_attr_x:1,2c;esc_html__;esc_html_e;esc_html_x:1,2c;_n_noop:1,2;"
+"_nx_noop:3c,1,2;__ngettext_noop:1,2\n"
+"POT-Creation-Date: \n"
+"X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: *.js\n"
+
+# automatic translation
+#: bws_menu/bws_functions.php:85 bws_menu/bws_functions.php:283
+msgid "requires"
+msgstr "richiede"
+
+# automatic translation
+#: bws_menu/bws_functions.php:87
+msgid ""
+"or higher, that is why it has been deactivated! Please upgrade WordPress and try "
+"again."
+msgstr "o superiore, ecco perché è stato disattivato! Aggiorna WordPress e riprova."
+
+# automatic translation
+#: bws_menu/bws_functions.php:88
+msgid "Back to the WordPress"
+msgstr "Torniamo a WordPress"
+
+# automatic translation
+#: bws_menu/bws_functions.php:90
+msgid "Plugins page"
+msgstr "Pagina dei plugin"
+
+# automatic translation
+#: bws_menu/bws_functions.php:112
+msgid "Like the plugin?"
+msgstr "Ti piace il plug-in?"
+
+# automatic translation
+#: bws_menu/bws_functions.php:113
+#, php-format
+msgid "%s reviews"
+msgstr "%s recensioni"
+
+# automatic translation
+#: bws_menu/bws_functions.php:114
+msgid "Rate it"
+msgstr "Valutarlo"
+
+# automatic translation
+#: bws_menu/bws_functions.php:123
+msgid "Need help?"
+msgstr "Ho bisogno di aiuto?"
+
+# automatic translation
+#: bws_menu/bws_functions.php:124 bws_menu/bws_functions.php:1186
+#: bws_menu/class-bws-settings.php:1193
+msgid "Visit Help Center"
+msgstr "Visita il Centro assistenza"
+
+# automatic translation
+#: bws_menu/bws_functions.php:127
+msgid "Want to support the plugin?"
+msgstr "Vuoi supportare il plugin?"
+
+# automatic translation
+#: bws_menu/bws_functions.php:128 bws_menu/bws_menu.php:651
+msgid "Donate"
+msgstr "Donare"
+
+# automatic translation
+#: bws_menu/bws_functions.php:155
+msgid "WARNING: Illegal use notification"
+msgstr "ATTENZIONE: Notifica di uso illegale"
+
+# automatic translation
+#: bws_menu/bws_functions.php:155
+msgid ""
+"You can use one license of the Pro plugin for one domain only. Please check and "
+"edit your license or domain if necessary using your personal Client Area. We "
+"strongly recommend you to solve the problem within 24 hours, otherwise the Pro "
+"plugin will be deactivated."
+msgstr ""
+"Puoi utilizzare una licenza del plug-in Pro per un solo dominio. Controlla e "
+"modifica la tua licenza o il tuo dominio se necessario utilizzando la tua Area "
+"Cliente personale. Ti consigliamo vivamente di risolvere il problema entro 24 "
+"ore, altrimenti il plugin Pro verrà disattivato."
+
+# automatic translation
+#: bws_menu/bws_functions.php:155 bws_menu/bws_functions.php:247
+#: bws_menu/bws_menu.php:746 bws_menu/class-bws-settings.php:189
+#: includes/class-pdfprnt-settings.php:372 includes/pro_banners.php:584
+#: includes/pro_banners.php:639
+msgid "Learn More"
+msgstr "Saperne di più"
+
+# automatic translation
+#: bws_menu/bws_functions.php:174
+msgid ""
+"Notice: Your Pro Trial license has expired. To continue using the plugin, you "
+"should buy a Pro license"
+msgstr ""
+"Avviso: la tua licenza Pro Trial è scaduta. Per continuare a utilizzare il plug-"
+"in, è necessario acquistare una licenza Pro"
+
+# automatic translation
+#: bws_menu/bws_functions.php:176
+msgid ""
+"Your license has expired. To continue getting top-priority support and plugin "
+"updates, you should extend it."
+msgstr ""
+"La tua licenza è scaduta. Per continuare a ricevere supporto prioritario e "
+"aggiornamenti dei plug-in, dovresti estenderlo."
+
+# automatic translation
+#: bws_menu/bws_functions.php:176 bws_menu/bws_functions.php:267
+msgid "Learn more"
+msgstr "Saperne di più"
+
+# automatic translation
+#: bws_menu/bws_functions.php:196
+#, php-format
+msgid "Notice: You are using the Pro Trial license of %s plugin."
+msgstr "Avviso: stai utilizzando la licenza Pro Trial del plugin %s."
+
+# automatic translation
+#: bws_menu/bws_functions.php:198
+msgid "Notice: You are using the Pro Trial license of plugin."
+msgstr "Avviso: stai utilizzando la licenza Pro Trial del plug-in."
+
+# automatic translation
+#: bws_menu/bws_functions.php:201
+msgid "The Pro Trial license will expire on"
+msgstr "La licenza Pro Trial scadrà il"
+
+# automatic translation
+#: bws_menu/bws_functions.php:238 bws_menu/bws_functions.php:263
+#: bws_menu/bws_functions.php:313 bws_menu/bws_functions.php:323
+#: bws_menu/bws_functions.php:560 bws_menu/bws_functions.php:593
+msgid "Close notice"
+msgstr "Chiudi avviso"
+
+# automatic translation
+#: bws_menu/bws_functions.php:243
+msgid "It’s time to upgrade your"
+msgstr "È ora di aggiornare il tuo"
+
+# automatic translation
+#: bws_menu/bws_functions.php:243
+msgid "to"
+msgstr "A"
+
+# automatic translation
+#: bws_menu/bws_functions.php:243
+msgid "version!"
+msgstr "versione!"
+
+# automatic translation
+#: bws_menu/bws_functions.php:244
+msgid "Extend standard plugin functionality with new great options."
+msgstr "Estendi la funzionalità standard del plug-in con nuove fantastiche opzioni."
+
+# automatic translation
+#: bws_menu/bws_functions.php:267
+#, php-format
+msgid ""
+"Your license key for %1$s expires on %2$s and you won't be granted TOP-PRIORITY "
+"SUPPORT or UPDATES."
+msgstr ""
+"La tua chiave di licenza per %1$s scade il %2$s e non ti verrà concesso SUPPORTO "
+"PRIORITARIO o AGGIORNAMENTI."
+
+# automatic translation
+#: bws_menu/bws_functions.php:285
+msgid ""
+"or higher! We do not guarantee that our plugin will work correctly. Please "
+"upgrade to WordPress latest version."
+msgstr ""
+"o più alto! Non garantiamo che il nostro plugin funzioni correttamente. Si prega "
+"di aggiornare all'ultima versione di WordPress."
+
+# automatic translation
+#: bws_menu/bws_functions.php:303
+#, php-format
+msgid "Thank you for installing %s plugin!"
+msgstr "Grazie per aver installato il plugin %s!"
+
+# automatic translation
+#: bws_menu/bws_functions.php:305
+msgid "Let's get started"
+msgstr "Iniziamo"
+
+# automatic translation
+#: bws_menu/bws_functions.php:306 bws_menu/bws_functions.php:339
+#: bws_menu/bws_menu.php:657 bws_menu/bws_menu.php:659
+#: includes/class-pdfprnt-settings.php:25 pdf-print.php:41 pdf-print.php:914
+#: pdf-print.php:930
+msgid "Settings"
+msgstr "Impostazioni"
+
+# automatic translation
+#: bws_menu/bws_functions.php:308 bws_menu/bws_menu.php:377
+#: bws_menu/class-bws-settings.php:908 bws_menu/class-bws-settings.php:1196
+#: bws_menu/class-bws-settings.php:1209 bws_menu/deprecated.php:260
+#: includes/pro_banners.php:583 includes/pro_banners.php:638
+msgid "or"
+msgstr "O"
+
+# automatic translation
+#: bws_menu/bws_functions.php:309 bws_menu/bws_functions.php:341 pdf-print.php:337
+#: pdf-print.php:348
+msgid "Add New"
+msgstr "Aggiungere nuova"
+
+# automatic translation
+#: bws_menu/bws_functions.php:328
+msgid "Thank you for installing plugins by BestWebSoft!"
+msgstr "Grazie per aver installato i plugin di BestWebSoft!"
+
+# automatic translation
+#: bws_menu/bws_functions.php:330
+msgid "More Details"
+msgstr "Più dettagli"
+
+# automatic translation
+#: bws_menu/bws_functions.php:331
+msgid "Less Details"
+msgstr "Meno dettagli"
+
+# automatic translation
+#: bws_menu/bws_functions.php:362
+msgid "Deprecated function(-s) is used on the site here:"
+msgstr "Le funzioni deprecate sono utilizzate sul sito qui:"
+
+# automatic translation
+#: bws_menu/bws_functions.php:380
+msgid "This function(-s) will be removed over time. Please update the product(-s)."
+msgstr ""
+"Queste funzioni verranno rimosse nel tempo. Si prega di aggiornare il/i prodotto/"
+"i."
+
+# automatic translation
+#: bws_menu/bws_functions.php:555
+#, php-format
+msgid "Thank you for choosing %s plugin!"
+msgstr "Grazie per aver scelto il plugin %s!"
+
+# automatic translation
+#: bws_menu/bws_functions.php:556
+msgid ""
+"If you have a feature, suggestion or idea you'd like to see in the plugin, we'd "
+"love to hear about it!"
+msgstr ""
+"Se hai una funzione, un suggerimento o un'idea che vorresti vedere nel plugin, ci "
+"piacerebbe saperlo!"
+
+# automatic translation
+#: bws_menu/bws_functions.php:557
+msgid "Suggest a Feature"
+msgstr "Suggerisci una funzione"
+
+# automatic translation
+#: bws_menu/bws_functions.php:598
+msgid "Affiliate Program"
+msgstr "programma affiliato"
+
+# automatic translation
+#: bws_menu/bws_functions.php:599
+#, php-format
+msgid "Get %s"
+msgstr "Prende %s"
+
+# automatic translation
+#: bws_menu/bws_functions.php:600
+msgid "from each BestWebSoft plugin and theme sale you refer"
+msgstr "da ogni plug-in BestWebSoft e vendita di temi a cui fai riferimento"
+
+# automatic translation
+#: bws_menu/bws_functions.php:604
+msgid "Join affiliate program"
+msgstr "Partecipa al programma di affiliazione"
+
+# automatic translation
+#: bws_menu/bws_functions.php:608
+msgid "Promote and sell products"
+msgstr "Promuovi e vendi prodotti"
+
+# automatic translation
+#: bws_menu/bws_functions.php:612
+msgid "Get commission!"
+msgstr "Ottieni commissioni!"
+
+# automatic translation
+#: bws_menu/bws_functions.php:617
+msgid "Start Now"
+msgstr "Parti ora"
+
+# automatic translation
+#: bws_menu/bws_functions.php:634 bws_menu/class-bws-settings.php:640
+#: bws_menu/class-bws-settings.php:645 bws_menu/class-bws-settings.php:714
+#: bws_menu/class-bws-settings.php:719
+msgid "Notice"
+msgstr "Avviso"
+
+# automatic translation
+#: bws_menu/bws_functions.php:634
+msgid "The plugin's settings have been changed."
+msgstr "Le impostazioni del plugin sono state modificate."
+
+# automatic translation
+#: bws_menu/bws_functions.php:635 bws_menu/class-bws-settings.php:235
+#: bws_menu/class-bws-settings.php:263 includes/pro_banners.php:670
+msgid "Save Changes"
+msgstr "Salvare le modifiche"
+
+# automatic translation
+#: bws_menu/bws_functions.php:656
+msgid ""
+"You can always look at premium options by checking the \"Pro Options\" in the "
+"\"Misc\" tab."
+msgstr ""
+"Puoi sempre guardare le opzioni premium controllando le \"Opzioni Pro\" nella "
+"scheda \"Varie\"."
+
+# automatic translation
+#: bws_menu/bws_functions.php:834
+msgid "Add BWS Shortcode"
+msgstr "Aggiungi codice breve BWS"
+
+# automatic translation
+#: bws_menu/bws_functions.php:835
+msgid "Add BWS Plugins Shortcode"
+msgstr "Aggiungi lo shortcode dei plug-in BWS"
+
+# automatic translation
+#: bws_menu/bws_functions.php:857
+msgid "Add shortcode"
+msgstr "Aggiungi shortcode"
+
+# automatic translation
+#: bws_menu/bws_functions.php:857
+msgid "Add BestWebSoft plugins' shortcodes using this button."
+msgstr "Aggiungi gli shortcode dei plugin BestWebSoft utilizzando questo pulsante."
+
+# automatic translation
+#: bws_menu/bws_functions.php:967 includes/class-pdfprnt-settings.php:745
+#: includes/pro_banners.php:23
+msgid "Close"
+msgstr "Vicino"
+
+# automatic translation
+#: bws_menu/bws_functions.php:1059
+msgid "Are you sure you want to restore default settings?"
+msgstr "Sei sicuro di voler ripristinare le impostazioni predefinite?"
+
+# automatic translation
+#: bws_menu/bws_functions.php:1062
+msgid "Yes, restore all settings"
+msgstr "Sì, ripristina tutte le impostazioni"
+
+# automatic translation
+#: bws_menu/bws_functions.php:1063
+msgid "No, go back to the settings page"
+msgstr "No, torna alla pagina delle impostazioni"
+
+# automatic translation
+#: bws_menu/bws_functions.php:1125
+msgid "Plugin"
+msgstr "Collegare"
+
+# automatic translation
+#: bws_menu/bws_functions.php:1134
+msgid "Shortcode settings"
+msgstr "Impostazioni codice breve"
+
+# automatic translation
+#: bws_menu/bws_functions.php:1139
+msgid "The shortcode will be inserted"
+msgstr "Lo shortcode verrà inserito"
+
+# automatic translation
+#: bws_menu/bws_functions.php:1191 includes/class-pdfprnt-settings.php:162
+#: includes/class-pdfprnt-settings.php:193 includes/class-pdfprnt-settings.php:205
+#: includes/class-pdfprnt-settings.php:630 pdf-print.php:932 pdf-print.php:963
+msgid "FAQ"
+msgstr "FAQ"
+
+# automatic translation
+#: bws_menu/bws_functions.php:1197
+msgid "For more information:"
+msgstr "Per maggiori informazioni:"
+
+# automatic translation
+#: bws_menu/bws_functions.php:1198 bws_menu/bws_menu.php:475
+#: bws_menu/class-bws-settings.php:870
+msgid "Documentation"
+msgstr "Documentazione"
+
+# automatic translation
+#: bws_menu/bws_functions.php:1199 bws_menu/bws_menu.php:477
+#: bws_menu/class-bws-settings.php:872
+msgid "Video Instructions"
+msgstr "Video istruzioni"
+
+# automatic translation
+#: bws_menu/bws_functions.php:1200
+msgid "Submit a Request"
+msgstr "Invia una richiesta"
+
+# automatic translation
+#: bws_menu/bws_menu.php:105 bws_menu/class-bws-settings.php:971
+msgid "Wrong license key"
+msgstr "Chiave di licenza errata"
+
+# automatic translation
+#: bws_menu/bws_menu.php:127 bws_menu/class-bws-settings.php:997
+#: bws_menu/class-bws-settings.php:1074 bws_menu/class-bws-settings.php:1112
+msgid ""
+"Something went wrong. Please try again later. If the error appears again, please "
+"contact us"
+msgstr ""
+"Qualcosa è andato storto. Per favore riprova più tardi. Se l'errore si "
+"ripresenta, contattaci"
+
+# automatic translation
+#: bws_menu/bws_menu.php:127 bws_menu/class-bws-settings.php:997
+#: bws_menu/class-bws-settings.php:1074 bws_menu/class-bws-settings.php:1112
+msgid "We are sorry for inconvenience."
+msgstr "Siamo spiacenti per l'inconveniente."
+
+# automatic translation
+#: bws_menu/bws_menu.php:134 bws_menu/class-bws-settings.php:1003
+#: bws_menu/class-bws-settings.php:1118
+msgid "Wrong license key."
+msgstr "Chiave di licenza errata."
+
+# automatic translation
+#: bws_menu/bws_menu.php:136
+msgid ""
+"This license key is bound to another site. Change it via personal Client Area."
+msgstr ""
+"Questa chiave di licenza è legata a un altro sito. Modificalo tramite Area "
+"Clienti personale."
+
+# automatic translation
+#: bws_menu/bws_menu.php:136
+msgid "Log in"
+msgstr "Login"
+
+# automatic translation
+#: bws_menu/bws_menu.php:138 bws_menu/bws_menu.php:385 bws_menu/deprecated.php:172
+msgid "Unfortunately, you have exceeded the number of available tries per day."
+msgstr "Purtroppo hai superato il numero di tentativi disponibili al giorno."
+
+# automatic translation
+#: bws_menu/bws_menu.php:140
+#, php-format
+msgid ""
+"Unfortunately, Your license has expired. To continue getting top-priority support "
+"and plugin updates, you should extend it in your %s"
+msgstr ""
+"Sfortunatamente, la tua licenza è scaduta. Per continuare a ricevere il supporto "
+"prioritario e gli aggiornamenti dei plug-in, dovresti estenderlo nel tuo %s"
+
+# automatic translation
+#: bws_menu/bws_menu.php:142 bws_menu/class-bws-settings.php:1126
+msgid ""
+"Unfortunately, the Pro licence was already installed to this domain. The Pro "
+"Trial license can be installed only once."
+msgstr ""
+"Sfortunatamente, la licenza Pro era già installata su questo dominio. La licenza "
+"Pro Trial può essere installata solo una volta."
+
+# automatic translation
+#: bws_menu/bws_menu.php:148 bws_menu/class-bws-settings.php:1018
+msgid "The license key is valid."
+msgstr "La chiave di licenza è valida."
+
+# automatic translation
+#: bws_menu/bws_menu.php:150 bws_menu/class-bws-settings.php:1022
+msgid "Your license will expire on"
+msgstr "La tua licenza scadrà il"
+
+# automatic translation
+#: bws_menu/bws_menu.php:153
+msgid "Congratulations! Pro Membership license is activated successfully."
+msgstr "Congratulazioni! La licenza Pro Membership è stata attivata correttamente."
+
+# automatic translation
+#: bws_menu/bws_menu.php:160 bws_menu/class-bws-settings.php:1136
+msgid ""
+"Something went wrong. Try again later or upload the plugin manually. We are sorry "
+"for inconvenience."
+msgstr ""
+"Qualcosa è andato storto. Riprova più tardi o carica il plug-in manualmente. "
+"Siamo spiacenti per l'inconveniente."
+
+# automatic translation
+#: bws_menu/bws_menu.php:171
+msgid "Please enter your license key."
+msgstr "Inserisci la tua chiave di licenza."
+
+# automatic translation
+#: bws_menu/bws_menu.php:183
+msgid "Not set"
+msgstr "Non impostato"
+
+# automatic translation
+#: bws_menu/bws_menu.php:186
+msgid "On"
+msgstr "SU"
+
+# automatic translation
+#: bws_menu/bws_menu.php:186
+msgid "Off"
+msgstr "Spento"
+
+# automatic translation
+#: bws_menu/bws_menu.php:187 bws_menu/bws_menu.php:188 bws_menu/bws_menu.php:189
+#: bws_menu/bws_menu.php:190 bws_menu/bws_menu.php:191 bws_menu/bws_menu.php:192
+#: bws_menu/bws_menu.php:201
+msgid "N/A"
+msgstr "N / A"
+
+# automatic translation
+#: bws_menu/bws_menu.php:192
+msgid "Mb"
+msgstr "MB"
+
+# automatic translation
+#: bws_menu/bws_menu.php:193 bws_menu/bws_menu.php:194 bws_menu/bws_menu.php:195
+#: bws_menu/bws_menu.php:199
+msgid "Yes"
+msgstr "SÌ"
+
+# automatic translation
+#: bws_menu/bws_menu.php:193 bws_menu/bws_menu.php:194 bws_menu/bws_menu.php:195
+#: bws_menu/bws_menu.php:199
+msgid "No"
+msgstr "NO"
+
+# automatic translation
+#: bws_menu/bws_menu.php:206
+msgid "WordPress Environment"
+msgstr "Ambiente WordPress"
+
+# automatic translation
+#: bws_menu/bws_menu.php:208
+msgid "Home URL"
+msgstr "URL della casa"
+
+# automatic translation
+#: bws_menu/bws_menu.php:209
+msgid "Website URL"
+msgstr "URL del sito"
+
+# automatic translation
+#: bws_menu/bws_menu.php:210
+msgid "WP Version"
+msgstr "Versione WP"
+
+# automatic translation
+#: bws_menu/bws_menu.php:211
+msgid "WP Multisite"
+msgstr "WP multisito"
+
+# automatic translation
+#: bws_menu/bws_menu.php:212
+msgid "WP Memory Limit"
+msgstr "Limite di memoria WP"
+
+# automatic translation
+#: bws_menu/bws_menu.php:213
+msgid "Active Theme"
+msgstr "Tema attivo"
+
+# automatic translation
+#: bws_menu/bws_menu.php:213 bws_menu/bws_menu.php:258 bws_menu/bws_menu.php:261
+#, php-format
+msgid "by %s"
+msgstr "di %s"
+
+# automatic translation
+#: bws_menu/bws_menu.php:217
+msgid "Server Environment"
+msgstr "Ambiente server"
+
+# automatic translation
+#: bws_menu/bws_menu.php:219
+msgid "Operating System"
+msgstr "Sistema operativo"
+
+# automatic translation
+#: bws_menu/bws_menu.php:220
+msgid "Server"
+msgstr "server"
+
+# automatic translation
+#: bws_menu/bws_menu.php:221
+msgid "PHP Version"
+msgstr "Versione PHP"
+
+# automatic translation
+#: bws_menu/bws_menu.php:222
+msgid "PHP Allow URL fopen"
+msgstr "PHP Consenti URL fopen"
+
+# automatic translation
+#: bws_menu/bws_menu.php:223
+msgid "PHP Memory Limit"
+msgstr "Limite di memoria PHP"
+
+# automatic translation
+#: bws_menu/bws_menu.php:224
+msgid "Memory Usage"
+msgstr "Utilizzo della memoria"
+
+# automatic translation
+#: bws_menu/bws_menu.php:225
+msgid "PHP Max Upload Size"
+msgstr "Dimensione massima caricamento PHP"
+
+# automatic translation
+#: bws_menu/bws_menu.php:226
+msgid "PHP Max Post Size"
+msgstr "Dimensione massima post PHP"
+
+# automatic translation
+#: bws_menu/bws_menu.php:227
+msgid "PHP Max Script Execute Time"
+msgstr "Tempo di esecuzione dello script PHP Max"
+
+# automatic translation
+#: bws_menu/bws_menu.php:228
+msgid "PHP Exif support"
+msgstr "Supporto PHP Exif"
+
+# automatic translation
+#: bws_menu/bws_menu.php:229
+msgid "PHP IPTC support"
+msgstr "Supporto PHP IPTC"
+
+# automatic translation
+#: bws_menu/bws_menu.php:230
+msgid "PHP XML support"
+msgstr "Supporto PHP XML"
+
+# automatic translation
+#: bws_menu/bws_menu.php:236
+msgid "Database"
+msgstr "Banca dati"
+
+# automatic translation
+#: bws_menu/bws_menu.php:238
+msgid "WP DB version"
+msgstr "Versione DB WP"
+
+# automatic translation
+#: bws_menu/bws_menu.php:239
+msgid "MySQL version"
+msgstr "Versione di MySQL"
+
+# automatic translation
+#: bws_menu/bws_menu.php:240
+msgid "SQL Mode"
+msgstr "Modalità SQL"
+
+# automatic translation
+#: bws_menu/bws_menu.php:244
+msgid "Active Plugins"
+msgstr "Plugin attivi"
+
+# automatic translation
+#: bws_menu/bws_menu.php:249
+msgid "Inactive Plugins"
+msgstr "Plugin inattivi"
+
+# automatic translation
+#: bws_menu/bws_menu.php:270
+msgid "Please enter a valid email address."
+msgstr "Si prega di inserire un indirizzo email valido."
+
+# automatic translation
+#: bws_menu/bws_menu.php:272
+#, php-format
+msgid "Email with system info is sent to %s."
+msgstr "L'e-mail con le informazioni di sistema viene inviata a %s."
+
+# automatic translation
+#: bws_menu/bws_menu.php:276
+msgid "Thank you for contacting us."
+msgstr "Grazie per averci contattato."
+
+# automatic translation
+#: bws_menu/bws_menu.php:300
+msgid "Sorry, email message could not be delivered."
+msgstr "Spiacenti, non è stato possibile recapitare il messaggio e-mail."
+
+# automatic translation
+#: bws_menu/bws_menu.php:321 bws_menu/bws_menu.php:342 bws_menu/bws_menu.php:427
+#: bws_menu/deprecated.php:27
+msgid "Plugins"
+msgstr "Plugin"
+
+# automatic translation
+#: bws_menu/bws_menu.php:329 bws_menu/bws_menu.php:350 bws_menu/bws_menu.php:731
+#: bws_menu/deprecated.php:28
+msgid "Themes"
+msgstr "Temi"
+
+# automatic translation
+#: bws_menu/bws_menu.php:334 bws_menu/bws_menu.php:358 bws_menu/bws_menu.php:767
+msgid "System status"
+msgstr "Stato del sistema"
+
+# automatic translation
+#: bws_menu/bws_menu.php:365 pdf-print.php:933
+msgid "Support"
+msgstr "Supporto"
+
+# automatic translation
+#: bws_menu/bws_menu.php:366
+msgid "Manage purchased licenses & subscriptions"
+msgstr "Gestisci le licenze e gli abbonamenti acquistati"
+
+# automatic translation
+#: bws_menu/bws_menu.php:375
+#, php-format
+msgid "Get Access to %s+ Premium Plugins"
+msgstr "Ottieni l'accesso a %s+ Premium Plugin"
+
+# automatic translation
+#: bws_menu/bws_menu.php:377
+msgid "Subscribe to Pro Membership"
+msgstr "Iscriviti all'abbonamento Pro"
+
+# automatic translation
+#: bws_menu/bws_menu.php:387 bws_menu/bws_menu.php:408
+#: bws_menu/class-bws-settings.php:925 bws_menu/deprecated.php:133
+msgid "Check license key"
+msgstr "Controlla la chiave di licenza"
+
+# automatic translation
+#: bws_menu/bws_menu.php:395
+msgid "Enter your license key"
+msgstr "Inserisci la tua chiave di licenza"
+
+# automatic translation
+#: bws_menu/bws_menu.php:406 bws_menu/bws_menu.php:665 bws_menu/bws_menu.php:674
+#: bws_menu/class-bws-settings.php:898 bws_menu/deprecated.php:170
+#: bws_menu/deprecated.php:178 bws_menu/deprecated.php:268
+#: bws_menu/deprecated.php:281
+msgid "Activate"
+msgstr "Attivare"
+
+# automatic translation
+#: bws_menu/bws_menu.php:428
+msgid "Upload Plugin"
+msgstr "Carica plug-in"
+
+# automatic translation
+#: bws_menu/bws_menu.php:433
+#, php-format
+msgid ""
+"The plugin generated %d characters of <strong>unexpected output</strong> during "
+"activation. If you notice &#8220;headers already sent&#8221; messages, problems "
+"with syndication feeds or other issues, try deactivating or removing this plugin."
+msgstr ""
+"Il plugin ha generato %d caratteri di <strong>output imprevisto</strong> durante "
+"l&#39;attivazione. Se noti messaggi di &quot;intestazioni già inviate&quot;, "
+"problemi con i feed di syndication o altri problemi, prova a disattivare o "
+"rimuovere questo plug-in."
+
+# automatic translation
+#: bws_menu/bws_menu.php:435
+msgid ""
+"Plugin could not be activated because it triggered a <strong>fatal error</strong>."
+msgstr ""
+"Non è stato possibile attivare il plug-in perché ha generato un <strong>errore "
+"irreversibile</strong> ."
+
+# automatic translation
+#: bws_menu/bws_menu.php:440
+msgid "Plugin <strong>activated</strong>."
+msgstr "Plug-in <strong>attivato</strong> ."
+
+# automatic translation
+#: bws_menu/bws_menu.php:457
+msgid "Download Pro Plugin"
+msgstr "Scarica il plug-in Pro"
+
+# automatic translation
+#: bws_menu/bws_menu.php:459 bws_menu/class-bws-settings.php:853
+msgid "Your Pro plugin is ready"
+msgstr "Il tuo plug-in Pro è pronto"
+
+# automatic translation
+#: bws_menu/bws_menu.php:461 bws_menu/class-bws-settings.php:855
+msgid "Your plugin has been zipped, and now is ready to download."
+msgstr "Il tuo plug-in è stato zippato e ora è pronto per il download."
+
+# automatic translation
+#: bws_menu/bws_menu.php:464 bws_menu/class-bws-settings.php:858
+msgid "Download Now"
+msgstr "Scarica ora"
+
+# automatic translation
+#: bws_menu/bws_menu.php:468 bws_menu/class-bws-settings.php:862
+msgid "Need help installing the plugin?"
+msgstr "Hai bisogno di aiuto per installare il plugin?"
+
+# automatic translation
+#: bws_menu/bws_menu.php:470 bws_menu/class-bws-settings.php:864
+msgid "How to install WordPress plugin from your admin Dashboard (ZIP archive)"
+msgstr ""
+"Come installare il plug-in di WordPress dalla dashboard dell'amministratore "
+"(archivio ZIP)"
+
+# automatic translation
+#: bws_menu/bws_menu.php:473 bws_menu/class-bws-settings.php:868
+msgid "Get Started"
+msgstr "Iniziare"
+
+# automatic translation
+#: bws_menu/bws_menu.php:479 bws_menu/class-bws-settings.php:874
+msgid "Knowledge Base"
+msgstr "base di conoscenza"
+
+# automatic translation
+#: bws_menu/bws_menu.php:482
+msgid "Licenses & Domains"
+msgstr "Licenze e domini"
+
+# automatic translation
+#: bws_menu/bws_menu.php:487
+msgid "Client Area"
+msgstr "Area clienti"
+
+# automatic translation
+#: bws_menu/bws_menu.php:491
+msgid "Return to BestWebSoft Panel"
+msgstr "Ritorna al pannello BestWebSoft"
+
+# automatic translation
+#: bws_menu/bws_menu.php:506 bws_menu/bws_menu.php:541 bws_menu/bws_menu.php:706
+#: includes/class-pdfprnt-settings.php:461 includes/pro_banners.php:361
+msgid "All"
+msgstr "Tutto"
+
+# automatic translation
+#: bws_menu/bws_menu.php:514 bws_menu/bws_menu.php:754
+msgid "Installed"
+msgstr "Installato"
+
+# automatic translation
+#: bws_menu/bws_menu.php:522
+msgid "Not Installed"
+msgstr "Non installato"
+
+# automatic translation
+#: bws_menu/bws_menu.php:529
+msgid "Filter results"
+msgstr "Filtra i risultati"
+
+# automatic translation
+#: bws_menu/bws_menu.php:532 bws_menu/bws_menu.php:697
+msgid "Category"
+msgstr "Categoria"
+
+# automatic translation
+#: bws_menu/bws_menu.php:617
+msgid "Not installed"
+msgstr "Non installato"
+
+# automatic translation
+#: bws_menu/bws_menu.php:621
+msgid "Renew to get updates"
+msgstr "Rinnova per ricevere gli aggiornamenti"
+
+# automatic translation
+#: bws_menu/bws_menu.php:624
+#, php-format
+msgid "Update to v %s"
+msgstr "Aggiorna a v %s"
+
+# automatic translation
+#: bws_menu/bws_menu.php:639 bws_menu/bws_menu.php:668
+msgid "Get Pro"
+msgstr "Diventa professionista"
+
+# automatic translation
+#: bws_menu/bws_menu.php:645 bws_menu/class-bws-settings.php:202
+#: bws_menu/class-bws-settings.php:1206 includes/pro_banners.php:29 pdf-print.php:46
+#: pdf-print.php:382
+msgid "Upgrade to Pro"
+msgstr "Aggiornamento a Pro"
+
+# automatic translation
+#: bws_menu/bws_menu.php:665 bws_menu/bws_menu.php:674
+msgid "Activate this plugin"
+msgstr "Attiva questo plug-in"
+
+# automatic translation
+#: bws_menu/bws_menu.php:679
+msgid "Install this plugin"
+msgstr "Installa questo plug-in"
+
+# automatic translation
+#: bws_menu/bws_menu.php:679
+msgid "Install Now"
+msgstr "Installa ora"
+
+# automatic translation
+#: bws_menu/bws_menu.php:692
+msgid "Nothing found. Try another criteria."
+msgstr "Non abbiamo trovato nulla. Prova un altro criterio."
+
+# automatic translation
+#: bws_menu/bws_menu.php:743
+#, php-format
+msgid "By %s"
+msgstr "Di %s"
+
+# automatic translation
+#: bws_menu/bws_menu.php:752
+msgid "Already Installed"
+msgstr "Già installato"
+
+# automatic translation
+#: bws_menu/bws_menu.php:764
+msgid "Browse More WordPress Themes"
+msgstr "Sfoglia altri temi WordPress"
+
+# automatic translation
+#: bws_menu/bws_menu.php:783
+msgid "Send to support"
+msgstr "Invia al supporto"
+
+# automatic translation
+#: bws_menu/bws_menu.php:790
+msgid "Send to custom email &#187;"
+msgstr "Invia a email personalizzata &#187;"
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:174
+msgid "Information"
+msgstr "Informazione"
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:189
+msgid "Inactive"
+msgstr "Inattivo"
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:197
+msgid "Expired"
+msgstr "Scaduto"
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:200
+#, php-format
+msgid "%s day(-s) left"
+msgstr "%s giorno/i rimanenti"
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:206
+#, php-format
+msgid "Expired on %s"
+msgstr "Scaduto il %s"
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:206
+msgid "Renew Now"
+msgstr "Rinnova adesso"
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:208
+msgid "Active"
+msgstr "Attivo"
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:214
+msgid "License"
+msgstr "Licenza"
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:217 includes/pro_banners.php:658
+msgid "Status"
+msgstr "Stato"
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:221
+msgid "Version"
+msgstr "Versione"
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:368
+msgid "All plugin settings were restored."
+msgstr "Tutte le impostazioni del plugin sono state ripristinate."
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:531 includes/class-pdfprnt-settings.php:36
+msgid "Custom Code"
+msgstr "Codice personalizzato"
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:537
+msgid ""
+"The ability to add custom code is available in the Pro version. If the Pro "
+"version is not available please contact us via Help Center"
+msgstr ""
+"La possibilità di aggiungere codice personalizzato è disponibile nella versione "
+"Pro. Se la versione Pro non è disponibile, contattaci tramite il Centro assistenza"
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:548
+msgid "You do not have sufficient permissions to edit plugins for this site."
+msgstr ""
+"Non disponi di autorizzazioni sufficienti per modificare i plug-in per questo "
+"sito."
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:554
+msgid "These styles will be added to the header on all pages of your site."
+msgstr ""
+"Questi stili verranno aggiunti all'intestazione di tutte le pagine del tuo sito."
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:558
+#, php-format
+msgid ""
+"This PHP code will be hooked to the %s Action and will be printed on front end "
+"only."
+msgstr ""
+"Questo codice PHP verrà agganciato all'azione %s e verrà stampato solo sul front-"
+"end."
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:562
+msgid "These code will be added to the header on all pages of your site."
+msgstr ""
+"Questi codici verranno aggiunti all'intestazione di tutte le pagine del tuo sito."
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:574
+msgid "Browsing"
+msgstr "Navigazione"
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:586
+#, php-format
+msgid "Activate custom %s code."
+msgstr "Attiva il codice %s personalizzato."
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:597
+#, php-format
+msgid "Learn more about %s"
+msgstr "Ulteriori informazioni su %s"
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:629
+msgid "Miscellaneous Settings"
+msgstr "Impostazioni varie"
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:640 bws_menu/class-bws-settings.php:714
+#, php-format
+msgid ""
+"It is prohibited to change %1$s settings on this site in the %2$s network "
+"settings."
+msgstr ""
+"È proibito modificare le impostazioni di %1$s su questo sito nelle impostazioni "
+"di rete di %2$s."
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:645 bws_menu/class-bws-settings.php:719
+#, php-format
+msgid ""
+"It is prohibited to view %1$s settings on this site in the %2$s network settings."
+msgstr ""
+"È proibito visualizzare le impostazioni di %1$s su questo sito nelle impostazioni "
+"di rete di %2$s."
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:656
+msgid "Pro Options"
+msgstr "Opzioni professionali"
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:665
+msgid "Enable to display plugin Pro options."
+msgstr "Abilita per visualizzare le opzioni del plugin Pro."
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:671
+msgid "Track Usage"
+msgstr "Traccia l'utilizzo"
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:680
+msgid ""
+"Enable to allow tracking plugin usage anonymously in order to make it better."
+msgstr ""
+"Abilita per consentire l'utilizzo del plug-in di tracciamento in modo anonimo per "
+"renderlo migliore."
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:685
+msgid "Default Settings"
+msgstr "Impostazioni predefinite"
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:687
+msgid "Restore Settings"
+msgstr "Ripristina impostazioni"
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:688
+msgid "This will restore plugin settings to defaults."
+msgstr "Questo ripristinerà le impostazioni del plugin ai valori predefiniti."
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:703
+msgid "Import / Export"
+msgstr "Importa / Esporta"
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:837 includes/class-pdfprnt-settings.php:37
+msgid "License Key"
+msgstr "Chiave di licenza"
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:901
+#, php-format
+msgid "Enter your license key to activate %s and get premium plugin features."
+msgstr ""
+"Inserisci la tua chiave di licenza per attivare %s e ottenere le funzionalità del "
+"plug-in premium."
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:904 bws_menu/class-bws-settings.php:1122
+#: bws_menu/deprecated.php:275
+msgid ""
+"Unfortunately, you have exceeded the number of available tries per day. Please, "
+"upload the plugin manually."
+msgstr ""
+"Purtroppo hai superato il numero di tentativi disponibili al giorno. Per favore, "
+"carica il plugin manualmente."
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:908 bws_menu/deprecated.php:260
+#, php-format
+msgid "Start Your Free %s-Day Trial Now"
+msgstr "Inizia ora la tua prova gratuita di %s giorni"
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:927
+msgid ""
+"If necessary, you can check if the license key is correct or reenter it in the "
+"field below."
+msgstr ""
+"Se necessario, puoi verificare se la chiave di licenza è corretta o reinserirla "
+"nel campo sottostante."
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:938
+msgid "Manage License Settings"
+msgstr "Gestisci le impostazioni della licenza"
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:940
+msgid "Login to Client Area"
+msgstr "Accedi all'Area Clienti"
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:942
+msgid ""
+"Manage active licenses, download BWS products, and view your payment history "
+"using BestWebSoft Client Area."
+msgstr ""
+"Gestisci le licenze attive, scarica i prodotti BWS e visualizza la cronologia dei "
+"pagamenti utilizzando l'area clienti di BestWebSoft."
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:964
+msgid "Security check"
+msgstr "Controllo di sicurezza"
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:1005 bws_menu/class-bws-settings.php:1120
+msgid "This license key is bound to another site."
+msgstr "Questa chiave di licenza è legata a un altro sito."
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:1007
+msgid ""
+"This license key is valid, but Your license has expired. If you want to update "
+"our plugin in future, you should extend the license."
+msgstr ""
+"Questa chiave di licenza è valida, ma la tua licenza è scaduta. Se desideri "
+"aggiornare il nostro plug-in in futuro, dovresti estendere la licenza."
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:1009
+msgid "Unfortunately, you have exceeded the number of available tries."
+msgstr "Sfortunatamente, hai superato il numero di tentativi disponibili."
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:1011
+msgid ""
+"Unfortunately, the Pro Trial licence was already installed to this domain. The "
+"Pro Trial license can be installed only once."
+msgstr ""
+"Sfortunatamente, la licenza Pro Trial era già installata su questo dominio. La "
+"licenza Pro Trial può essere installata solo una volta."
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:1016
+msgid "The Pro Trial license key is valid."
+msgstr "La chiave di licenza Pro Trial è valida."
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:1029 bws_menu/deprecated.php:155
+#, php-format
+msgid "In order to continue using the plugin it is necessary to buy a %s license."
+msgstr ""
+"Per continuare ad utilizzare il plugin è necessario acquistare una licenza %s."
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:1124
+#, php-format
+msgid ""
+"Unfortunately, Your license has expired. To continue getting top-priority support "
+"and plugin updates, you should extend it in your %s."
+msgstr ""
+"Sfortunatamente, la tua licenza è scaduta. Per continuare a ricevere il supporto "
+"prioritario e gli aggiornamenti dei plug-in, dovresti estenderlo nel tuo %s."
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:1173
+msgid "Please, enter Your license key"
+msgstr "Per favore, inserisci la tua chiave di licenza"
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:1189
+msgid "Need Help?"
+msgstr "Ho bisogno di aiuto?"
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:1191
+msgid "Read the Instruction"
+msgstr "Leggi l'istruzione"
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:1196
+msgid "Watch the Video"
+msgstr "Guarda il video"
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:1210
+msgid "Start Your Free Trial"
+msgstr "Inizia la tua prova gratuita"
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:1248
+msgid "Request a Feature"
+msgstr "Richiedi una funzionalità"
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:1254
+#, php-format
+msgid "How can we improve %s?"
+msgstr "Come possiamo migliorare %s?"
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:1256
+msgid "We look forward to hear your ideas."
+msgstr "Non vediamo l'ora di ascoltare le vostre idee."
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:1258
+msgid "Describe your idea"
+msgstr "Descrivi la tua idea"
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:1261 bws_menu/deactivation-form.php:123
+msgid "Send website data and allow to contact me back"
+msgstr "Invia i dati del sito web e consenti di ricontattarmi"
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:1266
+msgid "Submit"
+msgstr "Invia"
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:1267 bws_menu/deactivation-form.php:130
+msgid "Processing"
+msgstr "in lavorazione"
+
+# automatic translation
+#: bws_menu/class-bws-settings.php:1268
+msgid "Thank you!"
+msgstr "Grazie!"
+
+# automatic translation
+#: bws_menu/deactivation-form.php:25
+msgid "Need help? We are ready to answer your questions."
+msgstr "Ho bisogno di aiuto? Siamo pronti a rispondere alle tue domande."
+
+# automatic translation
+#: bws_menu/deactivation-form.php:25
+msgid "Contact Support"
+msgstr "Contatta il supporto"
+
+# automatic translation
+#: bws_menu/deactivation-form.php:30
+msgid "The plugin is not working"
+msgstr "Il plugin non funziona"
+
+# automatic translation
+#: bws_menu/deactivation-form.php:32
+msgid "Kindly share what didn't work so we can fix it in future updates..."
+msgstr ""
+"Si prega di condividere ciò che non ha funzionato in modo che possiamo risolverlo "
+"in futuri aggiornamenti..."
+
+# automatic translation
+#: bws_menu/deactivation-form.php:36
+msgid "The plugin didn't work as expected"
+msgstr "Il plugin non ha funzionato come previsto"
+
+# automatic translation
+#: bws_menu/deactivation-form.php:38
+msgid "What did you expect?"
+msgstr "Cosa ti aspettavi?"
+
+# automatic translation
+#: bws_menu/deactivation-form.php:42
+msgid "The plugin suddenly stopped working"
+msgstr "Il plugin ha improvvisamente smesso di funzionare"
+
+# automatic translation
+#: bws_menu/deactivation-form.php:49
+msgid "The plugin broke my site"
+msgstr "Il plugin ha rotto il mio sito"
+
+# automatic translation
+#: bws_menu/deactivation-form.php:56
+msgid "I couldn't understand how to get it work"
+msgstr "Non riuscivo a capire come farlo funzionare"
+
+# automatic translation
+#: bws_menu/deactivation-form.php:63
+msgid "I found a better plugin"
+msgstr "Ho trovato un plugin migliore"
+
+# automatic translation
+#: bws_menu/deactivation-form.php:65
+msgid "What's the plugin name?"
+msgstr "Qual è il nome del plugin?"
+
+# automatic translation
+#: bws_menu/deactivation-form.php:69
+msgid "The plugin is great, but I need specific feature that you don't support"
+msgstr ""
+"Il plug-in è fantastico, ma ho bisogno di funzionalità specifiche che non supporti"
+
+# automatic translation
+#: bws_menu/deactivation-form.php:71
+msgid "What feature?"
+msgstr "Quale caratteristica?"
+
+# automatic translation
+#: bws_menu/deactivation-form.php:75
+msgid "I no longer need the plugin"
+msgstr "Non ho più bisogno del plugin"
+
+# automatic translation
+#: bws_menu/deactivation-form.php:81
+msgid "It's a temporary deactivation, I'm just debugging an issue"
+msgstr "È una disattivazione temporanea, sto solo eseguendo il debug di un problema"
+
+# automatic translation
+#: bws_menu/deactivation-form.php:87
+msgid "Other"
+msgstr "Altro"
+
+# automatic translation
+#: bws_menu/deactivation-form.php:96
+msgid "Quick Feedback"
+msgstr "Risposte rapide"
+
+# automatic translation
+#: bws_menu/deactivation-form.php:98
+msgid "If you have a moment, please let us know why you are deactivating"
+msgstr "Se hai un momento, facci sapere perché stai disattivando"
+
+# automatic translation
+#: bws_menu/deactivation-form.php:128
+msgid "Submit and Deactivate"
+msgstr "Invia e Disattiva"
+
+# automatic translation
+#: bws_menu/deactivation-form.php:129
+msgid "Skip and Deactivate"
+msgstr "Salta e disattiva"
+
+# automatic translation
+#: bws_menu/deactivation-form.php:275
+msgid "Please tell us the reason so we can improve it."
+msgstr "Per favore dicci il motivo in modo che possiamo migliorarlo."
+
+# automatic translation
+#: bws_menu/deprecated.php:29
+msgid "System Status"
+msgstr "Stato del sistema"
+
+# automatic translation
+#: bws_menu/deprecated.php:129
+msgid ""
+"If necessary, you can check if the license key is correct or reenter it in the "
+"field below. You can find your license key on your personal page - Client Area - "
+"on our website"
+msgstr ""
+"Se necessario, puoi verificare se la chiave di licenza è corretta o reinserirla "
+"nel campo sottostante. Puoi trovare la chiave di licenza nella tua pagina "
+"personale - Area Clienti - sul nostro sito web"
+
+# automatic translation
+#: bws_menu/deprecated.php:129
+msgid ""
+"(your username is the email address specified during the purchase). If necessary, "
+"please submit \"Lost your password?\" request."
+msgstr ""
+"(il tuo nome utente è l'indirizzo email specificato durante l'acquisto). Se "
+"necessario, inviare \"Hai perso la password?\" richiesta."
+
+# automatic translation
+#: bws_menu/deprecated.php:155
+msgid "After that, you can activate it by entering your license key."
+msgstr "Successivamente, puoi attivarlo inserendo la tua chiave di licenza."
+
+# automatic translation
+#: bws_menu/deprecated.php:158 bws_menu/deprecated.php:253
+msgid "License key can be found in the"
+msgstr "La chiave di licenza si trova nel file"
+
+# automatic translation
+#: bws_menu/deprecated.php:160 bws_menu/deprecated.php:255
+msgid "(your username is the email address specified during the purchase)."
+msgstr "(il tuo nome utente è l'indirizzo email specificato durante l'acquisto)."
+
+# automatic translation
+#: bws_menu/deprecated.php:187
+msgid "Congratulations! The Pro license of the plugin is activated successfully."
+msgstr "Congratulazioni! La licenza Pro del plugin è stata attivata correttamente."
+
+# automatic translation
+#: bws_menu/deprecated.php:189 bws_menu/deprecated.php:233
+msgid "Please, go to"
+msgstr "Per favore vai a"
+
+# automatic translation
+#: bws_menu/deprecated.php:189 bws_menu/deprecated.php:233
+msgid "the setting page"
+msgstr "la pagina delle impostazioni"
+
+# automatic translation
+#: bws_menu/deprecated.php:207
+msgid "Restore all plugin settings to defaults"
+msgstr "Ripristina tutte le impostazioni predefinite del plug-in"
+
+# automatic translation
+#: bws_menu/deprecated.php:209
+msgid "Restore settings"
+msgstr "Ripristina impostazioni"
+
+# automatic translation
+#: bws_menu/deprecated.php:231
+msgid ""
+"Congratulations! Pro version of the plugin is  installed and activated "
+"successfully."
+msgstr ""
+"Congratulazioni! La versione Pro del plugin è installata e attivata correttamente."
+
+# automatic translation
+#: bws_menu/deprecated.php:242
+msgid "Show Pro features"
+msgstr "Mostra funzionalità Pro"
+
+# automatic translation
+#: bws_menu/deprecated.php:249
+msgid "Enter your license key to install and activate"
+msgstr "Inserisci la tua chiave di licenza per l'installazione e l'attivazione"
+
+# automatic translation
+#: bws_menu/deprecated.php:251
+msgid "version of the plugin."
+msgstr "versione del plug-in."
+
+# automatic translation
+#: bws_menu/product_list.php:9
+msgid "Admin Tools"
+msgstr "Strumenti di amministrazione"
+
+# automatic translation
+#: bws_menu/product_list.php:10
+msgid "Content"
+msgstr "Contenuto"
+
+# automatic translation
+#: bws_menu/product_list.php:11
+msgid "eCommerce"
+msgstr "eCommerce"
+
+# automatic translation
+#: bws_menu/product_list.php:12
+msgid "Marketing"
+msgstr "Marketing"
+
+# automatic translation
+#: bws_menu/product_list.php:13
+msgid "Navigation"
+msgstr "Navigazione"
+
+# automatic translation
+#: bws_menu/product_list.php:14
+msgid "Recommended"
+msgstr "Consigliato"
+
+# automatic translation
+#: bws_menu/product_list.php:15
+msgid "Security"
+msgstr "Sicurezza"
+
+# automatic translation
+#: bws_menu/product_list.php:16
+msgid "SEO"
+msgstr "QUESTO"
+
+# automatic translation
+#: bws_menu/product_list.php:17
+msgid "SMM"
+msgstr "SMM"
+
+# automatic translation
+#: bws_menu/product_list.php:24
+msgid "Give a birth for your bike rental and booking WordPress website."
+msgstr ""
+"Dai vita al tuo sito WordPress per il noleggio e la prenotazione di biciclette."
+
+# automatic translation
+#: bws_menu/product_list.php:36
+msgid "Best secure captcha plugin to protect your WordPress forms."
+msgstr "Il miglior plug-in captcha sicuro per proteggere i tuoi moduli WordPress."
+
+# automatic translation
+#: bws_menu/product_list.php:46
+msgid "Create your own rental website for car renting and booking."
+msgstr "Crea il tuo sito Web di noleggio per il noleggio e la prenotazione di auto."
+
+# automatic translation
+#: bws_menu/product_list.php:58
+msgid ""
+"Add columns with custom content to WordPress website pages, posts, widgets, etc."
+msgstr ""
+"Aggiungi colonne con contenuto personalizzato alle pagine del sito Web di "
+"WordPress, ai post, ai widget, ecc."
+
+# automatic translation
+#: bws_menu/product_list.php:65
+msgid ""
+"Allow customers to reach you using secure contact form plugin any website must "
+"have."
+msgstr ""
+"Consenti ai clienti di raggiungerti utilizzando il plug-in del modulo di contatto "
+"sicuro che qualsiasi sito Web deve avere."
+
+# automatic translation
+#: bws_menu/product_list.php:75
+msgid "Add unlimited number of contact forms to WordPress website."
+msgstr "Aggiungi un numero illimitato di moduli di contatto al sito Web WordPress."
+
+# automatic translation
+#: bws_menu/product_list.php:85
+msgid "Save and manage Contact Form messages. Never lose important data."
+msgstr ""
+"Salva e gestisci i messaggi del modulo di contatto. Non perdere mai dati "
+"importanti."
+
+# automatic translation
+#: bws_menu/product_list.php:95
+msgid "Add unlimited custom pages to WordPress admin dashboard."
+msgstr ""
+"Aggiungi pagine personalizzate illimitate alla dashboard di amministrazione di "
+"WordPress."
+
+# automatic translation
+#: bws_menu/product_list.php:105
+msgid "Add custom post types and taxonomies to WordPress website search results."
+msgstr ""
+"Aggiungi tipi di post personalizzati e tassonomie ai risultati di ricerca del "
+"sito web di WordPress."
+
+# automatic translation
+#: bws_menu/product_list.php:115
+msgid "Add PayPal and 2CO donate buttons to receive charity payments."
+msgstr ""
+"Aggiungi i pulsanti di donazione PayPal e 2CO per ricevere pagamenti di "
+"beneficenza."
+
+# automatic translation
+#: bws_menu/product_list.php:122
+msgid ""
+"Get latest error log messages to diagnose website problems. Define and fix issues "
+"faster."
+msgstr ""
+"Ottieni gli ultimi messaggi di log degli errori per diagnosticare i problemi del "
+"sito web. Definisci e risolvi i problemi più velocemente."
+
+# automatic translation
+#: bws_menu/product_list.php:129
+msgid ""
+"Add Facebook Follow, Like, and Share buttons to WordPress posts, pages, and "
+"widgets."
+msgstr ""
+"Aggiungi i pulsanti Segui, Mi piace e Condividi di Facebook ai post, alle pagine "
+"e ai widget di WordPress."
+
+# automatic translation
+#: bws_menu/product_list.php:139
+msgid ""
+"Add beautiful galleries, albums & images to your WordPress website in a few "
+"clicks."
+msgstr ""
+"Aggiungi bellissime gallerie, album e immagini al tuo sito Web WordPress in pochi "
+"clic."
+
+# automatic translation
+#: bws_menu/product_list.php:149
+msgid ""
+"Stronger security solution which protects your WordPress website from hacks and "
+"unauthorized login attempts."
+msgstr ""
+"Soluzione di sicurezza più forte che protegge il tuo sito Web WordPress da hack e "
+"tentativi di accesso non autorizzati."
+
+# automatic translation
+#: bws_menu/product_list.php:159
+msgid ""
+"Add Adsense ads to WordPress website pages, posts, custom posts, search results, "
+"categories, tags, and widgets."
+msgstr ""
+"Aggiungi annunci Adsense a pagine Web, post, post personalizzati, risultati di "
+"ricerca, categorie, tag e widget di WordPress."
+
+# automatic translation
+#: bws_menu/product_list.php:169
+msgid "Add Google Analytics code to WordPress website and track basic stats."
+msgstr ""
+"Aggiungi il codice di Google Analytics al sito web di WordPress e monitora le "
+"statistiche di base."
+
+# automatic translation
+#: bws_menu/product_list.php:179
+msgid "Protect WordPress website forms from spam entries with reCaptcha."
+msgstr "Proteggi i moduli del sito Web WordPress dalle voci di spam con reCaptcha."
+
+# automatic translation
+#: bws_menu/product_list.php:189
+msgid "Add customized Google maps to WordPress posts, pages and widgets."
+msgstr "Aggiungi mappe Google personalizzate a post, pagine e widget di WordPress."
+
+# automatic translation
+#: bws_menu/product_list.php:199
+msgid ""
+"Generate and add XML sitemap to WordPress website. Help search engines index your "
+"blog."
+msgstr ""
+"Genera e aggiungi la mappa del sito XML al sito Web di WordPress. Aiuta i motori "
+"di ricerca a indicizzare il tuo blog."
+
+# automatic translation
+#: bws_menu/product_list.php:209
+msgid ""
+"Replace external WordPress website links with Google shortlinks and track click "
+"stats."
+msgstr ""
+"Sostituisci i collegamenti a siti Web WordPress esterni con collegamenti brevi di "
+"Google e tieni traccia delle statistiche sui clic."
+
+# automatic translation
+#: bws_menu/product_list.php:216
+msgid ""
+"Protect WordPress website – allow and deny access for certain IP addresses, "
+"hostnames, etc."
+msgstr ""
+"Proteggi il sito Web WordPress: consenti e nega l'accesso a determinati indirizzi "
+"IP, nomi host, ecc."
+
+# automatic translation
+#: bws_menu/product_list.php:226
+msgid ""
+"Create your personal job board and listing WordPress website. Search jobs, submit "
+"CV/resumes, choose candidates."
+msgstr ""
+"Crea la tua bacheca di lavoro personale e elenca il sito Web WordPress. Cerca "
+"lavoro, invia CV/curriculum, scegli i candidati."
+
+# automatic translation
+#: bws_menu/product_list.php:233
+msgid ""
+"Protect WordPress website against brute force attacks. Limit rate of login "
+"attempts."
+msgstr ""
+"Proteggi il sito Web WordPress dagli attacchi di forza bruta. Limita il numero di "
+"tentativi di accesso."
+
+# automatic translation
+#: bws_menu/product_list.php:243
+msgid ""
+"Add LinkedIn Share and Follow buttons to WordPress posts, pages and widgets. 5 "
+"plugins included – profile, insider, etc."
+msgstr ""
+"Aggiungi i pulsanti Condividi e Segui di LinkedIn ai post, alle pagine e ai "
+"widget di WordPress. 5 plugin inclusi: profilo, insider, ecc."
+
+# automatic translation
+#: bws_menu/product_list.php:253
+msgid ""
+"Translate WordPress website content to other languages manually. Create "
+"multilingual pages, posts, widgets, menus, etc."
+msgstr ""
+"Traduci manualmente il contenuto del sito Web WordPress in altre lingue. Crea "
+"pagine multilingue, post, widget, menu, ecc."
+
+# automatic translation
+#: bws_menu/product_list.php:263
+msgid ""
+"Add customizable pagination to WordPress website. Split long content to multiple "
+"pages for better navigation."
+msgstr ""
+"Aggiungi un'impaginazione personalizzabile al sito Web WordPress. Suddividi i "
+"contenuti lunghi su più pagine per una migliore navigazione."
+
+# automatic translation
+#. Description of the plugin/theme
+#: bws_menu/product_list.php:273
+msgid ""
+"Generate PDF files and print WordPress posts/pages. Customize document header/"
+"footer styles and appearance."
+msgstr ""
+"Genera file PDF e stampa post/pagine WordPress. Personalizza gli stili e "
+"l'aspetto dell'intestazione/piè di pagina del documento."
+
+# automatic translation
+#: bws_menu/product_list.php:283
+msgid ""
+"Add Pinterest Follow, Pin It buttons and profile widgets (Pin, Board, Profile) to "
+"WordPress posts, pages and widgets."
+msgstr ""
+"Aggiungi i pulsanti Pinterest Follow, Pin It e i widget del profilo (Pin, Board, "
+"Profile) ai post, alle pagine e ai widget di WordPress."
+
+# automatic translation
+#: bws_menu/product_list.php:293
+msgid ""
+"Create your personal portfolio WordPress website. Manage and showcase past "
+"projects to get more clients."
+msgstr ""
+"Crea il tuo sito Web WordPress portfolio personale. Gestisci e mostra i progetti "
+"passati per ottenere più clienti."
+
+# automatic translation
+#: bws_menu/product_list.php:303
+msgid "Export WordPress posts to CSV file format easily. Configure data order."
+msgstr ""
+"Esporta facilmente i post di WordPress nel formato di file CSV. Configura "
+"l'ordine dei dati."
+
+# automatic translation
+#: bws_menu/product_list.php:313
+msgid ""
+"Add extra fields to default WordPress user profile. The easiest way to create and "
+"manage additional custom values."
+msgstr ""
+"Aggiungi campi extra al profilo utente WordPress predefinito. Il modo più "
+"semplice per creare e gestire valori personalizzati aggiuntivi."
+
+# automatic translation
+#: bws_menu/product_list.php:323
+msgid ""
+"Add and display HTML advertisement banner on WordPress website. Customize bar "
+"styles and appearance."
+msgstr ""
+"Aggiungi e visualizza banner pubblicitario HTML sul sito Web WordPress. "
+"Personalizza gli stili e l'aspetto della barra."
+
+# automatic translation
+#: bws_menu/product_list.php:333
+msgid ""
+"Add customizable quotes and tips blocks to WordPress posts, pages and widgets."
+msgstr ""
+"Aggiungi citazioni personalizzabili e blocchi di suggerimenti a post, pagine e "
+"widget di WordPress."
+
+# automatic translation
+#: bws_menu/product_list.php:340
+msgid ""
+"Add rating plugin to your WordPress website to receive feedback from your "
+"customers."
+msgstr ""
+"Aggiungi il plug-in di valutazione al tuo sito Web WordPress per ricevere "
+"feedback dai tuoi clienti."
+
+# automatic translation
+#: bws_menu/product_list.php:350
+msgid ""
+"Create your personal real estate WordPress website. Sell, rent and buy "
+"properties. Add, search and browse listings easily."
+msgstr ""
+"Crea il tuo sito Web WordPress immobiliare personale. Vendere, affittare e "
+"acquistare immobili. Aggiungi, cerca e sfoglia facilmente gli elenchi."
+
+# automatic translation
+#: bws_menu/product_list.php:360
+msgid ""
+"Add related, featured, latest, and popular posts to your WordPress website. "
+"Connect your blog readers with a relevant content."
+msgstr ""
+"Aggiungi post correlati, in primo piano, più recenti e popolari al tuo sito Web "
+"WordPress. Connetti i lettori del tuo blog con un contenuto pertinente."
+
+# automatic translation
+#: bws_menu/product_list.php:367
+msgid ""
+"Send bulk email messages to WordPress users. Custom templates, advanced settings "
+"and detailed reports."
+msgstr ""
+"Invia messaggi di posta elettronica in blocco agli utenti di WordPress. Modelli "
+"personalizzati, impostazioni avanzate e report dettagliati."
+
+# automatic translation
+#: bws_menu/product_list.php:377
+msgid ""
+"The best responsive slider plugin for your WordPress website. Create beautifully "
+"animated slides just in a few clicks."
+msgstr ""
+"Il miglior plug-in slider reattivo per il tuo sito Web WordPress. Crea splendide "
+"diapositive animate in pochi clic."
+
+# automatic translation
+#: bws_menu/product_list.php:384
+msgid ""
+"Configure SMTP server to receive email messages from WordPress to Gmail, Yahoo, "
+"Hotmail and other services."
+msgstr ""
+"Configura il server SMTP per ricevere messaggi e-mail da WordPress a Gmail, "
+"Yahoo, Hotmail e altri servizi."
+
+# automatic translation
+#: bws_menu/product_list.php:391
+msgid ""
+"Add social media buttons and widgets to WordPress posts, pages and widgets. FB, "
+"Twitter, Pinterest, LinkedIn."
+msgstr ""
+"Aggiungi pulsanti e widget dei social media ai post, alle pagine e ai widget di "
+"WordPress. Facebook, Twitter, Pinterest, Linkedin."
+
+# automatic translation
+#: bws_menu/product_list.php:401
+msgid ""
+"Add social media login, registration, and commenting to your WordPress website."
+msgstr ""
+"Aggiungi l'accesso ai social media, la registrazione e i commenti al tuo sito Web "
+"WordPress."
+
+# automatic translation
+#: bws_menu/product_list.php:408
+msgid ""
+"Add email newsletter sign up form to WordPress posts, pages and widgets. Collect "
+"data and subscribe your users."
+msgstr ""
+"Aggiungi il modulo di iscrizione alla newsletter via e-mail ai post, alle pagine "
+"e ai widget di WordPress. Raccogli dati e iscrivi i tuoi utenti."
+
+# automatic translation
+#: bws_menu/product_list.php:418
+msgid ""
+"Add testimonials and feedbacks from your customers to WordPress website posts, "
+"pages, and widgets."
+msgstr ""
+"Aggiungi testimonianze e feedback dei tuoi clienti ai post, alle pagine e ai "
+"widget del sito web di WordPress."
+
+# automatic translation
+#: bws_menu/product_list.php:425
+msgid ""
+"Best timesheet plugin for WordPress. Track employee time, streamline attendance "
+"and generate reports."
+msgstr ""
+"Miglior plugin scheda attività per WordPress. Tieni traccia del tempo dei "
+"dipendenti, ottimizza le presenze e genera report."
+
+# automatic translation
+#: bws_menu/product_list.php:435
+msgid ""
+"Add Twitter Follow, Tweet, Hashtag, and Mention buttons to WordPress posts and "
+"pages."
+msgstr ""
+"Aggiungi i pulsanti Twitter Segui, Tweet, Hashtag e Menzione ai post e alle "
+"pagine di WordPress."
+
+# automatic translation
+#: bws_menu/product_list.php:445
+msgid ""
+"Automatically check and update WordPress website core with all installed plugins "
+"and themes to the latest versions."
+msgstr ""
+"Controlla e aggiorna automaticamente il core del sito Web WordPress con tutti i "
+"plugin e i temi installati alle versioni più recenti."
+
+# automatic translation
+#: bws_menu/product_list.php:455
+msgid ""
+"Powerful user role management plugin for WordPress website. Create, edit, copy, "
+"and delete user roles."
+msgstr ""
+"Potente plug-in per la gestione dei ruoli utente per il sito Web WordPress. Crea, "
+"modifica, copia ed elimina i ruoli utente."
+
+# automatic translation
+#: bws_menu/product_list.php:465
+msgid ""
+"Display live count of online visitors who are currently browsing your WordPress "
+"website."
+msgstr ""
+"Visualizza il conteggio in tempo reale dei visitatori online che stanno "
+"attualmente navigando sul tuo sito Web WordPress."
+
+# automatic translation
+#: bws_menu/product_list.php:475
+msgid ""
+"Backup and export Zendesk Help Center content automatically to your WordPress "
+"website database."
+msgstr ""
+"Esegui il backup ed esporta automaticamente i contenuti del Centro assistenza "
+"Zendesk nel database del tuo sito Web WordPress."
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:26
+msgid "Output"
+msgstr "Produzione"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:28
+msgid "Display"
+msgstr "Schermo"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:31
+msgid "Misc"
+msgstr "Varie"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:33
+msgid "Custom Fields"
+msgstr "Campi personalizzati"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:62 pdf-print.php:456
+msgid "PDF"
+msgstr "PDF"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:63 pdf-print.php:461
+msgid "Print"
+msgstr "Stampa"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:76
+msgid "Search results"
+msgstr "Risultati di ricerca"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:77
+msgid "Archives"
+msgstr "Archivi"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:78
+msgid "Posts page"
+msgstr "Pagina dei post"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:86
+msgid "Top Left"
+msgstr "A sinistra in alto"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:87
+msgid "Top Right"
+msgstr "In alto a destra"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:88
+msgid "Bottom Left"
+msgstr "In basso a sinistra"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:89
+msgid "Bottom Right"
+msgstr "In basso a destra"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:90
+msgid "Top & Bottom Left"
+msgstr "In alto e in basso a sinistra"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:91
+msgid "Top & Bottom Right"
+msgstr "In alto e in basso a destra"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:95 includes/pro_banners.php:214
+msgid "None"
+msgstr "Nessuno"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:96 includes/pro_banners.php:305
+msgid "Default"
+msgstr "Predefinito"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:100
+msgid "Top"
+msgstr "Superiore"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:101
+msgid "Bottom"
+msgstr "Metter il fondo a"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:102
+msgid "Left"
+msgstr "Sinistra"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:103
+msgid "Right"
+msgstr "Giusto"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:131
+msgid "Please enable JavaScript in your browser."
+msgstr "Si prega di abilitare javascript nel browser."
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:133
+#, php-format
+msgid ""
+"Pdf&Print plugin requires PHP %s or higher. Please contact your hosting provider "
+"to upgrade PHP version."
+msgstr ""
+"Il plugin Pdf&Print richiede PHP %so superiore. Si prega di contattare il "
+"provider di hosting per aggiornare la versione PHP."
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:157
+msgid "Warning: Not enough permissions for the folder"
+msgstr "Avviso: autorizzazioni insufficienti per la cartella"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:160
+#, php-format
+msgid ""
+"Please check and change permissions for your plugins folder (for folders - 755, "
+"for files - 644). For more info, please see %1$s and %2$s."
+msgstr ""
+"Controlla e modifica i permessi per la tua cartella dei plugin (per le cartelle - "
+"755, per i file - 644). Per maggiori informazioni, vedere %1$s e %2$s."
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:161
+msgid "Changing File Permissions"
+msgstr "Modifica dei permessi dei file"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:178
+#, php-format
+msgid "The folder %s was removed."
+msgstr "La cartella %s è stata rimossa."
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:186
+#, php-format
+msgid "Some fonts were removed from %s folder."
+msgstr "Alcuni caratteri sono stati rimossi dalla cartella %s."
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:192 pdf-print.php:962
+#, php-format
+msgid "It is necessary to reload fonts. For more info, please see %s."
+msgstr "È necessario ricaricare i caratteri. Per ulteriori informazioni, vedere %s."
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:204
+#, php-format
+msgid "It is necessary to reload fonts. For more info, please see %s"
+msgstr "È necessario ricaricare i caratteri. Per ulteriori informazioni, vedere %s"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:225
+msgid ""
+"The new version of the mPDF library which compatible with PHP V7.x.x is available "
+"now! Go to the Misc tab and upgrade the mPDF library."
+msgstr ""
+"La nuova versione della libreria mPDF compatibile con PHP V7.x.x è ora "
+"disponibile! Vai alla scheda Varie e aggiorna la libreria mPDF."
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:324
+msgid "You have entered too much text in the \"edit styles\" field."
+msgstr "Hai inserito troppo testo nel campo \"modifica stili\"."
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:342
+msgid "Settings saved."
+msgstr "Impostazioni salvate."
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:351 pdf-print.php:40 pdf-print.php:41
+#: pdf-print.php:316
+msgid "PDF & Print Settings"
+msgstr "PDF e impostazioni di stampa"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:356
+msgid "Add Button to"
+msgstr "Aggiungi pulsante a"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:372
+msgid ""
+"Follow the instruction in order to add the PDF & Print button to a custom post or "
+"page template."
+msgstr ""
+"Segui le istruzioni per aggiungere il pulsante PDF e stampa a un articolo "
+"personalizzato o a un modello di pagina."
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:376
+msgid "Buttons Position"
+msgstr "Posizione dei pulsanti"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:387
+msgid "Select buttons position in the content (default is Top Right)."
+msgstr ""
+"Seleziona la posizione dei pulsanti nel contenuto (l'impostazione predefinita è "
+"in alto a destra)."
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:391
+msgid "Button Image"
+msgstr "Immagine pulsante"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:403
+msgid "Default Image"
+msgstr "Immagine predefinita"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:416
+msgid "Button Title"
+msgstr "Titolo del pulsante"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:429
+msgid "Print Preview Window"
+msgstr "Finestra di anteprima di stampa"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:433
+msgid "Enable to display print preview window with advanced settings."
+msgstr ""
+"Consente di visualizzare la finestra di anteprima di stampa con impostazioni "
+"avanzate."
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:444
+msgid "Default PDF Button Action"
+msgstr "Azione pulsante PDF predefinita"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:448 pdf-print.php:516
+msgid "Download PDF"
+msgstr "Scarica il pdf"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:451
+msgid "Open PDF"
+msgstr "Apri PDF"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:457
+msgid "Enable Buttons for"
+msgstr "Abilita pulsanti per"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:475
+msgid "Unauthorized"
+msgstr "Non autorizzato"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:489
+msgid "Document Output Settings"
+msgstr "Impostazioni di output del documento"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:497
+msgid "Full Page Capture to PDF"
+msgstr "Cattura pagina intera in PDF"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:501
+msgid ""
+"Enable to take a screenshot of the entire page and generate a PDF file from it."
+msgstr ""
+"Abilita per acquisire uno screenshot dell'intera pagina e generare un file PDF da "
+"essa."
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:506
+msgid "PDF Page Size"
+msgstr "Dimensione pagina PDF"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:521
+msgid "Margins"
+msgstr "Margini"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:528
+msgid "px"
+msgstr "px"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:537
+msgid "Print Shortcodes"
+msgstr "Stampa codici brevi"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:541
+msgid ""
+"Enable to print shortcodes with data generated by other plugins (recommended)."
+msgstr ""
+"Abilita la stampa di shortcode con dati generati da altri plugin (consigliato)."
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:546
+msgid "Remove Links"
+msgstr "Rimuovi collegamenti"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:550
+msgid "Enable to remove links from PDF and Print document."
+msgstr "Abilitare la rimozione dei collegamenti dal documento PDF e Stampa."
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:555
+msgid "Link Annotations"
+msgstr "Collega annotazioni"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:559
+msgid "Enable to remove hover link styles in PDF document."
+msgstr ""
+"Abilita per rimuovere gli stili di collegamento al passaggio del mouse nel "
+"documento PDF."
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:564
+msgid "Additional Elements"
+msgstr "Elementi aggiuntivi"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:567 includes/pro_banners.php:395
+#: includes/pro_banners.php:485 pdf-print.php:1937
+msgid "Title"
+msgstr "Titolo"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:568
+msgid "Author"
+msgstr "Autore"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:570 includes/class-pdfprnt-settings.php:574
+msgid "for posts only"
+msgstr "solo per i post"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:572
+msgid "Date"
+msgstr "Data"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:576
+msgid "Featured image"
+msgstr "Immagine in primo piano"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:582
+msgid "Featured Image Size"
+msgstr "Dimensioni dell'immagine in primo piano"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:608
+msgid "Additional Fonts"
+msgstr "Font aggiuntivi"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:616
+msgid "Reload Fonts"
+msgstr "Ricarica i caratteri"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:618
+msgid "Load Fonts"
+msgstr "Carica i caratteri"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:625
+msgid "Additional fonts were loaded successfully"
+msgstr "I caratteri aggiuntivi sono stati caricati correttamente"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:630
+msgid ""
+"If you have some problems with your internet connection, please, try to load "
+"additional fonts manually. For more info, please see"
+msgstr ""
+"Se riscontri problemi con la tua connessione Internet, prova a caricare caratteri "
+"aggiuntivi manualmente. Per maggiori informazioni, vedere"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:632
+msgid "Load additional fonts required for correct PDF file(-s) display."
+msgstr ""
+"Carica i caratteri aggiuntivi richiesti per la corretta visualizzazione dei file "
+"PDF."
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:636 includes/class-pdfprnt-settings.php:798
+msgid "WARNING"
+msgstr "AVVERTIMENTO"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:636
+msgid ""
+"ZipArchive Class is not installed on your server. It is impossible to load "
+"additional fonts."
+msgstr ""
+"ZipArchive Class non è installato sul tuo server. È impossibile caricare "
+"caratteri aggiuntivi."
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:644
+msgid "Default CSS"
+msgstr "CSS predefinito"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:649
+msgid "Enable to apply CSS from the current theme. Disable to use default CSS."
+msgstr ""
+"Abilita per applicare CSS dal tema corrente. Disabilita l'utilizzo del CSS "
+"predefinito."
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:655
+msgid "Custom CSS"
+msgstr "CSS personalizzato"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:660
+msgid "Enable to add custom CSS code to documents."
+msgstr "Abilita per aggiungere codice CSS personalizzato ai documenti."
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:681
+msgid "Display Settings"
+msgstr "Impostazioni di visualizzazione"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:694
+msgid "Custom Fields Settings"
+msgstr "Impostazioni dei campi personalizzati"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:711
+msgid "PDF & Print Shortcode"
+msgstr "Codice breve PDF e stampa"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:714
+msgid "Add PDF & Print buttons to a widget."
+msgstr "Aggiungi i pulsanti PDF e Stampa a un widget."
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:714
+msgid "Navigate to Widgets"
+msgstr "Vai a Widget"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:717
+msgid "Add PDF button to your posts or pages using the following shortcode:"
+msgstr ""
+"Aggiungi il pulsante PDF ai tuoi post o alle tue pagine utilizzando il seguente "
+"shortcode:"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:721
+msgid "Add Print button to your posts or pages using the following shortcode:"
+msgstr ""
+"Aggiungi il pulsante Stampa ai tuoi post o alle tue pagine utilizzando il "
+"seguente shortcode:"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:725
+msgid ""
+"Add PDF & Print buttons to your posts or pages using the following shortcode:"
+msgstr ""
+"Aggiungi i pulsanti PDF e Stampa ai tuoi post o alle tue pagine utilizzando il "
+"seguente shortcode:"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:729
+msgid "Create a page break in PDF document:"
+msgstr "Crea un'interruzione di pagina nel documento PDF:"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:779
+msgid "Upgrade the mPDF library"
+msgstr "Aggiorna la libreria mPDF"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:784
+msgid "Upgrade"
+msgstr "Aggiornamento"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:792
+#, php-format
+msgid "This will upgrade the mPDF library to version %s (recommended)."
+msgstr "Questo aggiornerà la libreria mPDF alla versione %s (consigliata)."
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:798
+msgid ""
+"ZipArchive сlass is not installed on your server. It is impossible to upgrade the "
+"mPDF library."
+msgstr ""
+"ZipArchive сlass non è installato sul tuo server. È impossibile aggiornare la "
+"libreria mPDF."
+
+# automatic translation
+#: includes/pro_banners.php:20
+msgid "This options is available in Pro version of the plugin"
+msgstr "Questa opzione è disponibile nella versione Pro del plugin"
+
+# automatic translation
+#: includes/pro_banners.php:49 includes/pro_banners.php:96
+msgid "Custom"
+msgstr "Costume"
+
+# automatic translation
+#: includes/pro_banners.php:70
+msgid "Search Engine Visibility"
+msgstr "Visibilità sui motori di ricerca"
+
+# automatic translation
+#: includes/pro_banners.php:73
+msgid "Enable to disallow search engines from indexing PDF & Print pages."
+msgstr ""
+"Abilita per impedire ai motori di ricerca di indicizzare le pagine PDF e Stampa."
+
+# automatic translation
+#: includes/pro_banners.php:92
+msgid "Default PDF File Name"
+msgstr "Nome file PDF predefinito"
+
+# automatic translation
+#: includes/pro_banners.php:95
+msgid "Post/page slug"
+msgstr "Slug post/pagina"
+
+# automatic translation
+#: includes/pro_banners.php:99
+msgid ""
+"File name cannot contain more than 195 symbols. The file name can include Latin "
+"letters, numbers and symbols."
+msgstr ""
+"Il nome del file non può contenere più di 195 simboli. Il nome del file può "
+"includere lettere latine, numeri e simboli."
+
+# automatic translation
+#: includes/pro_banners.php:101 includes/pro_banners.php:561
+#: includes/pro_banners.php:616
+msgid "Available shortcodes"
+msgstr "Shortcode disponibili"
+
+# automatic translation
+#: includes/pro_banners.php:103
+msgid "The full date when the post was created"
+msgstr "La data completa in cui è stato creato il post"
+
+# automatic translation
+#: includes/pro_banners.php:106
+msgid "Title of the post."
+msgstr "Titolo del post."
+
+# automatic translation
+#: includes/pro_banners.php:109
+msgid "Title of the site."
+msgstr "Titolo del sito."
+
+# automatic translation
+#: includes/pro_banners.php:112
+msgid "Author of the post."
+msgstr "Autore del post."
+
+# automatic translation
+#: includes/pro_banners.php:115
+msgid "The year when the post was created."
+msgstr "L'anno in cui è stato creato il post."
+
+# automatic translation
+#: includes/pro_banners.php:118
+msgid "The month when the post was created."
+msgstr "Il mese in cui è stato creato il post."
+
+# automatic translation
+#: includes/pro_banners.php:121
+msgid "The day when the post was created."
+msgstr "Il giorno in cui è stato creato il post."
+
+# automatic translation
+#: includes/pro_banners.php:128
+msgid "Layout"
+msgstr "Disposizione"
+
+# automatic translation
+#: includes/pro_banners.php:144
+msgid "Portrait"
+msgstr "Ritratto"
+
+# automatic translation
+#: includes/pro_banners.php:145
+msgid "Landscape"
+msgstr "Paesaggio"
+
+# automatic translation
+#: includes/pro_banners.php:185
+msgid "\"Written by\" Text"
+msgstr "Testo \"Scritto da\""
+
+# automatic translation
+#: includes/pro_banners.php:189
+msgid "Enable to add \"Written by\" text before an author's name."
+msgstr "Abilita per aggiungere il testo \"Scritto da\" prima del nome di un autore."
+
+# automatic translation
+#: includes/pro_banners.php:194
+msgid "WooCommerce Product Details"
+msgstr "Dettagli del prodotto WooCommerce"
+
+# automatic translation
+#: includes/pro_banners.php:197
+msgid "Short Description"
+msgstr "breve descrizione"
+
+# automatic translation
+#: includes/pro_banners.php:198
+msgid "Price"
+msgstr "Prezzo"
+
+# automatic translation
+#: includes/pro_banners.php:199
+msgid "SKU"
+msgstr "SKU"
+
+# automatic translation
+#: includes/pro_banners.php:200
+msgid "Gallery"
+msgstr "Galleria"
+
+# automatic translation
+#: includes/pro_banners.php:201
+msgid "Rating"
+msgstr "Valutazione"
+
+# automatic translation
+#: includes/pro_banners.php:202
+msgid "Stock"
+msgstr "Azione"
+
+# automatic translation
+#: includes/pro_banners.php:203
+msgid "Variations"
+msgstr "Variazioni"
+
+# automatic translation
+#: includes/pro_banners.php:204
+msgid "Categories"
+msgstr "Categorie"
+
+# automatic translation
+#: includes/pro_banners.php:205
+msgid "Tags"
+msgstr "Tag"
+
+# automatic translation
+#: includes/pro_banners.php:206
+msgid "Additional information"
+msgstr "Informazioni aggiuntive"
+
+# automatic translation
+#: includes/pro_banners.php:211
+msgid "Watermark Protection"
+msgstr "Protezione della filigrana"
+
+# automatic translation
+#: includes/pro_banners.php:215
+msgid "Text"
+msgstr "Testo"
+
+# automatic translation
+#: includes/pro_banners.php:219
+msgid "Image"
+msgstr "Immagine"
+
+# automatic translation
+#: includes/pro_banners.php:224
+msgid "Watermark Opacity"
+msgstr "Opacità della filigrana"
+
+# automatic translation
+#: includes/pro_banners.php:236
+msgid "Prevent Copying"
+msgstr "Impedisci la copia"
+
+# automatic translation
+#: includes/pro_banners.php:240
+msgid "Enable to prevent PDF files from being copied."
+msgstr "Abilita per impedire la copia dei file PDF."
+
+# automatic translation
+#: includes/pro_banners.php:245
+msgid "Show Advanced Custom Fields"
+msgstr "Mostra campi personalizzati avanzati"
+
+# automatic translation
+#: includes/pro_banners.php:249
+msgid "Enable to show all Advanced Custom Fields."
+msgstr "Abilita per mostrare tutti i campi personalizzati avanzati."
+
+# automatic translation
+#: includes/pro_banners.php:261
+msgid ""
+"Choose the necessary post types (or single pages) where PDF & Print buttons will "
+"be displayed"
+msgstr ""
+"Scegli i tipi di post necessari (o le singole pagine) in cui verranno "
+"visualizzati i pulsanti PDF e Stampa"
+
+# automatic translation
+#: includes/pro_banners.php:265
+msgid "Show URL"
+msgstr "Mostra URL"
+
+# automatic translation
+#: includes/pro_banners.php:277
+msgid "Available Registered Post Types:"
+msgstr "Tipi di posta raccomandata disponibili:"
+
+# automatic translation
+#: includes/pro_banners.php:280
+msgid ""
+"Add custom fields and custom data before/after PDF & Print document's content"
+msgstr ""
+"Aggiungi campi personalizzati e dati personalizzati prima/dopo il contenuto del "
+"documento PDF e stampa"
+
+# automatic translation
+#: includes/pro_banners.php:283
+msgid "Posts"
+msgstr "Messaggi"
+
+# automatic translation
+#: includes/pro_banners.php:287
+msgid "Data Before Content"
+msgstr "Dati prima del contenuto"
+
+# automatic translation
+#: includes/pro_banners.php:290
+msgid "Enable to show data before page title"
+msgstr "Abilita per mostrare i dati prima del titolo della pagina"
+
+# automatic translation
+#: includes/pro_banners.php:296
+msgid "Data After Content"
+msgstr "Dati dopo il contenuto"
+
+# automatic translation
+#: includes/pro_banners.php:301
+msgid "Custom Fields Displaying"
+msgstr "Visualizzazione dei campi personalizzati"
+
+# automatic translation
+#: includes/pro_banners.php:308
+msgid ""
+"Custom fields are shown by default. You can hide them using \"Do not show PDF & "
+"Print Custom fields\" option."
+msgstr ""
+"I campi personalizzati vengono visualizzati per impostazione predefinita. Puoi "
+"nasconderli utilizzando l'opzione \"Non mostrare PDF e stampa campi personalizzati"
+"\"."
+
+# automatic translation
+#: includes/pro_banners.php:313
+msgid "Force Hide"
+msgstr "Forza Nasconditi"
+
+# automatic translation
+#: includes/pro_banners.php:316
+msgid ""
+"Custom fields are hidden even if the \"Show PDF & Print Custom Fields\" option is "
+"enabled."
+msgstr ""
+"I campi personalizzati sono nascosti anche se l'opzione \"Mostra PDF e stampa "
+"campi personalizzati\" è abilitata."
+
+# automatic translation
+#: includes/pro_banners.php:321
+msgid "Force Show"
+msgstr "Spettacolo di forza"
+
+# automatic translation
+#: includes/pro_banners.php:324
+msgid ""
+"Custom fields are visible even if the \"Show PDF & Print Custom Fields\" option "
+"is disabled."
+msgstr ""
+"I campi personalizzati sono visibili anche se l'opzione \"Mostra PDF e stampa "
+"campi personalizzati\" è disabilitata."
+
+# automatic translation
+#: includes/pro_banners.php:331
+msgid "Disable the \"Show PDF & Print Custom Fields\" option"
+msgstr "Disabilita l'opzione \"Mostra PDF e stampa campi personalizzati\"."
+
+# automatic translation
+#: includes/pro_banners.php:334
+msgid "Disable Now"
+msgstr "Disattiva ora"
+
+# automatic translation
+#: includes/pro_banners.php:336
+msgid "Disable the \"Show PDF & Print Custom Fields\" option for all Posts."
+msgstr ""
+"Disabilita l'opzione \"Mostra PDF e stampa campi personalizzati\" per tutti i "
+"post."
+
+# automatic translation
+#: includes/pro_banners.php:342
+msgid "Pages"
+msgstr "Pagine"
+
+# automatic translation
+#: includes/pro_banners.php:343
+msgid "Products"
+msgstr "Prodotti"
+
+# automatic translation
+#: includes/pro_banners.php:362 includes/pro_banners.php:373
+#: includes/pro_banners.php:416 includes/pro_banners.php:439
+#: includes/pro_banners.php:462 includes/pro_banners.php:504
+msgid "Trash"
+msgstr "Spazzatura"
+
+# automatic translation
+#: includes/pro_banners.php:365 includes/pro_banners.php:367
+msgid "search"
+msgstr "ricerca"
+
+# automatic translation
+#: includes/pro_banners.php:372 includes/pro_banners.php:503
+msgid "Bulk Actions"
+msgstr "Azioni in blocco"
+
+# automatic translation
+#: includes/pro_banners.php:375 includes/pro_banners.php:506
+msgid "Apply"
+msgstr "Fare domanda a"
+
+# automatic translation
+#: includes/pro_banners.php:378 includes/pro_banners.php:509
+msgid "items"
+msgstr "elementi"
+
+# automatic translation
+#: includes/pro_banners.php:391
+msgid "Select All"
+msgstr "Seleziona tutto"
+
+# automatic translation
+#: includes/pro_banners.php:401 includes/pro_banners.php:429
+#: includes/pro_banners.php:452 includes/pro_banners.php:475
+#: includes/pro_banners.php:493
+msgid "Date Added"
+msgstr "Data aggiunta"
+
+# automatic translation
+#: includes/pro_banners.php:415 includes/pro_banners.php:438
+#: includes/pro_banners.php:461
+msgid "Edit"
+msgstr "Modificare"
+
+# automatic translation
+#: includes/pro_banners.php:532
+msgid "Enter Title"
+msgstr "Inserisci Titolo"
+
+# automatic translation
+#: includes/pro_banners.php:536
+msgid "Header"
+msgstr "Intestazione"
+
+# automatic translation
+#: includes/pro_banners.php:563 includes/pro_banners.php:618
+msgid "Current page number (for PDF only)"
+msgstr "Numero di pagina corrente (solo per PDF)"
+
+# automatic translation
+#: includes/pro_banners.php:566 includes/pro_banners.php:621
+msgid "Title of the post (for single posts or pages only)"
+msgstr "Titolo del post (solo per singoli post o pagine)"
+
+# automatic translation
+#: includes/pro_banners.php:569 includes/pro_banners.php:624
+msgid "Number of all pages in the document (for PDF only)"
+msgstr "Numero di tutte le pagine del documento (solo per PDF)"
+
+# automatic translation
+#: includes/pro_banners.php:572 includes/pro_banners.php:627
+msgid "Link to the page where the document was generated"
+msgstr "Collegamento alla pagina in cui è stato generato il documento"
+
+# automatic translation
+#: includes/pro_banners.php:575 includes/pro_banners.php:630
+msgid "Current date"
+msgstr "Data odierna"
+
+# automatic translation
+#: includes/pro_banners.php:578 includes/pro_banners.php:633
+msgid "The date when the post was created"
+msgstr "La data in cui è stato creato il post"
+
+# automatic translation
+#: includes/pro_banners.php:578 includes/pro_banners.php:633
+msgid ""
+"this shortcode will be replaced to the current date on search or archive pages"
+msgstr ""
+"questo shortcode verrà sostituito con la data corrente nelle pagine di ricerca o "
+"di archivio"
+
+# automatic translation
+#: includes/pro_banners.php:581 includes/pro_banners.php:636
+msgid ""
+"You can specify your own DateTime format for {DATE} and {POSTDATE} shortcodes. "
+"For example"
+msgstr ""
+"Puoi specificare il tuo formato DateTime per gli shortcode {DATE} e {POSTDATE}. "
+"Per esempio"
+
+# automatic translation
+#: includes/pro_banners.php:586 includes/pro_banners.php:641
+msgid "Author of the post"
+msgstr "Autore del post"
+
+# automatic translation
+#: includes/pro_banners.php:586 includes/pro_banners.php:641
+msgid "for single posts or pages only"
+msgstr "solo per singoli post o pagine"
+
+# automatic translation
+#: includes/pro_banners.php:591
+msgid "Footer"
+msgstr "Piè di pagina"
+
+# automatic translation
+#: includes/pro_banners.php:651 includes/pro_banners.php:662
+msgid "Publish"
+msgstr "Pubblicare"
+
+# automatic translation
+#: includes/pro_banners.php:658
+msgid "New"
+msgstr "Nuovo"
+
+# automatic translation
+#: includes/pro_banners.php:662
+msgid "immediately"
+msgstr "subito"
+
+# automatic translation
+#: pdf-print.php:42 pdf-print.php:341
+msgid "Headers & Footers"
+msgstr "Intestazioni e piè di pagina"
+
+# automatic translation
+#: pdf-print.php:338
+msgid "Header & Footer Template"
+msgstr "Modello di intestazione e piè di pagina"
+
+# automatic translation
+#: pdf-print.php:358
+msgid "This tab contains Pro options only."
+msgstr "Questa scheda contiene solo opzioni Pro."
+
+# automatic translation
+#: pdf-print.php:360
+#, php-format
+msgid "%1$sChange the settings%2$s to view the Pro options."
+msgstr "%1$sModifica le impostazioni%2$s per visualizzare le opzioni Pro."
+
+# automatic translation
+#: pdf-print.php:452
+msgid "Add PDF & Print Buttons to your page or post"
+msgstr "Aggiungi i pulsanti PDF e stampa alla tua pagina o post"
+
+# automatic translation
+#: pdf-print.php:516 pdf-print.php:1887
+msgid "Print Content"
+msgstr "Stampa contenuto"
+
+# automatic translation
+#: pdf-print.php:516 pdf-print.php:1868
+msgid "View PDF"
+msgstr "Visualizza PDF"
+
+# automatic translation
+#: pdf-print.php:958
+msgid "Loading of fonts. It might take a several minutes."
+msgstr "Caricamento dei font. Potrebbero essere necessari diversi minuti."
+
+# automatic translation
+#: pdf-print.php:959
+msgid "Loading the mPDF library. It will take few minutes."
+msgstr "Caricamento della libreria mPDF. Ci vorranno pochi minuti."
+
+# automatic translation
+#: pdf-print.php:1042
+#, php-format
+msgid "Search Results for: %s"
+msgstr "Risultati della ricerca per: %s"
+
+# automatic translation
+#: pdf-print.php:1227 pdf-print.php:1355
+msgid "written by"
+msgstr "scritto da"
+
+# automatic translation
+#: pdf-print.php:1497
+msgid "Check your internet connection"
+msgstr "Controlla la tua connessione Internet"
+
+# automatic translation
+#: pdf-print.php:1502
+msgid "Cannot load files in to \"uploads\" folder. Check your permissions"
+msgstr ""
+"Impossibile caricare i file nella cartella \"upload\". Controlla i tuoi permessi"
+
+# automatic translation
+#: pdf-print.php:1533 pdf-print.php:1654
+msgid "Additional fonts were loaded successfully."
+msgstr "I caratteri aggiuntivi sono stati caricati correttamente."
+
+# automatic translation
+#: pdf-print.php:1536 pdf-print.php:1580
+msgid "Some errors occurred during loading files."
+msgstr "Si sono verificati alcuni errori durante il caricamento dei file."
+
+# automatic translation
+#: pdf-print.php:1539 pdf-print.php:1583
+msgid "Can not extract files from zip-archive."
+msgstr "Impossibile estrarre i file dall'archivio zip."
+
+# automatic translation
+#: pdf-print.php:1543
+#, php-format
+msgid "Cannot create %s folder. Check your permissions."
+msgstr "Impossibile creare la cartella %s. Controlla i tuoi permessi."
+
+# automatic translation
+#: pdf-print.php:1577
+msgid "The mPDF library has been loaded successfully."
+msgstr "La libreria mPDF è stata caricata correttamente."
+
+# automatic translation
+#: pdf-print.php:1587
+#, php-format
+msgid "Cannot extract files into %s folder. Check your permissions."
+msgstr "Impossibile estrarre i file nella cartella %s. Controlla i tuoi permessi."
+
+# automatic translation
+#: pdf-print.php:1834
+msgid "PDF & Print Buttons"
+msgstr "Pulsanti PDF e stampa"
+
+# automatic translation
+#: pdf-print.php:1834
+msgid "Show PDF & Print Buttons on your site"
+msgstr "Mostra i pulsanti PDF e stampa sul tuo sito"
+
+# automatic translation
+#: pdf-print.php:1942
+msgid "Display PDF Button"
+msgstr "Pulsante Visualizza PDF"
+
+# automatic translation
+#: pdf-print.php:1946
+msgid "Display Print Button"
+msgstr "Visualizza il pulsante di stampa"
+
+# automatic translation
+#. Plugin Name of the plugin/theme
+msgid "PDF & Print by BestWebSoft"
+msgstr "PDF e stampa da BestWebSoft"
+
+# automatic translation
+#. Plugin URI of the plugin/theme
+msgid "https://bestwebsoft.com/products/wordpress/plugins/pdf-print/"
+msgstr "https://bestwebsoft.com/products/wordpress/plugins/pdf-print/"
+
+# automatic translation
+#. Author of the plugin/theme
+msgid "BestWebSoft"
+msgstr "MigliorWebSoft"
+
+# automatic translation
+#. Author URI of the plugin/theme
+msgid "https://bestwebsoft.com/"
+msgstr "https://bestwebsoft.com/"
