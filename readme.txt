@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://bestwebsoft.com/donate/
 Tags: generate pdf, add pdf button, add print button, pdf plugin, pdf pages, print pages, generate pdf content, generate post pdf, pdf print, pdf print plugin, pdf custom post type, pdf content
 Requires at least: 5.6
-Tested up to: 6.2
-Stable tag: 2.3.2
+Tested up to: 6.4.1
+Stable tag: 2.3.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -91,7 +91,9 @@ https://www.youtube.com/watch?v=hJdWI8xkAI0
 > 	* Landscape
 > * Set custom images for buttons
 > * Disable PDF & Print buttons for certain pages and/or post types
-> * Disable PDF & Print buttons for certain users and/or roles types [NEW]
+> * Disable PDF & Print buttons for certain users and/or roles types
+> * Additional Elements to single post type [NEW]
+> * Dinamic URI for PDF document [NEW]
 > * Change default PDF file name
 > * Prevent search engines from indexing links in documents
 > * Add custom code via plugin settings page
@@ -338,6 +340,13 @@ Replace `bestwebsoft_contact_form` with your shortcode.
 7. Settings page (Output tab) for the PDF&Print in admin panel.
 
 == Changelog ==
+
+= V2.3.4 - 01.12.2023 =
+* Update : BWS Panel section update.
+* Update : All functionality was updated for WordPress 6.3.1.
+* Update : PDF library updated to the latest version.
+* NEW : Additional Elements to single post type has been added.
+* NEW : Dinamic URI for pdf document has been added.
 
 = V2.3.2 - 25.04.2023 =
 * Update : BWS Panel section update.
@@ -622,6 +631,11 @@ Replace `bestwebsoft_contact_form` with your shortcode.
 * NEW : Added the ability to output PDF and Print buttons on the type of page.
 
 == Upgrade Notice ==
+
+= V2.3.4 =
+* New features added.
+* The compatibility with new WordPress version updated.
+* Functionality improved.
 
 = V2.3.2 =
 * The compatibility with new WordPress version updated.

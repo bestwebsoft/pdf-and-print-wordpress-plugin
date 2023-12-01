@@ -103,7 +103,9 @@
 </li>
 <li>Set custom images for buttons</li>
 <li>Disable PDF &amp; Print buttons for certain pages and/or post types</li>
-<li>Disable PDF &amp; Print buttons for certain users and/or roles types [NEW]</li>
+<li>Disable PDF &amp; Print buttons for certain users and/or roles types</li>
+<li>Additional Elements to single post type [NEW]</li>
+<li>Dinamic URI for PDF document [NEW]</li>
 <li>Change default PDF file name</li>
 <li>Prevent search engines from indexing links in documents</li>
 <li>Add custom code via plugin settings page</li>

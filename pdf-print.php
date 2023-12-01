@@ -6,7 +6,7 @@ Description: Generate PDF files and print WordPress posts/pages. Customize docum
 Author: BestWebSoft
 Text Domain: pdf-print
 Domain Path: /languages
-Version: 2.3.2
+Version: 2.3.4
 Author URI: https://bestwebsoft.com/
 License: GPLv2 or later
  */
@@ -287,7 +287,7 @@ if ( ! function_exists( 'pdfprnt_get_options_default' ) ) {
 			'suggest_feature_banner' => 1,
 			'file_action'            => 'open',
 			'enabled_roles'          => $enabled_roles,
-			'mpdf_library_version'   => '8.0.8',
+			'mpdf_library_version'   => '8.1.3',
 		);
 
 		$options_default = apply_filters( 'pdfprnt_get_additional_options_default', $options_default );
@@ -610,6 +610,29 @@ if ( ! function_exists( 'pdfprnt_content' ) ) {
 }
 
 /**
+ * Remove Print word from excerpt
+ */
+if ( ! function_exists( 'pdfprnt_excerpt' ) ) {
+	function pdfprnt_excerpt( $content ) {
+		global $pdfprnt_options;
+		$temp    = array();
+		$temp[1] = $content;
+		$title   = $pdfprnt_options['button_title'];
+		if( ! empty( $title['pdf'] ) ) {
+			$temp = explode( $title['pdf'], $content );
+		}
+		if( ! empty( $title['print'] ) ) {
+			$temp = explode( $title['print'], $content );
+		}
+		if ( isset( $temp[1] ) ) {
+			return $temp[1];
+		} else {
+			return $content;
+		}
+	}
+}
+
+/**
  * Output buttons for search or archive pages
  */
 if ( ! function_exists( 'pdfprnt_show_buttons_search_archive' ) ) {
@@ -653,7 +676,7 @@ if ( ! function_exists( 'pdfprnt_show_buttons_search_archive' ) ) {
 				$pdfprnt_is_search_archive = true;
 				$str                       = '<div class="pdfprnt-buttons pdfprnt-buttons-' . ( ( $is_search ) ? 'search' : 'archive' ) . ' pdfprnt-' . $pdfprnt_options['buttons_position'] . '">';
 				if ( $show_button_pdf ) {
-					$str .= pdfprnt_get_button( 'pdf', $current_url );
+					$str .= pdfprnt_get_button( 'pdf', $current_url, 'pdf-search' );
 					add_action( 'wp_footer', 'pdfprnt_add_script' );
 				}
 
@@ -1069,7 +1092,7 @@ if ( ! function_exists( 'pdfprnt_generate_template' ) ) {
 		if ( $is_print && 1 === intval( $pdfprnt_options['show_print_window'] ) ) {
 			$html .= '<script>window.onload = function(){ window.print(); };</script>';
 		}
-			$html .= apply_filters( 'pdfprnt_woocommerce_layout', $is_print, $html );
+			$html .= apply_filters( 'pdfprnt_woocommerce_layout', $html, $is_print );
 			$html .=
 			'</head>
 				<body class="' . ( $is_print ? 'pdfprnt_print ' : '' ) . $wp_locale->text_direction . '">';
@@ -1197,7 +1220,7 @@ if ( ! function_exists( 'pdfprnt_print' ) ) {
 					} else {
 						$upload_dir = wp_upload_dir();
 					}
-					define( '_MPDF_SYSTEM_TTFONTS', $upload_dir['basedir'] . '/pdf-print-fonts/' );
+					@define( '_MPDF_SYSTEM_TTFONTS', $upload_dir['basedir'] . '/pdf-print-fonts/' );
 				}
 
 				/* prepare data */
@@ -1372,12 +1395,18 @@ if ( ! function_exists( 'pdfprnt_print' ) ) {
 					$post_content = preg_replace( "/\[\/?({$shortcodes})[^\]]*?\]/", '', $post_content );
 					$post_content = apply_filters( 'the_content', $post_content );
 
+					$separator = '';
+
+					if ( ! empty( $author ) && ! empty( $date ) ) {
+						$separator = ' | ';
+					}
+					
 					ob_start();
 					?>
 					<div class="post">
 						<?php
 						echo $title .
-							'<div class="postmetadata">' . $author . ' | ' . $date . '</div>' .
+							'<div class="postmetadata">' . $author . $separator . $date . '</div>' .
 							$image;
 						?>
 						<div class="entry-content"><?php echo $post_content; ?></div>
@@ -2025,6 +2054,8 @@ add_filter( 'plugin_action_links', 'pdfprnt_action_links', 10, 2 );
 add_filter( 'plugin_row_meta', 'pdfprnt_links', 10, 2 );
 /* Adding buttons plugin to content */
 add_filter( 'the_content', 'pdfprnt_content' );
+/* Remove Print word from excerpt */
+add_filter( 'get_the_excerpt', 'pdfprnt_excerpt' );
 /* load additional fonts */
 add_action( 'wp_ajax_pdfprnt_load_fonts', 'pdfprnt_load_fonts' );
 /* load mPDF library */

@@ -222,7 +222,7 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 			}
 			$new_library_path = $upload_dir['basedir'] . '/vendor/';
 			if ( ! file_exists( $new_library_path ) ) {
-				$warning .= __( 'The new version of the mPDF library which compatible with PHP V7.x.x is available now! Go to the Misc tab and upgrade the mPDF library if you run into errors or want to use the latest version.', 'pdf-print' );
+				$warning .= __( 'The new version of the mPDF library which compatible with PHP V8.x.x is available now! Go to the Misc tab and upgrade the mPDF library if you run into errors or want to use the latest version.', 'pdf-print' );
 			}
 			?>
 			<div class="updated below-h2" 
@@ -792,7 +792,7 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 								<div class="bws_info">
 									<?php
 									printf(
-										esc_html__( 'This will upgrade the mPDF library to version %s (recommended).', 'pdf-print' ),
+										esc_html__( 'This will upgrade the mPDF library to version %s (recommended). The new version of the mPDF library is compatible with PHP V7.2.x and older', 'pdf-print' ),
 										esc_attr( $this->default_options['mpdf_library_version'] )
 									);
 									?>
