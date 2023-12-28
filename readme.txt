@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://bestwebsoft.com/donate/
 Tags: generate pdf, add pdf button, add print button, pdf plugin, pdf pages, print pages, generate pdf content, generate post pdf, pdf print, pdf print plugin, pdf custom post type, pdf content
 Requires at least: 5.6
-Tested up to: 6.4.1
-Stable tag: 2.3.4
+Tested up to: 6.4.2
+Stable tag: 2.3.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -132,6 +132,10 @@ Some of these translations are not complete. We are constantly adding new featur
 
 * [Updater](https://bestwebsoft.com/products/wordpress/plugins/updater/?k=d74ca3ffdf910e4ec8ee8774573e7b67) - Automatically check and update WordPress website core with all installed plugins and themes to the latest versions.
 * [Multilanguage](https://bestwebsoft.com/products/wordpress/plugins/multilanguage/?k=de96d16614089322ff4067a7868cf910) - Translate WordPress website content to other languages manually. Create multilingual pages, posts, widgets, menus, etc.
+
+== Credits ==
+
+* This plugin incorporates a license verification mechanism to ensure the authenticity of your license key and provide access to premium features and updates. The verification process involves connecting securely to our external service hosted at BestWebSoft website <https://bestwebsoft.com>. Privacy Policy <https://bestwebsoft.com/privacy-policy/>. End user license agreement <https://bestwebsoft.com/end-user-license-agreement/>.
 
 == Installation ==
 
@@ -340,6 +344,13 @@ Replace `bestwebsoft_contact_form` with your shortcode.
 7. Settings page (Output tab) for the PDF&Print in admin panel.
 
 == Changelog ==
+
+= V2.3.6 - 28.12.2023 =
+* Bugfix : Syntax errors fixed.
+
+= V2.3.5 - 26.12.2023 =
+* Update : All functionality was updated for WordPress 6.4.
+* Bugfix : Minor bugs fixed.
 
 = V2.3.4 - 01.12.2023 =
 * Update : BWS Panel section update.
@@ -631,6 +642,13 @@ Replace `bestwebsoft_contact_form` with your shortcode.
 * NEW : Added the ability to output PDF and Print buttons on the type of page.
 
 == Upgrade Notice ==
+
+= V2.3.6 =
+* Bugs fixed.
+
+= V2.3.5 =
+* The compatibility with new WordPress version updated.
+* Bugs fixed.
 
 = V2.3.4 =
 * New features added.

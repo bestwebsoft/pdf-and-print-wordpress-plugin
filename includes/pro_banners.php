@@ -6,6 +6,10 @@
  * @since 1.8.5
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 /**
  * Wrapper. Show ads for PRO on plugin settings page
  *

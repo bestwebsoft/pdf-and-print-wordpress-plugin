@@ -1,13 +1,80 @@
 <?php
-/**
- * Displays the content on the plugin settings page
- */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
 
 if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
+	/**
+	 * Displays the content on the plugin settings page
+	 */
 	class Pdfprnt_Settings_Tabs extends Bws_Settings_Tabs {
-		public $post_types, $button_positions, $button_image, $margin_positions, $default_css_types, $upload_dir, $page_sizes, $editable_roles;
+		/**
+		 * Button types array
+		 *
+		 * @var array
+		 */
+		public $post_types;
+		/**
+		 * Button positions array
+		 *
+		 * @var array
+		 */
+		public $button_positions;
+		/**
+		 * Button image
+		 *
+		 * @var string
+		 */
+		public $button_image;
+		/**
+		 * Margin positions array
+		 *
+		 * @var array
+		 */
+		public $margin_positions;
+		/**
+		 * Default css types array
+		 *
+		 * @var array
+		 */
+		public $default_css_types;
+		/**
+		 * Path to upload dir
+		 *
+		 * @var string
+		 */
+		public $upload_dir;
+		/**
+		 * Page sizes array
+		 *
+		 * @var array
+		 */
+		public $page_sizes;
+		/**
+		 * Roles array
+		 *
+		 * @var array
+		 */
+		public $editable_roles;
+		/**
+		 * Flag for font reload
+		 *
+		 * @var bool
+		 */
 		public $need_fonts_reload = false;
-		private $wp_sizes, $buttons;
+		/**
+		 * Sizes array
+		 *
+		 * @var array
+		 */
+		private $wp_sizes;
+		/**
+		 * Buttons array
+		 *
+		 * @var array
+		 */
+		private $buttons;
 
 		/**
 		 * Constructor.
@@ -16,7 +83,7 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 		 *
 		 * @see Bws_Settings_Tabs::__construct() for more information on default arguments.
 		 *
-		 * @param string $plugin_basename
+		 * @param string $plugin_basename Plugin basename.
 		 */
 		public function __construct( $plugin_basename ) {
 			global $pdfprnt_options, $pdfprnt_plugin_info, $wp_roles;
@@ -122,12 +189,14 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 		 * Display custom error\message\notice
 		 *
 		 * @access public
-		 * @param  $save_results - array with error\message\notice
+		 * @param  array $save_results - array with error\message\notice.
 		 * @return void
 		 */
 		public function display_custom_messages( $save_results ) {
 			global $pdfprnt_is_old_php;
-			$message = $error = $warning = ''; ?>
+			$message = '';
+			$error   = '';
+			$warning = ''; ?>
 			<noscript><div class="error below-h2"><p><strong><?php esc_html_e( 'Please enable JavaScript in your browser.', 'pdf-print' ); ?></strong></p></div></noscript>
 			<?php if ( $pdfprnt_is_old_php ) { ?>
 				<div class="error below-h2"><p><strong><?php printf( esc_html__( 'Pdf&Print plugin requires PHP %s or higher. Please contact your hosting provider to upgrade PHP version.', 'pdf-print' ), '5.4.0' ); ?></strong></p></div>
@@ -200,7 +269,7 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 				$result = pdfprnt_load_fonts();
 				if ( isset( $result['error'] ) ) {
 					$error                  .= '&nbsp;' . $result['error'] . '.&nbsp;' .
-						sprintf(
+					sprintf(
 						__( 'It is necessary to reload fonts. For more info, please see %s', 'pdf-print' ),
 						'<a href="https://support.bestwebsoft.com/hc/en-us/articles/206693223" target="_blank">' . __( 'FAQ', 'pdf-print' ) . '</a>'
 					);
@@ -210,7 +279,7 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 					$message .= '&nbsp;' . $result['done'];
 				}
 			}
-			if ( isset( $_POST['pdfprnt_upgrade_library'] ) ) {
+			if ( isset( $_POST['pdfprnt_upgrade_library'] ) && isset( $_POST['pdfprnt_ajax_nonce'] ) && wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['pdfprnt_ajax_nonce'] ) ), 'pdfprnt_ajax_nonce' ) ) {
 				/* upgrade mPDF library if javascript is disabled */
 				$result = pdfprnt_upgrade_library();
 				if ( isset( $result['error'] ) ) {
@@ -247,102 +316,109 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 		 * Save plugin options to the database
 		 *
 		 * @access public
-		 * @param  void
 		 * @return array    The action results
 		 */
 		public function save_options() {
 
-			$message = $notice = $error = '';
+			$message = '';
+			$notice  = '';
+			$error   = '';
 
 			if ( isset( $_POST['pdfprnt_load_fonts'] ) || isset( $_POST['pdfprnt_upgrade_library'] ) ) {
 				return;
 			}
 
-			foreach ( $this->buttons as $button => $button_name ) {
+			if ( ! isset( $_POST['pdfprnt_nonce_field'] ) || ! wp_verify_nonce( sanitize_text_field( wp_unslash( $_POST['pdfprnt_nonce_field'] ) ), 'pdfprnt_action' ) ) {
+				print esc_html__( 'Sorry, your nonce did not verify.', 'pdf-print' );
+				exit;
+			} else {
 
-				/* Add Button to */
-				$this->options['button_post_types'][ $button ] = array();
-				if ( isset( $_POST['pdfprnt_button_post_types'][ $button ] ) && is_array( $_POST['pdfprnt_button_post_types'][ $button ] ) ) {
-					foreach ( $_POST['pdfprnt_button_post_types'][ $button ] as $post_type ) {
-						if ( array_key_exists( sanitize_text_field( wp_unslash( $post_type ) ), $this->post_types ) ) {
-							$this->options['button_post_types'][ $button ][] = sanitize_text_field( wp_unslash( $post_type ) );
+				foreach ( $this->buttons as $button => $button_name ) {
+					/* Add Button to */
+					$this->options['button_post_types'][ $button ] = array();
+					if ( isset( $_POST['pdfprnt_button_post_types'][ $button ] ) && is_array( $_POST['pdfprnt_button_post_types'][ $button ] ) ) {
+						foreach ( $_POST['pdfprnt_button_post_types'][ $button ] as $post_type ) {
+							$post_type = sanitize_text_field( wp_unslash( $post_type ) );
+							if ( array_key_exists( $post_type, $this->post_types ) ) {
+								$this->options['button_post_types'][ $button ][] = $post_type;
+							}
+						}
+					}
+
+					/* Button Image */
+					$this->options['button_image'][ $button ]['image_src'] = plugins_url( "images/{$button}.png", dirname( __FILE__ ) );
+
+					if ( isset( $_POST['pdfprnt_button_image'][ $button ] ) ) {
+						$new_button_image                                 = sanitize_text_field( wp_unslash( $_POST['pdfprnt_button_image'][ $button ] ) );
+						$this->options['button_image'][ $button ]['type'] = array_key_exists( $new_button_image, $this->button_image ) ? $new_button_image : $this->options['button_image'][ $button ]['type'];
+					}
+
+					/* Button Title */
+					$this->options['button_title'][ $button ] = isset( $_POST['pdfprnt_button_title'][ $button ] ) ? sanitize_text_field( wp_unslash( $_POST['pdfprnt_button_title'][ $button ] ) ) : $this->options['button_title'][ $button ];
+				}
+
+				/* Buttons Position */
+				$this->options['buttons_position'] = isset( $_POST['pdfprnt_buttons_position'] ) && array_key_exists( sanitize_text_field( wp_unslash( $_POST['pdfprnt_buttons_position'] ) ), $this->button_positions ) ? sanitize_text_field( wp_unslash( $_POST['pdfprnt_buttons_position'] ) ) : $this->options['buttons_position'];
+
+				/* Print Preview Window */
+				$this->options['show_print_window'] = ( isset( $_POST['pdfprnt_show_print_window'] ) ) ? 1 : 0;
+
+				/* Creating pdf with  image of screen */
+				$this->options['image_to_pdf'] = ( isset( $_POST['pdfprnt_image_to_pdf'] ) ) ? 1 : 0;
+
+				/* Shortcode Settings */
+				$this->options['do_shorcodes'] = isset( $_POST['pdfprnt_do_shorcodes'] ) ? 1 : 0;
+
+				$this->options['disable_links'] = isset( $_POST['pdfprnt_disable_links'] ) ? 1 : 0;
+				$this->options['remove_links']  = isset( $_POST['pdfprnt_remove_links'] ) ? 1 : 0;
+				/* PDF Page Size */
+				$this->options['pdf_page_size'] = ( isset( $_POST['pdfprnt_pdf_page_size'] ) && in_array( sanitize_text_field( wp_unslash( $_POST['pdfprnt_pdf_page_size'] ) ), $this->page_sizes, true ) ) ? sanitize_text_field( wp_unslash( $_POST['pdfprnt_pdf_page_size'] ) ) : $this->options['pdf_page_size'];
+
+				/* Margins */
+				if ( isset( $_POST['pdfprnt_pdf_margins'] ) && is_array( $_POST['pdfprnt_pdf_margins'] ) ) {
+
+					foreach ( $this->margin_positions as $key => $value ) {
+						if ( isset( $_POST['pdfprnt_pdf_margins'][ $key ] ) ) {
+							$this->options['pdf_margins'][ $key ] = intval( $_POST['pdfprnt_pdf_margins'][ $key ] );
 						}
 					}
 				}
 
-				/* Button Image */
-				$this->options['button_image'][ $button ]['image_src'] = plugins_url( "images/{$button}.png", dirname( __FILE__ ) );
+				/* Additional Elements */
+				$this->options['show_title']          = isset( $_POST['pdfprnt_show_title'] ) ? 1 : 0;
+				$this->options['show_author']         = isset( $_POST['pdfprnt_show_author'] ) ? 1 : 0;
+				$this->options['show_date']           = isset( $_POST['pdfprnt_show_date'] ) ? 1 : 0;
+				$this->options['show_featured_image'] = isset( $_POST['pdfprnt_show_featured_image'] ) ? 1 : 0;
 
-				if ( isset( $_POST['pdfprnt_button_image'][ $button ] ) ) {
-					$new_button_image                                 = sanitize_text_field( wp_unslash( $_POST['pdfprnt_button_image'][ $button ] ) );
-					$this->options['button_image'][ $button ]['type'] = array_key_exists( $new_button_image, $this->button_image ) ? $new_button_image : $this->options['button_image'][ $button ]['type'];
-				}
+				/* Featured Image Size */
+				$this->options['featured_image_size'] = isset( $_POST['pdfprnt_featured_image_size'] ) && in_array( sanitize_text_field( wp_unslash( $_POST['pdfprnt_featured_image_size'] ) ), $this->wp_sizes, true ) ? sanitize_text_field( wp_unslash( $_POST['pdfprnt_featured_image_size'] ) ) : $this->options['featured_image_size'];
 
-				/* Button Title */
-				$this->options['button_title'][ $button ] = isset( $_POST['pdfprnt_button_title'][ $button ] ) ? sanitize_text_field( wp_unslash( $_POST['pdfprnt_button_title'][ $button ] ) ) : $this->options['button_title'][ $button ];
-			}
+				$this->options['use_default_css'] = ( isset( $_POST['pdfprnt_use_default_css'] ) ) ? 1 : 0;
+				$this->options['use_custom_css']  = ( isset( $_POST['pdfprnt_use_custom_css'] ) ) ? 1 : 0;
 
-			/* Buttons Position */
-			$this->options['buttons_position'] = isset( $_POST['pdfprnt_buttons_position'] ) && array_key_exists( sanitize_text_field( wp_unslash( $_POST['pdfprnt_buttons_position'] ) ), $this->button_positions ) ? sanitize_text_field( wp_unslash( $_POST['pdfprnt_buttons_position'] ) ) : $this->options['buttons_position'];
-
-			/* Print Preview Window */
-			$this->options['show_print_window'] = ( isset( $_POST['pdfprnt_show_print_window'] ) ) ? 1 : 0;
-
-			/* Creating pdf with  image of screen */
-			$this->options['image_to_pdf'] = ( isset( $_POST['pdfprnt_image_to_pdf'] ) ) ? 1 : 0;
-
-			/* Shortcode Settings */
-			$this->options['do_shorcodes'] = isset( $_POST['pdfprnt_do_shorcodes'] ) ? 1 : 0;
-
-			$this->options['disable_links'] = isset( $_POST['pdfprnt_disable_links'] ) ? 1 : 0;
-			$this->options['remove_links']  = isset( $_POST['pdfprnt_remove_links'] ) ? 1 : 0;
-			/* PDF Page Size */
-			$this->options['pdf_page_size'] = ( isset( $_POST['pdfprnt_pdf_page_size'] ) && in_array( sanitize_text_field( wp_unslash( $_POST['pdfprnt_pdf_page_size'] ) ), $this->page_sizes ) ) ? sanitize_text_field( wp_unslash( $_POST['pdfprnt_pdf_page_size'] ) ) : $this->options['pdf_page_size'];
-
-			/* Margins */
-			if ( isset( $_POST['pdfprnt_pdf_margins'] ) && is_array( $_POST['pdfprnt_pdf_margins'] ) ) {
-
-				foreach ( $this->margin_positions as $key => $value ) {
-					if ( isset( $_POST['pdfprnt_pdf_margins'][ $key ] ) ) {
-						$this->options['pdf_margins'][ $key ] = intval( $_POST['pdfprnt_pdf_margins'][ $key ] );
+				if ( isset( $_POST['pdfprnt_custom_css_code'] ) ) {
+					$custom_css_code = wp_kses_post( wp_strip_all_tags( wp_unslash( $_POST['pdfprnt_custom_css_code'] ) ) );
+					if ( 10000 < strlen( $custom_css_code ) ) {
+						$error = __( 'You have entered too much text in the "edit styles" field.', 'pdf-print' );
+					} else {
+						$this->options['custom_css_code'] = $custom_css_code;
 					}
 				}
-			}
 
-			/* Additional Elements */
-			$this->options['show_title']          = isset( $_POST['pdfprnt_show_title'] ) ? 1 : 0;
-			$this->options['show_author']         = isset( $_POST['pdfprnt_show_author'] ) ? 1 : 0;
-			$this->options['show_date']           = isset( $_POST['pdfprnt_show_date'] ) ? 1 : 0;
-			$this->options['show_featured_image'] = isset( $_POST['pdfprnt_show_featured_image'] ) ? 1 : 0;
+				/* Buttons open */
+				$this->options['file_action'] = isset( $_POST['pdfprnt_file_action'] ) && in_array( sanitize_text_field( wp_unslash( $_POST['pdfprnt_file_action'] ) ), array( 'download', 'open' ), true ) ? sanitize_text_field( wp_unslash( $_POST['pdfprnt_file_action'] ) ) : $this->options['file_action'];
 
-			/* Featured Image Size */
-			$this->options['featured_image_size'] = isset( $_POST['pdfprnt_featured_image_size'] ) && in_array( sanitize_text_field( wp_unslash( $_POST['pdfprnt_featured_image_size'] ) ), $this->wp_sizes ) ? sanitize_text_field( wp_unslash( $_POST['pdfprnt_featured_image_size'] ) ) : $this->options['featured_image_size'];
-
-			$this->options['use_default_css'] = ( isset( $_POST['pdfprnt_use_default_css'] ) ) ? 1 : 0;
-			$this->options['use_custom_css']  = ( isset( $_POST['pdfprnt_use_custom_css'] ) ) ? 1 : 0;
-
-			if ( isset( $_POST['pdfprnt_custom_css_code'] ) ) {
-				$custom_css_code = wp_kses_post( wp_strip_all_tags( wp_unslash( $_POST['pdfprnt_custom_css_code'] ) ) );
-				if ( 10000 < strlen( $custom_css_code ) ) {
-					$error = __( 'You have entered too much text in the "edit styles" field.', 'pdf-print' );
-				} else {
-					$this->options['custom_css_code'] = $custom_css_code;
+				/* All select */
+				$this->options['enabled_roles'] = array();
+				foreach ( $this->editable_roles as $role => $fields ) {
+					$this->options['enabled_roles'][ $role ] = isset( $_POST[ 'pdfprnt_' . $role ] ) ? 1 : 0;
 				}
+				$this->options['enabled_roles']['unauthorized'] = isset( $_POST['pdfprnt_unauthorized'] ) ? 1 : 0;
+
+				$this->options = apply_filters( 'pdfprnt_before_save_options', $this->options );
+				update_option( 'pdfprnt_options', $this->options );
+				$message .= __( 'Settings saved.', 'pdf-print' );
 			}
-
-			/* Buttons open */
-			$this->options['file_action'] = isset( $_POST['pdfprnt_file_action'] ) && in_array( sanitize_text_field( wp_unslash( $_POST['pdfprnt_file_action'] ) ), array( 'download', 'open' ) ) ? sanitize_text_field( wp_unslash( $_POST['pdfprnt_file_action'] ) ) : $this->options['file_action'];
-
-			/* All select */
-			$this->options['enabled_roles'] = array();
-			foreach ( $this->editable_roles as $role => $fields ) {
-				$this->options['enabled_roles'][ $role ] = isset( $_POST[ 'pdfprnt_' . $role ] ) ? 1 : 0;
-			}
-			$this->options['enabled_roles']['unauthorized'] = isset( $_POST['pdfprnt_unauthorized'] ) ? 1 : 0;
-
-			$this->options = apply_filters( 'pdfprnt_before_save_options', $this->options );
-			update_option( 'pdfprnt_options', $this->options );
-			$message .= __( 'Settings saved.', 'pdf-print' );
 
 			return compact( 'message', 'notice', 'error' );
 		}
@@ -365,7 +441,7 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 								<fieldset>
 									<?php foreach ( $this->post_types as $key => $value ) { ?>
 										<label>
-											<input type="checkbox" name="pdfprnt_button_post_types[<?php echo esc_attr( $button ); ?>][]" value="<?php echo esc_attr( $key ); ?>" <?php checked( in_array( $key, $this->options['button_post_types'][ $button ] ) ); ?> /> <?php echo esc_html( $value->label ); ?>
+											<input type="checkbox" name="pdfprnt_button_post_types[<?php echo esc_attr( $button ); ?>][]" value="<?php echo esc_attr( $key ); ?>" <?php checked( in_array( $key, $this->options['button_post_types'][ $button ], true ) ); ?> /> <?php echo esc_html( $value->label ); ?>
 										</label><br>
 									<?php } ?>
 								</fieldset>
@@ -481,6 +557,7 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 					</td>
 				</tr>
 			</table>
+			<?php wp_nonce_field( 'pdfprnt_action', 'pdfprnt_nonce_field' ); ?>
 			<?php
 		}
 		/**
@@ -500,7 +577,7 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 					<th><?php esc_html_e( 'Full Page Capture to PDF', 'pdf-print' ); ?></th>
 					<td>
 						<label>
-							<input<?php echo $this->change_permission_attr; ?> type="checkbox" name="pdfprnt_image_to_pdf" value="1" <?php checked( 1, $this->options['image_to_pdf'] ); ?> />
+							<input<?php echo wp_kses_post( $this->change_permission_attr ); ?> type="checkbox" name="pdfprnt_image_to_pdf" value="1" <?php checked( 1, $this->options['image_to_pdf'] ); ?> />
 							<span class="bws_info"><?php esc_html_e( 'Enable to take a screenshot of the entire page and generate a PDF file from it.', 'pdf-print' ); ?></span>
 						</label>
 					</td>
@@ -511,7 +588,8 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 						<fieldset>
 							<select name="pdfprnt_pdf_page_size">
 								<?php
-								for ( $i = 0; $i < count( $this->page_sizes ); $i++ ) {
+								$count_page_sizes = count( $this->page_sizes );
+								for ( $i = 0; $i < $count_page_sizes; $i++ ) {
 										$selected = ( $this->options['pdf_page_size'] === $this->page_sizes[ $i ] ) ? ' selected' : '';
 										echo '<option value="' . esc_attr( $this->page_sizes[ $i ] ) . '"' . esc_attr( $selected ) . '>' . esc_attr( $this->page_sizes[ $i ] ) . '</option>';
 								}
@@ -567,16 +645,16 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 					<th><?php esc_html_e( 'Additional Elements', 'pdf-print' ); ?></th>
 					<td>
 						<fieldset>
-							<label><input<?php echo $this->change_permission_attr; ?> type="checkbox" name="pdfprnt_show_title" value="1" class="bws_option_affect" data-affect-show=".pdfprnt-content-before-title" <?php checked( 1, $this->options['show_title'] ); ?> /> <?php esc_html_e( 'Title', 'pdf-print' ); ?></label><br>
-							<label><input<?php echo $this->change_permission_attr; ?> type="checkbox" name="pdfprnt_show_author" value="1" <?php checked( 1, $this->options['show_author'] ); ?> /> <?php esc_html_e( 'Author', 'pdf-print' ); ?>
+							<label><input<?php echo wp_kses_post( $this->change_permission_attr ); ?> type="checkbox" name="pdfprnt_show_title" value="1" class="bws_option_affect" data-affect-show=".pdfprnt-content-before-title" <?php checked( 1, $this->options['show_title'] ); ?> /> <?php esc_html_e( 'Title', 'pdf-print' ); ?></label><br>
+							<label><input<?php echo wp_kses_post( $this->change_permission_attr ); ?> type="checkbox" name="pdfprnt_show_author" value="1" <?php checked( 1, $this->options['show_author'] ); ?> /> <?php esc_html_e( 'Author', 'pdf-print' ); ?>
 								<br>
 								<span class="bws_info"><?php esc_html_e( 'for posts only', 'pdf-print' ); ?></span>
 							</label><br>
-							<label><input<?php echo $this->change_permission_attr; ?> type="checkbox" name="pdfprnt_show_date" value="1" <?php checked( 1, $this->options['show_date'] ); ?> /> <?php esc_html_e( 'Date', 'pdf-print' ); ?>
+							<label><input<?php echo wp_kses_post( $this->change_permission_attr ); ?> type="checkbox" name="pdfprnt_show_date" value="1" <?php checked( 1, $this->options['show_date'] ); ?> /> <?php esc_html_e( 'Date', 'pdf-print' ); ?>
 								<br>
 								<span class="bws_info"><?php esc_html_e( 'for posts only', 'pdf-print' ); ?></span>
 							</label><br>
-							<label><input<?php echo $this->change_permission_attr; ?> type="checkbox" name="pdfprnt_show_featured_image" value="1" <?php checked( 1, $this->options['show_featured_image'] ); ?> /> <?php esc_html_e( 'Featured image', 'pdf-print' ); ?></label>
+							<label><input<?php echo wp_kses_post( $this->change_permission_attr ); ?> type="checkbox" name="pdfprnt_show_featured_image" value="1" <?php checked( 1, $this->options['show_featured_image'] ); ?> /> <?php esc_html_e( 'Featured image', 'pdf-print' ); ?></label>
 						</fieldset>
 					</td>
 				</tr>
@@ -586,7 +664,8 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 					<td>
 						<select name="pdfprnt_featured_image_size">
 							<?php
-							for ( $i = 0; $i < count( $this->wp_sizes ); $i++ ) {
+							$count_wp_sizes = count( $this->wp_sizes );
+							for ( $i = 0; $i < $count_wp_sizes; $i++ ) {
 								printf(
 									'<option value="%s" %s>%s</option>',
 									esc_attr( $this->wp_sizes[ $i ] ),
@@ -704,8 +783,6 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 		 * Display custom metabox
 		 *
 		 * @access public
-		 * @param  void
-		 * @return html
 		 */
 		public function display_metabox() {
 			?>
@@ -738,6 +815,10 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 
 		/**
 		 * Display bws_pro_version block by its name
+		 *
+		 * @param string $block_name Slug for block.
+		 * @param array  $args       Args for block.
+		 * @param bool   $force      Flag force.
 		 */
 		public function pro_block( $block_name = '', $args = array(), $force = false ) {
 			$block_name = 'pdfprnt_' . $block_name;
@@ -764,7 +845,7 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 		 */
 		public function upgrade_mpdf() {
 			/* Disable block if mPDF 7 already installed */
-			$path         = dirname( __FILE__ );
+			$path = dirname( __FILE__ );
 			if ( is_multisite() ) {
 				switch_to_blog( 1 );
 				$upload_dir = wp_upload_dir();
@@ -786,7 +867,7 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 							if ( $is_class_exists ) {
 								$upgrade = __( 'Upgrade', 'pdf-print' );
 								?>
-								<input name="pdfprnt_upgrade_library" type="submit" class="button" value="<?php echo $upgrade; ?>">&nbsp;<span id="pdfprnt_library_loader" class="pdfprnt_loader"><img src="<?php echo plugins_url( '../images/ajax-loader.gif', __FILE__ ); ?>" alt="loader" /></span><br />
+								<input name="pdfprnt_upgrade_library" type="submit" class="button" value="<?php echo esc_html( $upgrade ); ?>">&nbsp;<span id="pdfprnt_library_loader" class="pdfprnt_loader"><img src="<?php echo esc_url( plugins_url( '../images/ajax-loader.gif', __FILE__ ) ); ?>" alt="loader" /></span><br />
 								<input type="hidden" name="pdfprnt_action" value="pdfprnt_upgrade_library" />
 								<input type="hidden" name="pdfprnt_ajax_nonce" value="<?php echo esc_attr( wp_create_nonce( 'pdfprnt_ajax_nonce' ) ); ?>" />
 								<div class="bws_info">

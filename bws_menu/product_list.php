@@ -3,6 +3,10 @@
  * BestWebSoft product list
  */
 
+if ( ! defined( 'ABSPATH' ) ) {
+	exit;
+}
+
 global $bws_plugin_info, $wp_version;
 
 $bws_plugins_category = array(
@@ -153,14 +157,14 @@ $bws_plugins = array(
 		'purchase'     => 'https://bestwebsoft.com/products/wordpress/plugins/google-2-step-verification/buy/?k=b5605ea9bb3628682cfa416e70e78410&pn=' . $bws_plugin_info['id'] . '&v=' . $bws_plugin_info['version'] . '&wp_v=' . $wp_version,
 		'pro_settings' => 'admin.php?page=google-2-step-verification-pro.php',
 	),
-	'adsense-plugin/adsense-plugin.php'                 => array(
+	'bws-adsense/bws-adsense.php'                       => array(
 		'category'     => array( 'marketing' ),
-		'name'         => 'Google Ads',
+		'name'         => 'AdS',
 		'description'  => __( 'Add Adsense ads to WordPress website pages, posts, custom posts, search results, categories, tags, and widgets.', 'bestwebsoft' ),
-		'link'         => 'https://bestwebsoft.com/products/wordpress/plugins/google-adsense/?k=60e3979921e354feb0347e88e7d7b73d&pn=' . $bws_plugin_info['id'] . '&v=' . $bws_plugin_info['version'] . '&wp_v=' . $wp_version,
-		'settings'     => 'admin.php?page=adsense-plugin.php',
+		'link'         => 'https://bestwebsoft.com/products/wordpress/plugins/google-adsense/?k=9d719e415eee289845b00843e8847bc9&pn=' . $bws_plugin_info['id'] . '&v=' . $bws_plugin_info['version'] . '&wp_v=' . $wp_version,
+		'settings'     => 'admin.php?page=bws-adsense.php',
 		'pro_version'  => 'adsense-pro/adsense-pro.php',
-		'purchase'     => 'https://bestwebsoft.com/products/wordpress/plugins/google-adsense/buy/?k=c23889b293d62aa1ad2c96513405f0e1&pn=' . $bws_plugin_info['id'] . '&v=' . $bws_plugin_info['version'] . '&wp_v=' . $wp_version,
+		'purchase'     => 'https://bestwebsoft.com/products/wordpress/plugins/google-adsense/buy/?k=60e3979921e354feb0347e88e7d7b73d&pn=' . $bws_plugin_info['id'] . '&v=' . $bws_plugin_info['version'] . '&wp_v=' . $wp_version,
 		'pro_settings' => 'admin.php?page=adsense-pro.php',
 	),
 	'bws-google-analytics/bws-google-analytics.php'     => array(
@@ -209,6 +213,17 @@ $bws_plugins = array(
 		'description' => __( 'Replace external WordPress website links with Google shortlinks and track click stats.', 'bestwebsoft' ),
 		'link'        => 'https://bestwebsoft.com/products/wordpress/plugins/google-shortlink/?k=afcf3eaed021bbbbeea1090e16bc22db&pn=' . $bws_plugin_info['id'] . '&v=' . $bws_plugin_info['version'] . '&wp_v=' . $wp_version,
 		'settings'    => 'admin.php?page=gglshrtlnk_options',
+	),
+	'gpt-ai-content-creator/gpt-ai-content-creator.php' => array(
+		'category'     => array( 'content', 'recommended' ),
+		'name'         => 'GPT AI Content Creator',
+		'description'  => __( 'Create Content with GPT.', 'bestwebsoft' ),
+		'link'         => 'https://bestwebsoft.com/products/wordpress/plugins/gpt-ai-content-creator/?k=f1ef1b7d7d05f93c570b940cc9acfe15&pn=' . $bws_plugin_info['id'] . '&v=' . $bws_plugin_info['version'] . '&wp_v=' . $wp_version,
+		'settings'     => 'admin.php?page=gpt-ai-content-creator.php',
+		'icon'         => bws_menu_url( 'icons/plugins/' ) . 'gpt-ai-content-creator.png',
+		'pro_version'  => 'gpt-ai-content-creator-pro/gpt-ai-content-creator-pro.php',
+		'purchase'     => 'https://bestwebsoft.com/products/wordpress/plugins/gpt-ai-content-creator/buy/?k=8b19619d4a36f8b42c5d4fbcbd9775bb&pn=' . $bws_plugin_info['id'] . '&v=' . $bws_plugin_info['version'] . '&wp_v=' . $wp_version,
+		'pro_settings' => 'admin.php?page=gpt-ai-content-creator-pro.php',
 	),
 	'htaccess/htaccess.php'                             => array(
 		'category'     => array( 'security' ),
@@ -418,6 +433,9 @@ $bws_plugins = array(
 		'description' => __( 'Add testimonials and feedbacks from your customers to WordPress website posts, pages, and widgets.', 'bestwebsoft' ),
 		'link'        => 'https://bestwebsoft.com/products/wordpress/plugins/testimonials/?k=3fe4bb89dc901c98e43a113e08f8db73&pn=' . $bws_plugin_info['id'] . '&v=' . $bws_plugin_info['version'] . '&wp_v=' . $wp_version,
 		'settings'    => 'admin.php?page=testimonials.php',
+		'pro_version'  => 'bws-testimonials-pro/bws-testimonials-pro.php',
+		'purchase'     => 'https://bestwebsoft.com/products/wordpress/plugins/testimonials/buy/?k=3fe4bb89dc901c98e43a113e08f8db73&pn=' . $bws_plugin_info['id'] . '&v=' . $bws_plugin_info['version'] . '&wp_v=' . $wp_version,
+		'pro_settings' => 'edit.php?post_type=bws-testimonial&page=testimonials-ro.php',
 	),
 	'timesheet/timesheet.php'                           => array(
 		'category'     => array( 'admin-tools' ),
