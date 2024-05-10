@@ -10,14 +10,14 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
-/**
- * Wrapper. Show ads for PRO on plugin settings page
- *
- * @param    string  $func      function to call
- * @param    boolean    $show_cross  when it is 'false' ad will be displayed regardless of if other blocks are closed
- * @return  void
- */
 if ( ! function_exists( 'pdfprnt_pro_block' ) ) {
+	/**
+	 * Wrapper. Show ads for PRO on plugin settings page
+	 *
+	 * @param string  $func        Function to call.
+	 * @param boolean $show_cross  When it is 'false' ad will be displayed regardless of if other blocks are closed.
+	 * @return  void
+	 */
 	function pdfprnt_pro_block( $func, $show_cross = true ) {
 		global $pdfprnt_plugin_info, $wp_version, $pdfprnt_options;
 		if ( ! bws_hide_premium_options_check( $pdfprnt_options ) || ! $show_cross ) { ?>
@@ -38,13 +38,12 @@ if ( ! function_exists( 'pdfprnt_pro_block' ) ) {
 	}
 }
 
-/**
- * The content of ad block on the "Settings" tab
- *
- * @param    void
- * @return  void
- */
 if ( ! function_exists( 'pdfprnt_button_image_block' ) ) {
+	/**
+	 * The content of ad block on the "Settings" tab
+	 *
+	 * @param array $buttons Buttons.
+	 */
 	function pdfprnt_button_image_block( $buttons ) {
 		?>
 		<fieldset>
@@ -60,13 +59,10 @@ if ( ! function_exists( 'pdfprnt_button_image_block' ) ) {
 	}
 }
 
-/**
- * The content of ad block on the "Settings" tab
- *
- * @param    void
- * @return  void
- */
 if ( ! function_exists( 'pdfprnt_noindex_block' ) ) {
+	/**
+	 * The content of ad block on the "Settings" tab
+	 */
 	function pdfprnt_noindex_block() {
 		?>
 		<table class="form-table pdfprnt-table-settings pdfprnt-table-search-engine">		   
@@ -82,13 +78,12 @@ if ( ! function_exists( 'pdfprnt_noindex_block' ) ) {
 	}
 }
 
-/**
- * The content of ad block on the "Output" tab
- *
- * @param    void
- * @return  void
- */
 if ( ! function_exists( 'pdfprnt_filename_orientation_block' ) ) {
+	/**
+	 * The content of ad block on the "Output" tab
+	 *
+	 * @param array $orientation_post_types Orientation for post types.
+	 */
 	function pdfprnt_filename_orientation_block( $orientation_post_types = false ) {
 		?>
 		<table class="form-table pdfprnt-table-settings">
@@ -175,13 +170,10 @@ if ( ! function_exists( 'pdfprnt_filename_orientation_block' ) ) {
 	}
 }
 
-/**
- * The content of ad block on the "Output" tab
- *
- * @param    void
- * @return  void
- */
 if ( ! function_exists( 'pdfprnt_woocommerce_watermark_block' ) ) {
+	/**
+	 * The content of ad block on the "Output" tab
+	 */
 	function pdfprnt_woocommerce_watermark_block() {
 		?>
 		<table class="form-table pdfprnt-table-settings">
@@ -260,6 +252,9 @@ if ( ! function_exists( 'pdfprnt_woocommerce_watermark_block' ) ) {
 }
 
 if ( ! function_exists( 'pdfprnt_fancytree_block' ) ) {
+	/**
+	 * Fancytree block on settings page
+	 */
 	function pdfprnt_fancytree_block() {
 		?>
 		<p><?php esc_html_e( 'Choose the necessary post types (or single pages) where PDF & Print buttons will be displayed', 'pdf-print' ); ?>:</p>
@@ -275,6 +270,9 @@ if ( ! function_exists( 'pdfprnt_fancytree_block' ) ) {
 }
 
 if ( ! function_exists( 'pdfprnt_custom_fields_block' ) ) {
+	/**
+	 * Custom fileds block on settings page
+	 */
 	function pdfprnt_custom_fields_block() {
 		?>
 		<div class="pdfprnt-custom-fields-tab-title">
@@ -350,13 +348,12 @@ if ( ! function_exists( 'pdfprnt_custom_fields_block' ) ) {
 	}
 }
 
-/**
- * The content of ad block on the Headers & Footers page
- *
- * @param    void
- * @return  void
- */
 if ( ! function_exists( 'pdfprnt_headers_footers_list_block' ) ) {
+	/**
+	 * The content of ad block on the Headers & Footers page
+	 *
+	 * @param string $date_format Date format.
+	 */
 	function pdfprnt_headers_footers_list_block( $date_format ) {
 		global $wp_version;
 		$old_wp_version = ( version_compare( $wp_version, '4.3', '<' ) );
@@ -518,13 +515,10 @@ if ( ! function_exists( 'pdfprnt_headers_footers_list_block' ) ) {
 	}
 }
 
-/**
- * The content of ad block on the Headers & Footers page
- *
- * @param    void
- * @return  void
- */
 if ( ! function_exists( 'pdfprnt_headers_footers_editor_block' ) ) {
+	/**
+	 * The content of ad block on the Headers & Footers page
+	 */
 	function pdfprnt_headers_footers_editor_block() {
 		?>
 		<div id="poststuff">

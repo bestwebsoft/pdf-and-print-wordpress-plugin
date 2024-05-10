@@ -183,6 +183,8 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 			}
 
 			$this->wp_sizes = get_intermediate_image_sizes();
+
+			$this->options['file_action'] = 'send_mail' === $this->options['file_action'] ? 'download' : $this->options['file_action'];
 		}
 
 		/**
@@ -389,6 +391,7 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 				$this->options['show_author']         = isset( $_POST['pdfprnt_show_author'] ) ? 1 : 0;
 				$this->options['show_date']           = isset( $_POST['pdfprnt_show_date'] ) ? 1 : 0;
 				$this->options['show_featured_image'] = isset( $_POST['pdfprnt_show_featured_image'] ) ? 1 : 0;
+				$this->options['show_category']       = isset( $_POST['pdfprnt_show_category'] ) ? 1 : 0;
 
 				/* Featured Image Size */
 				$this->options['featured_image_size'] = isset( $_POST['pdfprnt_featured_image_size'] ) && in_array( sanitize_text_field( wp_unslash( $_POST['pdfprnt_featured_image_size'] ) ), $this->wp_sizes, true ) ? sanitize_text_field( wp_unslash( $_POST['pdfprnt_featured_image_size'] ) ) : $this->options['featured_image_size'];
@@ -654,7 +657,11 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 								<br>
 								<span class="bws_info"><?php esc_html_e( 'for posts only', 'pdf-print' ); ?></span>
 							</label><br>
-							<label><input<?php echo wp_kses_post( $this->change_permission_attr ); ?> type="checkbox" name="pdfprnt_show_featured_image" value="1" <?php checked( 1, $this->options['show_featured_image'] ); ?> /> <?php esc_html_e( 'Featured image', 'pdf-print' ); ?></label>
+							<label><input<?php echo wp_kses_post( $this->change_permission_attr ); ?> type="checkbox" name="pdfprnt_show_featured_image" value="1" <?php checked( 1, $this->options['show_featured_image'] ); ?> /> <?php esc_html_e( 'Featured image', 'pdf-print' ); ?></label><br />
+							<label><input<?php echo wp_kses_post( $this->change_permission_attr ); ?> type="checkbox" name="pdfprnt_show_category" value="1" <?php checked( 1, $this->options['show_category'] ); ?> /> <?php esc_html_e( 'Category', 'pdf-print' ); ?>
+								<br>
+								<span class="bws_info"><?php esc_html_e( 'for posts only', 'pdf-print' ); ?></span>
+							</label><br>
 						</fieldset>
 					</td>
 				</tr>

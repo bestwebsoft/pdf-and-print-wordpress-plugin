@@ -270,7 +270,8 @@ if ( ! class_exists( 'Bws_Settings_Tabs' ) ) {
 								</div>
 								<?php
 								if ( ! empty( $this->wp_slug ) ) {
-									bws_plugin_reviews_block( $this->plugins_info['Name'], $this->wp_slug );}
+									bws_plugin_reviews_block( $this->plugins_info['Name'], $this->wp_slug );
+								}
 								?>
 							</div>
 						</div>
@@ -439,21 +440,24 @@ if ( ! class_exists( 'Bws_Settings_Tabs' ) ) {
 			<div class="updated fade inline" 
 			<?php
 			if ( empty( $save_results['message'] ) ) {
-				echo 'style="display:none"';}
+				echo 'style="display:none"';
+			}
 			?>
-			><p><strong><?php echo wp_kses_post( $save_results['message'] ); ?></strong></p></div>
+			><p><strong><?php echo ! empty( $save_results['message'] ) ? wp_kses_post( $save_results['message'] ) : ''; ?></strong></p></div>
 			<div class="updated bws-notice inline" 
 			<?php
 			if ( empty( $save_results['notice'] ) ) {
-				echo 'style="display:none"';}
+				echo 'style="display:none"';
+			}
 			?>
-			><p><strong><?php echo wp_kses_post( $save_results['notice'] ); ?></strong></p></div>
+			><p><strong><?php echo ! empty( $save_results['notice'] ) ? wp_kses_post( $save_results['notice'] ) : ''; ?></strong></p></div>
 			<div class="error inline" 
 			<?php
 			if ( empty( $save_results['error'] ) ) {
-				echo 'style="display:none"';}
+				echo 'style="display:none"';
+			}
 			?>
-			><p><strong><?php echo wp_kses_post( $save_results['error'] ); ?></strong></p></div>
+			><p><strong><?php echo ! empty( $save_results['error'] ) ? wp_kses_post( $save_results['error'] ) : ''; ?></strong></p></div>
 			<?php
 		}
 
@@ -574,7 +578,8 @@ if ( ! class_exists( 'Bws_Settings_Tabs' ) ) {
 										<strong><?php echo esc_html( $name ); ?></strong>
 										<?php
 										if ( ! $this->custom_code_args[ "{$extension}_writeable" ] ) {
-											echo '(' . esc_html__( 'Browsing', 'bestwebsoft' ) . ')';}
+											echo '(' . esc_html__( 'Browsing', 'bestwebsoft' ) . ')';
+										}
 										?>
 									</big>
 								</p>
@@ -583,7 +588,8 @@ if ( ! class_exists( 'Bws_Settings_Tabs' ) ) {
 										<input type="checkbox" value="1" 
 											<?php
 											if ( $this->custom_code_args[ "is_{$extension}_active" ] ) {
-												echo 'checked';}
+												echo 'checked';
+											}
 											?>
 										 />
 										<?php printf( esc_html__( 'Activate custom %s code.', 'bestwebsoft' ), esc_html( $name ) ); ?>
@@ -662,7 +668,8 @@ if ( ! class_exists( 'Bws_Settings_Tabs' ) ) {
 									<input <?php echo esc_attr( wp_kses_data( $this->change_permission_attr ) ); ?> name="bws_hide_premium_options_submit" type="checkbox" value="1" 
 										<?php
 										if ( ! $this->hide_pro_tabs ) {
-											echo 'checked="checked "';}
+											echo 'checked="checked "';
+										}
 										?>
 									/>
 									<span class="bws_info"><?php esc_html_e( 'Enable to display plugin Pro options.', 'bestwebsoft' ); ?></span>
@@ -677,7 +684,8 @@ if ( ! class_exists( 'Bws_Settings_Tabs' ) ) {
 								<input <?php echo esc_attr( wp_kses_data( $this->change_permission_attr ) ); ?> name="bws_track_usage" type="checkbox" value="1" 
 									<?php
 									if ( ! empty( $bstwbsftwppdtplgns_options['track_usage']['products'][ $this->plugin_basename ] ) ) {
-										echo 'checked="checked "';}
+										echo 'checked="checked "';
+									}
 									?>
 								/>
 								<span class="bws_info"><?php esc_html_e( 'Enable to allow tracking plugin usage anonymously in order to make it better.', 'bestwebsoft' ); ?></span>
@@ -1386,7 +1394,7 @@ if ( ! function_exists( 'bws_submit_request_feature_action' ) ) {
 
 		if ( isset( $_REQUEST['bws_ajax_nonce'] ) ) {
 
-			wp_verify_nonce( sanitize_text_field( wp_unslash( $_REQUEST['bws_ajax_nonce'] ) ), 'bws_ajax_nonce' );
+			check_ajax_referer( 'bws_ajax_nonce', sanitize_text_field( wp_unslash( $_REQUEST['bws_ajax_nonce'] ) ) );
 
 			$basename = isset( $_REQUEST['plugin'] ) ? sanitize_text_field( wp_unslash( $_REQUEST['plugin'] ) ) : '';
 			$info     = isset( $_REQUEST['info'] ) ? sanitize_text_field( wp_unslash( $_REQUEST['info'] ) ) : '';

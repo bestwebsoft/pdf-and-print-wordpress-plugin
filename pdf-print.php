@@ -6,7 +6,7 @@ Description: Generate PDF files and print WordPress posts/pages. Customize docum
 Author: BestWebSoft
 Text Domain: pdf-print
 Domain Path: /languages
-Version: 2.3.6
+Version: 2.3.7
 Author URI: https://bestwebsoft.com/
 License: GPLv2 or later
  */
@@ -263,6 +263,7 @@ if ( ! function_exists( 'pdfprnt_get_options_default' ) ) {
 			'show_featured_image'    => 0,
 			'show_author'            => 0,
 			'show_date'              => 0,
+			'show_category'          => 0,
 			'featured_image_size'    => 'thumbnail',
 			'button_image'           => array(
 				'pdf'   => array(
@@ -473,24 +474,24 @@ if ( ! function_exists( 'pdfprnt_shortcode_button_content' ) ) {
 		</div>
 		<?php
 		$script = "function pdfprnt_shortcode_init() {
-            ( function( $ ) {
-                $( '.mce-reset input[name^=\"pdfprnt_selected\"]' ).change( function() {
-                    var result = '';
-                    $( '.mce-reset input[name^=\"pdfprnt_selected\"]' ).each( function() {
-                        if ( $( this ).is( ':checked' ) ) {
-                            result += $( this ).val() + ',';
-                        }
-                    } );
+			( function( $ ) {
+				$( '.mce-reset input[name^=\"pdfprnt_selected\"]' ).change( function() {
+						var result = '';
+					$( '.mce-reset input[name^=\"pdfprnt_selected\"]' ).each( function() {
+						if ( $( this ).is( ':checked' ) ) {
+								result += $( this ).val() + ',';
+						}
+					} );
 
-                    if ( '' == result ) {
-                        $( '.mce-reset #bws_shortcode_display' ).text( '' );
-                    } else {
-                        result = result.slice( 0, - 1 );
-                        $( '.mce-reset #bws_shortcode_display' ).text( '[bws_pdfprint display=\"' + result + '\"]' );
-                    }
-                } );
-            } ) ( jQuery );
-        }";
+					if ( '' == result ) {
+						$( '.mce-reset #bws_shortcode_display' ).text( '' );
+					} else {
+						result = result.slice( 0, - 1 );
+						$( '.mce-reset #bws_shortcode_display' ).text( '[bws_pdfprint display=\"' + result + '\"]' );
+					}
+				} );
+			} ) ( jQuery );
+		}";
 
 		wp_register_script( 'pdfprnt_bws_shortcode_button', '//', false, null, false );
 		wp_enqueue_script( 'pdfprnt_bws_shortcode_button' );
@@ -518,7 +519,7 @@ if ( ! function_exists( 'pdfprnt_get_button' ) ) {
 		if ( 'default' === $pdfprnt_options['button_image'][ $button ]['type'] && ! empty( $pdfprnt_options['button_image'][ $button ]['image_src'] ) ) {
 			$image = sprintf(
 				'<img src="%s" alt="image_%s" title="%s" />',
-				esc_attr( $pdfprnt_options['button_image'][ $button ]['image_src'] ),
+				esc_url( $pdfprnt_options['button_image'][ $button ]['image_src'] ),
 				$button,
 				( ( 'print' === $button ) ? esc_html__( 'Print Content', 'pdf-print' ) : ( ( 'open' === $pdfprnt_options['file_action'] ) ? esc_html__( 'View PDF', 'pdf-print' ) : esc_html__( 'Download PDF', 'pdf-print' ) ) )
 			);
@@ -1307,6 +1308,7 @@ if ( ! function_exists( 'pdfprnt_print' ) ) {
 					$image        = 1 === intval( $pdfprnt_options['show_featured_image'] ) && has_post_thumbnail( $p->ID ) ? '<div class="entry-thumbnail">' . get_the_post_thumbnail( $p->ID, $pdfprnt_options['featured_image_size'] ) . '</div>' : '';
 					$date         = 1 === intval( $pdfprnt_options['show_date'] ) ? '<span class="entry-date">' . get_the_date( get_option( 'date_format' ) ) . '</span>' : '';
 					$author       = 1 === intval( $pdfprnt_options['show_author'] ) ? '<span class="entry-author">' . esc_html__( 'written by', 'pdf-print' ) . ' ' . get_the_author_meta( 'display_name', $p->post_author ) . '</span>' : '';
+					$category     = 1 === intval( $pdfprnt_options['show_category'] ) && has_category( '', $p->ID ) ? '<div class="entry-category">' . __( 'Category', 'pdf-print-pro' ) . ': ' . implode( ',', wp_get_post_categories( $p->ID, array( 'fields' => 'names' ) ) ) . '</div>' : '';
 					/* replacing shortcodes to an empty string which were added to the content */
 					if ( $pattern && preg_match_all( '/' . $pattern . '/s', $p->post_content, $matches ) ) {
 						foreach ( array_unique( $matches[0] ) as $value ) {
@@ -1334,6 +1336,7 @@ if ( ! function_exists( 'pdfprnt_print' ) ) {
 					$html .=
 						'<div class="post">' .
 							$title .
+							$category .
 							'<div class="postmetadata">' . $author . $separator . $date . '</div>' .
 							$image .
 							'<div class="entry-content">' . $post_content . '</div>
@@ -1435,6 +1438,7 @@ if ( ! function_exists( 'pdfprnt_print' ) ) {
 					$image  = 1 === intval( $pdfprnt_options['show_featured_image'] ) && has_post_thumbnail( $p->ID ) ? '<div class="entry-thumbnail">' . get_the_post_thumbnail( $p->ID, $pdfprnt_options['featured_image_size'] ) . '</div>' : '';
 					$date   = 1 === intval( $pdfprnt_options['show_date'] ) ? '<span class="entry-date">' . get_the_date( get_option( 'date_format' ) ) . '</span>' : '';
 					$author = 1 === intval( $pdfprnt_options['show_author'] ) ? '<span class="entry-author">' . esc_html__( 'written by', 'pdf-print' ) . ' ' . get_the_author_meta( 'display_name', $p->post_author ) . '</span>' : '';
+					$category = 1 === intval( $pdfprnt_options['show_category'] ) && has_category( '', $p->ID ) ? '<div class="entry-category">' . __( 'Category', 'pdf-print-pro' ) . ': ' . implode( ',', wp_get_post_categories( $p->ID, array( 'fields' => 'names' ) ) ) . '</div>' : '';
 					/* replacing shortcodes to an empty string which were added to the content */
 					if ( $pattern && preg_match_all( '/' . $pattern . '/s', $p->post_content, $matches ) ) {
 						foreach ( array_unique( $matches[0] ) as $value ) {
@@ -1465,6 +1469,7 @@ if ( ! function_exists( 'pdfprnt_print' ) ) {
 					<div class="post">
 						<?php
 						echo wp_kses_post( $title ) .
+							wp_kses_post( $category ) .
 							'<div class="postmetadata">' . wp_kses_post( $author . $separator . $date ) . '</div>' .
 							wp_kses_post( $image );
 						?>
@@ -1951,131 +1956,6 @@ if ( ! function_exists( 'pdfprnt_plugin_banner' ) ) {
 	}
 }
 
-if ( ! class_exists( 'Pdfprnt_Buttons_Widget' ) ) {
-	/**
-	 * Buttons Widget
-	 */
-	class Pdfprnt_Buttons_Widget extends WP_Widget {
-		public function __construct() {
-			parent::__construct( 'pdfprnt_buttons', esc_html__( 'PDF & Print Buttons', 'pdf-print' ), array( 'description' => esc_html__( 'Show PDF & Print Buttons on your site', 'pdf-print' ) ) );
-		}
-
-		public function widget( $args, $instance ) {
-			global $pdfprnt_options, $pdfprnt_is_search_archive, $pdfprnt_is_custom_post_type;
-			$url     = isset( $_SERVER['HTTP_HOST'] ) && isset( $_SERVER['REQUEST_URI'] ) ? ( is_ssl() ? 'https://' : 'http://' ) . sanitize_text_field( wp_unslash( $_SERVER['HTTP_HOST'] ) ) . sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : '';
-			$url     = esc_url( $url );
-			$buttons = '';
-			$target  = '_blank';
-
-			foreach ( array( 'pdf', 'print' ) as $button ) {
-				$instance[ $button . '_button_show' ]  = ! empty( $instance[ $button . '_button_show' ] ) ? 1 : 0;
-				$instance[ $button . '_button_title' ] = wp_strip_all_tags( $pdfprnt_options['button_title'][ $button ] );
-				if (
-					isset( $pdfprnt_options['button_image'][ $button ]['type'] ) &&
-					in_array( $pdfprnt_options['button_image'][ $button ]['type'], array( 'none', 'default' ), true )
-				) {
-					$instance[ $button . '_button_image' ] = $pdfprnt_options['button_image'][ $button ]['type'];
-				} else {
-					$instance[ $button . '_button_image' ] = 'default';
-				}
-			}
-
-			if ( ! empty( $pdfprnt_is_search_archive ) ) {
-				$custom_query = '-search';
-			} elseif ( ! empty( $pdfprnt_is_custom_post_type ) ) {
-				$custom_query = '-custom';
-			} else {
-				$custom_query = '';
-			}
-
-			if ( 1 === intval( $instance['pdf_button_show'] ) ) {
-				$pdf_url      = add_query_arg( 'print', 'pdf' . $custom_query, $url );
-				$button_title = ! empty( $instance['pdf_button_title'] ) ? '<span class="pdfprnt-button-title pdfprnt-button-pdf-title">' . $instance['pdf_button_title'] . '</span>' : '';
-				$button_image = 'none' !== $instance['pdf_button_image'] ? '<img src="' . plugins_url( 'images/pdf.png', __FILE__ ) . '" alt="image_pdf" title="' . esc_html__( 'View PDF', 'pdf-print' ) . '" />' : '';
-
-				if ( $pdfprnt_options['image_to_pdf'] ) {
-					$pdf_url = 'javascript: imageToPdf()';
-					$target  = '_self';
-				}
-				$buttons_pdf = sprintf(
-					'<a href="%s" class="pdfprnt-button pdfprnt-button-pdf" target="%s">%s%s</a>',
-					$pdf_url,
-					$target,
-					$button_title,
-					$button_image
-				);
-				$buttons_pdf = apply_filters( 'pdfprnt_add_atribute_rel_widget_pdf', $buttons_pdf, $pdf_url, $target, $button_image, $button_title );
-				add_action( 'wp_footer', 'pdfprnt_add_script' );
-			}
-			if ( 1 === intval( $instance['print_button_show'] ) ) {
-				$print_url     = add_query_arg( 'print', 'print' . $custom_query, $url );
-				$button_title  = ! empty( $instance['print_button_title'] ) ? '<span class="pdfprnt-button-title pdfprnt-button-pdf-title">' . $instance['print_button_title'] . '</span>' : '';
-				$button_image  = 'none' !== $instance['print_button_image'] ? '<img src="' . plugins_url( 'images/print.png', __FILE__ ) . '" alt="image_print" title="' . esc_html__( 'Print Content', 'pdf-print-plus' ) . '" />' : '';
-				$buttons_print = sprintf(
-					'<a href="%s" class="pdfprnt-button pdfprnt-button-print" target="_blank">%s%s</a>',
-					$print_url,
-					$button_image,
-					$button_title
-				);
-				$buttons_print = apply_filters( 'pdfprnt_add_atribute_rel_widget_print', $buttons_print, $print_url, $button_image, $button_title );
-			}
-			$buttons = $buttons_pdf . $buttons_print;
-			if ( ! empty( $buttons ) ) {
-				$title   = ( ! empty( $instance['title'] ) ) ? apply_filters( 'widget_title', $instance['title'], $instance, $this->id_base ) : '';
-				$buttons = sprintf(
-					'<div class="pdfprnt-buttons pdfprnt-widget">%s</div>',
-					$buttons
-				);
-				echo wp_kses_post( $args['before_widget'] );
-				if ( ! empty( $title ) ) {
-					echo wp_kses_post( $args['before_title'] . $title . $args['after_title'] );
-				}
-				echo wp_kses_post( $buttons );
-				echo wp_kses_post( $args['after_widget'] );
-			}
-		}
-
-		public function update( $new_instance, $old_instance ) {
-			$instance                      = $old_instance;
-			$instance['title']             = wp_strip_all_tags( $new_instance['title'] );
-			$instance['pdf_button_show']   = ! empty( $new_instance['pdf_button_show'] ) ? 1 : 0;
-			$instance['print_button_show'] = ! empty( $new_instance['print_button_show'] ) ? 1 : 0;
-			return $instance;
-		}
-
-		public function form( $instance ) {
-			global $pdfprnt_options;
-			if ( empty( $pdfprnt_options ) ) {
-				$pdfprnt_options = get_option( 'pdfprnt_options' );
-			}
-
-			if ( ! empty( $instance ) ) {
-				$title             = ! empty( $instance['title'] ) ? esc_attr( $instance['title'] ) : '';
-				$pdf_button_show   = ! empty( $instance['pdf_button_show'] ) ? 1 : 0;
-				$print_button_show = ! empty( $instance['print_button_show'] ) ? 1 : 0;
-			} else {
-				$title             = '';
-				$pdf_button_show   = 1;
-				$print_button_show = 1;
-			}
-			?>
-			<p>
-				<label for="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>"><?php esc_html_e( 'Title', 'pdf-print' ); ?>:</label>
-				<input class="widefat" id="<?php echo esc_attr( $this->get_field_id( 'title' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'title' ) ); ?>" type="text" value="<?php echo esc_html( $title ); ?>" />
-			</p>
-			<p>
-				<input class="widefat pdfprnt-show-button-cb" id="<?php echo esc_attr( $this->get_field_id( 'pdf_button_show' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'pdf_button_show' ) ); ?>" type="checkbox" value="1" <?php checked( 1, $pdf_button_show ); ?> />
-				<label for="<?php echo esc_attr( $this->get_field_id( 'pdf_button_show' ) ); ?>"><?php esc_html_e( 'Display PDF Button', 'pdf-print' ); ?></label>
-			</p>
-			<p>
-				<input class="widefat pdfprnt-show-button-cb" id="<?php echo esc_attr( $this->get_field_id( 'print_button_show' ) ); ?>" name="<?php echo esc_attr( $this->get_field_name( 'print_button_show' ) ); ?>" type="checkbox" value="1" <?php checked( 1, $print_button_show ); ?> />
-				<label for="<?php echo esc_attr( $this->get_field_id( 'print_button_show' ) ); ?>"><?php esc_html_e( 'Display Print Button', 'pdf-print' ); ?></label>
-			</p>
-			<?php
-		}
-	}
-}
-
 if ( ! function_exists( 'pdfprnt_register_buttons_widget' ) ) {
 	/**
 	 * Register buttons Widget
@@ -2083,6 +1963,9 @@ if ( ! function_exists( 'pdfprnt_register_buttons_widget' ) ) {
 	function pdfprnt_register_buttons_widget() {
 		global $pdfprnt_is_old_php;
 		if ( ! $pdfprnt_is_old_php ) {
+			if ( ! class_exists( 'Pdfprnt_Buttons_Widget' ) ) {
+				require_once dirname( __FILE__ ) . '/includes/class-pdfprnt-buttons-widget.php';
+			}
 			register_widget( 'Pdfprnt_Buttons_Widget' );
 		}
 	}

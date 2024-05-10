@@ -1199,7 +1199,12 @@ if ( ! function_exists( 'bws_shortcode_media_button_popup' ) ) {
 					<div class="clear"></div>
 					<div id="bws_shortcode_content">
 						<h4><?php esc_html_e( 'Shortcode settings', 'bestwebsoft' ); ?></h4>
-						<?php echo wp_kses_post( apply_filters( 'bws_shortcode_button_content', '' ) ); ?>
+						<?php
+						$ws_shortcode_button_content = apply_filters( 'bws_shortcode_button_content', '' );
+						if ( ! empty( $ws_shortcode_button_content ) ) {
+							echo wp_kses_post( $ws_shortcode_button_content );
+						}
+						?>
 					</div>
 					<div class="clear"></div>
 					<div id="bws_shortcode_content_bottom">
