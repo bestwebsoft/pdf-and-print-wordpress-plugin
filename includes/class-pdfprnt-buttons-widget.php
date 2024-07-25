@@ -51,7 +51,7 @@ class Pdfprnt_Buttons_Widget extends WP_Widget {
 		if ( 1 === intval( $instance['pdf_button_show'] ) ) {
 			$pdf_url      = add_query_arg( 'print', 'pdf' . $custom_query, $url );
 			$button_title = ! empty( $instance['pdf_button_title'] ) ? '<span class="pdfprnt-button-title pdfprnt-button-pdf-title">' . $instance['pdf_button_title'] . '</span>' : '';
-			$button_image = 'none' !== $instance['pdf_button_image'] ? '<img src="' . plugins_url( 'images/pdf.png', __FILE__ ) . '" alt="image_pdf" title="' . esc_html__( 'View PDF', 'pdf-print' ) . '" />' : '';
+			$button_image = 'none' !== $instance['pdf_button_image'] ? '<img src="' . plugins_url( 'images/pdf.png', dirname( __FILE__ ) ) . '" alt="image_pdf" title="' . esc_html__( 'View PDF', 'pdf-print' ) . '" />' : '';
 
 			if ( $pdfprnt_options['image_to_pdf'] ) {
 				$pdf_url = 'javascript: imageToPdf()';
@@ -70,7 +70,7 @@ class Pdfprnt_Buttons_Widget extends WP_Widget {
 		if ( 1 === intval( $instance['print_button_show'] ) ) {
 			$print_url     = add_query_arg( 'print', 'print' . $custom_query, $url );
 			$button_title  = ! empty( $instance['print_button_title'] ) ? '<span class="pdfprnt-button-title pdfprnt-button-pdf-title">' . $instance['print_button_title'] . '</span>' : '';
-			$button_image  = 'none' !== $instance['print_button_image'] ? '<img src="' . plugins_url( 'images/print.png', __FILE__ ) . '" alt="image_print" title="' . esc_html__( 'Print Content', 'pdf-print-plus' ) . '" />' : '';
+			$button_image  = 'none' !== $instance['print_button_image'] ? '<img src="' . plugins_url( 'images/print.png', dirname( __FILE__ ) ) . '" alt="image_print" title="' . esc_html__( 'Print Content', 'pdf-print-plus' ) . '" />' : '';
 			$buttons_print = sprintf(
 				'<a href="%s" class="pdfprnt-button pdfprnt-button-print" target="_blank">%s%s</a>',
 				$print_url,
