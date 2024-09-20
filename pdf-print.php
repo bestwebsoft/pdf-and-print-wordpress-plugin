@@ -6,7 +6,7 @@ Description: Generate PDF files and print WordPress posts/pages. Customize docum
 Author: BestWebSoft
 Text Domain: pdf-print
 Domain Path: /languages
-Version: 2.3.8
+Version: 2.3.9
 Author URI: https://bestwebsoft.com/
 License: GPLv2 or later
  */
@@ -316,7 +316,11 @@ if ( ! function_exists( 'pdfprnt_settings_page' ) ) {
 		} ?>
 		<div class="wrap">
 			<h1 class="pdfprnt-title"><?php esc_html_e( 'PDF & Print Settings', 'pdf-print' ); ?></h1>
-			<?php $page->display_content(); ?>
+			<?php
+			if ( function_exists( 'bws_plugin_promo_banner' ) ) {
+				echo bws_plugin_promo_banner( $pdfprnt_plugin_info, 'pdfprnt_options', 'pdf-print', 'https://bestwebsoft.com/products/wordpress/plugins/pdf-print/?utm_source=wordpress&utm_medium=plugin_banner&utm_campaign=upgrade' );
+			}
+			$page->display_content(); ?>
 		</div>
 		<?php
 	}
@@ -1944,14 +1948,17 @@ if ( ! function_exists( 'pdfprnt_plugin_banner' ) ) {
 	/**
 	 * Display plugn banner
 	 */
-	function pdfprnt_plugin_banner() {
+		function pdfprnt_plugin_banner() {
 		global $hook_suffix, $pdfprnt_plugin_info;
-		if ( 'plugins.php' === $hook_suffix ) {
+			if ( 'plugins.php' === $hook_suffix ) {
 			bws_plugin_banner_to_settings( $pdfprnt_plugin_info, 'pdfprnt_options', 'pdf-print', 'admin.php?page=pdf-print.php' );
-		}
+				if ( function_exists( 'bws_plugin_banner_to_promo' ) ) {
+    				bws_plugin_banner_to_promo( $pdfprnt_plugin_info, 'pdfprnt_options', 'pdf-print', 'admin.php?page=pdf-print.php', array( __( 'Test your PDF Generation Settings', 'bestwebsoft' ), __( "Ensure your PDF & Print plugin is correctly configured. Check your settings now!", 'bestwebsoft' ) ) );
+			}
 
-		if ( isset( $_REQUEST['page'] ) && 'pdf-print.php' === $_REQUEST['page'] ) {
+			if ( isset( $_REQUEST['page'] ) && 'pdf-print.php' === $_REQUEST['page'] ) {
 			bws_plugin_suggest_feature_banner( $pdfprnt_plugin_info, 'pdfprnt_options', 'pdf-print' );
+			}
 		}
 	}
 }
