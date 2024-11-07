@@ -4,7 +4,7 @@ Donate link: https://bestwebsoft.com/donate/
 Tags: generate pdf, add pdf button, add print button, pdf plugin, pdf pages, print pages, generate pdf content, generate post pdf, pdf print, pdf print plugin, pdf custom post type, pdf content
 Requires at least: 5.6
 Tested up to: 6.6
-Stable tag: 2.3.9
+Stable tag: 2.4.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -123,6 +123,15 @@ Earn 20% commission by selling the premium WordPress plugins and themes by BestW
 
 = Translation =
 
+* German (de_DE)
+* French (fr_FR)
+* Japan (ja)
+* Portugese (pt_BR)
+* Spanish (es_ES)
+* Italian (it_IT)
+* Swedish (sv_SE)
+* Norwegian (no)
+* Danish (da)
 * Russian (ru_RU)
 * Ukrainian (uk)
 
@@ -344,6 +353,12 @@ Replace `bestwebsoft_contact_form` with your shortcode.
 7. Settings page (Output tab) for the PDF&Print in admin panel.
 
 == Changelog ==
+
+= V2.4.0 - 07.11.2024 =
+* Bugfix : Check settings notice has been fixed.
+* Bugfix : Elementor widget warning has been fixed.
+* Bugfix : Button display on iOS has been fixed.
+* NEW : New languages has been added.
 
 = V2.3.9 - 20.09.2024 =
 * Update : BWS Panel section update.
@@ -656,6 +671,9 @@ Replace `bestwebsoft_contact_form` with your shortcode.
 * NEW : Added the ability to output PDF and Print buttons on the type of page.
 
 == Upgrade Notice ==
+
+= V2.4.0 =
+* Bugs fixed.
 
 = V2.3.9 =
 * Functionality improved.

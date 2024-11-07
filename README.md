@@ -4,7 +4,7 @@
 <p>With this plugin you can create PDF files and print pages quickly. Add PDF &amp; print buttons to WordPress website pages, posts, and widgets.</p>
 <p>Generate documents with custom styles and useful data for archiving, sharing, or saving.</p>
 <p><a href="https://bestwebsoft.com/demo-for-pdf-print/?ref=readme" rel="nofollow ugc">View Demo</a></p>
-<p><span class="embed-youtube" style="text-align:center; display: block;"></span></p>
+<p></p>
 <h4>Free Features</h4>
 <ul>
 <li>Automatically add PDF &amp; Print buttons to:
@@ -130,6 +130,15 @@
 <p>Earn 20% commission by selling the premium WordPress plugins and themes by BestWebSoft — <a href="https://bestwebsoft.com/affiliate/?utm_source=plugin&amp;utm_medium=readme&amp;utm_campaign=affiliate_program" rel="nofollow ugc">https://bestwebsoft.com/affiliate/</a></p>
 <h4>Translation</h4>
 <ul>
+<li>German (de_DE)</li>
+<li>French (fr_FR)</li>
+<li>Japan (ja)</li>
+<li>Portugese (pt_BR)</li>
+<li>Spanish (es_ES)</li>
+<li>Italian (it_IT)</li>
+<li>Swedish (sv_SE)</li>
+<li>Norwegian (no)</li>
+<li>Danish (da)</li>
 <li>Russian (ru_RU)</li>
 <li>Ukrainian (uk)</li>
 </ul>

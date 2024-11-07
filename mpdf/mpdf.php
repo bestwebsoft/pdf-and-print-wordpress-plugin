@@ -10892,7 +10892,8 @@ class mPDF
 	{
 		$filter = ($this->compress) ? '/Filter /FlateDecode ' : '';
 		reset($this->images);
-		while (list($file, $info) = each($this->images)) {
+		//while (list($file, $info) = each($this->images)) {
+		foreach ($this->images as $file => $info) {
 			$this->_newobj();
 			$this->images[$file]['n'] = $this->n;
 			$this->_out('<</Type /XObject');
@@ -13038,7 +13039,8 @@ class mPDF
 	function _putformobjects()
 	{
 		reset($this->formobjects);
-		while (list($file, $info) = each($this->formobjects)) {
+		//while (list($file, $info) = each($this->formobjects)) {
+		foreach( $this->formobjects as $file => $info ) {
 			$this->_newobj();
 			$this->formobjects[$file]['n'] = $this->n;
 			$this->_out('<</Type /XObject');
@@ -30645,8 +30647,9 @@ class mPDF
 			} else {
 				$size *= $maxsize * 2;
 			}
-		} else
-			$size *= (25.4 / $this->dpi); //nothing == px
+		} else {
+			@$size *= (25.4 / $this->dpi);
+		}
 
 		return $size;
 	}

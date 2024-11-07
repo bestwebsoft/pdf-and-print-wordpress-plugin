@@ -6,7 +6,7 @@ Description: Generate PDF files and print WordPress posts/pages. Customize docum
 Author: BestWebSoft
 Text Domain: pdf-print
 Domain Path: /languages
-Version: 2.3.9
+Version: 2.4.0
 Author URI: https://bestwebsoft.com/
 License: GPLv2 or later
  */
@@ -305,6 +305,7 @@ if ( ! function_exists( 'pdfprnt_settings_page' ) ) {
 	 * Settings page
 	 */
 	function pdfprnt_settings_page() {
+		global $pdfprnt_plugin_info;
 		require_once dirname( __FILE__ ) . '/includes/pro_banners.php';
 		if ( ! class_exists( 'Bws_Settings_Tabs' ) ) {
 			require_once dirname( __FILE__ ) . '/bws_menu/class-bws-settings.php';
@@ -638,7 +639,7 @@ if ( ! function_exists( 'pdfprnt_excerpt' ) ) {
 		global $pdfprnt_options;
 		$temp    = array();
 		$temp[1] = $content;
-		$title   = $pdfprnt_options['button_title'];
+		$title   = isset( $pdfprnt_options['button_title'] ) ? $pdfprnt_options['button_title'] : array( 'pdf' => '', 'print' => '' );
 		if ( ! empty( $title['pdf'] ) ) {
 			$temp = explode( $title['pdf'], $content );
 		}
@@ -1952,12 +1953,12 @@ if ( ! function_exists( 'pdfprnt_plugin_banner' ) ) {
 		global $hook_suffix, $pdfprnt_plugin_info;
 			if ( 'plugins.php' === $hook_suffix ) {
 			bws_plugin_banner_to_settings( $pdfprnt_plugin_info, 'pdfprnt_options', 'pdf-print', 'admin.php?page=pdf-print.php' );
-				if ( function_exists( 'bws_plugin_banner_to_promo' ) ) {
-    				bws_plugin_banner_to_promo( $pdfprnt_plugin_info, 'pdfprnt_options', 'pdf-print', 'admin.php?page=pdf-print.php', array( __( 'Test your PDF Generation Settings', 'bestwebsoft' ), __( "Ensure your PDF & Print plugin is correctly configured. Check your settings now!", 'bestwebsoft' ) ) );
+			if ( function_exists( 'bws_plugin_banner_to_promo' ) ) {
+				bws_plugin_banner_to_promo( $pdfprnt_plugin_info, 'pdfprnt_options', 'pdf-print', 'admin.php?page=pdf-print.php', array( __( 'Test your PDF Generation Settings', 'bestwebsoft' ), __( "Ensure your PDF & Print plugin is correctly configured. Check your settings now!", 'bestwebsoft' ) ) );
 			}
 
 			if ( isset( $_REQUEST['page'] ) && 'pdf-print.php' === $_REQUEST['page'] ) {
-			bws_plugin_suggest_feature_banner( $pdfprnt_plugin_info, 'pdfprnt_options', 'pdf-print' );
+				bws_plugin_suggest_feature_banner( $pdfprnt_plugin_info, 'pdfprnt_options', 'pdf-print' );
 			}
 		}
 	}

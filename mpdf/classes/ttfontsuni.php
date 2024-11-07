@@ -605,7 +605,7 @@ class TTFontFile
 		else if ($names[1])
 			$psName = preg_replace('/ /', '-', $names[1]);
 		else
-			$psName = '';
+			$psName = array();
 		if (!$psName)
 			throw new MpdfException("Could not find PostScript font name: " . $this->filename);
 		// CHECK IF psName valid (PadaukBook contains illegal characters in Name ID 6 i.e. Postscript Name)
