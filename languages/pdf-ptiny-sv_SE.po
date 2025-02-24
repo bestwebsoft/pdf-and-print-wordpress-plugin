@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PDF & Print by BestWebSoft\n"
-"POT-Creation-Date: 2024-11-07 14:32+0200\n"
-"PO-Revision-Date: 2024-11-07 14:34+0200\n"
+"POT-Creation-Date: 2025-02-24 14:45+0200\n"
+"PO-Revision-Date: 2025-02-24 14:46+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: sv_SE\n"
@@ -33,35 +33,35 @@ msgid "Show PDF & Print Buttons on your site"
 msgstr "Visa PDF- och utskriftsknappar på din webbplats"
 
 # automatic translation
-#: includes/class-pdfprnt-buttons-widget.php:54 pdf-print.php:529
+#: includes/class-pdfprnt-buttons-widget.php:58 pdf-print.php:530
 msgid "View PDF"
 msgstr "Visa PDF"
 
 # automatic translation
-#: includes/class-pdfprnt-buttons-widget.php:73 pdf-print.php:529
+#: includes/class-pdfprnt-buttons-widget.php:77 pdf-print.php:530
 msgid "Print Content"
 msgstr "Skriv ut innehåll"
 
 # automatic translation
-#: includes/class-pdfprnt-buttons-widget.php:134
-#: includes/class-pdfprnt-settings.php:651 includes/pro_banners.php:396
+#: includes/class-pdfprnt-buttons-widget.php:138
+#: includes/class-pdfprnt-settings.php:671 includes/pro_banners.php:396
 #: includes/pro_banners.php:486
 msgid "Title"
 msgstr "Titel"
 
 # automatic translation
-#: includes/class-pdfprnt-buttons-widget.php:139
+#: includes/class-pdfprnt-buttons-widget.php:143
 msgid "Display PDF Button"
 msgstr "Visa PDF-knapp"
 
 # automatic translation
-#: includes/class-pdfprnt-buttons-widget.php:143
+#: includes/class-pdfprnt-buttons-widget.php:147
 msgid "Display Print Button"
 msgstr "Visa knappen utskrift"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:92 pdf-print.php:45 pdf-print.php:979
-#: pdf-print.php:999
+#: includes/class-pdfprnt-settings.php:92 pdf-print.php:45 pdf-print.php:986
+#: pdf-print.php:1006
 msgid "Settings"
 msgstr "Inställningar"
 
@@ -96,12 +96,12 @@ msgid "License Key"
 msgstr "Licensnyckel"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:129 pdf-print.php:469
+#: includes/class-pdfprnt-settings.php:129 pdf-print.php:470
 msgid "PDF"
 msgstr "PDF"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:130 pdf-print.php:474
+#: includes/class-pdfprnt-settings.php:130 pdf-print.php:475
 msgid "Print"
 msgstr "Skriv ut"
 
@@ -181,12 +181,12 @@ msgid "Right"
 msgstr "Höger"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:202
+#: includes/class-pdfprnt-settings.php:206
 msgid "Please enable JavaScript in your browser."
 msgstr "Vänligen aktivera JavaScript i din webbläsare."
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:204
+#: includes/class-pdfprnt-settings.php:208
 #, php-format
 msgid ""
 "Pdf&Print plugin requires PHP %s or higher. Please contact your hosting "
@@ -196,14 +196,14 @@ msgstr ""
 "hostingleverantör för att uppgradera PHP-versionen."
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:228
+#: includes/class-pdfprnt-settings.php:232
 msgid "Warning: Not enough permissions for the folder"
 msgstr ""
 "Varning för otillräcklig behörighet: Inte tillräckligt med behörigheter för "
 "mappen"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:231
+#: includes/class-pdfprnt-settings.php:235
 #, php-format
 msgid ""
 "Please check and change permissions for your plugins folder (for folders - "
@@ -213,33 +213,33 @@ msgstr ""
 "för filer - 644). För mer information, vänligen se %1$s och %2$s."
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:232
+#: includes/class-pdfprnt-settings.php:236
 msgid "Changing File Permissions"
 msgstr "Ändra filbehörigheter"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:233
-#: includes/class-pdfprnt-settings.php:264
-#: includes/class-pdfprnt-settings.php:276
-#: includes/class-pdfprnt-settings.php:719 pdf-print.php:1001
-#: pdf-print.php:1032
+#: includes/class-pdfprnt-settings.php:237
+#: includes/class-pdfprnt-settings.php:268
+#: includes/class-pdfprnt-settings.php:280
+#: includes/class-pdfprnt-settings.php:739 pdf-print.php:1008
+#: pdf-print.php:1039
 msgid "FAQ"
 msgstr "FAQ"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:249
+#: includes/class-pdfprnt-settings.php:253
 #, php-format
 msgid "The folder %s was removed."
 msgstr "Mappen %s har tagits bort."
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:257
+#: includes/class-pdfprnt-settings.php:261
 #, php-format
 msgid "Some fonts were removed from %s folder."
 msgstr "Vissa teckensnitt har tagits bort från mappen %s."
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:263 pdf-print.php:1031
+#: includes/class-pdfprnt-settings.php:267 pdf-print.php:1038
 #, php-format
 msgid "It is necessary to reload fonts. For more info, please see %s."
 msgstr ""
@@ -247,7 +247,7 @@ msgstr ""
 "%s."
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:275
+#: includes/class-pdfprnt-settings.php:279
 #, php-format
 msgid "It is necessary to reload fonts. For more info, please see %s"
 msgstr ""
@@ -255,7 +255,7 @@ msgstr ""
 "%s"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:296
+#: includes/class-pdfprnt-settings.php:300
 msgid ""
 "The new version of the mPDF library which compatible with PHP V8.x.x is "
 "available now! Go to the Misc tab and upgrade the mPDF library if you run "
@@ -265,33 +265,33 @@ msgstr ""
 "tillgänglig nu! Gå till fliken Övrigt och uppgradera mPDF-biblioteket om du "
 "stöter på fel eller vill använda den senaste versionen."
 
-#: includes/class-pdfprnt-settings.php:334
+#: includes/class-pdfprnt-settings.php:338
 msgid "Sorry, your nonce did not verify."
 msgstr "Tyvärr, ditt unika nummer (”nonce”) kunde inte verifieras."
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:405
+#: includes/class-pdfprnt-settings.php:409
 msgid "You have entered too much text in the \"edit styles\" field."
 msgstr "Du har skrivit in för mycket text i fältet \"edit styles\"."
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:423
+#: includes/class-pdfprnt-settings.php:430
 msgid "Settings saved."
 msgstr "Inställningar sparade."
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:433 pdf-print.php:44 pdf-print.php:45
-#: pdf-print.php:319
+#: includes/class-pdfprnt-settings.php:440 pdf-print.php:44 pdf-print.php:45
+#: pdf-print.php:320
 msgid "PDF & Print Settings"
 msgstr "PDF- och utskriftsinställningar"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:438
+#: includes/class-pdfprnt-settings.php:445
 msgid "Add Button to"
 msgstr "Lägg till knapp i"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:454
+#: includes/class-pdfprnt-settings.php:461
 msgid ""
 "Follow the instruction in order to add the PDF & Print button to a custom "
 "post or page template."
@@ -300,91 +300,109 @@ msgstr ""
 "inläggs- eller sidmall."
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:454 includes/pro_banners.php:582
+#: includes/class-pdfprnt-settings.php:461 includes/pro_banners.php:582
 #: includes/pro_banners.php:637
 msgid "Learn More"
 msgstr "Läs mer"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:458
+#: includes/class-pdfprnt-settings.php:465
 msgid "Buttons Position"
 msgstr "Knappar Position"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:469
+#: includes/class-pdfprnt-settings.php:476
 msgid "Select buttons position in the content (default is Top Right)."
 msgstr ""
 "Välj knapparnas position i innehållet (standard är längst upp till höger)."
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:473
+#: includes/class-pdfprnt-settings.php:480
 msgid "Button Image"
 msgstr "Kanppbild"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:485
+#: includes/class-pdfprnt-settings.php:492
 msgid "Default Image"
 msgstr "Standardbild"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:498
+#: includes/class-pdfprnt-settings.php:505
 msgid "Button Title"
 msgstr "Knapptitel"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:511
+#: includes/class-pdfprnt-settings.php:518
 msgid "Print Preview Window"
 msgstr "Fönster för utskriftsförhandsgranskning"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:515
+#: includes/class-pdfprnt-settings.php:522
 msgid "Enable to display print preview window with advanced settings."
 msgstr ""
 "Aktivera för att visa fönstret för förhandsgranskning av utskrift med "
 "avancerade inställningar."
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:526
+#: includes/class-pdfprnt-settings.php:533
 msgid "Default PDF Button Action"
 msgstr "Standardåtgärd för PDF-knapp"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:530 pdf-print.php:529
+#: includes/class-pdfprnt-settings.php:537 pdf-print.php:530
 msgid "Download PDF"
 msgstr "Ladda ner PDF"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:533
+#: includes/class-pdfprnt-settings.php:540
 msgid "Open PDF"
 msgstr "Öppna PDF"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:539
+#: includes/class-pdfprnt-settings.php:546
+msgid "Default Print Button Action"
+msgstr "Standardåtgärd för utskriftsknapp"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:550
+msgid "Plugin functions"
+msgstr "Plugin-funktioner"
+
+#: includes/class-pdfprnt-settings.php:553
+msgid "CTRL + P"
+msgstr "CTRL + P"
+
+#: includes/class-pdfprnt-settings.php:553
+msgid "simulate the CTRL + P keyboard shortcut"
+msgstr "simulera kortkommandot CTRL + P"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:559
 msgid "Enable Buttons for"
 msgstr "Aktivera knappar för"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:543 includes/pro_banners.php:362
+#: includes/class-pdfprnt-settings.php:563 includes/pro_banners.php:362
 msgid "All"
 msgstr "Alla"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:557
+#: includes/class-pdfprnt-settings.php:577
 msgid "Unauthorized"
 msgstr "Obehörig"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:572
+#: includes/class-pdfprnt-settings.php:592
 msgid "Document Output Settings"
 msgstr "Inställningar för dokumentutmatning"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:580
+#: includes/class-pdfprnt-settings.php:600
 msgid "Full Page Capture to PDF"
 msgstr "Full Page Capture till PDF"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:584
+#: includes/class-pdfprnt-settings.php:604
 msgid ""
 "Enable to take a screenshot of the entire page and generate a PDF file from "
 "it."
@@ -393,27 +411,27 @@ msgstr ""
 "från den."
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:589
+#: includes/class-pdfprnt-settings.php:609
 msgid "PDF Page Size"
 msgstr "PDF Sidoformat"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:605
+#: includes/class-pdfprnt-settings.php:625
 msgid "Margins"
 msgstr "Marginaler"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:612
+#: includes/class-pdfprnt-settings.php:632
 msgid "px"
 msgstr "px"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:621
+#: includes/class-pdfprnt-settings.php:641
 msgid "Print Shortcodes"
 msgstr "Skriv ut kortkoder"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:625
+#: includes/class-pdfprnt-settings.php:645
 msgid ""
 "Enable to print shortcodes with data generated by other plugins "
 "(recommended)."
@@ -422,85 +440,85 @@ msgstr ""
 "plugins (rekommenderas)."
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:630
+#: includes/class-pdfprnt-settings.php:650
 msgid "Remove Links"
 msgstr "Ta bort länkar"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:634
+#: includes/class-pdfprnt-settings.php:654
 msgid "Enable to remove links from PDF and Print document."
 msgstr "Gör det möjligt att ta bort länkar från PDF- och utskriftsdokument."
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:639
+#: includes/class-pdfprnt-settings.php:659
 msgid "Link Annotations"
 msgstr "Länka anteckningar"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:643
+#: includes/class-pdfprnt-settings.php:663
 msgid "Enable to remove hover link styles in PDF document."
 msgstr "Gör det möjligt att ta bort stilar för svävande länkar i PDF-dokument."
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:648
+#: includes/class-pdfprnt-settings.php:668
 msgid "Additional Elements"
 msgstr "Ytterligare element"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:652
+#: includes/class-pdfprnt-settings.php:672
 msgid "Author"
 msgstr "Författare"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:654
-#: includes/class-pdfprnt-settings.php:658
-#: includes/class-pdfprnt-settings.php:663
+#: includes/class-pdfprnt-settings.php:674
+#: includes/class-pdfprnt-settings.php:678
+#: includes/class-pdfprnt-settings.php:683
 msgid "for posts only"
 msgstr "endast för inlägg"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:656
+#: includes/class-pdfprnt-settings.php:676
 msgid "Date"
 msgstr "Datum"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:660
+#: includes/class-pdfprnt-settings.php:680
 msgid "Featured image"
 msgstr "Utvald bild"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:661 pdf-print.php:1316
-#: pdf-print.php:1446
+#: includes/class-pdfprnt-settings.php:681 pdf-print.php:1323
+#: pdf-print.php:1453
 msgid "Category"
 msgstr "Kategori"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:670
+#: includes/class-pdfprnt-settings.php:690
 msgid "Featured Image Size"
 msgstr "Storlek på Utvald bild"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:697
+#: includes/class-pdfprnt-settings.php:717
 msgid "Additional Fonts"
 msgstr "Ytterligare teckensnitt"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:705
+#: includes/class-pdfprnt-settings.php:725
 msgid "Reload Fonts"
 msgstr "Ladda om teckensnitt"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:707
+#: includes/class-pdfprnt-settings.php:727
 msgid "Load Fonts"
 msgstr "Ladda teckensnitt"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:714
+#: includes/class-pdfprnt-settings.php:734
 msgid "Additional fonts were loaded successfully"
 msgstr "Ytterligare teckensnitt laddades framgångsrikt"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:719
+#: includes/class-pdfprnt-settings.php:739
 msgid ""
 "If you have some problems with your internet connection, please, try to load "
 "additional fonts manually. For more info, please see"
@@ -509,19 +527,19 @@ msgstr ""
 "ytterligare teckensnitt manuellt. För mer information, vänligen se"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:721
+#: includes/class-pdfprnt-settings.php:741
 msgid "Load additional fonts required for correct PDF file(-s) display."
 msgstr ""
 "Ladda ytterligare teckensnitt som krävs för korrekt visning av PDF-fil(er)."
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:725
-#: includes/class-pdfprnt-settings.php:889
+#: includes/class-pdfprnt-settings.php:745
+#: includes/class-pdfprnt-settings.php:909
 msgid "WARNING"
 msgstr "VARNING"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:725
+#: includes/class-pdfprnt-settings.php:745
 msgid ""
 "ZipArchive Class is not installed on your server. It is impossible to load "
 "additional fonts."
@@ -530,68 +548,68 @@ msgstr ""
 "ladda ytterligare teckensnitt."
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:733
+#: includes/class-pdfprnt-settings.php:753
 msgid "Default CSS"
 msgstr "Standard CSS"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:738
+#: includes/class-pdfprnt-settings.php:758
 msgid "Enable to apply CSS from the current theme. Disable to use default CSS."
 msgstr ""
 "Aktivera för att använda CSS från det aktuella temat. Avaktivera för att "
 "använda standard CSS."
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:744
+#: includes/class-pdfprnt-settings.php:764
 msgid "Custom CSS"
 msgstr "Anpassad CSS"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:749
+#: includes/class-pdfprnt-settings.php:769
 msgid "Enable to add custom CSS code to documents."
 msgstr "Gör det möjligt att lägga till anpassad CSS-kod i dokument."
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:770
+#: includes/class-pdfprnt-settings.php:790
 msgid "Display Settings"
 msgstr "Visningsinställningar"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:783
+#: includes/class-pdfprnt-settings.php:803
 msgid "Custom Fields Settings"
 msgstr "Inställningar för anpassade fält"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:798
+#: includes/class-pdfprnt-settings.php:818
 msgid "PDF & Print Shortcode"
 msgstr "PDF & Skriv ut kortkod"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:801
+#: includes/class-pdfprnt-settings.php:821
 msgid "Add PDF & Print buttons to a widget."
 msgstr "Lägg till PDF- och utskriftsknappar i en widget."
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:801
+#: includes/class-pdfprnt-settings.php:821
 msgid "Navigate to Widgets"
 msgstr "Navigera till Widgets"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:804
+#: includes/class-pdfprnt-settings.php:824
 msgid "Add PDF button to your posts or pages using the following shortcode:"
 msgstr ""
 "Lägg till PDF-knappen i dina inlägg eller sidor med hjälp av följande "
 "kortkod:"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:808
+#: includes/class-pdfprnt-settings.php:828
 msgid "Add Print button to your posts or pages using the following shortcode:"
 msgstr ""
 "Lägg till Print-knappen i dina inlägg eller sidor med hjälp av följande "
 "kortkod:"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:812
+#: includes/class-pdfprnt-settings.php:832
 msgid ""
 "Add PDF & Print buttons to your posts or pages using the following shortcode:"
 msgstr ""
@@ -599,27 +617,27 @@ msgstr ""
 "följande kortkod:"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:816
+#: includes/class-pdfprnt-settings.php:836
 msgid "Create a page break in PDF document:"
 msgstr "Skapa en sidbrytning i ett PDF-dokument:"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:836 includes/pro_banners.php:27
+#: includes/class-pdfprnt-settings.php:856 includes/pro_banners.php:27
 msgid "Close"
 msgstr "Stäng"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:870
+#: includes/class-pdfprnt-settings.php:890
 msgid "Upgrade the mPDF library"
 msgstr "Uppgradera mPDF-biblioteket"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:875
+#: includes/class-pdfprnt-settings.php:895
 msgid "Upgrade"
 msgstr "Uppgradera"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:883
+#: includes/class-pdfprnt-settings.php:903
 #, php-format
 msgid ""
 "This will upgrade the mPDF library to version %s (recommended). The new "
@@ -630,7 +648,7 @@ msgstr ""
 "V7.2.x och äldre"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:889
+#: includes/class-pdfprnt-settings.php:909
 msgid ""
 "ZipArchive сlass is not installed on your server. It is impossible to "
 "upgrade the mPDF library."
@@ -644,7 +662,7 @@ msgid "This options is available in Pro version of the plugin"
 msgstr "Detta alternativ är tillgängligt i Pro-versionen av plugin-programmet"
 
 # automatic translation
-#: includes/pro_banners.php:33 pdf-print.php:50 pdf-print.php:389
+#: includes/pro_banners.php:33 pdf-print.php:50 pdf-print.php:390
 msgid "Upgrade to Pro"
 msgstr "Uppgradera till Pro"
 
@@ -1110,102 +1128,102 @@ msgid "Save Changes"
 msgstr "Spara ändringar"
 
 # automatic translation
-#: pdf-print.php:46 pdf-print.php:348
+#: pdf-print.php:46 pdf-print.php:349
 msgid "Headers & Footers"
 msgstr "Sidhuvuden och sidfötter"
 
 # automatic translation
-#: pdf-print.php:344 pdf-print.php:355
+#: pdf-print.php:345 pdf-print.php:356
 msgid "Add New"
 msgstr "Lägg till ny"
 
 # automatic translation
-#: pdf-print.php:345
+#: pdf-print.php:346
 msgid "Header & Footer Template"
 msgstr "Mall för sidhuvud och sidfot"
 
 # automatic translation
-#: pdf-print.php:365
+#: pdf-print.php:366
 msgid "This tab contains Pro options only."
 msgstr "Den här fliken innehåller endast Pro-alternativ."
 
 # automatic translation
-#: pdf-print.php:367
+#: pdf-print.php:368
 #, php-format
 msgid "%1$sChange the settings%2$s to view the Pro options."
 msgstr "%1$sÄndra inställningarna%2$s för att visa Pro-alternativen."
 
 # automatic translation
-#: pdf-print.php:465
+#: pdf-print.php:466
 msgid "Add PDF & Print Buttons to your page or post"
 msgstr "Lägg till PDF- och utskriftsknappar på din sida eller i ditt inlägg"
 
 # automatic translation
-#: pdf-print.php:1002
+#: pdf-print.php:1009
 msgid "Support"
 msgstr "Support"
 
 # automatic translation
-#: pdf-print.php:1027
+#: pdf-print.php:1034
 msgid "Loading of fonts. It might take a several minutes."
 msgstr "Inläsning av teckensnitt. Det kan ta flera minuter."
 
 # automatic translation
-#: pdf-print.php:1028
+#: pdf-print.php:1035
 msgid "Loading the mPDF library. It will take few minutes."
 msgstr "Ladda mPDF-biblioteket. Det kommer att ta några minuter."
 
 # automatic translation
-#: pdf-print.php:1121
+#: pdf-print.php:1128
 #, php-format
 msgid "Search Results for: %s"
 msgstr "Sökresultat för: %s"
 
 # automatic translation
-#: pdf-print.php:1315 pdf-print.php:1445
+#: pdf-print.php:1322 pdf-print.php:1452
 msgid "written by"
 msgstr "skriven av"
 
 # automatic translation
-#: pdf-print.php:1607
+#: pdf-print.php:1614
 msgid "Check your internet connection"
 msgstr "Kontrollera din internetanslutning"
 
 # automatic translation
-#: pdf-print.php:1612
+#: pdf-print.php:1619
 msgid "Cannot load files in to \"uploads\" folder. Check your permissions"
 msgstr ""
 "Det går inte att ladda filer i mappen \"uploads\". Kontrollera dina "
 "behörigheter"
 
 # automatic translation
-#: pdf-print.php:1644 pdf-print.php:1772
+#: pdf-print.php:1651 pdf-print.php:1779
 msgid "Additional fonts were loaded successfully."
 msgstr "Ytterligare teckensnitt laddades framgångsrikt."
 
 # automatic translation
-#: pdf-print.php:1647 pdf-print.php:1691
+#: pdf-print.php:1654 pdf-print.php:1698
 msgid "Some errors occurred during loading files."
 msgstr "Några fel inträffade under inläsningen av filer."
 
 # automatic translation
-#: pdf-print.php:1650 pdf-print.php:1694
+#: pdf-print.php:1657 pdf-print.php:1701
 msgid "Can not extract files from zip-archive."
 msgstr "Kan inte extrahera filer från zip-arkiv."
 
 # automatic translation
-#: pdf-print.php:1654
+#: pdf-print.php:1661
 #, php-format
 msgid "Cannot create %s folder. Check your permissions."
 msgstr "Det går inte att skapa mappen %s. Kontrollera dina behörigheter."
 
 # automatic translation
-#: pdf-print.php:1688
+#: pdf-print.php:1695
 msgid "The mPDF library has been loaded successfully."
 msgstr "MPDF-biblioteket har laddats framgångsrikt."
 
 # automatic translation
-#: pdf-print.php:1698
+#: pdf-print.php:1705
 #, php-format
 msgid "Cannot extract files into %s folder. Check your permissions."
 msgstr ""
@@ -1213,11 +1231,11 @@ msgstr ""
 "behörigheter."
 
 # automatic translation
-#: pdf-print.php:1957
+#: pdf-print.php:1964
 msgid "Test your PDF Generation Settings"
 msgstr "Testa dina inställningar för PDF-generering"
 
-#: pdf-print.php:1957
+#: pdf-print.php:1964
 msgid ""
 "Ensure your PDF & Print plugin is correctly configured. Check your settings "
 "now!"
@@ -1795,10 +1813,6 @@ msgstr "https://bestwebsoft.com/"
 #~ msgid "Sorry, email message could not be delivered."
 #~ msgstr ""
 #~ "Entschuldigung, die E-Mail-Nachricht konnte nicht zugestellt werden."
-
-# automatic translation
-#~ msgid "Plugins"
-#~ msgstr "Plugins"
 
 # automatic translation
 #~ msgid "Themes"

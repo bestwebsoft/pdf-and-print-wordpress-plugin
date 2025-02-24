@@ -185,6 +185,10 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 			$this->wp_sizes = get_intermediate_image_sizes();
 
 			$this->options['file_action'] = 'send_mail' === $this->options['file_action'] ? 'download' : $this->options['file_action'];
+
+			if ( ! isset( $this->options['print_action'] ) ) {
+				$this->options['print_action'] = 'plugin_function';
+			}
 		}
 
 		/**
@@ -411,6 +415,9 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 				/* Buttons open */
 				$this->options['file_action'] = isset( $_POST['pdfprnt_file_action'] ) && in_array( sanitize_text_field( wp_unslash( $_POST['pdfprnt_file_action'] ) ), array( 'download', 'open' ), true ) ? sanitize_text_field( wp_unslash( $_POST['pdfprnt_file_action'] ) ) : $this->options['file_action'];
 
+				/* Buttons open */
+				$this->options['print_action'] = isset( $_POST['pdfprnt_print_action'] ) && in_array( $_POST['pdfprnt_print_action'], array( 'plugin_function', 'ctrl_p' ) ) ? $_POST['pdfprnt_print_action'] : $this->options['print_action'];
+
 				/* All select */
 				$this->options['enabled_roles'] = array();
 				foreach ( $this->editable_roles as $role => $fields ) {
@@ -532,6 +539,19 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 							<label>
 								<input type="radio" name="pdfprnt_file_action" value="open" <?php checked( $this->options['file_action'], 'open' ); ?> /><?php esc_html_e( 'Open PDF', 'pdf-print' ); ?>
 							</label><br />
+						</fieldset>
+					</td>
+				</tr>
+				<tr>
+					<th><?php esc_html_e( 'Default Print Button Action', 'pdf-print' ); ?></th>
+					<td>
+						<fieldset>
+							<label>
+								<input<?php echo $this->change_permission_attr; ?> type="radio" name="pdfprnt_print_action" value="plugin_function" <?php checked( $this->options['print_action'], 'plugin_function' ); ?> /><?php esc_html_e( 'Plugin functions', 'pdf-print' ); ?>
+							</label><br />
+							<label>
+								<input<?php echo $this->change_permission_attr; ?> type="radio" name="pdfprnt_print_action" value="ctrl_p" <?php checked( $this->options['print_action'], 'ctrl_p' ); ?> /><?php esc_html_e( 'CTRL + P', 'pdf-print' ); ?> <span class="bws_info">(<?php esc_html_e( 'simulate the CTRL + P keyboard shortcut', 'pdf-print' ); ?>)</span>
+							</label><br />								
 						</fieldset>
 					</td>
 				</tr>

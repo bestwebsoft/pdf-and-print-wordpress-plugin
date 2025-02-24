@@ -6,7 +6,7 @@ Description: Generate PDF files and print WordPress posts/pages. Customize docum
 Author: BestWebSoft
 Text Domain: pdf-print
 Domain Path: /languages
-Version: 2.4.0
+Version: 2.4.1
 Author URI: https://bestwebsoft.com/
 License: GPLv2 or later
  */
@@ -290,6 +290,7 @@ if ( ! function_exists( 'pdfprnt_get_options_default' ) ) {
 			'first_install'          => strtotime( 'now' ),
 			'suggest_feature_banner' => 1,
 			'file_action'            => 'open',
+			'print_action' 					 => 'plugin_function',
 			'enabled_roles'          => $enabled_roles,
 			'mpdf_library_version'   => '8.1.3',
 		);
@@ -549,6 +550,12 @@ if ( ! function_exists( 'pdfprnt_get_button' ) ) {
 			$url    = 'javascript: imageToPdf()';
 			$target = '_self';
 		}
+
+		if ( 'print' === $button && 'ctrl_p' === $pdfprnt_options['print_action'] ) {
+			$url = "javascript: window.print()";
+			$target = '_self';
+		}
+		
 		$link = sprintf(
 			'<a href="%s" class="pdfprnt-button pdfprnt-button-%s" target="%s">%s%s</a>',
 			$url,
@@ -794,7 +801,7 @@ if ( ! function_exists( 'pdfprnt_auto_show_buttons_search_archive' ) ) {
 		$display_in_archive = ( ( is_archive() || is_category() || is_tax() || is_tag() || is_author() ) && ( in_array( 'pdfprnt_archives', $pdfprnt_options['button_post_types']['pdf'], true ) || in_array( 'pdfprnt_archives', $pdfprnt_options['button_post_types']['print'], true ) ) );
 		$display_in_blog    = ( ( is_home() ) && ( in_array( 'pdfprnt_blog', $pdfprnt_options['button_post_types']['pdf'], true ) || in_array( 'pdfprnt_blog', $pdfprnt_options['button_post_types']['print'], true ) ) );
 
-		if ( $display_in_search || $display_in_archive || $display_in_blog ) {
+		if ( ( $display_in_search || $display_in_archive || $display_in_blog ) && pdfprnt_is_user_role_enabled() ) {
 			global $pdfprnt_show_archive_start, $pdfprnt_show_archive_end;
 			$pdfprnt_show_archive_start = 0;
 			$pdfprnt_show_archive_end   = 0;

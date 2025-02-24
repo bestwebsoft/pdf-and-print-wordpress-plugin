@@ -4,6 +4,8 @@ var beforeImageToPdf, afterImageToPdf;
 function imageToPdf() {
     ( function( $ ) {
 
+		window.scrollTo( 0, 0 );
+
         var deferreds = [];
         var fileSettings = {
             'pageSize': pdfprnt_file_settings.page_size.toLowerCase(),

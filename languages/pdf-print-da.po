@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: PDF & Print by BestWebSoft\n"
-"POT-Creation-Date: 2024-11-07 14:32+0200\n"
-"PO-Revision-Date: 2024-11-07 14:43+0200\n"
+"POT-Creation-Date: 2025-02-24 14:45+0200\n"
+"PO-Revision-Date: 2025-02-24 14:45+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: da\n"
@@ -33,35 +33,35 @@ msgid "Show PDF & Print Buttons on your site"
 msgstr "Vis PDF- og printknapper på din hjemmeside"
 
 # automatic translation
-#: includes/class-pdfprnt-buttons-widget.php:54 pdf-print.php:529
+#: includes/class-pdfprnt-buttons-widget.php:58 pdf-print.php:530
 msgid "View PDF"
 msgstr "Vis PDF"
 
 # automatic translation
-#: includes/class-pdfprnt-buttons-widget.php:73 pdf-print.php:529
+#: includes/class-pdfprnt-buttons-widget.php:77 pdf-print.php:530
 msgid "Print Content"
 msgstr "Udskriv indhold"
 
 # automatic translation
-#: includes/class-pdfprnt-buttons-widget.php:134
-#: includes/class-pdfprnt-settings.php:651 includes/pro_banners.php:396
+#: includes/class-pdfprnt-buttons-widget.php:138
+#: includes/class-pdfprnt-settings.php:671 includes/pro_banners.php:396
 #: includes/pro_banners.php:486
 msgid "Title"
 msgstr "Titel"
 
 # automatic translation
-#: includes/class-pdfprnt-buttons-widget.php:139
+#: includes/class-pdfprnt-buttons-widget.php:143
 msgid "Display PDF Button"
 msgstr "Vis PDF-knap"
 
 # automatic translation
-#: includes/class-pdfprnt-buttons-widget.php:143
+#: includes/class-pdfprnt-buttons-widget.php:147
 msgid "Display Print Button"
 msgstr "Display Print-knap"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:92 pdf-print.php:45 pdf-print.php:979
-#: pdf-print.php:999
+#: includes/class-pdfprnt-settings.php:92 pdf-print.php:45 pdf-print.php:986
+#: pdf-print.php:1006
 msgid "Settings"
 msgstr "Indstillinger"
 
@@ -96,12 +96,12 @@ msgid "License Key"
 msgstr "Licensnøgle"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:129 pdf-print.php:469
+#: includes/class-pdfprnt-settings.php:129 pdf-print.php:470
 msgid "PDF"
 msgstr "PDF"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:130 pdf-print.php:474
+#: includes/class-pdfprnt-settings.php:130 pdf-print.php:475
 msgid "Print"
 msgstr "Print"
 
@@ -181,12 +181,12 @@ msgid "Right"
 msgstr "Højre"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:202
+#: includes/class-pdfprnt-settings.php:206
 msgid "Please enable JavaScript in your browser."
 msgstr "Aktivér venligst JavaScript i din browser."
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:204
+#: includes/class-pdfprnt-settings.php:208
 #, php-format
 msgid ""
 "Pdf&Print plugin requires PHP %s or higher. Please contact your hosting "
@@ -196,12 +196,12 @@ msgstr ""
 "at opgradere PHP-versionen."
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:228
+#: includes/class-pdfprnt-settings.php:232
 msgid "Warning: Not enough permissions for the folder"
 msgstr "Advarsel: Ikke nok tilladelser til mappen"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:231
+#: includes/class-pdfprnt-settings.php:235
 #, php-format
 msgid ""
 "Please check and change permissions for your plugins folder (for folders - "
@@ -211,33 +211,33 @@ msgstr ""
 "for filer - 644). For mere information, se venligst %1$s og %2$s."
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:232
+#: includes/class-pdfprnt-settings.php:236
 msgid "Changing File Permissions"
 msgstr "Ændring af filtilladelser"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:233
-#: includes/class-pdfprnt-settings.php:264
-#: includes/class-pdfprnt-settings.php:276
-#: includes/class-pdfprnt-settings.php:719 pdf-print.php:1001
-#: pdf-print.php:1032
+#: includes/class-pdfprnt-settings.php:237
+#: includes/class-pdfprnt-settings.php:268
+#: includes/class-pdfprnt-settings.php:280
+#: includes/class-pdfprnt-settings.php:739 pdf-print.php:1008
+#: pdf-print.php:1039
 msgid "FAQ"
 msgstr "FAQ"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:249
+#: includes/class-pdfprnt-settings.php:253
 #, php-format
 msgid "The folder %s was removed."
 msgstr "Mappen %s blev fjernet."
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:257
+#: includes/class-pdfprnt-settings.php:261
 #, php-format
 msgid "Some fonts were removed from %s folder."
 msgstr "Nogle skrifttyper blev fjernet fra %s-mappen."
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:263 pdf-print.php:1031
+#: includes/class-pdfprnt-settings.php:267 pdf-print.php:1038
 #, php-format
 msgid "It is necessary to reload fonts. For more info, please see %s."
 msgstr ""
@@ -245,14 +245,14 @@ msgstr ""
 "venligst %s."
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:275
+#: includes/class-pdfprnt-settings.php:279
 #, php-format
 msgid "It is necessary to reload fonts. For more info, please see %s"
 msgstr ""
 "Det er nødvendigt at genindlæse skrifttyper. For mere info, se venligst %s"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:296
+#: includes/class-pdfprnt-settings.php:300
 msgid ""
 "The new version of the mPDF library which compatible with PHP V8.x.x is "
 "available now! Go to the Misc tab and upgrade the mPDF library if you run "
@@ -262,33 +262,33 @@ msgstr ""
 "tilgængelig nu! Gå til fanen Misc og opgrader mPDF-biblioteket, hvis du "
 "støder på fejl eller ønsker at bruge den nyeste version."
 
-#: includes/class-pdfprnt-settings.php:334
+#: includes/class-pdfprnt-settings.php:338
 msgid "Sorry, your nonce did not verify."
 msgstr "Beklager, din auktions annonce blev ikke godkendt."
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:405
+#: includes/class-pdfprnt-settings.php:409
 msgid "You have entered too much text in the \"edit styles\" field."
 msgstr "Du har indtastet for meget tekst i feltet \"Rediger stilarter\"."
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:423
+#: includes/class-pdfprnt-settings.php:430
 msgid "Settings saved."
 msgstr "Indstillinger gemt."
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:433 pdf-print.php:44 pdf-print.php:45
-#: pdf-print.php:319
+#: includes/class-pdfprnt-settings.php:440 pdf-print.php:44 pdf-print.php:45
+#: pdf-print.php:320
 msgid "PDF & Print Settings"
 msgstr "PDF- og udskriftsindstillinger"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:438
+#: includes/class-pdfprnt-settings.php:445
 msgid "Add Button to"
 msgstr "Tilføj knap til"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:454
+#: includes/class-pdfprnt-settings.php:461
 msgid ""
 "Follow the instruction in order to add the PDF & Print button to a custom "
 "post or page template."
@@ -297,90 +297,108 @@ msgstr ""
 "indlæg eller en sideskabelon."
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:454 includes/pro_banners.php:582
+#: includes/class-pdfprnt-settings.php:461 includes/pro_banners.php:582
 #: includes/pro_banners.php:637
 msgid "Learn More"
 msgstr "Lær mere"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:458
+#: includes/class-pdfprnt-settings.php:465
 msgid "Buttons Position"
 msgstr "Knapper Position"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:469
+#: includes/class-pdfprnt-settings.php:476
 msgid "Select buttons position in the content (default is Top Right)."
 msgstr "Vælg knappernes placering i indholdet (standard er øverst til højre)."
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:473
+#: includes/class-pdfprnt-settings.php:480
 msgid "Button Image"
 msgstr "Billede af knap"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:485
+#: includes/class-pdfprnt-settings.php:492
 msgid "Default Image"
 msgstr "Standard billede"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:498
+#: includes/class-pdfprnt-settings.php:505
 msgid "Button Title"
 msgstr "Knap Titel"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:511
+#: includes/class-pdfprnt-settings.php:518
 msgid "Print Preview Window"
 msgstr "Vindue til forhåndsvisning af udskrift"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:515
+#: includes/class-pdfprnt-settings.php:522
 msgid "Enable to display print preview window with advanced settings."
 msgstr ""
 "Aktivér for at vise vinduet med forhåndsvisning af udskrift med avancerede "
 "indstillinger."
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:526
+#: includes/class-pdfprnt-settings.php:533
 msgid "Default PDF Button Action"
 msgstr "Standard PDF-knaphandling"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:530 pdf-print.php:529
+#: includes/class-pdfprnt-settings.php:537 pdf-print.php:530
 msgid "Download PDF"
 msgstr "Hent PDF"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:533
+#: includes/class-pdfprnt-settings.php:540
 msgid "Open PDF"
 msgstr "Åbn PDF"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:539
+#: includes/class-pdfprnt-settings.php:546
+msgid "Default Print Button Action"
+msgstr "Standardhandling for printknap"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:550
+msgid "Plugin functions"
+msgstr "Plugin-funktioner"
+
+#: includes/class-pdfprnt-settings.php:553
+msgid "CTRL + P"
+msgstr "CTRL + P"
+
+#: includes/class-pdfprnt-settings.php:553
+msgid "simulate the CTRL + P keyboard shortcut"
+msgstr "simulere tastaturgenvejen CTRL + P"
+
+# automatic translation
+#: includes/class-pdfprnt-settings.php:559
 msgid "Enable Buttons for"
 msgstr "Aktiver knapper til"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:543 includes/pro_banners.php:362
+#: includes/class-pdfprnt-settings.php:563 includes/pro_banners.php:362
 msgid "All"
 msgstr "Alle"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:557
+#: includes/class-pdfprnt-settings.php:577
 msgid "Unauthorized"
 msgstr "Uautoriseret"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:572
+#: includes/class-pdfprnt-settings.php:592
 msgid "Document Output Settings"
 msgstr "Indstillinger for dokumentoutput"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:580
+#: includes/class-pdfprnt-settings.php:600
 msgid "Full Page Capture to PDF"
 msgstr "Optagelse af hele siden til PDF"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:584
+#: includes/class-pdfprnt-settings.php:604
 msgid ""
 "Enable to take a screenshot of the entire page and generate a PDF file from "
 "it."
@@ -389,27 +407,27 @@ msgstr ""
 "ud fra det."
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:589
+#: includes/class-pdfprnt-settings.php:609
 msgid "PDF Page Size"
 msgstr "PDF papirstørrelse"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:605
+#: includes/class-pdfprnt-settings.php:625
 msgid "Margins"
 msgstr "Margener"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:612
+#: includes/class-pdfprnt-settings.php:632
 msgid "px"
 msgstr "px"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:621
+#: includes/class-pdfprnt-settings.php:641
 msgid "Print Shortcodes"
 msgstr "Udskriv kortkoder"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:625
+#: includes/class-pdfprnt-settings.php:645
 msgid ""
 "Enable to print shortcodes with data generated by other plugins "
 "(recommended)."
@@ -418,85 +436,85 @@ msgstr ""
 "plugins (anbefales)."
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:630
+#: includes/class-pdfprnt-settings.php:650
 msgid "Remove Links"
 msgstr "Fjern links"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:634
+#: includes/class-pdfprnt-settings.php:654
 msgid "Enable to remove links from PDF and Print document."
 msgstr "Gør det muligt at fjerne links fra PDF- og printdokumenter."
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:639
+#: includes/class-pdfprnt-settings.php:659
 msgid "Link Annotations"
 msgstr "Link-kommentarer"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:643
+#: includes/class-pdfprnt-settings.php:663
 msgid "Enable to remove hover link styles in PDF document."
 msgstr "Gør det muligt at fjerne stilarter for hover-links i PDF-dokumenter."
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:648
+#: includes/class-pdfprnt-settings.php:668
 msgid "Additional Elements"
 msgstr "Yderligere elementer"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:652
+#: includes/class-pdfprnt-settings.php:672
 msgid "Author"
 msgstr "Forfatter"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:654
-#: includes/class-pdfprnt-settings.php:658
-#: includes/class-pdfprnt-settings.php:663
+#: includes/class-pdfprnt-settings.php:674
+#: includes/class-pdfprnt-settings.php:678
+#: includes/class-pdfprnt-settings.php:683
 msgid "for posts only"
 msgstr "kun til indlæg"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:656
+#: includes/class-pdfprnt-settings.php:676
 msgid "Date"
 msgstr "Dato"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:660
+#: includes/class-pdfprnt-settings.php:680
 msgid "Featured image"
 msgstr "Fremhævet billede"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:661 pdf-print.php:1316
-#: pdf-print.php:1446
+#: includes/class-pdfprnt-settings.php:681 pdf-print.php:1323
+#: pdf-print.php:1453
 msgid "Category"
 msgstr "Kategori"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:670
+#: includes/class-pdfprnt-settings.php:690
 msgid "Featured Image Size"
 msgstr "Størrelse på udvalgt billede"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:697
+#: includes/class-pdfprnt-settings.php:717
 msgid "Additional Fonts"
 msgstr "Yderligere skrifttyper"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:705
+#: includes/class-pdfprnt-settings.php:725
 msgid "Reload Fonts"
 msgstr "Genindlæs skrifttyper"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:707
+#: includes/class-pdfprnt-settings.php:727
 msgid "Load Fonts"
 msgstr "Indlæs skrifttyper"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:714
+#: includes/class-pdfprnt-settings.php:734
 msgid "Additional fonts were loaded successfully"
 msgstr "Yderligere skrifttyper blev indlæst med succes"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:719
+#: includes/class-pdfprnt-settings.php:739
 msgid ""
 "If you have some problems with your internet connection, please, try to load "
 "additional fonts manually. For more info, please see"
@@ -505,20 +523,20 @@ msgstr ""
 "flere skrifttyper manuelt. For mere information, se venligst"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:721
+#: includes/class-pdfprnt-settings.php:741
 msgid "Load additional fonts required for correct PDF file(-s) display."
 msgstr ""
 "Indlæs ekstra skrifttyper, der er nødvendige for korrekt visning af PDF-"
 "filer."
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:725
-#: includes/class-pdfprnt-settings.php:889
+#: includes/class-pdfprnt-settings.php:745
+#: includes/class-pdfprnt-settings.php:909
 msgid "WARNING"
 msgstr "ADVARSEL"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:725
+#: includes/class-pdfprnt-settings.php:745
 msgid ""
 "ZipArchive Class is not installed on your server. It is impossible to load "
 "additional fonts."
@@ -527,66 +545,66 @@ msgstr ""
 "indlæse yderligere skrifttyper."
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:733
+#: includes/class-pdfprnt-settings.php:753
 msgid "Default CSS"
 msgstr "Standard CSS"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:738
+#: includes/class-pdfprnt-settings.php:758
 msgid "Enable to apply CSS from the current theme. Disable to use default CSS."
 msgstr ""
 "Aktivér for at anvende CSS fra det aktuelle tema. Deaktiver for at bruge "
 "standard-CSS."
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:744
+#: includes/class-pdfprnt-settings.php:764
 msgid "Custom CSS"
 msgstr "Brugerdefineret CSS"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:749
+#: includes/class-pdfprnt-settings.php:769
 msgid "Enable to add custom CSS code to documents."
 msgstr "Gør det muligt at tilføje brugerdefineret CSS-kode til dokumenter."
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:770
+#: includes/class-pdfprnt-settings.php:790
 msgid "Display Settings"
 msgstr "Visningsindstillinger"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:783
+#: includes/class-pdfprnt-settings.php:803
 msgid "Custom Fields Settings"
 msgstr "Indstillinger for brugerdefinerede felter"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:798
+#: includes/class-pdfprnt-settings.php:818
 msgid "PDF & Print Shortcode"
 msgstr "Kortkode til PDF og print"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:801
+#: includes/class-pdfprnt-settings.php:821
 msgid "Add PDF & Print buttons to a widget."
 msgstr "Tilføj PDF- og printknapper til en widget."
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:801
+#: includes/class-pdfprnt-settings.php:821
 msgid "Navigate to Widgets"
 msgstr "Naviger til Widgets"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:804
+#: includes/class-pdfprnt-settings.php:824
 msgid "Add PDF button to your posts or pages using the following shortcode:"
 msgstr ""
 "Føj PDF-knappen til dine indlæg eller sider ved hjælp af følgende kortkode:"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:808
+#: includes/class-pdfprnt-settings.php:828
 msgid "Add Print button to your posts or pages using the following shortcode:"
 msgstr ""
 "Føj Print-knappen til dine indlæg eller sider ved hjælp af følgende kortkode:"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:812
+#: includes/class-pdfprnt-settings.php:832
 msgid ""
 "Add PDF & Print buttons to your posts or pages using the following shortcode:"
 msgstr ""
@@ -594,27 +612,27 @@ msgstr ""
 "kortkode:"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:816
+#: includes/class-pdfprnt-settings.php:836
 msgid "Create a page break in PDF document:"
 msgstr "Opret et sideskift i et PDF-dokument:"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:836 includes/pro_banners.php:27
+#: includes/class-pdfprnt-settings.php:856 includes/pro_banners.php:27
 msgid "Close"
 msgstr "Luk"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:870
+#: includes/class-pdfprnt-settings.php:890
 msgid "Upgrade the mPDF library"
 msgstr "Opgrader mPDF-biblioteket"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:875
+#: includes/class-pdfprnt-settings.php:895
 msgid "Upgrade"
 msgstr "Opgrader"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:883
+#: includes/class-pdfprnt-settings.php:903
 #, php-format
 msgid ""
 "This will upgrade the mPDF library to version %s (recommended). The new "
@@ -624,7 +642,7 @@ msgstr ""
 "version af mPDF-biblioteket er kompatibel med PHP V7.2.x og ældre"
 
 # automatic translation
-#: includes/class-pdfprnt-settings.php:889
+#: includes/class-pdfprnt-settings.php:909
 msgid ""
 "ZipArchive сlass is not installed on your server. It is impossible to "
 "upgrade the mPDF library."
@@ -638,7 +656,7 @@ msgid "This options is available in Pro version of the plugin"
 msgstr "Denne mulighed er tilgængelig i Pro-versionen af pluginet"
 
 # automatic translation
-#: includes/pro_banners.php:33 pdf-print.php:50 pdf-print.php:389
+#: includes/pro_banners.php:33 pdf-print.php:50 pdf-print.php:390
 msgid "Upgrade to Pro"
 msgstr "Opgrader til Pro"
 
@@ -1106,110 +1124,110 @@ msgid "Save Changes"
 msgstr "Gem ændringer"
 
 # automatic translation
-#: pdf-print.php:46 pdf-print.php:348
+#: pdf-print.php:46 pdf-print.php:349
 msgid "Headers & Footers"
 msgstr "Overskrifter og sidefødder"
 
 # automatic translation
-#: pdf-print.php:344 pdf-print.php:355
+#: pdf-print.php:345 pdf-print.php:356
 msgid "Add New"
 msgstr "Tilføj ny"
 
 # automatic translation
-#: pdf-print.php:345
+#: pdf-print.php:346
 msgid "Header & Footer Template"
 msgstr "Skabelon til sidehoved og sidefod"
 
 # automatic translation
-#: pdf-print.php:365
+#: pdf-print.php:366
 msgid "This tab contains Pro options only."
 msgstr "Denne fane indeholder kun Pro-indstillinger."
 
 # automatic translation
-#: pdf-print.php:367
+#: pdf-print.php:368
 #, php-format
 msgid "%1$sChange the settings%2$s to view the Pro options."
 msgstr "%1$sSkift indstillinger%2$s for at se Pro-indstillingerne."
 
 # automatic translation
-#: pdf-print.php:465
+#: pdf-print.php:466
 msgid "Add PDF & Print Buttons to your page or post"
 msgstr "Tilføj PDF- og printknapper til din side eller dit indlæg"
 
 # automatic translation
-#: pdf-print.php:1002
+#: pdf-print.php:1009
 msgid "Support"
 msgstr "Support"
 
 # automatic translation
-#: pdf-print.php:1027
+#: pdf-print.php:1034
 msgid "Loading of fonts. It might take a several minutes."
 msgstr "Indlæsning af skrifttyper. Det kan tage flere minutter."
 
 # automatic translation
-#: pdf-print.php:1028
+#: pdf-print.php:1035
 msgid "Loading the mPDF library. It will take few minutes."
 msgstr "Indlæsning af mPDF-biblioteket. Det vil tage et par minutter."
 
 # automatic translation
-#: pdf-print.php:1121
+#: pdf-print.php:1128
 #, php-format
 msgid "Search Results for: %s"
 msgstr "Søgeresultater for: %s"
 
 # automatic translation
-#: pdf-print.php:1315 pdf-print.php:1445
+#: pdf-print.php:1322 pdf-print.php:1452
 msgid "written by"
 msgstr "skrevet af"
 
 # automatic translation
-#: pdf-print.php:1607
+#: pdf-print.php:1614
 msgid "Check your internet connection"
 msgstr "Tjek din internetforbindelse"
 
 # automatic translation
-#: pdf-print.php:1612
+#: pdf-print.php:1619
 msgid "Cannot load files in to \"uploads\" folder. Check your permissions"
 msgstr "Kan ikke indlæse filer i mappen \"uploads\". Tjek dine tilladelser"
 
 # automatic translation
-#: pdf-print.php:1644 pdf-print.php:1772
+#: pdf-print.php:1651 pdf-print.php:1779
 msgid "Additional fonts were loaded successfully."
 msgstr "Yderligere skrifttyper blev indlæst med succes."
 
 # automatic translation
-#: pdf-print.php:1647 pdf-print.php:1691
+#: pdf-print.php:1654 pdf-print.php:1698
 msgid "Some errors occurred during loading files."
 msgstr "Der opstod nogle fejl under indlæsning af filer."
 
 # automatic translation
-#: pdf-print.php:1650 pdf-print.php:1694
+#: pdf-print.php:1657 pdf-print.php:1701
 msgid "Can not extract files from zip-archive."
 msgstr "Kan ikke udpakke filer fra zip-arkiv."
 
 # automatic translation
-#: pdf-print.php:1654
+#: pdf-print.php:1661
 #, php-format
 msgid "Cannot create %s folder. Check your permissions."
 msgstr "Kan ikke oprette %s-mappen. Tjek dine tilladelser."
 
 # automatic translation
-#: pdf-print.php:1688
+#: pdf-print.php:1695
 msgid "The mPDF library has been loaded successfully."
 msgstr "MPDF-biblioteket er blevet indlæst."
 
 # automatic translation
-#: pdf-print.php:1698
+#: pdf-print.php:1705
 #, php-format
 msgid "Cannot extract files into %s folder. Check your permissions."
 msgstr "Kan ikke udpakke filer i %s-mappen. Tjek dine tilladelser."
 
 # automatic translation
-#: pdf-print.php:1957
+#: pdf-print.php:1964
 msgid "Test your PDF Generation Settings"
 msgstr "Test dine indstillinger for PDF-generering"
 
-#: pdf-print.php:1957
+#: pdf-print.php:1964
 msgid ""
 "Ensure your PDF & Print plugin is correctly configured. Check your settings "
 "now!"
@@ -1247,1572 +1265,1591 @@ msgid "https://bestwebsoft.com/"
 msgstr "https://bestwebsoft.com/"
 
 # automatic translation
-msgid "requires"
-msgstr "erfordert"
+#~ msgid "requires"
+#~ msgstr "erfordert"
 
 # automatic translation
-msgid ""
-"or higher, that is why it has been deactivated! Please upgrade WordPress and "
-"try again."
-msgstr ""
-"oder höher, deshalb wurde es deaktiviert! Bitte aktualisieren Sie WordPress "
-"und versuchen Sie es erneut."
+#~ msgid ""
+#~ "or higher, that is why it has been deactivated! Please upgrade WordPress "
+#~ "and try again."
+#~ msgstr ""
+#~ "oder höher, deshalb wurde es deaktiviert! Bitte aktualisieren Sie "
+#~ "WordPress und versuchen Sie es erneut."
 
 # automatic translation
-msgid "Back to the WordPress"
-msgstr "Zurück zu WordPress"
+#~ msgid "Back to the WordPress"
+#~ msgstr "Zurück zu WordPress"
 
 # automatic translation
-msgid "Plugins page"
-msgstr "Plugins-Seite"
+#~ msgid "Plugins page"
+#~ msgstr "Plugins-Seite"
 
 # automatic translation
-msgid "Like the plugin?"
-msgstr "Wie das Plugin?"
-
-# automatic translation
-#, php-format
-msgid "%s reviews"
-msgstr "%s Bewertungen"
-
-# automatic translation
-msgid "Rate it"
-msgstr "Bewerte es"
-
-# automatic translation
-msgid "Need help?"
-msgstr "Brauchen Sie Hilfe?"
-
-# automatic translation
-msgid "Visit Help Center"
-msgstr "Besuchen Sie das Hilfecenter"
-
-# automatic translation
-msgid "Want to support the plugin?"
-msgstr "Möchten Sie das Plugin unterstützen?"
-
-# automatic translation
-msgid "Donate"
-msgstr "Spenden"
-
-# automatic translation
-msgid "WARNING: Illegal use notification"
-msgstr "WARNUNG: Benachrichtigung über illegale Verwendung"
-
-# automatic translation
-msgid ""
-"You can use one license of the Pro plugin for one domain only. Please check "
-"and edit your license or domain if necessary using your personal Client "
-"Area. We strongly recommend you to solve the problem within 24 hours, "
-"otherwise the Pro plugin will be deactivated."
-msgstr ""
-"Sie können eine Lizenz des Pro-Plugins nur für eine Domain verwenden. Bitte "
-"prüfen und bearbeiten Sie ggf. Ihre Lizenz oder Domain in Ihrem persönlichen "
-"Kundenbereich. Wir empfehlen Ihnen dringend, das Problem innerhalb von 24 "
-"Stunden zu lösen, da sonst das Pro-Plugin deaktiviert wird."
-
-# automatic translation
-msgid ""
-"Notice: Your Pro Trial license has expired. To continue using the plugin, "
-"you should buy a Pro license"
-msgstr ""
-"Hinweis: Ihre Pro Trial-Lizenz ist abgelaufen. Um das Plugin weiterhin "
-"nutzen zu können, sollten Sie eine Pro-Lizenz erwerben"
-
-# automatic translation
-msgid ""
-"Your license has expired. To continue getting top-priority support and "
-"plugin updates, you should extend it."
-msgstr ""
-"Deine Lizenz ist abgelaufen. Um weiterhin erstklassigen Support und Plugin-"
-"Updates zu erhalten, sollten Sie es verlängern."
-
-# automatic translation
-msgid "Learn more"
-msgstr "Erfahren Sie mehr"
+#~ msgid "Like the plugin?"
+#~ msgstr "Wie das Plugin?"
 
 # automatic translation
 #, php-format
-msgid "Notice: You are using the Pro Trial license of %s plugin."
-msgstr "Hinweis: Sie verwenden die Pro Trial-Lizenz des %s-Plugins."
+#~ msgid "%s reviews"
+#~ msgstr "%s Bewertungen"
 
 # automatic translation
-msgid "Notice: You are using the Pro Trial license of plugin."
-msgstr "Hinweis: Sie verwenden die Pro Trial-Lizenz des Plugins."
+#~ msgid "Rate it"
+#~ msgstr "Bewerte es"
 
 # automatic translation
-msgid "The Pro Trial license will expire on"
-msgstr "Die Pro Trial-Lizenz läuft am ab"
+#~ msgid "Need help?"
+#~ msgstr "Brauchen Sie Hilfe?"
 
 # automatic translation
-msgid "Close notice"
-msgstr "Hinweis schließen"
+#~ msgid "Visit Help Center"
+#~ msgstr "Besuchen Sie das Hilfecenter"
 
 # automatic translation
-msgid "It’s time to upgrade your"
-msgstr "Es ist Zeit, Ihr zu aktualisieren"
+#~ msgid "Want to support the plugin?"
+#~ msgstr "Möchten Sie das Plugin unterstützen?"
 
 # automatic translation
-msgid "to"
-msgstr "Zu"
+#~ msgid "Donate"
+#~ msgstr "Spenden"
 
 # automatic translation
-msgid "version!"
-msgstr "Ausführung!"
+#~ msgid "WARNING: Illegal use notification"
+#~ msgstr "WARNUNG: Benachrichtigung über illegale Verwendung"
 
 # automatic translation
-msgid "Extend standard plugin functionality with new great options."
-msgstr ""
-"Erweitern Sie die Standard-Plugin-Funktionalität mit neuen großartigen "
-"Optionen."
+#~ msgid ""
+#~ "You can use one license of the Pro plugin for one domain only. Please "
+#~ "check and edit your license or domain if necessary using your personal "
+#~ "Client Area. We strongly recommend you to solve the problem within 24 "
+#~ "hours, otherwise the Pro plugin will be deactivated."
+#~ msgstr ""
+#~ "Sie können eine Lizenz des Pro-Plugins nur für eine Domain verwenden. "
+#~ "Bitte prüfen und bearbeiten Sie ggf. Ihre Lizenz oder Domain in Ihrem "
+#~ "persönlichen Kundenbereich. Wir empfehlen Ihnen dringend, das Problem "
+#~ "innerhalb von 24 Stunden zu lösen, da sonst das Pro-Plugin deaktiviert "
+#~ "wird."
 
 # automatic translation
-#, php-format
-msgid ""
-"Your license key for %1$s expires on %2$s and you won't be granted TOP-"
-"PRIORITY SUPPORT or UPDATES."
-msgstr ""
-"Ihr Lizenzschlüssel für %1$s läuft am %2$s ab und Sie erhalten keinen "
-"ERSTKLASSIGEN SUPPORT oder UPDATES."
+#~ msgid ""
+#~ "Notice: Your Pro Trial license has expired. To continue using the plugin, "
+#~ "you should buy a Pro license"
+#~ msgstr ""
+#~ "Hinweis: Ihre Pro Trial-Lizenz ist abgelaufen. Um das Plugin weiterhin "
+#~ "nutzen zu können, sollten Sie eine Pro-Lizenz erwerben"
 
 # automatic translation
-msgid ""
-"or higher! We do not guarantee that our plugin will work correctly. Please "
-"upgrade to WordPress latest version."
-msgstr ""
-"oder höher! Wir garantieren nicht, dass unser Plugin korrekt funktioniert. "
-"Bitte aktualisieren Sie auf die neueste Version von WordPress."
+#~ msgid ""
+#~ "Your license has expired. To continue getting top-priority support and "
+#~ "plugin updates, you should extend it."
+#~ msgstr ""
+#~ "Deine Lizenz ist abgelaufen. Um weiterhin erstklassigen Support und "
+#~ "Plugin-Updates zu erhalten, sollten Sie es verlängern."
 
 # automatic translation
-#, php-format
-msgid "Thank you for installing %s plugin!"
-msgstr "Vielen Dank für die Installation des %s-Plugins!"
-
-# automatic translation
-msgid "Let's get started"
-msgstr "Lass uns anfangen"
-
-# automatic translation
-msgid "Thank you for installing plugins by BestWebSoft!"
-msgstr "Vielen Dank für die Installation von Plugins von BestWebSoft!"
-
-# automatic translation
-msgid "More Details"
-msgstr "Mehr Details"
-
-# automatic translation
-msgid "Less Details"
-msgstr "Weniger Details"
-
-# automatic translation
-msgid "Go to Settings"
-msgstr "Gå til indstillinger"
-
-# automatic translation
-msgid "Deprecated function(-s) is used on the site here:"
-msgstr "Veraltete Funktion(en) wird/werden hier auf der Seite verwendet:"
-
-# automatic translation
-msgid ""
-"This function(-s) will be removed over time. Please update the product(-s)."
-msgstr ""
-"Diese Funktion(en) werden im Laufe der Zeit entfernt. Bitte aktualisieren "
-"Sie das/die Produkt(e)."
+#~ msgid "Learn more"
+#~ msgstr "Erfahren Sie mehr"
 
 # automatic translation
 #, php-format
-msgid "Thank you for choosing %s plugin!"
-msgstr "Vielen Dank, dass Sie sich für das %s-Plugin entschieden haben!"
+#~ msgid "Notice: You are using the Pro Trial license of %s plugin."
+#~ msgstr "Hinweis: Sie verwenden die Pro Trial-Lizenz des %s-Plugins."
 
 # automatic translation
-msgid ""
-"If you have a feature, suggestion or idea you'd like to see in the plugin, "
-"we'd love to hear about it!"
-msgstr ""
-"Wenn Sie eine Funktion, einen Vorschlag oder eine Idee haben, die Sie im "
-"Plugin sehen möchten, würden wir uns freuen, davon zu hören!"
+#~ msgid "Notice: You are using the Pro Trial license of plugin."
+#~ msgstr "Hinweis: Sie verwenden die Pro Trial-Lizenz des Plugins."
 
 # automatic translation
-msgid "Suggest a Feature"
-msgstr "Schlagen Sie eine Funktion vor"
+#~ msgid "The Pro Trial license will expire on"
+#~ msgstr "Die Pro Trial-Lizenz läuft am ab"
 
 # automatic translation
-msgid "Upgrade to pro"
-msgstr "Opgrader til pro"
+#~ msgid "Close notice"
+#~ msgstr "Hinweis schließen"
 
 # automatic translation
-msgid "Affiliate Program"
-msgstr "Partnerprogramm"
+#~ msgid "It’s time to upgrade your"
+#~ msgstr "Es ist Zeit, Ihr zu aktualisieren"
 
 # automatic translation
-#, php-format
-msgid "Get %s"
-msgstr "Holen Sie sich %s"
+#~ msgid "to"
+#~ msgstr "Zu"
 
 # automatic translation
-msgid "from each BestWebSoft plugin and theme sale you refer"
-msgstr "von jedem BestWebSoft-Plug-in und Theme-Verkauf, den Sie empfehlen"
+#~ msgid "version!"
+#~ msgstr "Ausführung!"
 
 # automatic translation
-msgid "Join affiliate program"
-msgstr "Nehmen Sie am Partnerprogramm teil"
-
-# automatic translation
-msgid "Promote and sell products"
-msgstr "Produkte bewerben und verkaufen"
-
-# automatic translation
-msgid "Get commission!"
-msgstr "Provision erhalten!"
-
-# automatic translation
-msgid "Start Now"
-msgstr "Jetzt anfangen"
-
-# automatic translation
-msgid "Notice"
-msgstr "Notiz"
-
-# automatic translation
-msgid "The plugin's settings have been changed."
-msgstr "Die Einstellungen des Plugins wurden geändert."
-
-# automatic translation
-msgid ""
-"You can always look at premium options by checking the \"Pro Options\" in "
-"the \"Misc\" tab."
-msgstr ""
-"Sie können sich die Premium-Optionen jederzeit ansehen, indem Sie die „Pro-"
-"Optionen“ auf der Registerkarte „Verschiedenes“ aktivieren."
-
-# automatic translation
-msgid "Add BWS Shortcode"
-msgstr "BWS-Shortcode hinzufügen"
-
-# automatic translation
-msgid "Add BWS Plugins Shortcode"
-msgstr "Fügen Sie den Shortcode für BWS-Plugins hinzu"
-
-# automatic translation
-msgid "Add shortcode"
-msgstr "Shortcode hinzufügen"
-
-# automatic translation
-msgid "Add BestWebSoft plugins' shortcodes using this button."
-msgstr ""
-"Fügen Sie die Shortcodes der BestWebSoft-Plugins mit dieser Schaltfläche "
-"hinzu."
-
-# automatic translation
-msgid "Are you sure you want to restore default settings?"
-msgstr "Möchten Sie die Standardeinstellungen wirklich wiederherstellen?"
-
-# automatic translation
-msgid "Yes, restore all settings"
-msgstr "Ja, alle Einstellungen wiederherstellen"
-
-# automatic translation
-msgid "No, go back to the settings page"
-msgstr "Nein, gehen Sie zurück zur Einstellungsseite"
-
-# automatic translation
-msgid "Plugin"
-msgstr "Plugin"
-
-# automatic translation
-msgid "Shortcode settings"
-msgstr "Shortcode-Einstellungen"
-
-# automatic translation
-msgid "The shortcode will be inserted"
-msgstr "Der Shortcode wird eingefügt"
-
-# automatic translation
-msgid "For more information:"
-msgstr "Für mehr Informationen:"
-
-# automatic translation
-msgid "Documentation"
-msgstr "Dokumentation"
-
-# automatic translation
-msgid "Video Instructions"
-msgstr "Videoanleitung"
-
-# automatic translation
-msgid "Submit a Request"
-msgstr "Einen Antrag stellen"
-
-# automatic translation
-msgid "Wrong license key"
-msgstr "Falscher Lizenzschlüssel"
-
-# automatic translation
-msgid ""
-"Something went wrong. Please try again later. If the error appears again, "
-"please contact us"
-msgstr ""
-"Etwas ist schief gelaufen. Bitte versuchen Sie es später erneut. Tritt der "
-"Fehler erneut auf, kontaktieren Sie uns bitte"
-
-# automatic translation
-msgid "We are sorry for inconvenience."
-msgstr "Wir entschuldigen uns für die Unannehmlichkeiten."
-
-# automatic translation
-msgid "Wrong license key."
-msgstr "Falscher Lizenzschlüssel."
-
-# automatic translation
-msgid ""
-"This license key is bound to another site. Change it via personal Client "
-"Area."
-msgstr ""
-"Dieser Lizenzschlüssel ist an eine andere Site gebunden. Ändern Sie es über "
-"den persönlichen Kundenbereich."
-
-# automatic translation
-msgid "Log in"
-msgstr "Anmeldung"
-
-# automatic translation
-msgid "Unfortunately, you have exceeded the number of available tries per day."
-msgstr ""
-"Leider haben Sie die Anzahl der verfügbaren Versuche pro Tag überschritten."
+#~ msgid "Extend standard plugin functionality with new great options."
+#~ msgstr ""
+#~ "Erweitern Sie die Standard-Plugin-Funktionalität mit neuen großartigen "
+#~ "Optionen."
 
 # automatic translation
 #, php-format
-msgid ""
-"Unfortunately, Your license has expired. To continue getting top-priority "
-"support and plugin updates, you should extend it in your %s"
-msgstr ""
-"Leider ist Ihre Lizenz abgelaufen. Um weiterhin erstklassigen Support und "
-"Plugin-Updates zu erhalten, sollten Sie es in Ihrem %s erweitern"
+#~ msgid ""
+#~ "Your license key for %1$s expires on %2$s and you won't be granted TOP-"
+#~ "PRIORITY SUPPORT or UPDATES."
+#~ msgstr ""
+#~ "Ihr Lizenzschlüssel für %1$s läuft am %2$s ab und Sie erhalten keinen "
+#~ "ERSTKLASSIGEN SUPPORT oder UPDATES."
 
 # automatic translation
-msgid ""
-"Unfortunately, the Pro licence was already installed to this domain. The Pro "
-"Trial license can be installed only once."
-msgstr ""
-"Leider war die Pro-Lizenz auf dieser Domain bereits installiert. Die Pro "
-"Trial-Lizenz kann nur einmal installiert werden."
-
-# automatic translation
-msgid "The license key is valid."
-msgstr "Der Lizenzschlüssel ist gültig."
-
-# automatic translation
-msgid "Your license will expire on"
-msgstr "Ihre Lizenz läuft am ab"
-
-# automatic translation
-msgid "Congratulations! Pro Membership license is activated successfully."
-msgstr ""
-"Glückwunsch! Die Lizenz für die Pro-Mitgliedschaft wurde erfolgreich "
-"aktiviert."
-
-# automatic translation
-msgid ""
-"Something went wrong. Try again later or upload the plugin manually. We are "
-"sorry for inconvenience."
-msgstr ""
-"Etwas ist schief gelaufen. Versuchen Sie es später noch einmal oder laden "
-"Sie das Plugin manuell hoch. Wir entschuldigen uns für die "
-"Unannehmlichkeiten."
-
-# automatic translation
-msgid "Please enter your license key."
-msgstr "Bitte geben Sie ihren Lizenzschlüssel ein."
-
-# automatic translation
-msgid "Not set"
-msgstr "Nicht eingestellt"
-
-# automatic translation
-msgid "On"
-msgstr "An"
-
-# automatic translation
-msgid "Off"
-msgstr "Aus"
-
-# automatic translation
-msgid "N/A"
-msgstr "N / A"
-
-# automatic translation
-msgid "Mb"
-msgstr "Mb"
-
-# automatic translation
-msgid "Yes"
-msgstr "Ja"
-
-# automatic translation
-msgid "No"
-msgstr "NEIN"
-
-# automatic translation
-msgid "WordPress Environment"
-msgstr "WordPress-Umgebung"
-
-# automatic translation
-msgid "Home URL"
-msgstr "Home-URL"
-
-# automatic translation
-msgid "Website URL"
-msgstr "Webadresse"
-
-# automatic translation
-msgid "WP Version"
-msgstr "WP-Version"
-
-# automatic translation
-msgid "WP Multisite"
-msgstr "WP-Multisite"
-
-# automatic translation
-msgid "WP Memory Limit"
-msgstr "WP-Speicherlimit"
-
-# automatic translation
-msgid "Active Theme"
-msgstr "Aktives Thema"
+#~ msgid ""
+#~ "or higher! We do not guarantee that our plugin will work correctly. "
+#~ "Please upgrade to WordPress latest version."
+#~ msgstr ""
+#~ "oder höher! Wir garantieren nicht, dass unser Plugin korrekt "
+#~ "funktioniert. Bitte aktualisieren Sie auf die neueste Version von "
+#~ "WordPress."
 
 # automatic translation
 #, php-format
-msgid "by %s"
-msgstr "von %s"
+#~ msgid "Thank you for installing %s plugin!"
+#~ msgstr "Vielen Dank für die Installation des %s-Plugins!"
 
 # automatic translation
-msgid "Server Environment"
-msgstr "Serverumgebung"
+#~ msgid "Let's get started"
+#~ msgstr "Lass uns anfangen"
 
 # automatic translation
-msgid "Operating System"
-msgstr "Betriebssystem"
+#~ msgid "Thank you for installing plugins by BestWebSoft!"
+#~ msgstr "Vielen Dank für die Installation von Plugins von BestWebSoft!"
 
 # automatic translation
-msgid "Server"
-msgstr "Server"
+#~ msgid "More Details"
+#~ msgstr "Mehr Details"
 
 # automatic translation
-msgid "PHP Version"
-msgstr "PHP-Version"
+#~ msgid "Less Details"
+#~ msgstr "Weniger Details"
 
 # automatic translation
-msgid "PHP Allow URL fopen"
-msgstr "PHP Allow URL fopen"
+#~ msgid "Go to Settings"
+#~ msgstr "Gå til indstillinger"
 
 # automatic translation
-msgid "PHP Memory Limit"
-msgstr "PHP-Speicherlimit"
+#~ msgid "Deprecated function(-s) is used on the site here:"
+#~ msgstr "Veraltete Funktion(en) wird/werden hier auf der Seite verwendet:"
 
 # automatic translation
-msgid "Memory Usage"
-msgstr "Speichernutzung"
-
-# automatic translation
-msgid "PHP Max Upload Size"
-msgstr "Maximale PHP-Upload-Größe"
-
-# automatic translation
-msgid "PHP Max Post Size"
-msgstr "Maximale PHP-Beitragsgröße"
-
-# automatic translation
-msgid "PHP Max Script Execute Time"
-msgstr "PHP Max Skriptausführungszeit"
-
-# automatic translation
-msgid "PHP Exif support"
-msgstr "PHP-Exif-Unterstützung"
-
-# automatic translation
-msgid "PHP IPTC support"
-msgstr "PHP-IPTC-Unterstützung"
-
-# automatic translation
-msgid "PHP XML support"
-msgstr "PHP-XML-Unterstützung"
-
-# automatic translation
-msgid "Database"
-msgstr "Datenbank"
-
-# automatic translation
-msgid "WP DB version"
-msgstr "WP DB-Version"
-
-# automatic translation
-msgid "MySQL version"
-msgstr "MySQL-Version"
-
-# automatic translation
-msgid "SQL Mode"
-msgstr "SQL-Modus"
-
-# automatic translation
-msgid "Active Plugins"
-msgstr "Aktive Plugins"
-
-# automatic translation
-msgid "Inactive Plugins"
-msgstr "Inaktive Plugins"
-
-# automatic translation
-msgid "Please enter a valid email address."
-msgstr "Bitte geben Sie eine gültige E-Mail-Adresse ein."
+#~ msgid ""
+#~ "This function(-s) will be removed over time. Please update the product(-"
+#~ "s)."
+#~ msgstr ""
+#~ "Diese Funktion(en) werden im Laufe der Zeit entfernt. Bitte aktualisieren "
+#~ "Sie das/die Produkt(e)."
 
 # automatic translation
 #, php-format
-msgid "Email with system info is sent to %s."
-msgstr "E-Mail mit Systeminformationen wird an %s gesendet."
+#~ msgid "Thank you for choosing %s plugin!"
+#~ msgstr "Vielen Dank, dass Sie sich für das %s-Plugin entschieden haben!"
 
 # automatic translation
-msgid "Thank you for contacting us."
-msgstr "Danke, dass Sie uns kontaktiert haben."
+#~ msgid ""
+#~ "If you have a feature, suggestion or idea you'd like to see in the "
+#~ "plugin, we'd love to hear about it!"
+#~ msgstr ""
+#~ "Wenn Sie eine Funktion, einen Vorschlag oder eine Idee haben, die Sie im "
+#~ "Plugin sehen möchten, würden wir uns freuen, davon zu hören!"
 
 # automatic translation
-msgid "Sorry, email message could not be delivered."
-msgstr "Entschuldigung, die E-Mail-Nachricht konnte nicht zugestellt werden."
+#~ msgid "Suggest a Feature"
+#~ msgstr "Schlagen Sie eine Funktion vor"
 
 # automatic translation
-msgid "Plugins"
-msgstr "Plugins"
+#~ msgid "Upgrade to pro"
+#~ msgstr "Opgrader til pro"
 
 # automatic translation
-msgid "Themes"
-msgstr "Themen"
-
-# automatic translation
-msgid "System status"
-msgstr "Systemstatus"
-
-# automatic translation
-msgid "Manage purchased licenses & subscriptions"
-msgstr "Gekaufte Lizenzen und Abonnements verwalten"
+#~ msgid "Affiliate Program"
+#~ msgstr "Partnerprogramm"
 
 # automatic translation
 #, php-format
-msgid "Get Access to %s+ Premium Plugins"
-msgstr "Erhalten Sie Zugriff auf %s+ Premium-Plugins"
+#~ msgid "Get %s"
+#~ msgstr "Holen Sie sich %s"
 
 # automatic translation
-msgid "Subscribe to Pro Membership"
-msgstr "Abonnieren Sie die Pro-Mitgliedschaft"
+#~ msgid "from each BestWebSoft plugin and theme sale you refer"
+#~ msgstr "von jedem BestWebSoft-Plug-in und Theme-Verkauf, den Sie empfehlen"
 
 # automatic translation
-msgid "Check license key"
-msgstr "Lizenzschlüssel prüfen"
+#~ msgid "Join affiliate program"
+#~ msgstr "Nehmen Sie am Partnerprogramm teil"
 
 # automatic translation
-msgid "Enter your license key"
-msgstr "Gib deinen Lizenz-Schlüssel ein"
+#~ msgid "Promote and sell products"
+#~ msgstr "Produkte bewerben und verkaufen"
 
 # automatic translation
-msgid "Activate"
-msgstr "aktivieren Sie"
+#~ msgid "Get commission!"
+#~ msgstr "Provision erhalten!"
 
 # automatic translation
-msgid "Upload Plugin"
-msgstr "Plugin hochladen"
+#~ msgid "Start Now"
+#~ msgstr "Jetzt anfangen"
 
 # automatic translation
-#, php-format
-msgid ""
-"The plugin generated %d characters of <strong>unexpected output</strong> "
-"during activation. If you notice &#8220;headers already sent&#8221; "
-"messages, problems with syndication feeds or other issues, try deactivating "
-"or removing this plugin."
-msgstr ""
-"Das Plugin hat während der Aktivierung %d Zeichen einer <strong>unerwarteten "
-"Ausgabe</strong> generiert. Wenn Sie „Header bereits gesendet“-Nachrichten, "
-"Probleme mit Syndication-Feeds oder andere Probleme bemerken, versuchen Sie, "
-"dieses Plugin zu deaktivieren oder zu entfernen."
+#~ msgid "Notice"
+#~ msgstr "Notiz"
 
 # automatic translation
-msgid ""
-"Plugin could not be activated because it triggered a <strong>fatal error</"
-"strong>."
-msgstr ""
-"Plugin konnte nicht aktiviert werden, da es einen <strong>fatalen Fehler</"
-"strong> ausgelöst hat."
+#~ msgid "The plugin's settings have been changed."
+#~ msgstr "Die Einstellungen des Plugins wurden geändert."
 
 # automatic translation
-msgid "Plugin <strong>activated</strong>."
-msgstr "Plugin <strong>aktiviert</strong> ."
+#~ msgid ""
+#~ "You can always look at premium options by checking the \"Pro Options\" in "
+#~ "the \"Misc\" tab."
+#~ msgstr ""
+#~ "Sie können sich die Premium-Optionen jederzeit ansehen, indem Sie die "
+#~ "„Pro-Optionen“ auf der Registerkarte „Verschiedenes“ aktivieren."
 
 # automatic translation
-msgid "Download Pro Plugin"
-msgstr "Laden Sie das Pro-Plugin herunter"
+#~ msgid "Add BWS Shortcode"
+#~ msgstr "BWS-Shortcode hinzufügen"
 
 # automatic translation
-msgid "Your Pro plugin is ready"
-msgstr "Ihr Pro-Plugin ist fertig"
+#~ msgid "Add BWS Plugins Shortcode"
+#~ msgstr "Fügen Sie den Shortcode für BWS-Plugins hinzu"
 
 # automatic translation
-msgid "Your plugin has been zipped, and now is ready to download."
-msgstr "Ihr Plugin wurde gezippt und kann jetzt heruntergeladen werden."
+#~ msgid "Add shortcode"
+#~ msgstr "Shortcode hinzufügen"
 
 # automatic translation
-msgid "Download Now"
-msgstr "Jetzt downloaden"
+#~ msgid "Add BestWebSoft plugins' shortcodes using this button."
+#~ msgstr ""
+#~ "Fügen Sie die Shortcodes der BestWebSoft-Plugins mit dieser Schaltfläche "
+#~ "hinzu."
 
 # automatic translation
-msgid "Need help installing the plugin?"
-msgstr "Benötigen Sie Hilfe bei der Installation des Plugins?"
+#~ msgid "Are you sure you want to restore default settings?"
+#~ msgstr "Möchten Sie die Standardeinstellungen wirklich wiederherstellen?"
 
 # automatic translation
-msgid "How to install WordPress plugin from your admin Dashboard (ZIP archive)"
-msgstr ""
-"So installieren Sie das WordPress-Plugin von Ihrem Admin-Dashboard (ZIP-"
-"Archiv)"
+#~ msgid "Yes, restore all settings"
+#~ msgstr "Ja, alle Einstellungen wiederherstellen"
 
 # automatic translation
-msgid "Get Started"
-msgstr "Loslegen"
+#~ msgid "No, go back to the settings page"
+#~ msgstr "Nein, gehen Sie zurück zur Einstellungsseite"
 
 # automatic translation
-msgid "Knowledge Base"
-msgstr "Wissensbasis"
+#~ msgid "Plugin"
+#~ msgstr "Plugin"
 
 # automatic translation
-msgid "Licenses & Domains"
-msgstr "Lizenzen & Domains"
+#~ msgid "Shortcode settings"
+#~ msgstr "Shortcode-Einstellungen"
 
 # automatic translation
-msgid "Client Area"
-msgstr "Kundenbereich"
+#~ msgid "The shortcode will be inserted"
+#~ msgstr "Der Shortcode wird eingefügt"
 
 # automatic translation
-msgid "Return to BestWebSoft Panel"
-msgstr "Kehren Sie zum BestWebSoft-Panel zurück"
+#~ msgid "For more information:"
+#~ msgstr "Für mehr Informationen:"
 
 # automatic translation
-msgid "Installed"
-msgstr "Eingerichtet"
+#~ msgid "Documentation"
+#~ msgstr "Dokumentation"
 
 # automatic translation
-msgid "Not Installed"
-msgstr "Nicht installiert"
+#~ msgid "Video Instructions"
+#~ msgstr "Videoanleitung"
 
 # automatic translation
-msgid "Filter results"
-msgstr "Filter Ergebnisse"
+#~ msgid "Submit a Request"
+#~ msgstr "Einen Antrag stellen"
 
 # automatic translation
-msgid "Not installed"
-msgstr "Nicht installiert"
+#~ msgid "Wrong license key"
+#~ msgstr "Falscher Lizenzschlüssel"
 
 # automatic translation
-msgid "Renew to get updates"
-msgstr "Erneuern, um Updates zu erhalten"
+#~ msgid ""
+#~ "Something went wrong. Please try again later. If the error appears again, "
+#~ "please contact us"
+#~ msgstr ""
+#~ "Etwas ist schief gelaufen. Bitte versuchen Sie es später erneut. Tritt "
+#~ "der Fehler erneut auf, kontaktieren Sie uns bitte"
 
 # automatic translation
-#, php-format
-msgid "Update to v %s"
-msgstr "Aktualisieren Sie auf v %s"
+#~ msgid "We are sorry for inconvenience."
+#~ msgstr "Wir entschuldigen uns für die Unannehmlichkeiten."
 
 # automatic translation
-msgid "Get Pro"
-msgstr "Werde professoinell"
+#~ msgid "Wrong license key."
+#~ msgstr "Falscher Lizenzschlüssel."
 
 # automatic translation
-msgid "Activate this plugin"
-msgstr "Aktivieren Sie dieses Plugin"
+#~ msgid ""
+#~ "This license key is bound to another site. Change it via personal Client "
+#~ "Area."
+#~ msgstr ""
+#~ "Dieser Lizenzschlüssel ist an eine andere Site gebunden. Ändern Sie es "
+#~ "über den persönlichen Kundenbereich."
 
 # automatic translation
-msgid "Install this plugin"
-msgstr "Installieren Sie dieses Plugin"
+#~ msgid "Log in"
+#~ msgstr "Anmeldung"
 
 # automatic translation
-msgid "Install Now"
-msgstr "Jetzt installieren"
-
-# automatic translation
-msgid "Nothing found. Try another criteria."
-msgstr "Nichts gefunden. Versuchen Sie es mit einem anderen Kriterium."
+#~ msgid ""
+#~ "Unfortunately, you have exceeded the number of available tries per day."
+#~ msgstr ""
+#~ "Leider haben Sie die Anzahl der verfügbaren Versuche pro Tag "
+#~ "überschritten."
 
 # automatic translation
 #, php-format
-msgid "By %s"
-msgstr "Von %s"
+#~ msgid ""
+#~ "Unfortunately, Your license has expired. To continue getting top-priority "
+#~ "support and plugin updates, you should extend it in your %s"
+#~ msgstr ""
+#~ "Leider ist Ihre Lizenz abgelaufen. Um weiterhin erstklassigen Support und "
+#~ "Plugin-Updates zu erhalten, sollten Sie es in Ihrem %s erweitern"
 
 # automatic translation
-msgid "Already Installed"
-msgstr "Bereits installiert"
+#~ msgid ""
+#~ "Unfortunately, the Pro licence was already installed to this domain. The "
+#~ "Pro Trial license can be installed only once."
+#~ msgstr ""
+#~ "Leider war die Pro-Lizenz auf dieser Domain bereits installiert. Die Pro "
+#~ "Trial-Lizenz kann nur einmal installiert werden."
 
 # automatic translation
-msgid "Browse More WordPress Themes"
-msgstr "Durchsuchen Sie weitere WordPress-Themes"
+#~ msgid "The license key is valid."
+#~ msgstr "Der Lizenzschlüssel ist gültig."
 
 # automatic translation
-msgid "Send to support"
-msgstr "An den Support senden"
+#~ msgid "Your license will expire on"
+#~ msgstr "Ihre Lizenz läuft am ab"
 
 # automatic translation
-msgid "Send to custom email &#187;"
-msgstr "An benutzerdefinierte E-Mail-Adresse senden &#187;"
+#~ msgid "Congratulations! Pro Membership license is activated successfully."
+#~ msgstr ""
+#~ "Glückwunsch! Die Lizenz für die Pro-Mitgliedschaft wurde erfolgreich "
+#~ "aktiviert."
 
 # automatic translation
-msgid "Information"
-msgstr "Information"
+#~ msgid ""
+#~ "Something went wrong. Try again later or upload the plugin manually. We "
+#~ "are sorry for inconvenience."
+#~ msgstr ""
+#~ "Etwas ist schief gelaufen. Versuchen Sie es später noch einmal oder laden "
+#~ "Sie das Plugin manuell hoch. Wir entschuldigen uns für die "
+#~ "Unannehmlichkeiten."
 
 # automatic translation
-msgid "Inactive"
-msgstr "Inaktiv"
+#~ msgid "Please enter your license key."
+#~ msgstr "Bitte geben Sie ihren Lizenzschlüssel ein."
 
 # automatic translation
-msgid "Expired"
-msgstr "Abgelaufen"
+#~ msgid "Not set"
+#~ msgstr "Nicht eingestellt"
 
 # automatic translation
-#, php-format
-msgid "%s day(-s) left"
-msgstr "%s Tag(e) übrig"
+#~ msgid "On"
+#~ msgstr "An"
 
 # automatic translation
-#, php-format
-msgid "Expired on %s"
-msgstr "Abgelaufen am %s"
+#~ msgid "Off"
+#~ msgstr "Aus"
 
 # automatic translation
-msgid "Renew Now"
-msgstr "Jetzt erneuern"
+#~ msgid "N/A"
+#~ msgstr "N / A"
 
 # automatic translation
-msgid "Active"
-msgstr "Aktiv"
+#~ msgid "Mb"
+#~ msgstr "Mb"
 
 # automatic translation
-msgid "License"
-msgstr "Lizenz"
+#~ msgid "Yes"
+#~ msgstr "Ja"
 
 # automatic translation
-msgid "Version"
-msgstr "Ausführung"
+#~ msgid "No"
+#~ msgstr "NEIN"
 
 # automatic translation
-msgid "All plugin settings were restored."
-msgstr "Alle Plugin-Einstellungen wurden wiederhergestellt."
+#~ msgid "WordPress Environment"
+#~ msgstr "WordPress-Umgebung"
 
 # automatic translation
-msgid ""
-"The ability to add custom code is available in the Pro version. If the Pro "
-"version is not available please contact us via Help Center"
-msgstr ""
-"Die Möglichkeit, benutzerdefinierten Code hinzuzufügen, ist in der Pro-"
-"Version verfügbar. Wenn die Pro-Version nicht verfügbar ist, kontaktieren "
-"Sie uns bitte über das Help Center"
+#~ msgid "Home URL"
+#~ msgstr "Home-URL"
 
 # automatic translation
-msgid "You do not have sufficient permissions to edit plugins for this site."
-msgstr "Sie sind nicht berechtigt, Plugins für diese Website zu bearbeiten."
+#~ msgid "Website URL"
+#~ msgstr "Webadresse"
 
 # automatic translation
-msgid "These styles will be added to the header on all pages of your site."
-msgstr ""
-"Diese Stile werden der Kopfzeile auf allen Seiten Ihrer Website hinzugefügt."
+#~ msgid "WP Version"
+#~ msgstr "WP-Version"
 
 # automatic translation
-#, php-format
-msgid ""
-"This PHP code will be hooked to the %s Action and will be printed on front "
-"end only."
-msgstr ""
-"Dieser PHP-Code wird mit der %s-Aktion verbunden und nur am Frontend "
-"gedruckt."
+#~ msgid "WP Multisite"
+#~ msgstr "WP-Multisite"
 
 # automatic translation
-msgid "These code will be added to the header on all pages of your site."
-msgstr ""
-"Dieser Code wird der Kopfzeile auf allen Seiten Ihrer Website hinzugefügt."
+#~ msgid "WP Memory Limit"
+#~ msgstr "WP-Speicherlimit"
 
 # automatic translation
-msgid "Browsing"
-msgstr "Surfen"
-
-# automatic translation
-#, php-format
-msgid "Activate custom %s code."
-msgstr "Benutzerdefinierten %s-Code aktivieren."
+#~ msgid "Active Theme"
+#~ msgstr "Aktives Thema"
 
 # automatic translation
 #, php-format
-msgid "Learn more about %s"
-msgstr "Erfahren Sie mehr über %s"
+#~ msgid "by %s"
+#~ msgstr "von %s"
 
 # automatic translation
-msgid "Miscellaneous Settings"
-msgstr "Verschiedene Einstellungen"
+#~ msgid "Server Environment"
+#~ msgstr "Serverumgebung"
 
 # automatic translation
-#, php-format
-msgid ""
-"It is prohibited to change %1$s settings on this site in the %2$s network "
-"settings."
-msgstr ""
-"Es ist verboten, die Einstellungen von %1$s auf dieser Website in den "
-"Netzwerkeinstellungen von %2$s zu ändern."
+#~ msgid "Operating System"
+#~ msgstr "Betriebssystem"
 
 # automatic translation
-#, php-format
-msgid ""
-"It is prohibited to view %1$s settings on this site in the %2$s network "
-"settings."
-msgstr ""
-"Es ist verboten, die Einstellungen von %1$s auf dieser Website in den "
-"Netzwerkeinstellungen von %2$s anzuzeigen."
+#~ msgid "Server"
+#~ msgstr "Server"
 
 # automatic translation
-msgid "Pro Options"
-msgstr "Pro-Optionen"
+#~ msgid "PHP Version"
+#~ msgstr "PHP-Version"
 
 # automatic translation
-msgid "Enable to display plugin Pro options."
-msgstr "Aktivieren, um Plug-in-Pro-Optionen anzuzeigen."
+#~ msgid "PHP Allow URL fopen"
+#~ msgstr "PHP Allow URL fopen"
 
 # automatic translation
-msgid "Track Usage"
-msgstr "Nutzung verfolgen"
+#~ msgid "PHP Memory Limit"
+#~ msgstr "PHP-Speicherlimit"
 
 # automatic translation
-msgid ""
-"Enable to allow tracking plugin usage anonymously in order to make it better."
-msgstr ""
-"Aktivieren Sie diese Option, um die Verwendung des Tracking-Plug-ins anonym "
-"zuzulassen, um es zu verbessern."
+#~ msgid "Memory Usage"
+#~ msgstr "Speichernutzung"
 
 # automatic translation
-msgid "Default Settings"
-msgstr "Standardeinstellungen"
+#~ msgid "PHP Max Upload Size"
+#~ msgstr "Maximale PHP-Upload-Größe"
 
 # automatic translation
-msgid "Restore Settings"
-msgstr "Einstellungen zurücksetzen"
+#~ msgid "PHP Max Post Size"
+#~ msgstr "Maximale PHP-Beitragsgröße"
 
 # automatic translation
-msgid "This will restore plugin settings to defaults."
-msgstr ""
-"Dadurch werden die Plugin-Einstellungen auf die Standardeinstellungen "
-"zurückgesetzt."
+#~ msgid "PHP Max Script Execute Time"
+#~ msgstr "PHP Max Skriptausführungszeit"
 
 # automatic translation
-msgid "Import / Export"
-msgstr "Import Export"
+#~ msgid "PHP Exif support"
+#~ msgstr "PHP-Exif-Unterstützung"
 
 # automatic translation
-#, php-format
-msgid "Enter your license key to activate %s and get premium plugin features."
-msgstr ""
-"Geben Sie Ihren Lizenzschlüssel ein, um %s zu aktivieren und Premium-Plugin-"
-"Funktionen zu erhalten."
+#~ msgid "PHP IPTC support"
+#~ msgstr "PHP-IPTC-Unterstützung"
 
 # automatic translation
-msgid ""
-"Unfortunately, you have exceeded the number of available tries per day. "
-"Please, upload the plugin manually."
-msgstr ""
-"Leider haben Sie die Anzahl der verfügbaren Versuche pro Tag überschritten. "
-"Bitte laden Sie das Plugin manuell hoch."
+#~ msgid "PHP XML support"
+#~ msgstr "PHP-XML-Unterstützung"
 
 # automatic translation
-#, php-format
-msgid "Start Your Free %s-Day Trial Now"
-msgstr "Starten Sie jetzt Ihre kostenlose %s-Day-Testversion"
+#~ msgid "Database"
+#~ msgstr "Datenbank"
 
 # automatic translation
-msgid ""
-"If necessary, you can check if the license key is correct or reenter it in "
-"the field below."
-msgstr ""
-"Bei Bedarf können Sie überprüfen, ob der Lizenzschlüssel korrekt ist, oder "
-"ihn im Feld darunter erneut eingeben."
+#~ msgid "WP DB version"
+#~ msgstr "WP DB-Version"
 
 # automatic translation
-msgid "Manage License Settings"
-msgstr "Lizenzeinstellungen verwalten"
+#~ msgid "MySQL version"
+#~ msgstr "MySQL-Version"
 
 # automatic translation
-msgid "Login to Client Area"
-msgstr "Melden Sie sich im Kundenbereich an"
+#~ msgid "SQL Mode"
+#~ msgstr "SQL-Modus"
 
 # automatic translation
-msgid ""
-"Manage active licenses, download BWS products, and view your payment history "
-"using BestWebSoft Client Area."
-msgstr ""
-"Verwalten Sie aktive Lizenzen, laden Sie BWS-Produkte herunter und sehen Sie "
-"sich Ihren Zahlungsverlauf im BestWebSoft-Kundenbereich an."
+#~ msgid "Active Plugins"
+#~ msgstr "Aktive Plugins"
 
 # automatic translation
-msgid "Security check"
-msgstr "Sicherheitskontrolle"
+#~ msgid "Inactive Plugins"
+#~ msgstr "Inaktive Plugins"
 
 # automatic translation
-msgid "This license key is bound to another site."
-msgstr "Dieser Lizenzschlüssel ist an eine andere Site gebunden."
-
-# automatic translation
-msgid ""
-"This license key is valid, but Your license has expired. If you want to "
-"update our plugin in future, you should extend the license."
-msgstr ""
-"Dieser Lizenzschlüssel ist gültig, aber Ihre Lizenz ist abgelaufen. Wenn Sie "
-"unser Plugin in Zukunft aktualisieren möchten, sollten Sie die Lizenz "
-"verlängern."
-
-# automatic translation
-msgid "Unfortunately, you have exceeded the number of available tries."
-msgstr "Leider haben Sie die Anzahl der verfügbaren Versuche überschritten."
-
-# automatic translation
-msgid ""
-"Unfortunately, the Pro Trial licence was already installed to this domain. "
-"The Pro Trial license can be installed only once."
-msgstr ""
-"Leider war die Pro Trial-Lizenz bereits auf dieser Domain installiert. Die "
-"Pro Trial-Lizenz kann nur einmal installiert werden."
-
-# automatic translation
-msgid "The Pro Trial license key is valid."
-msgstr "Der Pro Trial-Lizenzschlüssel ist gültig."
+#~ msgid "Please enter a valid email address."
+#~ msgstr "Bitte geben Sie eine gültige E-Mail-Adresse ein."
 
 # automatic translation
 #, php-format
-msgid ""
-"In order to continue using the plugin it is necessary to buy a %s license."
-msgstr ""
-"Um das Plugin weiterhin verwenden zu können, muss eine %s-Lizenz erworben "
-"werden."
+#~ msgid "Email with system info is sent to %s."
+#~ msgstr "E-Mail mit Systeminformationen wird an %s gesendet."
+
+# automatic translation
+#~ msgid "Thank you for contacting us."
+#~ msgstr "Danke, dass Sie uns kontaktiert haben."
+
+# automatic translation
+#~ msgid "Sorry, email message could not be delivered."
+#~ msgstr ""
+#~ "Entschuldigung, die E-Mail-Nachricht konnte nicht zugestellt werden."
+
+# automatic translation
+#~ msgid "Themes"
+#~ msgstr "Themen"
+
+# automatic translation
+#~ msgid "System status"
+#~ msgstr "Systemstatus"
+
+# automatic translation
+#~ msgid "Manage purchased licenses & subscriptions"
+#~ msgstr "Gekaufte Lizenzen und Abonnements verwalten"
 
 # automatic translation
 #, php-format
-msgid ""
-"Unfortunately, Your license has expired. To continue getting top-priority "
-"support and plugin updates, you should extend it in your %s."
-msgstr ""
-"Leider ist Ihre Lizenz abgelaufen. Um weiterhin erstklassigen Support und "
-"Plugin-Updates zu erhalten, sollten Sie es in Ihrem %s erweitern."
+#~ msgid "Get Access to %s+ Premium Plugins"
+#~ msgstr "Erhalten Sie Zugriff auf %s+ Premium-Plugins"
 
 # automatic translation
-msgid "Please, enter Your license key"
-msgstr "Bitte geben Sie ihren Lizenzschlüssel ein"
+#~ msgid "Subscribe to Pro Membership"
+#~ msgstr "Abonnieren Sie die Pro-Mitgliedschaft"
 
 # automatic translation
-msgid "Need Help?"
-msgstr "Brauchen Sie Hilfe?"
+#~ msgid "Check license key"
+#~ msgstr "Lizenzschlüssel prüfen"
 
 # automatic translation
-msgid "Read the Instruction"
-msgstr "Lies die Anleitung"
+#~ msgid "Enter your license key"
+#~ msgstr "Gib deinen Lizenz-Schlüssel ein"
 
 # automatic translation
-msgid "Watch the Video"
-msgstr "Schau das Video"
+#~ msgid "Activate"
+#~ msgstr "aktivieren Sie"
 
 # automatic translation
-msgid "Start Your Free Trial"
-msgstr "Starten Sie Ihre kostenlose Testversion"
-
-# automatic translation
-msgid "Request a Feature"
-msgstr "Fordern Sie eine Funktion an"
+#~ msgid "Upload Plugin"
+#~ msgstr "Plugin hochladen"
 
 # automatic translation
 #, php-format
-msgid "How can we improve %s?"
-msgstr "Wie können wir %s verbessern?"
+#~ msgid ""
+#~ "The plugin generated %d characters of <strong>unexpected output</strong> "
+#~ "during activation. If you notice &#8220;headers already sent&#8221; "
+#~ "messages, problems with syndication feeds or other issues, try "
+#~ "deactivating or removing this plugin."
+#~ msgstr ""
+#~ "Das Plugin hat während der Aktivierung %d Zeichen einer "
+#~ "<strong>unerwarteten Ausgabe</strong> generiert. Wenn Sie „Header bereits "
+#~ "gesendet“-Nachrichten, Probleme mit Syndication-Feeds oder andere "
+#~ "Probleme bemerken, versuchen Sie, dieses Plugin zu deaktivieren oder zu "
+#~ "entfernen."
 
 # automatic translation
-msgid "We look forward to hear your ideas."
-msgstr "Wir freuen uns auf Ihre Ideen."
+#~ msgid ""
+#~ "Plugin could not be activated because it triggered a <strong>fatal error</"
+#~ "strong>."
+#~ msgstr ""
+#~ "Plugin konnte nicht aktiviert werden, da es einen <strong>fatalen Fehler</"
+#~ "strong> ausgelöst hat."
 
 # automatic translation
-msgid "Describe your idea"
-msgstr "Beschreiben Sie Ihre Idee"
+#~ msgid "Plugin <strong>activated</strong>."
+#~ msgstr "Plugin <strong>aktiviert</strong> ."
 
 # automatic translation
-msgid "Send website data and allow to contact me back"
-msgstr "Senden Sie Website-Daten und erlauben Sie, mich zurück zu kontaktieren"
+#~ msgid "Download Pro Plugin"
+#~ msgstr "Laden Sie das Pro-Plugin herunter"
 
 # automatic translation
-msgid "Submit"
-msgstr "Einreichen"
+#~ msgid "Your Pro plugin is ready"
+#~ msgstr "Ihr Pro-Plugin ist fertig"
 
 # automatic translation
-msgid "Processing"
-msgstr "wird bearbeitet"
+#~ msgid "Your plugin has been zipped, and now is ready to download."
+#~ msgstr "Ihr Plugin wurde gezippt und kann jetzt heruntergeladen werden."
 
 # automatic translation
-msgid "Thank you!"
-msgstr "Danke schön!"
+#~ msgid "Download Now"
+#~ msgstr "Jetzt downloaden"
 
 # automatic translation
-msgid "Need help? We are ready to answer your questions."
-msgstr "Brauchen Sie Hilfe? Wir sind bereit, Ihre Fragen zu beantworten."
+#~ msgid "Need help installing the plugin?"
+#~ msgstr "Benötigen Sie Hilfe bei der Installation des Plugins?"
 
 # automatic translation
-msgid "Contact Support"
-msgstr "Kontaktieren Sie Support"
+#~ msgid ""
+#~ "How to install WordPress plugin from your admin Dashboard (ZIP archive)"
+#~ msgstr ""
+#~ "So installieren Sie das WordPress-Plugin von Ihrem Admin-Dashboard (ZIP-"
+#~ "Archiv)"
 
 # automatic translation
-msgid "The plugin is not working"
-msgstr "Das Plugin funktioniert nicht"
+#~ msgid "Get Started"
+#~ msgstr "Loslegen"
 
 # automatic translation
-msgid "Kindly share what didn't work so we can fix it in future updates..."
-msgstr ""
-"Teilen Sie bitte mit, was nicht funktioniert hat, damit wir es in "
-"zukünftigen Updates beheben können ..."
+#~ msgid "Knowledge Base"
+#~ msgstr "Wissensbasis"
 
 # automatic translation
-msgid "The plugin didn't work as expected"
-msgstr "Das Plugin funktionierte nicht wie erwartet"
+#~ msgid "Licenses & Domains"
+#~ msgstr "Lizenzen & Domains"
 
 # automatic translation
-msgid "What did you expect?"
-msgstr "Was hast du erwartet?"
+#~ msgid "Client Area"
+#~ msgstr "Kundenbereich"
 
 # automatic translation
-msgid "The plugin suddenly stopped working"
-msgstr "Das Plugin funktionierte plötzlich nicht mehr"
+#~ msgid "Return to BestWebSoft Panel"
+#~ msgstr "Kehren Sie zum BestWebSoft-Panel zurück"
 
 # automatic translation
-msgid "The plugin broke my site"
-msgstr "Das Plugin hat meine Seite kaputt gemacht"
+#~ msgid "Installed"
+#~ msgstr "Eingerichtet"
 
 # automatic translation
-msgid "I couldn't understand how to get it work"
-msgstr "Ich konnte nicht verstehen, wie es funktioniert"
+#~ msgid "Not Installed"
+#~ msgstr "Nicht installiert"
 
 # automatic translation
-msgid "I found a better plugin"
-msgstr "Ich habe ein besseres Plugin gefunden"
+#~ msgid "Filter results"
+#~ msgstr "Filter Ergebnisse"
 
 # automatic translation
-msgid "What's the plugin name?"
-msgstr "Wie heißt das Plugin?"
+#~ msgid "Not installed"
+#~ msgstr "Nicht installiert"
 
 # automatic translation
-msgid "The plugin is great, but I need specific feature that you don't support"
-msgstr ""
-"Das Plugin ist großartig, aber ich brauche eine bestimmte Funktion, die Sie "
-"nicht unterstützen"
+#~ msgid "Renew to get updates"
+#~ msgstr "Erneuern, um Updates zu erhalten"
 
 # automatic translation
-msgid "What feature?"
-msgstr "Welche Funktion?"
+#, php-format
+#~ msgid "Update to v %s"
+#~ msgstr "Aktualisieren Sie auf v %s"
 
 # automatic translation
-msgid "I no longer need the plugin"
-msgstr "Ich brauche das Plugin nicht mehr"
+#~ msgid "Get Pro"
+#~ msgstr "Werde professoinell"
 
 # automatic translation
-msgid "It's a temporary deactivation, I'm just debugging an issue"
-msgstr "Es ist eine vorübergehende Deaktivierung, ich debugge nur ein Problem"
+#~ msgid "Activate this plugin"
+#~ msgstr "Aktivieren Sie dieses Plugin"
 
 # automatic translation
-msgid "Other"
-msgstr "Andere"
+#~ msgid "Install this plugin"
+#~ msgstr "Installieren Sie dieses Plugin"
 
 # automatic translation
-msgid "Quick Feedback"
-msgstr "Schnelles Feedback"
+#~ msgid "Install Now"
+#~ msgstr "Jetzt installieren"
 
 # automatic translation
-msgid "If you have a moment, please let us know why you are deactivating"
-msgstr ""
-"Wenn Sie einen Moment Zeit haben, teilen Sie uns bitte mit, warum Sie "
-"deaktivieren"
+#~ msgid "Nothing found. Try another criteria."
+#~ msgstr "Nichts gefunden. Versuchen Sie es mit einem anderen Kriterium."
 
 # automatic translation
-msgid "Submit and Deactivate"
-msgstr "Senden und deaktivieren"
+#, php-format
+#~ msgid "By %s"
+#~ msgstr "Von %s"
 
 # automatic translation
-msgid "Skip and Deactivate"
-msgstr "Überspringen und deaktivieren"
+#~ msgid "Already Installed"
+#~ msgstr "Bereits installiert"
 
 # automatic translation
-msgid "Please tell us the reason so we can improve it."
-msgstr "Bitte teilen Sie uns den Grund mit, damit wir es verbessern können."
+#~ msgid "Browse More WordPress Themes"
+#~ msgstr "Durchsuchen Sie weitere WordPress-Themes"
 
 # automatic translation
-msgid "System Status"
-msgstr "Systemstatus"
+#~ msgid "Send to support"
+#~ msgstr "An den Support senden"
 
 # automatic translation
-msgid ""
-"If necessary, you can check if the license key is correct or reenter it in "
-"the field below. You can find your license key on your personal page - "
-"Client Area - on our website"
-msgstr ""
-"Bei Bedarf können Sie überprüfen, ob der Lizenzschlüssel korrekt ist, oder "
-"ihn im Feld darunter erneut eingeben. Sie finden Ihren Lizenzschlüssel auf "
-"Ihrer persönlichen Seite – Kundenbereich – auf unserer Website"
+#~ msgid "Send to custom email &#187;"
+#~ msgstr "An benutzerdefinierte E-Mail-Adresse senden &#187;"
 
 # automatic translation
-msgid ""
-"(your username is the email address specified during the purchase). If "
-"necessary, please submit \"Lost your password?\" request."
-msgstr ""
-"(Ihr Benutzername ist die beim Kauf angegebene E-Mail-Adresse). Geben Sie "
-"ggf. \"Passwort vergessen?\" Anfrage."
+#~ msgid "Information"
+#~ msgstr "Information"
 
 # automatic translation
-msgid "After that, you can activate it by entering your license key."
-msgstr ""
-"Danach können Sie es aktivieren, indem Sie Ihren Lizenzschlüssel eingeben."
+#~ msgid "Inactive"
+#~ msgstr "Inaktiv"
 
 # automatic translation
-msgid "License key can be found in the"
-msgstr "Lizenzschlüssel finden Sie in der"
+#~ msgid "Expired"
+#~ msgstr "Abgelaufen"
 
 # automatic translation
-msgid "(your username is the email address specified during the purchase)."
-msgstr "(Ihr Benutzername ist die beim Kauf angegebene E-Mail-Adresse)."
+#, php-format
+#~ msgid "%s day(-s) left"
+#~ msgstr "%s Tag(e) übrig"
 
 # automatic translation
-msgid ""
-"Congratulations! The Pro license of the plugin is activated successfully."
-msgstr "Glückwunsch! Die Pro-Lizenz des Plugins wurde erfolgreich aktiviert."
+#, php-format
+#~ msgid "Expired on %s"
+#~ msgstr "Abgelaufen am %s"
 
 # automatic translation
-msgid "Please, go to"
-msgstr "Bitte gehe zu"
+#~ msgid "Renew Now"
+#~ msgstr "Jetzt erneuern"
 
 # automatic translation
-msgid "the setting page"
-msgstr "die Einstellungsseite"
+#~ msgid "Active"
+#~ msgstr "Aktiv"
 
 # automatic translation
-msgid "Restore all plugin settings to defaults"
-msgstr ""
-"Setzen Sie alle Plugin-Einstellungen auf die Standardeinstellungen zurück"
+#~ msgid "License"
+#~ msgstr "Lizenz"
 
 # automatic translation
-msgid "Restore settings"
-msgstr "Einstellungen zurücksetzen"
+#~ msgid "Version"
+#~ msgstr "Ausführung"
 
 # automatic translation
-msgid ""
-"Congratulations! Pro version of the plugin is  installed and activated "
-"successfully."
-msgstr ""
-"Glückwunsch! Die Pro-Version des Plugins wurde erfolgreich installiert und "
-"aktiviert."
+#~ msgid "All plugin settings were restored."
+#~ msgstr "Alle Plugin-Einstellungen wurden wiederhergestellt."
 
 # automatic translation
-msgid "Show Pro features"
-msgstr "Pro-Funktionen anzeigen"
+#~ msgid ""
+#~ "The ability to add custom code is available in the Pro version. If the "
+#~ "Pro version is not available please contact us via Help Center"
+#~ msgstr ""
+#~ "Die Möglichkeit, benutzerdefinierten Code hinzuzufügen, ist in der Pro-"
+#~ "Version verfügbar. Wenn die Pro-Version nicht verfügbar ist, kontaktieren "
+#~ "Sie uns bitte über das Help Center"
 
 # automatic translation
-msgid "Enter your license key to install and activate"
-msgstr ""
-"Geben Sie Ihren Lizenzschlüssel ein, um ihn zu installieren und zu aktivieren"
+#~ msgid ""
+#~ "You do not have sufficient permissions to edit plugins for this site."
+#~ msgstr "Sie sind nicht berechtigt, Plugins für diese Website zu bearbeiten."
 
 # automatic translation
-msgid "version of the plugin."
-msgstr "Version des Plugins."
+#~ msgid "These styles will be added to the header on all pages of your site."
+#~ msgstr ""
+#~ "Diese Stile werden der Kopfzeile auf allen Seiten Ihrer Website "
+#~ "hinzugefügt."
 
 # automatic translation
-msgid "Admin Tools"
-msgstr "Verwaltungstools"
+#, php-format
+#~ msgid ""
+#~ "This PHP code will be hooked to the %s Action and will be printed on "
+#~ "front end only."
+#~ msgstr ""
+#~ "Dieser PHP-Code wird mit der %s-Aktion verbunden und nur am Frontend "
+#~ "gedruckt."
 
 # automatic translation
-msgid "Content"
-msgstr "Inhalt"
+#~ msgid "These code will be added to the header on all pages of your site."
+#~ msgstr ""
+#~ "Dieser Code wird der Kopfzeile auf allen Seiten Ihrer Website hinzugefügt."
 
 # automatic translation
-msgid "eCommerce"
-msgstr "E-Commerce"
+#~ msgid "Browsing"
+#~ msgstr "Surfen"
 
 # automatic translation
-msgid "Marketing"
-msgstr "Marketing"
+#, php-format
+#~ msgid "Activate custom %s code."
+#~ msgstr "Benutzerdefinierten %s-Code aktivieren."
 
 # automatic translation
-msgid "Navigation"
-msgstr "Navigation"
+#, php-format
+#~ msgid "Learn more about %s"
+#~ msgstr "Erfahren Sie mehr über %s"
 
 # automatic translation
-msgid "Recommended"
-msgstr "Empfohlen"
+#~ msgid "Miscellaneous Settings"
+#~ msgstr "Verschiedene Einstellungen"
 
 # automatic translation
-msgid "Security"
-msgstr "Sicherheit"
+#, php-format
+#~ msgid ""
+#~ "It is prohibited to change %1$s settings on this site in the %2$s network "
+#~ "settings."
+#~ msgstr ""
+#~ "Es ist verboten, die Einstellungen von %1$s auf dieser Website in den "
+#~ "Netzwerkeinstellungen von %2$s zu ändern."
 
 # automatic translation
-msgid "SEO"
-msgstr "DAS"
+#, php-format
+#~ msgid ""
+#~ "It is prohibited to view %1$s settings on this site in the %2$s network "
+#~ "settings."
+#~ msgstr ""
+#~ "Es ist verboten, die Einstellungen von %1$s auf dieser Website in den "
+#~ "Netzwerkeinstellungen von %2$s anzuzeigen."
 
 # automatic translation
-msgid "SMM"
-msgstr "SMM"
+#~ msgid "Pro Options"
+#~ msgstr "Pro-Optionen"
 
 # automatic translation
-msgid "Give a birth for your bike rental and booking WordPress website."
-msgstr ""
-"Geben Sie eine Geburt für Ihre Fahrradverleih- und Buchungs-WordPress-"
-"Website."
+#~ msgid "Enable to display plugin Pro options."
+#~ msgstr "Aktivieren, um Plug-in-Pro-Optionen anzuzeigen."
 
 # automatic translation
-msgid "Best secure captcha plugin to protect your WordPress forms."
-msgstr "Bestes sicheres Captcha-Plugin zum Schutz Ihrer WordPress-Formulare."
+#~ msgid "Track Usage"
+#~ msgstr "Nutzung verfolgen"
 
 # automatic translation
-msgid "Create your own rental website for car renting and booking."
-msgstr "Erstellen Sie Ihre eigene Mietwebsite für Mietwagen und Buchung."
+#~ msgid ""
+#~ "Enable to allow tracking plugin usage anonymously in order to make it "
+#~ "better."
+#~ msgstr ""
+#~ "Aktivieren Sie diese Option, um die Verwendung des Tracking-Plug-ins "
+#~ "anonym zuzulassen, um es zu verbessern."
 
 # automatic translation
-msgid ""
-"Add columns with custom content to WordPress website pages, posts, widgets, "
-"etc."
-msgstr ""
-"Fügen Sie Spalten mit benutzerdefinierten Inhalten zu WordPress-"
-"Websiteseiten, Beiträgen, Widgets usw. hinzu."
+#~ msgid "Default Settings"
+#~ msgstr "Standardeinstellungen"
 
 # automatic translation
-msgid ""
-"Allow customers to reach you using secure contact form plugin any website "
-"must have."
-msgstr ""
-"Ermöglichen Sie Kunden, Sie mit einem sicheren Kontaktformular-Plugin zu "
-"erreichen, das jede Website haben muss."
+#~ msgid "Restore Settings"
+#~ msgstr "Einstellungen zurücksetzen"
 
 # automatic translation
-msgid "Add unlimited number of contact forms to WordPress website."
-msgstr ""
-"Fügen Sie der WordPress-Website eine unbegrenzte Anzahl von "
-"Kontaktformularen hinzu."
+#~ msgid "This will restore plugin settings to defaults."
+#~ msgstr ""
+#~ "Dadurch werden die Plugin-Einstellungen auf die Standardeinstellungen "
+#~ "zurückgesetzt."
 
 # automatic translation
-msgid "Save and manage Contact Form messages. Never lose important data."
-msgstr ""
-"Speichern und verwalten Sie Kontaktformularnachrichten. Verlieren Sie "
-"niemals wichtige Daten."
+#~ msgid "Import / Export"
+#~ msgstr "Import Export"
 
 # automatic translation
-msgid "Add unlimited custom pages to WordPress admin dashboard."
-msgstr ""
-"Fügen Sie dem WordPress-Admin-Dashboard unbegrenzt benutzerdefinierte Seiten "
-"hinzu."
+#, php-format
+#~ msgid ""
+#~ "Enter your license key to activate %s and get premium plugin features."
+#~ msgstr ""
+#~ "Geben Sie Ihren Lizenzschlüssel ein, um %s zu aktivieren und Premium-"
+#~ "Plugin-Funktionen zu erhalten."
 
 # automatic translation
-msgid ""
-"Add custom post types and taxonomies to WordPress website search results."
-msgstr ""
-"Fügen Sie benutzerdefinierte Beitragstypen und Taxonomien zu den "
-"Suchergebnissen der WordPress-Website hinzu."
+#~ msgid ""
+#~ "Unfortunately, you have exceeded the number of available tries per day. "
+#~ "Please, upload the plugin manually."
+#~ msgstr ""
+#~ "Leider haben Sie die Anzahl der verfügbaren Versuche pro Tag "
+#~ "überschritten. Bitte laden Sie das Plugin manuell hoch."
 
 # automatic translation
-msgid "Add PayPal and 2CO donate buttons to receive charity payments."
-msgstr ""
-"Fügen Sie PayPal- und 2CO-Spendenschaltflächen hinzu, um Spendenzahlungen zu "
-"erhalten."
+#, php-format
+#~ msgid "Start Your Free %s-Day Trial Now"
+#~ msgstr "Starten Sie jetzt Ihre kostenlose %s-Day-Testversion"
 
 # automatic translation
-msgid ""
-"Get latest error log messages to diagnose website problems. Define and fix "
-"issues faster."
-msgstr ""
-"Erhalten Sie die neuesten Fehlerprotokollmeldungen, um Probleme mit der "
-"Website zu diagnostizieren. Definieren und beheben Sie Probleme schneller."
+#~ msgid ""
+#~ "If necessary, you can check if the license key is correct or reenter it "
+#~ "in the field below."
+#~ msgstr ""
+#~ "Bei Bedarf können Sie überprüfen, ob der Lizenzschlüssel korrekt ist, "
+#~ "oder ihn im Feld darunter erneut eingeben."
 
 # automatic translation
-msgid ""
-"Add Facebook Follow, Like, and Share buttons to WordPress posts, pages, and "
-"widgets."
-msgstr ""
-"Fügen Sie Facebook-Schaltflächen „Folgen“, „Gefällt mir“ und „Teilen“ zu "
-"WordPress-Beiträgen, -Seiten und -Widgets hinzu."
+#~ msgid "Manage License Settings"
+#~ msgstr "Lizenzeinstellungen verwalten"
 
 # automatic translation
-msgid ""
-"Add beautiful galleries, albums & images to your WordPress website in a few "
-"clicks."
-msgstr ""
-"Fügen Sie Ihrer WordPress-Website mit wenigen Klicks wunderschöne Galerien, "
-"Alben und Bilder hinzu."
+#~ msgid "Login to Client Area"
+#~ msgstr "Melden Sie sich im Kundenbereich an"
 
 # automatic translation
-msgid ""
-"Stronger security solution which protects your WordPress website from hacks "
-"and unauthorized login attempts."
-msgstr ""
-"Stärkere Sicherheitslösung, die Ihre WordPress-Website vor Hacks und "
-"unbefugten Anmeldeversuchen schützt."
+#~ msgid ""
+#~ "Manage active licenses, download BWS products, and view your payment "
+#~ "history using BestWebSoft Client Area."
+#~ msgstr ""
+#~ "Verwalten Sie aktive Lizenzen, laden Sie BWS-Produkte herunter und sehen "
+#~ "Sie sich Ihren Zahlungsverlauf im BestWebSoft-Kundenbereich an."
 
 # automatic translation
-msgid ""
-"Add Adsense ads to WordPress website pages, posts, custom posts, search "
-"results, categories, tags, and widgets."
-msgstr ""
-"Fügen Sie Adsense-Anzeigen zu Seiten, Beiträgen, benutzerdefinierten "
-"Beiträgen, Suchergebnissen, Kategorien, Tags und Widgets von WordPress-"
-"Websites hinzu."
+#~ msgid "Security check"
+#~ msgstr "Sicherheitskontrolle"
 
 # automatic translation
-msgid "Add Google Analytics code to WordPress website and track basic stats."
-msgstr ""
-"Fügen Sie der WordPress-Website Google Analytics-Code hinzu und verfolgen "
-"Sie grundlegende Statistiken."
+#~ msgid "This license key is bound to another site."
+#~ msgstr "Dieser Lizenzschlüssel ist an eine andere Site gebunden."
 
 # automatic translation
-msgid "Protect WordPress website forms from spam entries with reCaptcha."
-msgstr ""
-"Schützen Sie WordPress-Website-Formulare mit reCaptcha vor Spam-Einträgen."
+#~ msgid ""
+#~ "This license key is valid, but Your license has expired. If you want to "
+#~ "update our plugin in future, you should extend the license."
+#~ msgstr ""
+#~ "Dieser Lizenzschlüssel ist gültig, aber Ihre Lizenz ist abgelaufen. Wenn "
+#~ "Sie unser Plugin in Zukunft aktualisieren möchten, sollten Sie die Lizenz "
+#~ "verlängern."
 
 # automatic translation
-msgid "Add customized Google maps to WordPress posts, pages and widgets."
-msgstr ""
-"Fügen Sie benutzerdefinierte Google Maps zu WordPress-Beiträgen, -Seiten und "
-"-Widgets hinzu."
+#~ msgid "Unfortunately, you have exceeded the number of available tries."
+#~ msgstr "Leider haben Sie die Anzahl der verfügbaren Versuche überschritten."
 
 # automatic translation
-msgid ""
-"Generate and add XML sitemap to WordPress website. Help search engines index "
-"your blog."
-msgstr ""
-"Generieren Sie eine XML-Sitemap und fügen Sie sie der WordPress-Website "
-"hinzu. Helfen Sie Suchmaschinen, Ihren Blog zu indizieren."
+#~ msgid ""
+#~ "Unfortunately, the Pro Trial licence was already installed to this "
+#~ "domain. The Pro Trial license can be installed only once."
+#~ msgstr ""
+#~ "Leider war die Pro Trial-Lizenz bereits auf dieser Domain installiert. "
+#~ "Die Pro Trial-Lizenz kann nur einmal installiert werden."
 
 # automatic translation
-msgid ""
-"Replace external WordPress website links with Google shortlinks and track "
-"click stats."
-msgstr ""
-"Ersetzen Sie externe WordPress-Website-Links durch Google-Shortlinks und "
-"verfolgen Sie Klickstatistiken."
+#~ msgid "The Pro Trial license key is valid."
+#~ msgstr "Der Pro Trial-Lizenzschlüssel ist gültig."
 
 # automatic translation
-msgid ""
-"Protect WordPress website – allow and deny access for certain IP addresses, "
-"hostnames, etc."
-msgstr ""
-"Schützen Sie die WordPress-Website – erlauben und verweigern Sie den Zugriff "
-"für bestimmte IP-Adressen, Hostnamen usw."
+#, php-format
+#~ msgid ""
+#~ "In order to continue using the plugin it is necessary to buy a %s license."
+#~ msgstr ""
+#~ "Um das Plugin weiterhin verwenden zu können, muss eine %s-Lizenz erworben "
+#~ "werden."
 
 # automatic translation
-msgid ""
-"Create your personal job board and listing WordPress website. Search jobs, "
-"submit CV/resumes, choose candidates."
-msgstr ""
-"Erstellen Sie Ihre persönliche Jobbörse und WordPress-Website. Jobs suchen, "
-"Lebensläufe einreichen, Kandidaten auswählen."
+#, php-format
+#~ msgid ""
+#~ "Unfortunately, Your license has expired. To continue getting top-priority "
+#~ "support and plugin updates, you should extend it in your %s."
+#~ msgstr ""
+#~ "Leider ist Ihre Lizenz abgelaufen. Um weiterhin erstklassigen Support und "
+#~ "Plugin-Updates zu erhalten, sollten Sie es in Ihrem %s erweitern."
 
 # automatic translation
-msgid ""
-"Protect WordPress website against brute force attacks. Limit rate of login "
-"attempts."
-msgstr ""
-"Schützen Sie die WordPress-Website vor Brute-Force-Angriffen. Rate der "
-"Anmeldeversuche begrenzen."
+#~ msgid "Please, enter Your license key"
+#~ msgstr "Bitte geben Sie ihren Lizenzschlüssel ein"
 
 # automatic translation
-msgid ""
-"Add LinkedIn Share and Follow buttons to WordPress posts, pages and widgets. "
-"5 plugins included – profile, insider, etc."
-msgstr ""
-"Fügen Sie LinkedIn-Schaltflächen „Teilen“ und „Folgen“ zu WordPress-"
-"Beiträgen, -Seiten und -Widgets hinzu. 5 Plugins enthalten – Profil, Insider "
-"usw."
+#~ msgid "Need Help?"
+#~ msgstr "Brauchen Sie Hilfe?"
 
 # automatic translation
-msgid ""
-"Translate WordPress website content to other languages manually. Create "
-"multilingual pages, posts, widgets, menus, etc."
-msgstr ""
-"Übersetzen Sie WordPress-Website-Inhalte manuell in andere Sprachen. "
-"Erstellen Sie mehrsprachige Seiten, Beiträge, Widgets, Menüs usw."
+#~ msgid "Read the Instruction"
+#~ msgstr "Lies die Anleitung"
 
 # automatic translation
-msgid ""
-"Add customizable pagination to WordPress website. Split long content to "
-"multiple pages for better navigation."
-msgstr ""
-"Fügen Sie der WordPress-Website eine anpassbare Paginierung hinzu. Teilen "
-"Sie lange Inhalte zur besseren Navigation auf mehrere Seiten auf."
+#~ msgid "Watch the Video"
+#~ msgstr "Schau das Video"
 
 # automatic translation
-msgid ""
-"Add Pinterest Follow, Pin It buttons and profile widgets (Pin, Board, "
-"Profile) to WordPress posts, pages and widgets."
-msgstr ""
-"Fügen Sie Pinterest Folgen, Pin It-Schaltflächen und Profil-Widgets (Pin, "
-"Pinnwand, Profil) zu WordPress-Beiträgen, -Seiten und -Widgets hinzu."
+#~ msgid "Start Your Free Trial"
+#~ msgstr "Starten Sie Ihre kostenlose Testversion"
 
 # automatic translation
-msgid ""
-"Create your personal portfolio WordPress website. Manage and showcase past "
-"projects to get more clients."
-msgstr ""
-"Erstellen Sie Ihre persönliche Portfolio-WordPress-Website. Verwalten und "
-"präsentieren Sie vergangene Projekte, um mehr Kunden zu gewinnen."
+#~ msgid "Request a Feature"
+#~ msgstr "Fordern Sie eine Funktion an"
 
 # automatic translation
-msgid "Export WordPress posts to CSV file format easily. Configure data order."
-msgstr ""
-"Exportieren Sie WordPress-Beiträge einfach in das CSV-Dateiformat. "
-"Konfigurieren Sie die Datenreihenfolge."
+#, php-format
+#~ msgid "How can we improve %s?"
+#~ msgstr "Wie können wir %s verbessern?"
 
 # automatic translation
-msgid ""
-"Add extra fields to default WordPress user profile. The easiest way to "
-"create and manage additional custom values."
-msgstr ""
-"Fügen Sie dem Standard-WordPress-Benutzerprofil zusätzliche Felder hinzu. "
-"Die einfachste Möglichkeit, zusätzliche benutzerdefinierte Werte zu "
-"erstellen und zu verwalten."
+#~ msgid "We look forward to hear your ideas."
+#~ msgstr "Wir freuen uns auf Ihre Ideen."
 
 # automatic translation
-msgid ""
-"Add and display HTML advertisement banner on WordPress website. Customize "
-"bar styles and appearance."
-msgstr ""
-"Hinzufügen und Anzeigen von HTML-Werbebannern auf der WordPress-Website. "
-"Passen Sie die Stile und das Erscheinungsbild der Balken an."
+#~ msgid "Describe your idea"
+#~ msgstr "Beschreiben Sie Ihre Idee"
 
 # automatic translation
-msgid ""
-"Add customizable quotes and tips blocks to WordPress posts, pages and "
-"widgets."
-msgstr ""
-"Fügen Sie WordPress-Beiträgen, -Seiten und -Widgets anpassbare Zitate- und "
-"Tippblöcke hinzu."
+#~ msgid "Send website data and allow to contact me back"
+#~ msgstr ""
+#~ "Senden Sie Website-Daten und erlauben Sie, mich zurück zu kontaktieren"
 
 # automatic translation
-msgid ""
-"Add rating plugin to your WordPress website to receive feedback from your "
-"customers."
-msgstr ""
-"Fügen Sie Ihrer WordPress-Website ein Bewertungs-Plugin hinzu, um Feedback "
-"von Ihren Kunden zu erhalten."
+#~ msgid "Submit"
+#~ msgstr "Einreichen"
 
 # automatic translation
-msgid ""
-"Create your personal real estate WordPress website. Sell, rent and buy "
-"properties. Add, search and browse listings easily."
-msgstr ""
-"Erstellen Sie Ihre persönliche Immobilien-WordPress-Website. Immobilien "
-"verkaufen, vermieten und kaufen. Einträge einfach hinzufügen, suchen und "
-"durchsuchen."
+#~ msgid "Processing"
+#~ msgstr "wird bearbeitet"
 
 # automatic translation
-msgid ""
-"Add related, featured, latest, and popular posts to your WordPress website. "
-"Connect your blog readers with a relevant content."
-msgstr ""
-"Fügen Sie Ihrer WordPress-Website verwandte, empfohlene, neueste und "
-"beliebte Beiträge hinzu. Verbinden Sie Ihre Blog-Leser mit relevanten "
-"Inhalten."
+#~ msgid "Thank you!"
+#~ msgstr "Danke schön!"
 
 # automatic translation
-msgid ""
-"Send bulk email messages to WordPress users. Custom templates, advanced "
-"settings and detailed reports."
-msgstr ""
-"Senden Sie Massen-E-Mail-Nachrichten an WordPress-Benutzer. "
-"Benutzerdefinierte Vorlagen, erweiterte Einstellungen und detaillierte "
-"Berichte."
+#~ msgid "Need help? We are ready to answer your questions."
+#~ msgstr "Brauchen Sie Hilfe? Wir sind bereit, Ihre Fragen zu beantworten."
 
 # automatic translation
-msgid ""
-"The best responsive slider plugin for your WordPress website. Create "
-"beautifully animated slides just in a few clicks."
-msgstr ""
-"Das beste Responsive Slider-Plugin für Ihre WordPress-Website. Erstellen Sie "
-"mit nur wenigen Klicks wunderschön animierte Folien."
+#~ msgid "Contact Support"
+#~ msgstr "Kontaktieren Sie Support"
 
 # automatic translation
-msgid ""
-"Configure SMTP server to receive email messages from WordPress to Gmail, "
-"Yahoo, Hotmail and other services."
-msgstr ""
-"Konfigurieren Sie den SMTP-Server, um E-Mail-Nachrichten von WordPress an "
-"Gmail, Yahoo, Hotmail und andere Dienste zu empfangen."
+#~ msgid "The plugin is not working"
+#~ msgstr "Das Plugin funktioniert nicht"
 
 # automatic translation
-msgid ""
-"Add social media buttons and widgets to WordPress posts, pages and widgets. "
-"FB, Twitter, Pinterest, LinkedIn."
-msgstr ""
-"Fügen Sie Social-Media-Schaltflächen und -Widgets zu WordPress-Posts, -"
-"Seiten und -Widgets hinzu. Facebook, Twitter, Pinterest, LinkedIn."
+#~ msgid "Kindly share what didn't work so we can fix it in future updates..."
+#~ msgstr ""
+#~ "Teilen Sie bitte mit, was nicht funktioniert hat, damit wir es in "
+#~ "zukünftigen Updates beheben können ..."
 
 # automatic translation
-msgid ""
-"Add social media login, registration, and commenting to your WordPress "
-"website."
-msgstr ""
-"Fügen Sie Ihrer WordPress-Website Anmeldung, Registrierung und Kommentare "
-"für soziale Medien hinzu."
+#~ msgid "The plugin didn't work as expected"
+#~ msgstr "Das Plugin funktionierte nicht wie erwartet"
 
 # automatic translation
-msgid ""
-"Add email newsletter sign up form to WordPress posts, pages and widgets. "
-"Collect data and subscribe your users."
-msgstr ""
-"Fügen Sie ein E-Mail-Newsletter-Anmeldeformular zu WordPress-Beiträgen, -"
-"Seiten und -Widgets hinzu. Sammeln Sie Daten und abonnieren Sie Ihre "
-"Benutzer."
+#~ msgid "What did you expect?"
+#~ msgstr "Was hast du erwartet?"
 
 # automatic translation
-msgid ""
-"Add testimonials and feedbacks from your customers to WordPress website "
-"posts, pages, and widgets."
-msgstr ""
-"Fügen Sie Testimonials und Feedbacks Ihrer Kunden zu Posts, Seiten und "
-"Widgets der WordPress-Website hinzu."
+#~ msgid "The plugin suddenly stopped working"
+#~ msgstr "Das Plugin funktionierte plötzlich nicht mehr"
 
 # automatic translation
-msgid ""
-"Best timesheet plugin for WordPress. Track employee time, streamline "
-"attendance and generate reports."
-msgstr ""
-"Bestes Stundenzettel-Plugin für WordPress. Verfolgen Sie die Arbeitszeit "
-"Ihrer Mitarbeiter, optimieren Sie die Anwesenheit und erstellen Sie Berichte."
+#~ msgid "The plugin broke my site"
+#~ msgstr "Das Plugin hat meine Seite kaputt gemacht"
 
 # automatic translation
-msgid ""
-"Add Twitter Follow, Tweet, Hashtag, and Mention buttons to WordPress posts "
-"and pages."
-msgstr ""
-"Füge Twitter-Folgen-, Tweet-, Hashtag- und Erwähnungs-Schaltflächen zu "
-"WordPress-Beiträgen und -Seiten hinzu."
+#~ msgid "I couldn't understand how to get it work"
+#~ msgstr "Ich konnte nicht verstehen, wie es funktioniert"
 
 # automatic translation
-msgid ""
-"Automatically check and update WordPress website core with all installed "
-"plugins and themes to the latest versions."
-msgstr ""
-"Überprüfen und aktualisieren Sie automatisch den Kern der WordPress-Website "
-"mit allen installierten Plugins und Themes auf die neuesten Versionen."
+#~ msgid "I found a better plugin"
+#~ msgstr "Ich habe ein besseres Plugin gefunden"
 
 # automatic translation
-msgid ""
-"Powerful user role management plugin for WordPress website. Create, edit, "
-"copy, and delete user roles."
-msgstr ""
-"Leistungsstarkes Plugin zur Benutzerrollenverwaltung für WordPress-Websites. "
-"Benutzerrollen erstellen, bearbeiten, kopieren und löschen."
+#~ msgid "What's the plugin name?"
+#~ msgstr "Wie heißt das Plugin?"
 
 # automatic translation
-msgid ""
-"Display live count of online visitors who are currently browsing your "
-"WordPress website."
-msgstr ""
-"Zeigen Sie die Live-Zählung der Online-Besucher an, die derzeit auf Ihrer "
-"WordPress-Website surfen."
+#~ msgid ""
+#~ "The plugin is great, but I need specific feature that you don't support"
+#~ msgstr ""
+#~ "Das Plugin ist großartig, aber ich brauche eine bestimmte Funktion, die "
+#~ "Sie nicht unterstützen"
 
 # automatic translation
-msgid ""
-"Backup and export Zendesk Help Center content automatically to your "
-"WordPress website database."
-msgstr ""
-"Sichern und exportieren Sie Zendesk Help Center-Inhalte automatisch in Ihre "
-"WordPress-Website-Datenbank."
+#~ msgid "What feature?"
+#~ msgstr "Welche Funktion?"
+
+# automatic translation
+#~ msgid "I no longer need the plugin"
+#~ msgstr "Ich brauche das Plugin nicht mehr"
+
+# automatic translation
+#~ msgid "It's a temporary deactivation, I'm just debugging an issue"
+#~ msgstr ""
+#~ "Es ist eine vorübergehende Deaktivierung, ich debugge nur ein Problem"
+
+# automatic translation
+#~ msgid "Other"
+#~ msgstr "Andere"
+
+# automatic translation
+#~ msgid "Quick Feedback"
+#~ msgstr "Schnelles Feedback"
+
+# automatic translation
+#~ msgid "If you have a moment, please let us know why you are deactivating"
+#~ msgstr ""
+#~ "Wenn Sie einen Moment Zeit haben, teilen Sie uns bitte mit, warum Sie "
+#~ "deaktivieren"
+
+# automatic translation
+#~ msgid "Submit and Deactivate"
+#~ msgstr "Senden und deaktivieren"
+
+# automatic translation
+#~ msgid "Skip and Deactivate"
+#~ msgstr "Überspringen und deaktivieren"
+
+# automatic translation
+#~ msgid "Please tell us the reason so we can improve it."
+#~ msgstr "Bitte teilen Sie uns den Grund mit, damit wir es verbessern können."
+
+# automatic translation
+#~ msgid "System Status"
+#~ msgstr "Systemstatus"
+
+# automatic translation
+#~ msgid ""
+#~ "If necessary, you can check if the license key is correct or reenter it "
+#~ "in the field below. You can find your license key on your personal page - "
+#~ "Client Area - on our website"
+#~ msgstr ""
+#~ "Bei Bedarf können Sie überprüfen, ob der Lizenzschlüssel korrekt ist, "
+#~ "oder ihn im Feld darunter erneut eingeben. Sie finden Ihren "
+#~ "Lizenzschlüssel auf Ihrer persönlichen Seite – Kundenbereich – auf "
+#~ "unserer Website"
+
+# automatic translation
+#~ msgid ""
+#~ "(your username is the email address specified during the purchase). If "
+#~ "necessary, please submit \"Lost your password?\" request."
+#~ msgstr ""
+#~ "(Ihr Benutzername ist die beim Kauf angegebene E-Mail-Adresse). Geben Sie "
+#~ "ggf. \"Passwort vergessen?\" Anfrage."
+
+# automatic translation
+#~ msgid "After that, you can activate it by entering your license key."
+#~ msgstr ""
+#~ "Danach können Sie es aktivieren, indem Sie Ihren Lizenzschlüssel eingeben."
+
+# automatic translation
+#~ msgid "License key can be found in the"
+#~ msgstr "Lizenzschlüssel finden Sie in der"
+
+# automatic translation
+#~ msgid "(your username is the email address specified during the purchase)."
+#~ msgstr "(Ihr Benutzername ist die beim Kauf angegebene E-Mail-Adresse)."
+
+# automatic translation
+#~ msgid ""
+#~ "Congratulations! The Pro license of the plugin is activated successfully."
+#~ msgstr ""
+#~ "Glückwunsch! Die Pro-Lizenz des Plugins wurde erfolgreich aktiviert."
+
+# automatic translation
+#~ msgid "Please, go to"
+#~ msgstr "Bitte gehe zu"
+
+# automatic translation
+#~ msgid "the setting page"
+#~ msgstr "die Einstellungsseite"
+
+# automatic translation
+#~ msgid "Restore all plugin settings to defaults"
+#~ msgstr ""
+#~ "Setzen Sie alle Plugin-Einstellungen auf die Standardeinstellungen zurück"
+
+# automatic translation
+#~ msgid "Restore settings"
+#~ msgstr "Einstellungen zurücksetzen"
+
+# automatic translation
+#~ msgid ""
+#~ "Congratulations! Pro version of the plugin is  installed and activated "
+#~ "successfully."
+#~ msgstr ""
+#~ "Glückwunsch! Die Pro-Version des Plugins wurde erfolgreich installiert "
+#~ "und aktiviert."
+
+# automatic translation
+#~ msgid "Show Pro features"
+#~ msgstr "Pro-Funktionen anzeigen"
+
+# automatic translation
+#~ msgid "Enter your license key to install and activate"
+#~ msgstr ""
+#~ "Geben Sie Ihren Lizenzschlüssel ein, um ihn zu installieren und zu "
+#~ "aktivieren"
+
+# automatic translation
+#~ msgid "version of the plugin."
+#~ msgstr "Version des Plugins."
+
+# automatic translation
+#~ msgid "Admin Tools"
+#~ msgstr "Verwaltungstools"
+
+# automatic translation
+#~ msgid "Content"
+#~ msgstr "Inhalt"
+
+# automatic translation
+#~ msgid "eCommerce"
+#~ msgstr "E-Commerce"
+
+# automatic translation
+#~ msgid "Marketing"
+#~ msgstr "Marketing"
+
+# automatic translation
+#~ msgid "Navigation"
+#~ msgstr "Navigation"
+
+# automatic translation
+#~ msgid "Recommended"
+#~ msgstr "Empfohlen"
+
+# automatic translation
+#~ msgid "Security"
+#~ msgstr "Sicherheit"
+
+# automatic translation
+#~ msgid "SEO"
+#~ msgstr "DAS"
+
+# automatic translation
+#~ msgid "SMM"
+#~ msgstr "SMM"
+
+# automatic translation
+#~ msgid "Give a birth for your bike rental and booking WordPress website."
+#~ msgstr ""
+#~ "Geben Sie eine Geburt für Ihre Fahrradverleih- und Buchungs-WordPress-"
+#~ "Website."
+
+# automatic translation
+#~ msgid "Best secure captcha plugin to protect your WordPress forms."
+#~ msgstr ""
+#~ "Bestes sicheres Captcha-Plugin zum Schutz Ihrer WordPress-Formulare."
+
+# automatic translation
+#~ msgid "Create your own rental website for car renting and booking."
+#~ msgstr "Erstellen Sie Ihre eigene Mietwebsite für Mietwagen und Buchung."
+
+# automatic translation
+#~ msgid ""
+#~ "Add columns with custom content to WordPress website pages, posts, "
+#~ "widgets, etc."
+#~ msgstr ""
+#~ "Fügen Sie Spalten mit benutzerdefinierten Inhalten zu WordPress-"
+#~ "Websiteseiten, Beiträgen, Widgets usw. hinzu."
+
+# automatic translation
+#~ msgid ""
+#~ "Allow customers to reach you using secure contact form plugin any website "
+#~ "must have."
+#~ msgstr ""
+#~ "Ermöglichen Sie Kunden, Sie mit einem sicheren Kontaktformular-Plugin zu "
+#~ "erreichen, das jede Website haben muss."
+
+# automatic translation
+#~ msgid "Add unlimited number of contact forms to WordPress website."
+#~ msgstr ""
+#~ "Fügen Sie der WordPress-Website eine unbegrenzte Anzahl von "
+#~ "Kontaktformularen hinzu."
+
+# automatic translation
+#~ msgid "Save and manage Contact Form messages. Never lose important data."
+#~ msgstr ""
+#~ "Speichern und verwalten Sie Kontaktformularnachrichten. Verlieren Sie "
+#~ "niemals wichtige Daten."
+
+# automatic translation
+#~ msgid "Add unlimited custom pages to WordPress admin dashboard."
+#~ msgstr ""
+#~ "Fügen Sie dem WordPress-Admin-Dashboard unbegrenzt benutzerdefinierte "
+#~ "Seiten hinzu."
+
+# automatic translation
+#~ msgid ""
+#~ "Add custom post types and taxonomies to WordPress website search results."
+#~ msgstr ""
+#~ "Fügen Sie benutzerdefinierte Beitragstypen und Taxonomien zu den "
+#~ "Suchergebnissen der WordPress-Website hinzu."
+
+# automatic translation
+#~ msgid "Add PayPal and 2CO donate buttons to receive charity payments."
+#~ msgstr ""
+#~ "Fügen Sie PayPal- und 2CO-Spendenschaltflächen hinzu, um Spendenzahlungen "
+#~ "zu erhalten."
+
+# automatic translation
+#~ msgid ""
+#~ "Get latest error log messages to diagnose website problems. Define and "
+#~ "fix issues faster."
+#~ msgstr ""
+#~ "Erhalten Sie die neuesten Fehlerprotokollmeldungen, um Probleme mit der "
+#~ "Website zu diagnostizieren. Definieren und beheben Sie Probleme schneller."
+
+# automatic translation
+#~ msgid ""
+#~ "Add Facebook Follow, Like, and Share buttons to WordPress posts, pages, "
+#~ "and widgets."
+#~ msgstr ""
+#~ "Fügen Sie Facebook-Schaltflächen „Folgen“, „Gefällt mir“ und „Teilen“ zu "
+#~ "WordPress-Beiträgen, -Seiten und -Widgets hinzu."
+
+# automatic translation
+#~ msgid ""
+#~ "Add beautiful galleries, albums & images to your WordPress website in a "
+#~ "few clicks."
+#~ msgstr ""
+#~ "Fügen Sie Ihrer WordPress-Website mit wenigen Klicks wunderschöne "
+#~ "Galerien, Alben und Bilder hinzu."
+
+# automatic translation
+#~ msgid ""
+#~ "Stronger security solution which protects your WordPress website from "
+#~ "hacks and unauthorized login attempts."
+#~ msgstr ""
+#~ "Stärkere Sicherheitslösung, die Ihre WordPress-Website vor Hacks und "
+#~ "unbefugten Anmeldeversuchen schützt."
+
+# automatic translation
+#~ msgid ""
+#~ "Add Adsense ads to WordPress website pages, posts, custom posts, search "
+#~ "results, categories, tags, and widgets."
+#~ msgstr ""
+#~ "Fügen Sie Adsense-Anzeigen zu Seiten, Beiträgen, benutzerdefinierten "
+#~ "Beiträgen, Suchergebnissen, Kategorien, Tags und Widgets von WordPress-"
+#~ "Websites hinzu."
+
+# automatic translation
+#~ msgid ""
+#~ "Add Google Analytics code to WordPress website and track basic stats."
+#~ msgstr ""
+#~ "Fügen Sie der WordPress-Website Google Analytics-Code hinzu und verfolgen "
+#~ "Sie grundlegende Statistiken."
+
+# automatic translation
+#~ msgid "Protect WordPress website forms from spam entries with reCaptcha."
+#~ msgstr ""
+#~ "Schützen Sie WordPress-Website-Formulare mit reCaptcha vor Spam-Einträgen."
+
+# automatic translation
+#~ msgid "Add customized Google maps to WordPress posts, pages and widgets."
+#~ msgstr ""
+#~ "Fügen Sie benutzerdefinierte Google Maps zu WordPress-Beiträgen, -Seiten "
+#~ "und -Widgets hinzu."
+
+# automatic translation
+#~ msgid ""
+#~ "Generate and add XML sitemap to WordPress website. Help search engines "
+#~ "index your blog."
+#~ msgstr ""
+#~ "Generieren Sie eine XML-Sitemap und fügen Sie sie der WordPress-Website "
+#~ "hinzu. Helfen Sie Suchmaschinen, Ihren Blog zu indizieren."
+
+# automatic translation
+#~ msgid ""
+#~ "Replace external WordPress website links with Google shortlinks and track "
+#~ "click stats."
+#~ msgstr ""
+#~ "Ersetzen Sie externe WordPress-Website-Links durch Google-Shortlinks und "
+#~ "verfolgen Sie Klickstatistiken."
+
+# automatic translation
+#~ msgid ""
+#~ "Protect WordPress website – allow and deny access for certain IP "
+#~ "addresses, hostnames, etc."
+#~ msgstr ""
+#~ "Schützen Sie die WordPress-Website – erlauben und verweigern Sie den "
+#~ "Zugriff für bestimmte IP-Adressen, Hostnamen usw."
+
+# automatic translation
+#~ msgid ""
+#~ "Create your personal job board and listing WordPress website. Search "
+#~ "jobs, submit CV/resumes, choose candidates."
+#~ msgstr ""
+#~ "Erstellen Sie Ihre persönliche Jobbörse und WordPress-Website. Jobs "
+#~ "suchen, Lebensläufe einreichen, Kandidaten auswählen."
+
+# automatic translation
+#~ msgid ""
+#~ "Protect WordPress website against brute force attacks. Limit rate of "
+#~ "login attempts."
+#~ msgstr ""
+#~ "Schützen Sie die WordPress-Website vor Brute-Force-Angriffen. Rate der "
+#~ "Anmeldeversuche begrenzen."
+
+# automatic translation
+#~ msgid ""
+#~ "Add LinkedIn Share and Follow buttons to WordPress posts, pages and "
+#~ "widgets. 5 plugins included – profile, insider, etc."
+#~ msgstr ""
+#~ "Fügen Sie LinkedIn-Schaltflächen „Teilen“ und „Folgen“ zu WordPress-"
+#~ "Beiträgen, -Seiten und -Widgets hinzu. 5 Plugins enthalten – Profil, "
+#~ "Insider usw."
+
+# automatic translation
+#~ msgid ""
+#~ "Translate WordPress website content to other languages manually. Create "
+#~ "multilingual pages, posts, widgets, menus, etc."
+#~ msgstr ""
+#~ "Übersetzen Sie WordPress-Website-Inhalte manuell in andere Sprachen. "
+#~ "Erstellen Sie mehrsprachige Seiten, Beiträge, Widgets, Menüs usw."
+
+# automatic translation
+#~ msgid ""
+#~ "Add customizable pagination to WordPress website. Split long content to "
+#~ "multiple pages for better navigation."
+#~ msgstr ""
+#~ "Fügen Sie der WordPress-Website eine anpassbare Paginierung hinzu. Teilen "
+#~ "Sie lange Inhalte zur besseren Navigation auf mehrere Seiten auf."
+
+# automatic translation
+#~ msgid ""
+#~ "Add Pinterest Follow, Pin It buttons and profile widgets (Pin, Board, "
+#~ "Profile) to WordPress posts, pages and widgets."
+#~ msgstr ""
+#~ "Fügen Sie Pinterest Folgen, Pin It-Schaltflächen und Profil-Widgets (Pin, "
+#~ "Pinnwand, Profil) zu WordPress-Beiträgen, -Seiten und -Widgets hinzu."
+
+# automatic translation
+#~ msgid ""
+#~ "Create your personal portfolio WordPress website. Manage and showcase "
+#~ "past projects to get more clients."
+#~ msgstr ""
+#~ "Erstellen Sie Ihre persönliche Portfolio-WordPress-Website. Verwalten und "
+#~ "präsentieren Sie vergangene Projekte, um mehr Kunden zu gewinnen."
+
+# automatic translation
+#~ msgid ""
+#~ "Export WordPress posts to CSV file format easily. Configure data order."
+#~ msgstr ""
+#~ "Exportieren Sie WordPress-Beiträge einfach in das CSV-Dateiformat. "
+#~ "Konfigurieren Sie die Datenreihenfolge."
+
+# automatic translation
+#~ msgid ""
+#~ "Add extra fields to default WordPress user profile. The easiest way to "
+#~ "create and manage additional custom values."
+#~ msgstr ""
+#~ "Fügen Sie dem Standard-WordPress-Benutzerprofil zusätzliche Felder hinzu. "
+#~ "Die einfachste Möglichkeit, zusätzliche benutzerdefinierte Werte zu "
+#~ "erstellen und zu verwalten."
+
+# automatic translation
+#~ msgid ""
+#~ "Add and display HTML advertisement banner on WordPress website. Customize "
+#~ "bar styles and appearance."
+#~ msgstr ""
+#~ "Hinzufügen und Anzeigen von HTML-Werbebannern auf der WordPress-Website. "
+#~ "Passen Sie die Stile und das Erscheinungsbild der Balken an."
+
+# automatic translation
+#~ msgid ""
+#~ "Add customizable quotes and tips blocks to WordPress posts, pages and "
+#~ "widgets."
+#~ msgstr ""
+#~ "Fügen Sie WordPress-Beiträgen, -Seiten und -Widgets anpassbare Zitate- "
+#~ "und Tippblöcke hinzu."
+
+# automatic translation
+#~ msgid ""
+#~ "Add rating plugin to your WordPress website to receive feedback from your "
+#~ "customers."
+#~ msgstr ""
+#~ "Fügen Sie Ihrer WordPress-Website ein Bewertungs-Plugin hinzu, um "
+#~ "Feedback von Ihren Kunden zu erhalten."
+
+# automatic translation
+#~ msgid ""
+#~ "Create your personal real estate WordPress website. Sell, rent and buy "
+#~ "properties. Add, search and browse listings easily."
+#~ msgstr ""
+#~ "Erstellen Sie Ihre persönliche Immobilien-WordPress-Website. Immobilien "
+#~ "verkaufen, vermieten und kaufen. Einträge einfach hinzufügen, suchen und "
+#~ "durchsuchen."
+
+# automatic translation
+#~ msgid ""
+#~ "Add related, featured, latest, and popular posts to your WordPress "
+#~ "website. Connect your blog readers with a relevant content."
+#~ msgstr ""
+#~ "Fügen Sie Ihrer WordPress-Website verwandte, empfohlene, neueste und "
+#~ "beliebte Beiträge hinzu. Verbinden Sie Ihre Blog-Leser mit relevanten "
+#~ "Inhalten."
+
+# automatic translation
+#~ msgid ""
+#~ "Send bulk email messages to WordPress users. Custom templates, advanced "
+#~ "settings and detailed reports."
+#~ msgstr ""
+#~ "Senden Sie Massen-E-Mail-Nachrichten an WordPress-Benutzer. "
+#~ "Benutzerdefinierte Vorlagen, erweiterte Einstellungen und detaillierte "
+#~ "Berichte."
+
+# automatic translation
+#~ msgid ""
+#~ "The best responsive slider plugin for your WordPress website. Create "
+#~ "beautifully animated slides just in a few clicks."
+#~ msgstr ""
+#~ "Das beste Responsive Slider-Plugin für Ihre WordPress-Website. Erstellen "
+#~ "Sie mit nur wenigen Klicks wunderschön animierte Folien."
+
+# automatic translation
+#~ msgid ""
+#~ "Configure SMTP server to receive email messages from WordPress to Gmail, "
+#~ "Yahoo, Hotmail and other services."
+#~ msgstr ""
+#~ "Konfigurieren Sie den SMTP-Server, um E-Mail-Nachrichten von WordPress an "
+#~ "Gmail, Yahoo, Hotmail und andere Dienste zu empfangen."
+
+# automatic translation
+#~ msgid ""
+#~ "Add social media buttons and widgets to WordPress posts, pages and "
+#~ "widgets. FB, Twitter, Pinterest, LinkedIn."
+#~ msgstr ""
+#~ "Fügen Sie Social-Media-Schaltflächen und -Widgets zu WordPress-Posts, -"
+#~ "Seiten und -Widgets hinzu. Facebook, Twitter, Pinterest, LinkedIn."
+
+# automatic translation
+#~ msgid ""
+#~ "Add social media login, registration, and commenting to your WordPress "
+#~ "website."
+#~ msgstr ""
+#~ "Fügen Sie Ihrer WordPress-Website Anmeldung, Registrierung und Kommentare "
+#~ "für soziale Medien hinzu."
+
+# automatic translation
+#~ msgid ""
+#~ "Add email newsletter sign up form to WordPress posts, pages and widgets. "
+#~ "Collect data and subscribe your users."
+#~ msgstr ""
+#~ "Fügen Sie ein E-Mail-Newsletter-Anmeldeformular zu WordPress-Beiträgen, -"
+#~ "Seiten und -Widgets hinzu. Sammeln Sie Daten und abonnieren Sie Ihre "
+#~ "Benutzer."
+
+# automatic translation
+#~ msgid ""
+#~ "Add testimonials and feedbacks from your customers to WordPress website "
+#~ "posts, pages, and widgets."
+#~ msgstr ""
+#~ "Fügen Sie Testimonials und Feedbacks Ihrer Kunden zu Posts, Seiten und "
+#~ "Widgets der WordPress-Website hinzu."
+
+# automatic translation
+#~ msgid ""
+#~ "Best timesheet plugin for WordPress. Track employee time, streamline "
+#~ "attendance and generate reports."
+#~ msgstr ""
+#~ "Bestes Stundenzettel-Plugin für WordPress. Verfolgen Sie die Arbeitszeit "
+#~ "Ihrer Mitarbeiter, optimieren Sie die Anwesenheit und erstellen Sie "
+#~ "Berichte."
+
+# automatic translation
+#~ msgid ""
+#~ "Add Twitter Follow, Tweet, Hashtag, and Mention buttons to WordPress "
+#~ "posts and pages."
+#~ msgstr ""
+#~ "Füge Twitter-Folgen-, Tweet-, Hashtag- und Erwähnungs-Schaltflächen zu "
+#~ "WordPress-Beiträgen und -Seiten hinzu."
+
+# automatic translation
+#~ msgid ""
+#~ "Automatically check and update WordPress website core with all installed "
+#~ "plugins and themes to the latest versions."
+#~ msgstr ""
+#~ "Überprüfen und aktualisieren Sie automatisch den Kern der WordPress-"
+#~ "Website mit allen installierten Plugins und Themes auf die neuesten "
+#~ "Versionen."
+
+# automatic translation
+#~ msgid ""
+#~ "Powerful user role management plugin for WordPress website. Create, edit, "
+#~ "copy, and delete user roles."
+#~ msgstr ""
+#~ "Leistungsstarkes Plugin zur Benutzerrollenverwaltung für WordPress-"
+#~ "Websites. Benutzerrollen erstellen, bearbeiten, kopieren und löschen."
+
+# automatic translation
+#~ msgid ""
+#~ "Display live count of online visitors who are currently browsing your "
+#~ "WordPress website."
+#~ msgstr ""
+#~ "Zeigen Sie die Live-Zählung der Online-Besucher an, die derzeit auf Ihrer "
+#~ "WordPress-Website surfen."
+
+# automatic translation
+#~ msgid ""
+#~ "Backup and export Zendesk Help Center content automatically to your "
+#~ "WordPress website database."
+#~ msgstr ""
+#~ "Sichern und exportieren Sie Zendesk Help Center-Inhalte automatisch in "
+#~ "Ihre WordPress-Website-Datenbank."

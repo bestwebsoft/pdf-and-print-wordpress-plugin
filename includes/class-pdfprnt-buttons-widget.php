@@ -27,6 +27,10 @@ class Pdfprnt_Buttons_Widget extends WP_Widget {
 		$buttons = '';
 		$target  = '_blank';
 
+		if ( ! pdfprnt_is_user_role_enabled() ) {
+			return;
+		}
+
 		foreach ( array( 'pdf', 'print' ) as $button ) {
 			$instance[ $button . '_button_show' ]  = ! empty( $instance[ $button . '_button_show' ] ) ? 1 : 0;
 			$instance[ $button . '_button_title' ] = wp_strip_all_tags( $pdfprnt_options['button_title'][ $button ] );

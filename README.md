@@ -55,6 +55,7 @@
 </ul>
 </li>
 <li>Customize document styles</li>
+<li>Change the Print button action</li>
 <li>Create PDF that fully copies the page</li>
 <li>Compatible with latest WordPress version</li>
 <li>Incredibly simple settings for fast setup without modifying code</li>
@@ -107,6 +108,7 @@
 <li>Additional Elements to single post type [NEW]</li>
 <li>Dinamic URI for PDF document [NEW]</li>
 <li>Change default PDF file name</li>
+<li>Send PDF as email</li>
 <li>Prevent search engines from indexing links in documents</li>
 <li>Add custom code via plugin settings page</li>
 <li>Configure all subsites on the network</li>
