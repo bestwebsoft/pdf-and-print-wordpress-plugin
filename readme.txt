@@ -4,7 +4,7 @@ Donate link: https://bestwebsoft.com/donate/
 Tags: generate pdf, add pdf button, add print button, pdf plugin, pdf pages, print pages, generate pdf content, generate post pdf, pdf print, pdf print plugin, pdf custom post type, pdf content
 Requires at least: 5.6
 Tested up to: 6.8
-Stable tag: 2.4.2
+Stable tag: 2.4.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -356,6 +356,9 @@ Replace `bestwebsoft_contact_form` with your shortcode.
 
 == Changelog ==
 
+= V2.4.3 - 26.05.2025 =
+* Bugfix : Issue with password protected pages has been fixed.
+
 = V2.4.2 - 06.05.2025 =
 * Update : All functionality was updated for WordPress 6.8.
 * Bugfix : Bug for Posts PDF has been fixed.
@@ -682,6 +685,10 @@ Replace `bestwebsoft_contact_form` with your shortcode.
 * NEW : Added the ability to output PDF and Print buttons on the type of page.
 
 == Upgrade Notice ==
+
+= V2.4.3 =
+* Bugs fixed.
+* Functionality improved.
 
 = V2.4.2 =
 * Bugs fixed.
