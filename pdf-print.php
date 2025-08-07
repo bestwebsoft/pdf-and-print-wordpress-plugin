@@ -6,7 +6,7 @@ Description: Generate PDF files and print WordPress posts/pages. Customize docum
 Author: BestWebSoft
 Text Domain: pdf-print
 Domain Path: /languages
-Version: 2.4.3
+Version: 2.4.4
 Author URI: https://bestwebsoft.com/
 License: GPLv2 or later
  */
@@ -257,6 +257,8 @@ if ( ! function_exists( 'pdfprnt_get_options_default' ) ) {
 			'do_shorcodes'           => 1,
 			'disable_links'          => 0,
 			'remove_links'           => 0,
+			'replace_video'          => 0,
+			'qr_code_link'           => 0,
 			'show_print_window'      => 0,
 			'additional_fonts'       => 0,
 			'show_title'             => 1,
@@ -453,6 +455,66 @@ if ( ! function_exists( 'pdfprnt_shortcode_pagebreak' ) ) {
 	}
 }
 
+
+if ( ! function_exists( 'pdfprnt_qr_code_content' ) ) {
+	/**
+	 * Add custom fields shortcodes button
+	 *
+	 * @param  string $content Post content.
+	 */
+	function pdfprnt_qr_code_content( $content ) {
+		global $pdfprnt_options;
+		if ( 1 === $pdfprnt_options['replace_video'] ) {
+			$provider_match_masks = array(
+				'youtube' => '/http.*(?:youtu\.be\/|youtube(?:-nocookie)?\.com\/)[^\"\'>]+/',
+				'vimeo' => '/http.*vimeo\.com\/[^\"\'>]+/',
+				'dailymotion' => '/http.*dailymotion.com\/[^\"\'>]+/',
+				'videopress' => array(
+					'/(?:http(?:s)?:\/\/)?videos\.files\.wordpress\.com\/[^\"\'>]+/i',
+					'/(?:http(?:s)?:\/\/)?(?:www\.)?video(?:\.word)?press\.com\/(?:v|embed)\/[^\"\'>]+/i',
+				),
+			);
+			$find_replace = array();
+			foreach ( $provider_match_masks as $provider => $match_mask ) {
+				if ( ! is_array( $match_mask ) ) {
+					$match_mask = array( $match_mask );
+				}	
+				foreach ( $match_mask as $mask ) {
+					$matches = array();
+					preg_match_all( $mask, $content, $matches, PREG_OFFSET_CAPTURE );
+					if ( isset( $matches[0][0] ) ) {
+						$pos_start = strrpos( substr( $content, 0, $matches[0][0][1] ), '<', 0 );
+						$pos_end = strpos( substr( $content, $pos_start ), '>', 0 );
+						preg_match( '/<.*>/', substr( $content, $pos_start + $pos_end, 15 ), $matches2 );
+						$text = substr( $content, $pos_start, $pos_end + 1 ) . $matches2[0];
+						$find_replace[] = array( $matches[0][0][0], $matches[0][0][1], $text );
+					}
+				}
+			}
+			if ( ! empty( $find_replace ) ) {
+				require_once( dirname( __FILE__ ) . '/includes/qr_code/qr_code.php' );		
+
+				foreach( $find_replace as $replace ) {
+					$qr_code = QRCode::getMinimumQRCode( $replace[0], QR_ERROR_CORRECT_LEVEL_L );
+
+					$image = $qr_code->createImage( 6, 4 );
+					ob_start();
+					imagejpeg( $image );
+					$contents = ob_get_contents();
+					ob_end_clean();
+					$image_data = "data:image/jpeg;base64," . base64_encode( $contents );
+
+					if ( 1 === $pdfprnt_options['qr_code_link'] ) {
+						$content = str_replace( $replace[2], '<a href="' . $replace[0] . '"><img src="' . $image_data . '" /></a>', $content );
+					} else {
+						$content = str_replace( $replace[2], '<img src="' . $image_data . '" />', $content );
+					}
+				}
+			}
+		}
+		return $content;
+	}
+}
 if ( ! function_exists( 'pdfprnt_shortcode_button_content' ) ) {
 	/**
 	 * Add shortcode content
@@ -1341,6 +1403,7 @@ if ( ! function_exists( 'pdfprnt_print' ) ) {
 					$post_content = preg_replace( "/\[\/?({$shortcodes})[^\]]*?\]/", '', $post_content );
 					$post_content = apply_filters( 'the_content', $post_content );
 					$post_content = apply_filters( 'bwsplgns_pdf_customize_content', $post_content );
+					$post_content = apply_filters( 'bwsplgns_pdf_replace_content', $post_content );
 					$separator    = '';
 					if ( ! empty( $author ) && ! empty( $date ) ) {
 						$separator = ' | ';
@@ -2041,6 +2104,9 @@ add_filter( 'query_vars', 'pdfprnt_print_vars_callback' );
 
 add_shortcode( 'bws_pdfprint', 'pdfprnt_shortcode' );
 add_shortcode( 'bws_pdfprint_pagebreak', 'pdfprnt_shortcode_pagebreak' );
+
+add_filter( 'bwsplgns_pdf_replace_content', 'pdfprnt_qr_code_content', 10, 1 );
+
 /* custom filter for bws button in tinyMCE */
 add_filter( 'bws_shortcode_button_content', 'pdfprnt_shortcode_button_content' );
 

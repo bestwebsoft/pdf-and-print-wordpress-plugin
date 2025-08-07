@@ -81,6 +81,13 @@
 <li>Post author (for single posts or pages only)</li>
 </ul>
 </li>
+<li>Create custom document first and last pages with:
+<ul>
+<li>Images</li>
+<li>Text</li>
+<li>Any HTML</li>
+</ul>
+</li>
 <li>Compatibility with Advanced Custom Fields</li>
 <li>Set custom top and bottom margins for running title</li>
 <li>Add and manage:

@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://bestwebsoft.com/donate/
 Tags: generate pdf, add pdf button, add print button, pdf plugin, pdf pages, print pages, generate pdf content, generate post pdf, pdf print, pdf print plugin, pdf custom post type, pdf content
 Requires at least: 5.6
-Tested up to: 6.8
-Stable tag: 2.4.3
+Tested up to: 6.8.2
+Stable tag: 2.4.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -78,6 +78,10 @@ https://www.youtube.com/watch?v=hJdWI8xkAI0
 > 	* Current page number (for PDF only)
 > 	* Total pages count in document (for PDF only)
 > 	* Post author (for single posts or pages only)
+> * Create custom document first and last pages with:
+> 	* Images
+> 	* Text
+> 	* Any HTML
 > * Compatibility with Advanced Custom Fields
 > * Set custom top and bottom margins for running title
 > * Add and manage:
@@ -355,6 +359,12 @@ Replace `bestwebsoft_contact_form` with your shortcode.
 7. Settings page (Output tab) for the PDF&Print in admin panel.
 
 == Changelog ==
+
+= V2.4.4 - 06.08.2025 =
+* Update : All functionality was updated for WordPress 6.8.2.
+* NEW : New Replace video with QR Code image feature has been added.
+* Pro : The First & Last pages feature has been added.
+* Update : BWS Panel section update.
 
 = V2.4.3 - 26.05.2025 =
 * Bugfix : Issue with password protected pages has been fixed.
@@ -685,6 +695,10 @@ Replace `bestwebsoft_contact_form` with your shortcode.
 * NEW : Added the ability to output PDF and Print buttons on the type of page.
 
 == Upgrade Notice ==
+
+= V2.4.4 =
+* New features added.
+* The compatibility with new WordPress version updated.
 
 = V2.4.3 =
 * Bugs fixed.

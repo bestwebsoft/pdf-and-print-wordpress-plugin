@@ -377,6 +377,10 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 
 				$this->options['disable_links'] = isset( $_POST['pdfprnt_disable_links'] ) ? 1 : 0;
 				$this->options['remove_links']  = isset( $_POST['pdfprnt_remove_links'] ) ? 1 : 0;
+
+				$this->options['replace_video'] = isset( $_POST['pdfprnt_replace_video'] ) ? 1 : 0;
+				$this->options['qr_code_link'] = isset( $_POST['pdfprnt_qr_code_link'] ) ? 1 : 0;
+
 				/* PDF Page Size */
 				$this->options['pdf_page_size'] = ( isset( $_POST['pdfprnt_pdf_page_size'] ) && in_array( sanitize_text_field( wp_unslash( $_POST['pdfprnt_pdf_page_size'] ) ), $this->page_sizes, true ) ) ? sanitize_text_field( wp_unslash( $_POST['pdfprnt_pdf_page_size'] ) ) : $this->options['pdf_page_size'];
 
@@ -661,6 +665,19 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 						<label>
 							<input type="checkbox" name="pdfprnt_disable_links" value="1" <?php checked( 1, $this->options['disable_links'] ); ?> />
 							<span class="bws_info"><?php esc_html_e( 'Enable to remove hover link styles in PDF document.', 'pdf-print' ); ?></span>
+						</label>
+					</td>
+				</tr>
+				<tr>
+					<th><?php esc_html_e( 'Replace video with QR Code image', 'pdf-print' ); ?></th>
+					<td>
+						<label>
+							<input type="checkbox" name="pdfprnt_replace_video" value="1" <?php checked( $this->options['replace_video'] ); ?> />
+							<span class="bws_info"><?php esc_html_e( 'Enable to replace video from the YouTube, Vimeo, Dailymotion, VideoPress sites with QR Code in PDF document.', 'pdf-print' ); ?></span>
+						</label><br />
+						<label>
+							<input type="checkbox" name="pdfprnt_qr_code_link" value="1" <?php checked( $this->options['qr_code_link'] ); ?> />
+							<span class="bws_info"><?php esc_html_e( 'Enable to make a QR Code a link to a video', 'pdf-print' ); ?></span>
 						</label>
 					</td>
 				</tr>
