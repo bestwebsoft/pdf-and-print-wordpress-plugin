@@ -552,7 +552,7 @@ if ( ! class_exists( 'Bws_Settings_Tabs' ) ) {
 						<div class="bws_pro_version">
 							<?php
 							if ( ! current_user_can( 'edit_plugins' ) ) {
-								echo '<p>' . esc_html__( 'You do not have sufficient permissions to edit plugins for this site.', 'bestwebsoft' ) . '</p>';
+								echo '<p>' . esc_html__( 'You do not have sufficient permissions to edit plugins for this site.', 'bestwebsoft' ) . '</p></div></div></div>';
 								return;
 							}
 

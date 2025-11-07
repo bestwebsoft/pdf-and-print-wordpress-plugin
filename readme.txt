@@ -2,9 +2,9 @@
 Contributors: bestwebsoft
 Donate link: https://bestwebsoft.com/donate/
 Tags: generate pdf, add pdf button, add print button, pdf plugin, pdf pages, print pages, generate pdf content, generate post pdf, pdf print, pdf print plugin, pdf custom post type, pdf content
-Requires at least: 5.6
-Tested up to: 6.8.2
-Stable tag: 2.4.4
+Requires at least: 6.2
+Tested up to: 6.8.3
+Stable tag: 2.4.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -360,9 +360,16 @@ Replace `bestwebsoft_contact_form` with your shortcode.
 
 == Changelog ==
 
+= V2.4.5 - 07.11.2025 =
+* Update : All functionality was updated for WordPress 6.8.3.
+* NEW : Classes/Ids/Elements to Hide feature has been added.
+* Pro : Single page in the PDF (Full Page Capture) feature has been added.
+* Pro : Loader for Full Page Capture feature has been added.
+* Update : BWS Panel section update.
+
 = V2.4.4 - 06.08.2025 =
 * Update : All functionality was updated for WordPress 6.8.2.
-* NEW : New Replace video with QR Code image feature has been added.
+* NEW : Replace video with QR Code image feature has been added.
 * Pro : The First & Last pages feature has been added.
 * Update : BWS Panel section update.
 
@@ -695,6 +702,10 @@ Replace `bestwebsoft_contact_form` with your shortcode.
 * NEW : Added the ability to output PDF and Print buttons on the type of page.
 
 == Upgrade Notice ==
+
+= V2.4.5 =
+* New features added.
+* The compatibility with new WordPress version updated.
 
 = V2.4.4 =
 * New features added.

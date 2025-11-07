@@ -297,7 +297,7 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 			}
 			$new_library_path = $upload_dir['basedir'] . '/vendor/';
 			if ( ! file_exists( $new_library_path ) ) {
-				$warning .= __( 'The new version of the mPDF library which compatible with PHP V8.x.x is available now! Go to the Misc tab and upgrade the mPDF library if you run into errors or want to use the latest version.', 'pdf-print' );
+				$warning .= __( 'The new version of the mPDF library which compatible with PHP V8.2.x is available now! Go to the Misc tab and upgrade the mPDF library if you run into errors or want to use the latest version.', 'pdf-print' );
 			}
 			?>
 			<div class="updated below-h2" 
@@ -400,6 +400,14 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 				$this->options['show_date']           = isset( $_POST['pdfprnt_show_date'] ) ? 1 : 0;
 				$this->options['show_featured_image'] = isset( $_POST['pdfprnt_show_featured_image'] ) ? 1 : 0;
 				$this->options['show_category']       = isset( $_POST['pdfprnt_show_category'] ) ? 1 : 0;
+
+				/* Hide Classes */
+				$this->options['hide_classes'] = isset( $_POST['pdfprnt_class_hide'] ) ? array_map( 'sanitize_text_field', array_map( 'wp_unslash', $_POST['pdfprnt_class_hide'] ) ) : array();
+				$this->options['hide_classes'] = array_slice( $this->options['hide_classes'], 0, 3 );
+				foreach( $this->options['hide_classes'] as $key => $value ) {
+					$check_array = explode( ',', $value );
+					$this->options['hide_classes'][ $key ] = trim( $check_array[0] );
+				}
 
 				/* Featured Image Size */
 				$this->options['featured_image_size'] = isset( $_POST['pdfprnt_featured_image_size'] ) && in_array( sanitize_text_field( wp_unslash( $_POST['pdfprnt_featured_image_size'] ) ), $this->wp_sizes, true ) ? sanitize_text_field( wp_unslash( $_POST['pdfprnt_featured_image_size'] ) ) : $this->options['featured_image_size'];
@@ -702,6 +710,32 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 						</fieldset>
 					</td>
 				</tr>
+				<tr id="pdfprnt_full_page_capture_hide">
+					<th><?php esc_html_e( 'Classes/Ids/Elements to Hide', 'pdf-print' ); ?></th>
+					<td>
+						<fieldset>
+							<?php
+							foreach( $this->options['hide_classes'] as $hide_classes ) {
+								?>
+								<label><input<?php echo wp_kses_post( $this->change_permission_attr ); ?> type="text" class="regular-text" name="pdfprnt_class_hide[]" value="<?php echo esc_html( $hide_classes ); ?>" /></label><span class="pdfprnt-class-delete"></span><br />
+								<?php
+							}
+							if ( 3 > count( $this->options['hide_classes'] ) ) {
+								for( $i = count( $this->options['hide_classes'] ); $i < 3; $i++ ) {
+									?>
+									<label><input<?php echo wp_kses_post( $this->change_permission_attr ); ?> type="text" class="regular-text" name="pdfprnt_class_hide[]" value="" /></label><span class="pdfprnt-class-delete"></span><br />
+									<?php
+								}
+							}
+							?>
+							<span class="bws_info"><?php printf( __( 'In the field specify only one value per row marked with . or #. For example, %s or %s or %s', 'pdf-print-pro' ),
+								'<code>.test</code>',
+								'<code>#test .only</code>',
+								'<code>footer</code>'
+							); ?></span>
+						</fieldset>
+					</td>
+				</tr>
 				<?php do_action( 'pdfprnt_display_settings_woocommerce', $this->options, $this->change_permission_attr ); ?>
 				<tr id="pdfprnt_featured_image_size_wrap" valign="top">
 					<th scope="row"><?php esc_html_e( 'Featured Image Size', 'pdf-print' ); ?></th>
@@ -917,7 +951,7 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 								<div class="bws_info">
 									<?php
 									printf(
-										esc_html__( 'This will upgrade the mPDF library to version %s (recommended). The new version of the mPDF library is compatible with PHP V7.2.x and older', 'pdf-print' ),
+										esc_html__( 'This will upgrade the mPDF library to version %s (recommended). The new version of the mPDF library is compatible with PHP V8.2.x and older', 'pdf-print' ),
 										esc_attr( $this->default_options['mpdf_library_version'] )
 									);
 									?>

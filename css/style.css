@@ -86,6 +86,16 @@
 	font-size: 14px;
 }
 
+
+.pdfprnt-class-delete {
+  display: inline-block;
+  height: 18px;
+  width: 18px;
+  margin: 2px 5px 0 0;
+  background: url("../images/del_icon.png") no-repeat scroll 0 0 transparent;
+  cursor: pointer;
+}
+
 @media screen and ( max-width: 1200px ) {
 	.pdfprnt_banner_accordion {
 		width: 100%;

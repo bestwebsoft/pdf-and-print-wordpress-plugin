@@ -245,6 +245,9 @@
 				collapsible: true
 			});
 		} );
+		$( '.pdfprnt-class-delete' ).click( function(){
+			$( this ).prev().find( 'input' ).val( '' );
+		});
 	} );
 } )( jQuery );
 

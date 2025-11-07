@@ -177,11 +177,19 @@ if ( ! function_exists( 'pdfprnt_woocommerce_watermark_block' ) ) {
 	function pdfprnt_woocommerce_watermark_block() {
 		?>
 		<table class="form-table pdfprnt-table-settings">
+			<tr valign="top">
+				<th><?php esc_html_e( 'Single page in the PDF (Full Page Capture)', 'pdf-print' ); ?></th>
+				<td>
+					<label>
+						<input type="checkbox" disabled="disabled"  /> <span class="bws_info"><?php esc_html_e( 'Content will be placed on a single page if its height does not exceed 10000 px.', 'pdf-print' ); ?></span>
+					</label>							
+				</td>
+			</tr>
 			<tr id="pdfprnt_remove_written" valign="top">
 				<th><?php esc_html_e( '"Written by" Text', 'pdf-print' ); ?></th>
 				<td>
 					<label>
-						<input type="checkbox" name="pdfprnt_remove_written" value="1" disabled="disabled" />
+						<input type="checkbox" disabled="disabled" />
 						<span class="bws_info"><?php esc_html_e( 'Enable to add "Written by" text before an author\'s name.', 'pdf-print' ); ?></span>
 					</label>
 				</td>

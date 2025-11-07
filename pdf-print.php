@@ -6,7 +6,7 @@ Description: Generate PDF files and print WordPress posts/pages. Customize docum
 Author: BestWebSoft
 Text Domain: pdf-print
 Domain Path: /languages
-Version: 2.4.4
+Version: 2.4.5
 Author URI: https://bestwebsoft.com/
 License: GPLv2 or later
  */
@@ -294,7 +294,8 @@ if ( ! function_exists( 'pdfprnt_get_options_default' ) ) {
 			'file_action'            => 'open',
 			'print_action' 					 => 'plugin_function',
 			'enabled_roles'          => $enabled_roles,
-			'mpdf_library_version'   => '8.1.3',
+			'mpdf_library_version'   => '8.2.6',
+			'hide_classes'           => array(),
 		);
 
 		$options_default = apply_filters( 'pdfprnt_get_additional_options_default', $options_default );
@@ -671,7 +672,7 @@ if ( ! function_exists( 'pdfprnt_content' ) ) {
 			if ( is_home() ) {
 				$permalink = get_permalink( $post );
 			} else {
-				$permalink = isset( $_SERVER['HTTP_HOST'] ) && isset( $_SERVER['REQUEST_URI'] ) ? ( is_ssl() ? 'https://' : 'http://' ) . sanitize_text_field( wp_unslash( $_SERVER['HTTP_HOST'] ) ) . sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ) : '';
+				$permalink = isset( $_SERVER['HTTP_HOST'] ) && isset( $_SERVER['REQUEST_URI'] ) ? ( is_ssl() ? 'https://' : 'http://' ) . sanitize_text_field( wp_unslash( $_SERVER['HTTP_HOST'] ) ) . sanitize_text_field( wp_unslash( urldecode( $_SERVER['REQUEST_URI'] ) ) ) : '';
 			}
 
 			if ( $show_button_pdf ) {
@@ -765,7 +766,7 @@ if ( ! function_exists( 'pdfprnt_show_buttons_search_archive' ) ) {
 
 			if ( $show_button_pdf || $show_button_print ) {
 				global $pdfprnt_is_search_archive;
-				$current_url               = isset( $_SERVER['HTTP_HOST'] ) && isset( $_SERVER['REQUEST_URI'] ) ? set_url_scheme( ( is_ssl() ? 'https://' : 'http://' ) . sanitize_text_field( wp_unslash( $_SERVER['HTTP_HOST'] ) ) . sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ) ) : '';
+				$current_url               = isset( $_SERVER['HTTP_HOST'] ) && isset( $_SERVER['REQUEST_URI'] ) ? set_url_scheme( ( is_ssl() ? 'https://' : 'http://' ) . sanitize_text_field( wp_unslash( $_SERVER['HTTP_HOST'] ) ) . sanitize_text_field( wp_unslash( urldecode( $_SERVER['REQUEST_URI'] ) ) ) ) : '';
 				$pdfprnt_is_search_archive = true;
 				$str                       = '<div class="pdfprnt-buttons pdfprnt-buttons-' . ( ( $is_search ) ? 'search' : 'archive' ) . ' pdfprnt-' . $pdfprnt_options['buttons_position'] . '">';
 				if ( $show_button_pdf ) {
@@ -826,7 +827,7 @@ if ( ! function_exists( 'pdfprnt_return_buttons_search_archive' ) ) {
 
 		if ( $show_button_pdf || $show_button_print ) {
 			global $pdfprnt_is_search_archive;
-			$current_url               = isset( $_SERVER['HTTP_HOST'] ) && isset( $_SERVER['REQUEST_URI'] ) ? set_url_scheme( ( is_ssl() ? 'https://' : 'http://' ) . sanitize_text_field( wp_unslash( $_SERVER['HTTP_HOST'] ) ) . sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ) ) : '';
+			$current_url               = isset( $_SERVER['HTTP_HOST'] ) && isset( $_SERVER['REQUEST_URI'] ) ? set_url_scheme( ( is_ssl() ? 'https://' : 'http://' ) . sanitize_text_field( wp_unslash( $_SERVER['HTTP_HOST'] ) ) . sanitize_text_field( wp_unslash( urldecode( $_SERVER['REQUEST_URI'] ) ) ) ) : '';
 			$pdfprnt_is_search_archive = true;
 			$str                       = '<div class="pdfprnt-buttons pdfprnt-buttons-' . ( ( $is_search ) ? 'search' : 'archive' ) . ' pdfprnt-' . $pdfprnt_options['buttons_position'] . '">';
 			if ( $show_button_pdf ) {
@@ -960,7 +961,7 @@ if ( ! function_exists( 'pdfprnt_show_buttons_for_custom_post_type' ) ) {
 		) {
 			return;
 		}
-		$current_url = isset( $_SERVER['HTTP_HOST'] ) && isset( $_SERVER['REQUEST_URI'] ) ? set_url_scheme( ( is_ssl() ? 'https://' : 'http://' ) . sanitize_text_field( wp_unslash( $_SERVER['HTTP_HOST'] ) ) . sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ) ) : '';
+		$current_url = isset( $_SERVER['HTTP_HOST'] ) && isset( $_SERVER['REQUEST_URI'] ) ? set_url_scheme( ( is_ssl() ? 'https://' : 'http://' ) . sanitize_text_field( wp_unslash( $_SERVER['HTTP_HOST'] ) ) . sanitize_text_field( wp_unslash( urldecode( $_SERVER['REQUEST_URI'] ) ) ) ) : '';
 		$current_url = esc_url( $current_url );
 		$is_return   = true;
 
@@ -1134,6 +1135,7 @@ if ( ! function_exists( 'pdfprnt_add_script' ) ) {
 					'page_size'     => $pdfprnt_options['pdf_page_size'],
 					'file_action'   => $pdfprnt_options['file_action'],
 					'file_name'     => $file_name,
+					'hide_classes' 	=> implode( ', ', $pdfprnt_options['hide_classes'] ),
 				)
 			);
 		}
@@ -1217,11 +1219,14 @@ if ( ! function_exists( 'pdfprnt_generate_template' ) ) {
 		if ( $is_print && 1 === intval( $pdfprnt_options['show_print_window'] ) ) {
 			$html .= '<script>window.onload = function(){ window.print(); };</script>';
 		}
-			$html .= apply_filters( 'pdfprnt_woocommerce_layout', $html, $is_print );
-			$html .=
-			'</head>
-				<body class="' . ( $is_print ? 'pdfprnt_print ' : '' ) . $wp_locale->text_direction . '">';
-				/* Remove inline 'font-family' and 'font' styles from content */
+		if ( ! empty( $pdfprnt_options['hide_classes'] ) ) {
+			$html .= '<style>' . implode( ',', $pdfprnt_options['hide_classes'] ) . '{ display: none; }</style>';
+		}
+		$html .= apply_filters( 'pdfprnt_woocommerce_layout', $html, $is_print );
+		$html .=
+		'</head>
+			<body class="' . ( $is_print ? 'pdfprnt_print ' : '' ) . $wp_locale->text_direction . '">';
+		/* Remove inline 'font-family' and 'font' styles from content */
 		if ( 0 === intval( $pdfprnt_options['additional_fonts'] ) ) {
 			$content = pdfprnt_preg_replace( array( 'font-family', 'font:' ), $content );
 		}
@@ -1315,7 +1320,7 @@ if ( ! function_exists( 'pdfprnt_print' ) ) {
 		if ( isset( $doc_type[1] ) ) {
 			switch ( $doc_type[1] ) {
 				case 'custom':
-					$url_data = isset( $_SERVER['REQUEST_URI'] ) ? wp_parse_url( sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ) ) : array();
+					$url_data = isset( $_SERVER['REQUEST_URI'] ) ? wp_parse_url( sanitize_text_field( wp_unslash( urldecode( $_SERVER['REQUEST_URI'] ) ) ) ) : array();
 					parse_str( $url_data['query'], $args );
 					unset( $args['print'] );
 					if ( ! empty( $args ) ) {
@@ -1330,7 +1335,7 @@ if ( ! function_exists( 'pdfprnt_print' ) ) {
 			}
 			/* for single posts or pages */
 		} elseif (
-			( is_ssl() ? 'https://' : 'http://' ) . sanitize_text_field( wp_unslash( $_SERVER['HTTP_HOST'] ) ) . sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ) === get_home_url() . '/?print=' . $doc_type[0]
+			( is_ssl() ? 'https://' : 'http://' ) . sanitize_text_field( wp_unslash( $_SERVER['HTTP_HOST'] ) ) . sanitize_text_field( wp_unslash( urldecode( $_SERVER['REQUEST_URI'] ) ) ) === get_home_url() . '/?print=' . $doc_type[0]
 			&&
 			'page' === get_option( 'show_on_front' )
 		) {

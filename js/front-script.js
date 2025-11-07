@@ -20,7 +20,7 @@ function imageToPdf() {
         var pdf = new jsPDF( 'portrait', 'px', fileSettings['pageSize'] );
         var width = pdf.internal.pageSize.getWidth();
         var height = pdf.internal.pageSize.getHeight();
-        // add to page Header and Footer
+        /* add to page Header and Footer */
         function addImageCustom( canvas, imgWidth, imgHeight ) {
             pdf.addImage( canvas.toDataURL('image/jpeg', 1.0 ), 'JPEG',
                 fileSettings['marginLeft'],
@@ -28,6 +28,21 @@ function imageToPdf() {
                 imgWidth, imgHeight
             );
         }
+
+		let additionalHiddenSelectors = [];
+		if ( pdfprnt_file_settings.hide_classes ) {
+			additionalHiddenSelectors = pdfprnt_file_settings.hide_classes.split( ',' ).map( cls => cls.trim() ).filter( cls => cls );
+		}
+
+		const elementsToHideExisting = [...additionalHiddenSelectors];
+		const hiddenElements = [];
+		elementsToHideExisting.forEach( selector => {
+			const elements = document.querySelectorAll( selector );
+			elements.forEach( el => {
+				hiddenElements.push({ el, parent: el.parentNode, nextSibling: el.nextSibling });
+				el.style.display = 'none';
+			});
+		});
 
         window.scrollTo(0, 0);
         if ( 'undefined' != typeof beforeImageToPdf ) {
@@ -47,10 +62,10 @@ function imageToPdf() {
                 var contentHeight = canvas.height;
                 var headerSize = fileSettings['marginTop'] + fileSettings['marginBottom'];
                 var imgHeaderSize = ( contentWidth / width * headerSize );
-                // The height of the canvas which one pdf page can show;
+                /* The height of the canvas which one pdf page can show; */
                 var pageHeight = contentWidth / width * height;
 
-                // the height of canvas that haven't render to pdf
+                /* the height of canvas that haven't render to pdf */
                 var leftHeight = contentHeight;
                 var imgWidth = width - fileSettings['marginLeft'] - fileSettings['marginRight'];
                 var imgHeight =  width / contentWidth * contentHeight - headerSize;
@@ -63,7 +78,7 @@ function imageToPdf() {
 
                     var canvasNew = document.createElement('canvas');
                     canvasNew.width = contentWidth;
-                    //var theColorBody = $('body').css("background-color");
+                    /* var theColorBody = $('body').css("background-color"); */
                     var row = 0;
                     for ( var i = 0; i < countPages - 1; i++ ) {
                         canvasNew.height = pageHeight - imgHeaderSize;
@@ -71,22 +86,22 @@ function imageToPdf() {
                         context.drawImage( canvas, 0, i * -pageHeight + row );
                         imgHeight = ( width / contentWidth * pageHeight - headerSize );
                         let n = 0;
-                        // var imgData = context.getImageData( fileSettings['marginLeft'], 0, contentWidth - fileSettings['marginRight'] - fileSettings['marginLeft'], pageHeight );
-                        // let n = 1;
-                        // let j = imgData.data.length - ( contentWidth - fileSettings['marginRight'] - fileSettings['marginLeft'] ) * 4 * n;
-                        // let rgb;
-                        // let lastPx = imgData.data.length;
-                        // while ( j != lastPx ) {
-                        //     rgb = 'rgb(' + imgData.data[j] + ', ' + imgData.data[j + 1] + ', ' + imgData.data[j + 2] + ')';
-                        //     j += 4;
-                        //     if ( rgb != theColorBody ) {
-                        //         n++;
-                        //         j = imgData.data.length - ( contentWidth - fileSettings['marginRight'] - fileSettings['marginLeft'] ) * 4 * n;
-                        //         lastPx = imgData.data.length - ( contentWidth - fileSettings['marginRight'] - fileSettings['marginLeft'] ) * 4 * ( n - 1 );
-                        //     } else if ( n == 50 ) {
-                        //         break;
-                        //     }
-                        // }
+                        /* var imgData = context.getImageData( fileSettings['marginLeft'], 0, contentWidth - fileSettings['marginRight'] - fileSettings['marginLeft'], pageHeight );
+                         let n = 1;
+                         let j = imgData.data.length - ( contentWidth - fileSettings['marginRight'] - fileSettings['marginLeft'] ) * 4 * n;
+                         let rgb;
+                         let lastPx = imgData.data.length;
+                         while ( j != lastPx ) {
+                             rgb = 'rgb(' + imgData.data[j] + ', ' + imgData.data[j + 1] + ', ' + imgData.data[j + 2] + ')';
+                             j += 4;
+                             if ( rgb != theColorBody ) {
+                                 n++;
+                                 j = imgData.data.length - ( contentWidth - fileSettings['marginRight'] - fileSettings['marginLeft'] ) * 4 * n;
+                                 lastPx = imgData.data.length - ( contentWidth - fileSettings['marginRight'] - fileSettings['marginLeft'] ) * 4 * ( n - 1 );
+                             } else if ( n == 50 ) {
+                                 break;
+                             }
+                         } */
                         canvasNew.height = pageHeight - n;
                         context = canvasNew.getContext('2d');
                         context.drawImage( canvas, 0, i * -pageHeight + row );
@@ -127,6 +142,11 @@ function imageToPdf() {
         /* show default wp panel */
         document.getElementById("wpadminbar") ? document.getElementById("wpadminbar").style.display = "block" : '';
 
+		hiddenElements.forEach( ({ el, parent, nextSibling }) => {
+			parent.insertBefore( el, nextSibling );
+			el.style.display = '';
+		});
+
         // executes after adding all images
         $.when.apply( $, deferreds ).then( function() {
             if ( 'open' == fileSettings['fileAction'] ) {
@@ -145,7 +165,7 @@ function imageToPdf() {
                 x.document.write( iframe );
                 x.document.close();*/
 
-                //pdf.output( 'dataurlnewwindow' );
+                /* pdf.output( 'dataurlnewwindow' ); */
             } else {
                 pdf.save( fileSettings['fileName'] );
             }
