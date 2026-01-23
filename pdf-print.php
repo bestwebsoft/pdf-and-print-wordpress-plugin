@@ -6,7 +6,7 @@ Description: Generate PDF files and print WordPress posts/pages. Customize docum
 Author: BestWebSoft
 Text Domain: pdf-print
 Domain Path: /languages
-Version: 2.4.5
+Version: 2.4.6
 Author URI: https://bestwebsoft.com/
 License: GPLv2 or later
  */
@@ -296,6 +296,7 @@ if ( ! function_exists( 'pdfprnt_get_options_default' ) ) {
 			'enabled_roles'          => $enabled_roles,
 			'mpdf_library_version'   => '8.2.6',
 			'hide_classes'           => array(),
+			'count_generation'       => 0,
 		);
 
 		$options_default = apply_filters( 'pdfprnt_get_additional_options_default', $options_default );
@@ -430,6 +431,13 @@ if ( ! function_exists( 'pdfprnt_shortcode' ) ) {
 			}
 			if ( 'print' === $value ) {
 				$buttons .= pdfprnt_get_button( 'print', $permalink );
+			}
+		}
+		if ( 1 === $pdfprnt_options['count_generation'] ) {
+			$post_type = get_post_type();
+			if ( in_array( $post_type, $pdfprnt_options['button_post_types']['pdf'] ) || in_array( $post_type, $pdfprnt_options['button_post_types']['print'] ) ) {
+				$count = get_post_meta( get_the_ID(), 'pdfprnt_count_generation', true );
+				$buttons .= ' <span class="pdfprnt-count-generation">' . $count . '</span>';
 			}
 		}
 		if ( ! empty( $buttons ) ) {
@@ -610,7 +618,7 @@ if ( ! function_exists( 'pdfprnt_get_button' ) ) {
 			:
 			'';
 		if ( $pdfprnt_options['image_to_pdf'] && 'pdf' === $custom_query_arg ) {
-			$url    = 'javascript: imageToPdf()';
+			$url    = 'javascript: imageToPdf(' . get_the_ID() . ')';
 			$target = '_self';
 		}
 
@@ -620,7 +628,7 @@ if ( ! function_exists( 'pdfprnt_get_button' ) ) {
 		}
 		
 		$link = sprintf(
-			'<a href="%s" class="pdfprnt-button pdfprnt-button-%s" target="%s">%s%s</a>',
+			'<a href="%s" class="pdfprnt-button pdfprnt-button-%s" target="%s" >%s%s</a>',
 			$url,
 			$button,
 			$target,
@@ -683,6 +691,13 @@ if ( ! function_exists( 'pdfprnt_content' ) ) {
 			}
 			if ( $show_button_print ) {
 				$str .= pdfprnt_get_button( 'print', $permalink );
+			}
+			if ( 1 === $pdfprnt_options['count_generation'] ) {
+				$post_type = get_post_type();
+				if ( in_array( $post_type, $pdfprnt_options['button_post_types']['pdf'] ) || in_array( $post_type, $pdfprnt_options['button_post_types']['print'] ) ) {
+					$count = get_post_meta( get_the_ID(), 'pdfprnt_count_generation', true );
+					$str .= ' <span class="pdfprnt-count-generation">' . $count . '</span>';
+				}
 			}
 			$str .= '</div>';
 
@@ -1029,6 +1044,10 @@ if ( ! function_exists( 'pdfprnt_show_buttons_for_custom_post_type' ) ) {
 		if ( $show_button_print ) {
 			$str .= pdfprnt_get_button( 'print', $current_url, $print_query_parameter );
 		}
+		if ( 1 === $pdfprnt_options['count_generation'] && ( $show_button_pdf || $show_button_print ) ) {
+			$count = get_post_meta( get_the_ID(), 'pdfprnt_count_generation', true );
+			$str .= ' <span class="pdfprnt-count-generation">' . $count . '</span>';
+		}
 		$str .= '</div>';
 		return $str;
 	}
@@ -1123,19 +1142,22 @@ if ( ! function_exists( 'pdfprnt_add_script' ) ) {
 			$file_name = $post->post_title;
 			wp_enqueue_script( 'html2canvas.js', plugins_url( 'js/html2canvas.js', __FILE__ ), array(), $pdfprnt_plugin_info['Version'], false );
 			wp_enqueue_script( 'jspdf.js', plugins_url( 'js/jspdf.js', __FILE__ ), array(), $pdfprnt_plugin_info['Version'], false );
-			wp_enqueue_script( 'pdfprnt_front_script', plugins_url( 'js/front-script.js', __FILE__ ), array( 'jquery', 'html2canvas.js', 'jspdf.js' ), $pdfprnt_plugin_info['Version'], false );
+			wp_enqueue_script( 'pdfprnt_front_script', plugins_url( 'js/front-script.js', __FILE__ ), array( 'jquery', 'html2canvas.js', 'jspdf.js' ), $pdfprnt_plugin_info['Version'] . '.7', false );
 			wp_localize_script(
 				'pdfprnt_front_script',
 				'pdfprnt_file_settings',
 				array(
-					'margin_left'   => $pdfprnt_options['pdf_margins']['left'],
-					'margin_right'  => $pdfprnt_options['pdf_margins']['right'],
-					'margin_top'    => $pdfprnt_options['pdf_margins']['top'],
-					'margin_bottom' => $pdfprnt_options['pdf_margins']['bottom'],
-					'page_size'     => $pdfprnt_options['pdf_page_size'],
-					'file_action'   => $pdfprnt_options['file_action'],
-					'file_name'     => $file_name,
-					'hide_classes' 	=> implode( ', ', $pdfprnt_options['hide_classes'] ),
+					'margin_left'      => $pdfprnt_options['pdf_margins']['left'],
+					'margin_right'     => $pdfprnt_options['pdf_margins']['right'],
+					'margin_top'       => $pdfprnt_options['pdf_margins']['top'],
+					'margin_bottom'    => $pdfprnt_options['pdf_margins']['bottom'],
+					'page_size'        => $pdfprnt_options['pdf_page_size'],
+					'file_action'      => $pdfprnt_options['file_action'],
+					'file_name'        => $file_name,
+					'hide_classes'     => implode( ', ', $pdfprnt_options['hide_classes'] ),
+					'ajax_nonce'       => wp_create_nonce( 'pdfprnt_ajax_nonce' ),
+					'ajaxurl'          => admin_url( 'admin-ajax.php' ),
+					'count_generation' => $pdfprnt_options['count_generation']
 				)
 			);
 		}
@@ -1344,6 +1366,8 @@ if ( ! function_exists( 'pdfprnt_print' ) ) {
 		} else {
 			if ( ! is_home() ) {
 				$posts = array( $post );
+				$count_generation = get_post_meta( $post->ID, 'pdfprnt_count_generation', true );
+				update_post_meta( $post->ID, 'pdfprnt_count_generation', (int) ++$count_generation );
 			}
 		}
 
@@ -1914,6 +1938,26 @@ if ( ! function_exists( 'pdfprnt_upgrade_library' ) ) {
 	}
 }
 
+if ( ! function_exists( 'pdfprnt_pdf_count' ) ) {
+	/**
+	 * Function to update pdf count generation
+	 */
+	function pdfprnt_pdf_count() {
+		global $pdfprnt_options;
+		if ( empty( $pdfprnt_options ) ) {
+			$pdfprnt_options = get_option( 'pdfprnt_options' );
+		}
+		if ( 1 === $pdfprnt_options['count_generation'] ) {
+			$verified    = isset( $_REQUEST['pdfprnt_ajax_nonce'] ) && wp_verify_nonce( sanitize_text_field( wp_unslash( $_REQUEST['pdfprnt_ajax_nonce'] ) ), 'pdfprnt_ajax_nonce' ) ? true : false;
+			if ( true === $verified && isset( $_REQUEST['id'] ) ) {
+				$count_generation = get_post_meta( intval( $_REQUEST['id'] ), 'pdfprnt_count_generation', true );
+				update_post_meta( intval( $_REQUEST['id'] ), 'pdfprnt_count_generation', (int) ++$count_generation );
+			}
+		}
+		wp_die();
+	}
+}
+
 if ( ! function_exists( 'pdfprnt_delete_old_library' ) ) {
 	/**
 	 * Delete old library
@@ -2126,6 +2170,8 @@ add_filter( 'get_the_excerpt', 'pdfprnt_excerpt' );
 add_action( 'wp_ajax_pdfprnt_load_fonts', 'pdfprnt_load_fonts' );
 /* load mPDF library */
 add_action( 'wp_ajax_pdfprnt_upgrade_library', 'pdfprnt_upgrade_library' );
+add_action( 'wp_ajax_pdfprnt_pdf_count', 'pdfprnt_pdf_count' );
+add_action( 'wp_ajax_nopriv_pdfprnt_pdf_count', 'pdfprnt_pdf_count' );
 /* Adding banner */
 add_action( 'admin_notices', 'pdfprnt_plugin_banner' );
 

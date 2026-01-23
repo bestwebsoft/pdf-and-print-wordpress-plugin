@@ -3,8 +3,8 @@ Contributors: bestwebsoft
 Donate link: https://bestwebsoft.com/donate/
 Tags: generate pdf, add pdf button, add print button, pdf plugin, pdf pages, print pages, generate pdf content, generate post pdf, pdf print, pdf print plugin, pdf custom post type, pdf content
 Requires at least: 6.2
-Tested up to: 6.8.3
-Stable tag: 2.4.5
+Tested up to: 6.9
+Stable tag: 2.4.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -37,6 +37,7 @@ https://www.youtube.com/watch?v=hJdWI8xkAI0
 	* Top & Bottom Left
 * Add buttons to widget area
 * Add buttons via shortcode
+* Display count of PDF/Print generation
 * Set button type:
 	* Image
 	* Text
@@ -94,6 +95,8 @@ https://www.youtube.com/watch?v=hJdWI8xkAI0
 > * Set PDF layout:
 > 	* Portrait
 > 	* Landscape
+> * Display featured image with shortcode
+> * Display count of PDF/Print generation in admin posts table
 > * Set custom images for buttons
 > * Disable PDF & Print buttons for certain pages and/or post types
 > * Disable PDF & Print buttons for certain users and/or roles types
@@ -101,8 +104,8 @@ https://www.youtube.com/watch?v=hJdWI8xkAI0
 > * Dinamic URI for PDF document [NEW]
 > * Change default PDF file name
 > * Send PDF as email
-> * Prevent search engines from indexing links in documents
 > * Add custom code via plugin settings page
+> * Prevent search engines from indexing links in documents
 > * Configure all subsites on the network
 > * Get answer to your support question within one business day ([Support Policy](https://bestwebsoft.com/support-policy/))
 >
@@ -359,6 +362,12 @@ Replace `bestwebsoft_contact_form` with your shortcode.
 7. Settings page (Output tab) for the PDF&Print in admin panel.
 
 == Changelog ==
+
+= V2.4.6 - 23.01.2026 =
+* Update : All functionality was updated for WordPress 6.9.
+* NEW : Count of PDF/Print generation.
+* Pro : Featured image shortcode has been added.
+* Update : BWS Panel section update.
 
 = V2.4.5 - 07.11.2025 =
 * Update : All functionality was updated for WordPress 6.8.3.
@@ -702,6 +711,10 @@ Replace `bestwebsoft_contact_form` with your shortcode.
 * NEW : Added the ability to output PDF and Print buttons on the type of page.
 
 == Upgrade Notice ==
+
+= V2.4.6 =
+* New features added.
+* The compatibility with new WordPress version updated.
 
 = V2.4.5 =
 * New features added.

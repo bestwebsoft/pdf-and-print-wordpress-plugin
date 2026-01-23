@@ -28,6 +28,7 @@
 </li>
 <li>Add buttons to widget area</li>
 <li>Add buttons via shortcode</li>
+<li>Display count of PDF/Print generation</li>
 <li>Set button type:
 <ul>
 <li>Image</li>
@@ -109,6 +110,8 @@
 <li>Landscape</li>
 </ul>
 </li>
+<li>Display featured image with shortcode</li>
+<li>Display count of PDF/Print generation in admin posts table</li>
 <li>Set custom images for buttons</li>
 <li>Disable PDF &amp; Print buttons for certain pages and/or post types</li>
 <li>Disable PDF &amp; Print buttons for certain users and/or roles types</li>
@@ -116,8 +119,8 @@
 <li>Dinamic URI for PDF document [NEW]</li>
 <li>Change default PDF file name</li>
 <li>Send PDF as email</li>
-<li>Prevent search engines from indexing links in documents</li>
 <li>Add custom code via plugin settings page</li>
+<li>Prevent search engines from indexing links in documents</li>
 <li>Configure all subsites on the network</li>
 <li>Get answer to your support question within one business day (<a href="https://bestwebsoft.com/support-policy/" rel="nofollow ugc">Support Policy</a>)</li>
 </ul>

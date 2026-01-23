@@ -1,10 +1,20 @@
 var beforeImageToPdf, afterImageToPdf;
 
 /* Image of page to PDF */
-function imageToPdf() {
+function imageToPdf( id = 0 ) {
     ( function( $ ) {
 
 		window.scrollTo( 0, 0 );
+
+		if ( '1' == pdfprnt_file_settings.count_generation ) {
+			$.ajax( {
+				url: pdfprnt_file_settings.ajaxurl,
+				type: "POST",
+				data: { action: 'pdfprnt_pdf_count', pdfprnt_ajax_nonce: pdfprnt_file_settings.ajax_nonce, id: id },
+				success: function() {
+				}
+			} );
+		}
 
         var deferreds = [];
         var fileSettings = {

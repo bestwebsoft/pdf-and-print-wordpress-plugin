@@ -380,6 +380,7 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 
 				$this->options['replace_video'] = isset( $_POST['pdfprnt_replace_video'] ) ? 1 : 0;
 				$this->options['qr_code_link'] = isset( $_POST['pdfprnt_qr_code_link'] ) ? 1 : 0;
+				$this->options['count_generation'] = isset( $_POST['pdfprnt_count_generation'] ) ? 1 : 0;
 
 				/* PDF Page Size */
 				$this->options['pdf_page_size'] = ( isset( $_POST['pdfprnt_pdf_page_size'] ) && in_array( sanitize_text_field( wp_unslash( $_POST['pdfprnt_pdf_page_size'] ) ), $this->page_sizes, true ) ) ? sanitize_text_field( wp_unslash( $_POST['pdfprnt_pdf_page_size'] ) ) : $this->options['pdf_page_size'];
@@ -565,6 +566,15 @@ if ( ! class_exists( 'Pdfprnt_Settings_Tabs' ) ) {
 								<input<?php echo $this->change_permission_attr; ?> type="radio" name="pdfprnt_print_action" value="ctrl_p" <?php checked( $this->options['print_action'], 'ctrl_p' ); ?> /><?php esc_html_e( 'CTRL + P', 'pdf-print' ); ?> <span class="bws_info">(<?php esc_html_e( 'simulate the CTRL + P keyboard shortcut', 'pdf-print' ); ?>)</span>
 							</label><br />								
 						</fieldset>
+					</td>
+				</tr>
+				<tr>
+					<th><?php esc_html_e( 'Show count of PDF/Print generation', 'pdf-print' ); ?></th>
+					<td>
+						<label>
+							<input type="checkbox" name="pdfprnt_count_generation" value="1" <?php checked( $this->options['count_generation'] ); ?> />
+							<span class="bws_info"><?php esc_html_e( 'The number of generations will be displayed next to the Pdf/Print button.', 'pdf-print' ); ?></span>
+						</label>							
 					</td>
 				</tr>
 				<tr>
